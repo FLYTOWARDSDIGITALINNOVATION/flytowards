@@ -36,40 +36,40 @@ const Home = () => {
 
     const testimonials = [
         {
-            quote: "Fly Towards Digital Innovation helped our business go from local visibility to national reach. Their SEO and ad strategy brought us a 250% increase in website leads within 3 months.",
-            author: "Priya Sharma",
-            role: "Marketing Manager",
-            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+            quote: "Fly Towards transformed our traditional textile business in Coimbatore into a digital powerhouse. Their strategic SEO and targeted ad campaigns delivered a 300% growth in international inquiries within just one quarter.",
+            author: "Ananya Rajendran",
+            role: "Director, Kovai Silks",
+            location: "Coimbatore"
         },
         {
-            quote: "Our new website designed by Fly Towards Digital Innovation is fast, modern, and user friendly. Their team perfectly captured our brand and improved our online conversions.",
-            author: "Ramesh Kumar",
-            role: "Founder, RK Industries",
-            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200"
+            quote: "Partnering with Fly Towards was the best decision for our Chennai-based logistics firm. The custom CRM they developed is not only fast and intuitive but has completely revolutionized how we handle our global operations.",
+            author: "Karthik Balasubramanian",
+            role: "Founder, KB Logistics",
+            location: "Chennai"
         },
         {
-            quote: "The branding and social media team gave our company a fresh digital identity. From logo to Instagram campaigns, everything looked consistent and professional.",
-            author: "Anjali Mehta",
-            role: "Brand Owner",
-            image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
+            quote: "Their creative team perfectly blended Madurai's cultural heritage with modern aesthetics for our brand relaunch. The new visual identity has given us a distinct edge in a highly competitive market.",
+            author: "Meenakshi Sundaram",
+            role: "Marketing Head, Temple City Foods",
+            location: "Madurai"
         },
         {
-            quote: "We started Google and Meta ads with Fly Towards Digital Innovation, and within weeks our inquiries doubled. The reporting and support team are very transparent and helpful.",
-            author: "Neha Raj",
-            role: "Business Consultant",
-            image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&q=80&w=200"
+            quote: "We witnessed an unprecedented surge in footfall at our Salem retail outlets following their Meta ads strategy. Their transparency and data-driven approach make them the most trusted partner in the region.",
+            author: "Shalini Selvam",
+            role: "Managing Director, Selvam Retail",
+            location: "Salem"
         },
         {
-            quote: "Their app development service was top notch delivered on time with smooth performance. The app is now helping us manage customers more efficiently.",
-            author: "Arun Varma",
-            role: "Product Head",
-            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200"
+            quote: "Fly Towards delivered a world-class mobile application for our healthcare startup in Trichy. The user experience is seamless, and their technical support is consistently exceptional.",
+            author: "Vijay Raghavan",
+            role: "CEO, Trichy HealthTech",
+            location: "Trichy"
         },
         {
-            quote: "From website creation to SEO and ongoing support, Fly Towards has been our trusted digital partner. Their team truly cares about our business success.",
-            author: "Vignesh R",
-            role: "Small Business Owner",
-            image: "https://images.unsplash.com/photo-1600878459198-e114c8562625?auto=format&fit=crop&q=80&w=200"
+            quote: "From building our web presence to managing national-level digital campaigns, Fly Towards has been instrumental in our growth. They truly understand the pulse of Tamil Nadu's business landscape.",
+            author: "Vigneshwar Ram",
+            role: "Owner, VR Enterprises",
+            location: "Tirunelveli"
         }
     ];
 
@@ -290,20 +290,24 @@ const Home = () => {
 
                 <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
                     {testimonials.map((test, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                        <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ padding: '3rem', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', border: '1px solid var(--border)', background: 'var(--bg-white)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.1 }}>
+                                <Quote size={60} color="var(--primary)" />
+                            </div>
                             <div>
-                                <div style={{ display: 'flex', gap: '5px', marginBottom: '1.5rem' }}>
-                                    {[1, 2, 3, 4, 5].map(star => <Star key={star} size={18} fill="var(--accent)" color="var(--accent)" />)}
+                                <div style={{ display: 'flex', gap: '4px', marginBottom: '1.5rem' }}>
+                                    {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} fill="var(--accent)" color="var(--accent)" />)}
                                 </div>
-                                <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text-dark)', marginBottom: '2rem', fontStyle: 'italic' }}>
+                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-dark)', marginBottom: '2.5rem', fontWeight: 500, position: 'relative', zIndex: 1 }}>
                                     "{test.quote}"
                                 </p>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
-                                <img src={test.image} alt={test.author} style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover' }} />
-                                <div>
-                                    <h5 style={{ fontSize: '1.1rem', fontWeight: 800, margin: 0 }}>{test.author}</h5>
-                                    <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{test.role}</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
+                                <h5 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, color: 'var(--text-dark)' }}>{test.author}</h5>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontWeight: 600 }}>{test.role}</span>
+                                    <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--border)' }}></span>
+                                    <span style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 700 }}>{test.location}</span>
                                 </div>
                             </div>
                         </div>
