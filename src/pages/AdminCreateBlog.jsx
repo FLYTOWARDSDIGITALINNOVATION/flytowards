@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, UploadCloud, Save, Image as ImageIcon } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 import './AdminCreateBlog.css';
 
 const AdminCreateBlog = () => {
@@ -36,7 +37,7 @@ const AdminCreateBlog = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/blogs', {
+            const response = await fetch(`${API_BASE_URL}/api/blogs`, {
                 method: 'POST',
                 body: formData, // Sending form data so image can be uploaded
             });
