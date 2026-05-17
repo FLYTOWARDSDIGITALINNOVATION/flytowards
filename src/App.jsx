@@ -20,6 +20,8 @@ import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import Loader from './components/Loader';
 
+import AdminCreateBlog from './pages/AdminCreateBlog';
+
 function App() {
     useEffect(() => {
         AOS.init({
@@ -48,6 +50,10 @@ function App() {
                     <Route path="/smart-crm" element={<SmartCRM />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/contact" element={<Contact />} />
+                    
+                    {/* Admin Routes */}
+                    <Route path="/admin" element={<AdminCreateBlog />} />
+                    <Route path="/admin/create-blog" element={<AdminCreateBlog />} />
                 </Routes>
                 <Footer />
             </div>
