@@ -3,8 +3,8 @@ const isLocal = window.location.hostname === 'localhost' || window.location.host
 
 export const API_BASE_URL = isLocal 
     ? 'http://localhost:5002/api' 
-    : 'https://flytowardsdigitalinnovation.com/fly-api';
+    : 'https://flytowardsdigitalinnovation.com/ft-api';
 
 export const IMAGE_BASE_URL = isLocal 
     ? 'http://localhost:5002' 
-    : 'https://flytowardsdigitalinnovation.com/fly-uploads';
+    : 'https://flytowardsdigitalinnovation.com/ft-uploads';
