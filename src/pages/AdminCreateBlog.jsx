@@ -31,7 +31,7 @@ const AdminCreateBlog = () => {
     const fetchBlogs = async () => {
         setIsFetching(true);
         try {
-            const response = await fetch(`${API_BASE_URL}/api/blogs`);
+            const response = await fetch(`${API_BASE_URL}/blogs`);
             if (response.ok) {
                 const data = await response.json();
                 setBlogs(data);
@@ -71,7 +71,7 @@ const AdminCreateBlog = () => {
         }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/blogs`, {
+            const response = await fetch(`${API_BASE_URL}/blogs`, {
                 method: 'POST',
                 body: formData, // Sending form data so image can be uploaded
             });
@@ -105,7 +105,7 @@ const AdminCreateBlog = () => {
         setStatus({ message: 'Deleting blog post...', type: 'info' });
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/blogs/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/blogs/${id}`, {
                 method: 'DELETE',
             });
 

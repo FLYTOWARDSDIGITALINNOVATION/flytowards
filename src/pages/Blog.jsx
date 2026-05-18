@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Share2, Calendar, Clock, RefreshCw, PenTool } from 'lucide-react';
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL, IMAGE_BASE_URL } from '../config';
 import './Blog.css';
 
 const Blog = () => {
@@ -68,7 +68,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch(`${API_BASE_URL}/api/blogs`);
+            const response = await fetch(`${API_BASE_URL}/blogs`);
             if (response.ok) {
                 const data = await response.json();
                 // Merge dynamic blogs from MongoDB with the static strategic guide
@@ -93,7 +93,7 @@ const Blog = () => {
     const getImageUrl = (coverImage) => {
         if (!coverImage) return 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop';
         if (coverImage.startsWith('/uploads')) {
-            return `${API_BASE_URL}${coverImage}`;
+            return `${IMAGE_BASE_URL}${coverImage}`;
         }
         return coverImage;
     };

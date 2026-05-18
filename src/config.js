@@ -2,5 +2,9 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
 export const API_BASE_URL = isLocal 
-    ? 'http://localhost:5000' 
-    : 'https://flytowardsdigitalinnovation.com';
+    ? 'http://localhost:5002/api' 
+    : 'https://flytowardsdigitalinnovation.com/fly-api';
+
+export const IMAGE_BASE_URL = isLocal 
+    ? 'http://localhost:5002' 
+    : 'https://flytowardsdigitalinnovation.com/fly-uploads';
