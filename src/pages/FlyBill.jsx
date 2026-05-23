@@ -11,7 +11,7 @@ const FlyBill = () => {
             title: "Billing Errors",
             description: "Manual calculations cause mistakes and customer dissatisfaction.",
             icon: <FileText size={40} color="var(--secondary)" />,
-            image: "Billing Error.png", // Stressed professional in a sleek environment
+            image: "Error.png", // Stressed professional in a sleek environment
             delay: "0.1s"
         },
         {
