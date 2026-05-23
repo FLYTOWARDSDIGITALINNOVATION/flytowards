@@ -832,15 +832,15 @@ footer {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: rgba(0, 242, 255, 0.03);
+    background: var(--workflow-step-bg, rgba(0, 242, 255, 0.03));
     padding: 1rem 1.5rem;
     border-radius: 15px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--workflow-step-border, var(--border));
 }
 
 .workflow-number {
-    background: var(--gradient-primary);
-    color: white;
+    background: var(--workflow-number-bg, var(--gradient-primary));
+    color: var(--workflow-number-color, white);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -849,6 +849,62 @@ footer {
     justify-content: center;
     font-weight: bold;
     flex-shrink: 0;
+}
+
+/* Workflow themed cards (FlyPayroll) */
+.workflow-box {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--workflow-card-bg, #fff);
+    border-color: var(--workflow-card-border, var(--border));
+    background-size: 200% 200%;
+    animation: workflow-gradient 14s ease infinite;
+    box-shadow: var(--workflow-card-shadow, 0 28px 80px rgba(0, 0, 0, 0.12));
+}
+
+.workflow-box:hover {
+    border-color: var(--workflow-card-border, var(--border));
+    box-shadow: var(--workflow-card-shadow-hover, 0 40px 95px rgba(0, 0, 0, 0.16));
+}
+
+/* keep content above animated overlays */
+.workflow-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.workflow-box::after {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.22) 50%,
+        transparent 60%
+    );
+    opacity: var(--workflow-shine-opacity, 0.22);
+    transform: translateX(-30%) rotate(18deg);
+    animation: workflow-shine 7.5s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes workflow-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes workflow-shine {
+    0% { transform: translateX(-45%) rotate(18deg); }
+    100% { transform: translateX(45%) rotate(18deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .workflow-box { animation: none; }
+    .workflow-box::after { animation: none; }
 }
 
 /* CTA Section Utilities */
