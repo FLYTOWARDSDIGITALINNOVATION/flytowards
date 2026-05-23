@@ -144,7 +144,7 @@ const FlyPayroll = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
-                                src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=800&auto=format&fit=crop"
+                                src="payroll.png"
                                 alt="FlyRoll Dashboard Analytics"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
@@ -251,33 +251,67 @@ const FlyPayroll = () => {
                     <h2 className="responsive-h2">Attendance <span className="gradient-text">Workflows</span></h2>
                 </div>
 
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '4rem', alignItems: 'center' }}>
-                    <div data-aos="fade-right" style={{ position: 'relative' }}>
-                        <div style={{ position: 'relative', borderRadius: '40px', padding: '1rem', background: 'rgba(255, 255, 255, 0.7)', border: '1px solid var(--border)', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
-                            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover' }} alt="Workflow Automation" />
-                        </div>
-                        <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15 }}></div>
-                    </div>
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gap: '2.5rem', alignItems: 'stretch' }}>
+                    {workflows.map((workflow, idx) => {
+                        const themeVars = idx === 0
+                            ? {
+                                '--workflow-card-bg': 'linear-gradient(135deg, #06143a 0%, #0b3d91 55%, #ffffff 140%)',
+                                '--workflow-card-border': 'rgba(11, 61, 145, 0.30)',
+                                '--workflow-heading-color': 'rgba(255, 255, 255, 0.96)',
+                                '--workflow-step-bg': 'rgba(255, 255, 255, 0.92)',
+                                '--workflow-step-border': 'rgba(255, 255, 255, 0.30)',
+                                '--workflow-step-text': 'rgba(15, 23, 42, 0.96)',
+                                '--workflow-number-bg': 'linear-gradient(135deg, #ffffff 0%, #1d4ed8 100%)',
+                                '--workflow-number-color': '#06143a',
+                                '--workflow-shine-opacity': '0.22'
+                            }
+                            : {
+                                '--workflow-card-bg': 'linear-gradient(135deg, #ff1b1b 0%, #000000 78%)',
+                                '--workflow-card-border': 'rgba(255, 27, 27, 0.28)',
+                                '--workflow-heading-color': 'rgba(255, 255, 255, 0.96)',
+                                '--workflow-step-bg': 'rgba(0, 0, 0, 0.32)',
+                                '--workflow-step-border': 'rgba(255, 255, 255, 0.14)',
+                                '--workflow-step-text': 'rgba(255, 255, 255, 0.92)',
+                                '--workflow-number-bg': 'linear-gradient(135deg, #ff1b1b 0%, #000000 100%)',
+                                '--workflow-number-color': '#ffffff',
+                                '--workflow-shine-opacity': '0.14'
+                            };
 
-                    <div data-aos="fade-left" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        {workflows.map((workflow, idx) => (
-                            <div key={idx} className="card" style={{ background: 'var(--bg-white)', position: 'relative', padding: '2rem' }}>
-                                <h3 className="responsive-h3" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '15px', fontSize: '1.5rem' }}>
+                        return (
+                            <div
+                                key={idx}
+                                className="card workflow-box"
+                                data-aos="fade-up"
+                                data-aos-delay={`${idx * 100}`}
+                                style={{ position: 'relative', padding: '2rem', ...themeVars }}
+                            >
+                                <h3
+                                    className="responsive-h3"
+                                    style={{
+                                        marginBottom: '1.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '15px',
+                                        fontSize: '1.5rem',
+                                        color: 'var(--workflow-heading-color, var(--text-dark))'
+                                    }}
+                                >
                                     {workflow.icon} {workflow.title}
                                 </h3>
+
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                     {workflow.steps.map((step, sIdx) => (
                                         <div key={sIdx} className="workflow-card" style={{ padding: '0.8rem 1rem' }}>
                                             <div className="workflow-number" style={{ width: '25px', height: '25px', fontSize: '0.9rem' }}>
                                                 {sIdx + 1}
                                             </div>
-                                            <span style={{ fontWeight: 600, color: 'var(--text-dark)', fontSize: '0.95rem' }}>{step}</span>
+                                            <span style={{ fontWeight: 600, color: 'var(--workflow-step-text, var(--text-dark))', fontSize: '0.95rem' }}>{step}</span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        );
+                    })}
                 </div>
             </section>
 
