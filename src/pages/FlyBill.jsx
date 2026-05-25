@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const FlyBill = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }, []);
 
     const challenges = [
@@ -316,7 +316,7 @@ const FlyBill = () => {
             <section id="contact" style={{ padding: '5rem 2rem' }}>
                 <div className="cta-content relative" data-aos="zoom-in" style={{
                     textAlign: 'center',
-                    background: 'url("https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat',
+                    background: 'url("https://images.pexels.com/photos/29101877/pexels-photo-29101877.jpeg") center/cover no-repeat',
                     padding: '6rem 3rem',
                     borderRadius: '50px',
                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
@@ -328,7 +328,7 @@ const FlyBill = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag" style={{ background: 'white' }}>Take the Next Step</span>
+                        <span className="section-tag">Take the Next Step</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
                             Simplify Billing. <br /> <span className="gradient-text">Strengthen Compliance.</span>
                         </h2>

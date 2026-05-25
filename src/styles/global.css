@@ -3,6 +3,16 @@ html, body {
     width: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 :root {
     --bg-dark: #070710;
     --bg-white: #ffffff;
@@ -594,6 +604,20 @@ section {
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     display: block;
+}
+
+.section-tag--pill {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+    color: var(--text-dark);
+    border: 1px solid var(--border);
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    display: inline-block;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
 }
 
 /* Stats v2 */

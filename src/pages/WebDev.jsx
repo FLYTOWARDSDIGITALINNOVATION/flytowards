@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const WebDev = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }, []);
 
     const whyChooseUs = [
@@ -253,7 +253,7 @@ const WebDev = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)' }}></div>
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Let’s Discuss Your Project</span>
+                        <span className="section-tag section-tag--pill" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Let’s Discuss Your Project</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'white' }}>
                             Ready to Build a Website That <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Works for Your Business?</span>
                         </h2>

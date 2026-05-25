@@ -61,7 +61,7 @@ const Blog = () => {
     };
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         fetchBlogs();
     }, []);
 
@@ -103,7 +103,7 @@ const Blog = () => {
             <main className="blog-page-container">
                 <div className="mesh-bg"></div>
                 <div className="reader-container">
-                    <button className="back-btn" onClick={() => { setSelectedBlog(null); window.scrollTo(0,0); }}>
+                    <button className="back-btn" onClick={() => { setSelectedBlog(null); window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); }}>
                         <ArrowLeft size={16} /> Back to Blogs
                     </button>
                     
@@ -167,7 +167,7 @@ const Blog = () => {
                     <>
                         {/* Featured Post Card */}
                         {featuredPost && (
-                            <div className="featured-blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(featuredPost); window.scrollTo(0,0); }}>
+                            <div className="featured-blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(featuredPost); window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); }}>
                                 <div className="featured-img-box">
                                     <img src={getImageUrl(featuredPost.coverImage)} alt={featuredPost.title} />
                                 </div>
@@ -193,7 +193,7 @@ const Blog = () => {
                         {standardPosts.length > 0 ? (
                             <div className="blogs-grid">
                                 {standardPosts.map((blog) => (
-                                    <div key={blog._id} className="blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(blog); window.scrollTo(0,0); }}>
+                                    <div key={blog._id} className="blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(blog); window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); }}>
                                         <div className="blog-card-img">
                                             <img src={getImageUrl(blog.coverImage)} alt={blog.title} />
                                         </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const Contact = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }, []);
 
     const [formStatus, setFormStatus] = useState(null);
