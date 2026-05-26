@@ -8,15 +8,27 @@ const Contact = () => {
 
     const [formStatus, setFormStatus] = useState(null);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate form submission
         setFormStatus('sending');
-        setTimeout(() => {
+        const form = e.target;
+        const data = new FormData(form);
+        data.append('_subject', 'New Contact Form Message - Fly Towards');
+        data.append('_captcha', 'false');
+        data.append('_template', 'table');
+        try {
+            await fetch('https://formsubmit.co/ajax/flytowardsdigitalinnovation@gmail.com', {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
             setFormStatus('success');
-            e.target.reset();
+            form.reset();
             setTimeout(() => setFormStatus(null), 5000);
-        }, 1500);
+        } catch (err) {
+            console.error(err);
+            setFormStatus('error');
+        }
     };
 
     const whyChooseUs = [
@@ -124,27 +136,27 @@ const Contact = () => {
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>First Name</label>
-                                    <input type="text" required placeholder="John" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                    <input name="First Name" type="text" required placeholder="John" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Last Name</label>
-                                    <input type="text" required placeholder="Doe" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                    <input name="Last Name" type="text" required placeholder="Doe" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                                 </div>
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Email Address</label>
-                                <input type="email" required placeholder="john@example.com" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                <input name="Email" type="email" required placeholder="john@example.com" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Subject</label>
-                                <input type="text" required placeholder="Project Inquiry" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                <input name="Subject" type="text" required placeholder="Project Inquiry" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Your Message</label>
-                                <textarea rows="5" required placeholder="Tell us about your project..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', resize: 'vertical' }}></textarea>
+                                <textarea name="Message" rows="5" required placeholder="Tell us about your project..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', resize: 'vertical' }}></textarea>
                             </div>
 
                             <button type="submit" disabled={formStatus === 'sending'} className="btn btn-primary" style={{ padding: '1.2rem', fontSize: '1.1rem', width: '100%', marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
@@ -152,8 +164,13 @@ const Contact = () => {
                             </button>
 
                             {formStatus === 'success' && (
-                                <div style={{ background: 'rgba(0, 242, 255, 0.1)', color: 'var(--primary)', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
-                                    Thank you! Your message has been sent successfully.
+                                <div style={{ background: 'rgba(34, 197, 94, 0.1)', color: '#16a34a', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
+                                    ✅ Thank you! Your message has been sent to our team.
+                                </div>
+                            )}
+                            {formStatus === 'error' && (
+                                <div style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#dc2626', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
+                                    ❌ Something went wrong. Please try again.
                                 </div>
                             )}
                         </form>

@@ -18,9 +18,11 @@ import FlyPayroll from './pages/FlyPayroll';
 import SmartCRM from './pages/SmartCRM';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import Apply from './pages/Apply';
 import Loader from './components/Loader';
 
 import AdminCreateBlog from './pages/AdminCreateBlog';
+import AdminLogin from './pages/AdminLogin';
 
 function App() {
     useEffect(() => {
@@ -49,10 +51,11 @@ function App() {
                     <Route path="/payroll" element={<FlyPayroll />} />
                     <Route path="/smart-crm" element={<SmartCRM />} />
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/apply" element={<Apply />} />
                     <Route path="/contact" element={<Contact />} />
                     
                     {/* Admin Routes */}
-                    <Route path="/admin" element={<AdminCreateBlog />} />
+                    <Route path="/admin" element={<AdminLogin />} />
                     <Route path="/admin/create-blog" element={<AdminCreateBlog />} />
                 </Routes>
                 <Footer />
