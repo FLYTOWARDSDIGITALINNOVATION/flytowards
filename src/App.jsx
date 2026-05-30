@@ -50,7 +50,7 @@ function App() {
                     <Route path="/fly-bill" element={<FlyBill />} />
                     <Route path="/payroll" element={<FlyPayroll />} />
                     <Route path="/smart-crm" element={<SmartCRM />} />
-                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/career" element={<Gallery />} />
                     <Route path="/apply" element={<Apply />} />
                     <Route path="/contact" element={<Contact />} />
                     
