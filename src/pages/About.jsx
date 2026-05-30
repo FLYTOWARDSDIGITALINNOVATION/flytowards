@@ -11,7 +11,7 @@ const About = () => {
             <div style={{ position: 'absolute', top: '65%', left: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(157,0,255,0.06) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
 
             {/* Hero Section */}
-            <section className="hero">
+            <section className="hero about-hero">
                 <div className="grid-2">
                     <div data-aos="fade-up">
                         <span className="section-tag">Driven by Innovation.</span>
@@ -31,7 +31,7 @@ const About = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s' }}>
                         <div className="glass-container">
                             <img
-                                src="ab.png"
+                                src="ab.webp"
                                 alt="Innovation Hub"
                                 className="floating-img"
                             />
@@ -46,9 +46,9 @@ const About = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
 
                     {/* Block 1: About Company */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '5rem' }}>
-                        <div style={{ flex: '1 1 500px', position: 'relative', minHeight: '500px' }} data-aos="fade-right">
-                            <img src="ab (1).png" alt="Team Working" style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '40px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }} />
+                    <div className="about-company-row" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '5rem' }}>
+                        <div className="about-company-media" style={{ flex: '1 1 500px', position: 'relative', minHeight: '500px' }} data-aos="fade-right">
+                            <img src="ab (1).webp" alt="Team Working" style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '40px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }} />
                             
                         </div>
                         <div style={{ flex: '1 1 400px' }} data-aos="fade-left">
@@ -75,7 +75,7 @@ const About = () => {
                     </div>
 
                     {/* Block 2: Who We Are */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap-reverse', alignItems: 'center', gap: '5rem' }}>
+                    <div className="about-team-row" style={{ display: 'flex', flexWrap: 'wrap-reverse', alignItems: 'center', gap: '5rem' }}>
                         <div style={{ flex: '1 1 400px' }} data-aos="fade-right">
                             <span className="section-tag">Who We Are</span>
                             <h3 className="mb-4" style={{ fontSize: '3rem', lineHeight: 1.1 }}>Transforming Businesses Through <span className="gradient-text">Innovation</span></h3>
@@ -97,9 +97,9 @@ const About = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div style={{ flex: '1 1 500px', position: 'relative' }} data-aos="fade-left">
-                            <img src="ab part.png" alt="Business People" style={{ width: '100%', height: '550px', objectFit: 'cover', borderRadius: '40px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }} />
-                            <div style={{ position: 'absolute', top: '3rem', left: '-3rem', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(10px)', padding: '2rem', borderRadius: '25px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', border: '1px solid rgba(255,255,255,0.5)' }}>
+                        <div className="about-team-media" style={{ flex: '1 1 500px', position: 'relative' }} data-aos="fade-left">
+                            <img src="ab part.webp" alt="Business People" style={{ width: '100%', height: '550px', objectFit: 'cover', borderRadius: '40px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)' }} />
+                            <div className="about-team-badge" style={{ position: 'absolute', top: '3rem', left: '-3rem', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(10px)', padding: '2rem', borderRadius: '25px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', border: '1px solid rgba(255,255,255,0.5)' }}>
                                 <h4 style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent)', margin: 0 }}>Expert</h4>
                                 <p style={{ color: 'var(--text-dark)', margin: 0, fontWeight: 700, fontSize: '1.1rem' }}>Development Team </p>
                             </div>
@@ -117,12 +117,12 @@ const About = () => {
                 </div>
                 <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', marginTop: '4rem', gap: '2rem' }}>
                     {[
-                        { title: 'Digital Marketing & SEO', img: 'Digital Marketing & SEO.png', link: '/digital-marketing' },
-                        { title: 'Web & App Development', img: 'Web & app development.jpg.jpeg', link: '/web-development' },
+                        { title: 'Digital Marketing & SEO', img: 'Digital Marketing & SEO.webp', link: '/digital-marketing' },
+                        { title: 'Web & App Development', img: 'Web & app development.jpg.webp', link: '/web-development' },
                         { title: 'CRM & Business Software', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', link: '/smart-crm' },
-                        { title: 'Billing & Payroll Systems', img: 'Billing & Payroll Systems.png', link: '/products' },
-                        { title: 'WhatsApp Marketing API', img: 'WhatsApp Marketing API.jpg.jpeg', link: '/whatsapp-api' },
-                        { title: 'Growth Strategy', img: 'Growth Strategy.jpg', link: '/service' }
+                        { title: 'Billing & Payroll Systems', img: 'Billing-_-Payroll-Systems.webp', link: '/products' },
+                        { title: 'WhatsApp Marketing API', img: 'WhatsApp Marketing API.jpg.webp', link: '/whatsapp-api' },
+                        { title: 'Growth Strategy', img: 'Growth-Strategy.webp', link: '/service' }
                     ].map((service, idx) => (
                         <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} style={{ position: 'relative', height: '420px', borderRadius: '35px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
                             <img src={service.img} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" />
@@ -144,7 +144,7 @@ const About = () => {
                     <div className="card text-center ft-video-card" data-aos="fade-up">
                         <video
                             className="ft-video-card__media"
-                            src="/ab vd.mp4"
+                            src="/ab vd.mov"
                             autoPlay
                             muted
                             loop
@@ -165,7 +165,7 @@ const About = () => {
                     <div className="card text-center ft-video-card" data-aos="fade-up" style={{ transitionDelay: '0.1s' }} id="vision">
                         <video
                             className="ft-video-card__media"
-                            src="/ab vd2.mp4"
+                            src="/ab vd2.mov"
                             autoPlay
                             muted
                             loop
@@ -200,7 +200,7 @@ const About = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(5px)' }}></div>
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag" style={{ background: 'white' }}>Let’s Grow Together</span>
+                        <span className="section-tag" style={{ background: 'clack' }}>Let’s Grow Together</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '2rem', color: 'var(--text-dark)' }}>
                             Ready to Grow Your <span className="gradient-text">Business?</span>
                         </h2>
