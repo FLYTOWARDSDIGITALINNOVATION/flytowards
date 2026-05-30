@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const WhatsAppAPI = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const features = [
@@ -11,28 +11,28 @@ const WhatsAppAPI = () => {
             title: "Bulk Messaging",
             description: "Send personalized messages to thousands of users instantly.",
             icon: <MessageCircle size={40} color="var(--primary)" />,
-            image: "https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=800&auto=format&fit=crop",
+            image: "./whatsbulk.png",
             delay: "0.1s"
         },
         {
             title: "Automated Workflows",
             description: "Create chatbots and automated replies using simple APIs.",
             icon: <Bot size={40} color="var(--secondary)" />,
-            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+            image: "./whatsautomation.png",
             delay: "0.2s"
         },
         {
             title: "Template Management",
             description: "Create, submit, and manage WhatsApp message templates.",
             icon: <LayoutTemplate size={40} color="var(--accent)" />,
-            image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?q=80&w=800&auto=format&fit=crop",
+            image: "./sertemplate.png",
             delay: "0.3s"
         },
         {
             title: "Multi-Agent Inbox",
             description: "Collaborate with your team and reply faster.",
             icon: <Users size={40} color="var(--primary)" />,
-            image: "https://images.unsplash.com/photo-1522071823991-b99c223034cf?q=80&w=800&auto=format&fit=crop",
+            image: "./seragent.png",
             delay: "0.4s"
         }
     ];
@@ -48,19 +48,19 @@ const WhatsAppAPI = () => {
             title: "Customer Support",
             description: "Instant responses with real-time notifications.",
             icon: <Briefcase size={30} color="var(--secondary)" />,
-            image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop"
+            image: "./customersupport.png"
         },
         {
             title: "Order & Payment Alerts",
             description: "Transactional updates and reminders.",
             icon: <BellRing size={30} color="var(--accent)" />,
-            image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop"
+            image: "./Order & Payment Alerts.jpg"
         },
         {
             title: "OTP & Verification",
             description: "Secure authentication via WhatsApp.",
             icon: <Key size={30} color="var(--primary)" />,
-            image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop"
+            image: "OTP & Verification.jpg"
         }
     ];
 
@@ -69,19 +69,19 @@ const WhatsAppAPI = () => {
             title: "Connect",
             description: "Get WhatsApp Business API access through our platform instantly.",
             icon: <Link color="var(--primary)" size={28} />,
-            image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop"
+            image: "./whatsappapi.jpg"
         },
         {
             title: "Integrate",
             description: "Use REST APIs or webhooks to securely integrate with your CRM, website, or backend.",
             icon: <Code color="var(--secondary)" size={28} />,
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+            image: "./whatsappint.jpg"
         },
         {
             title: "Launch",
             description: "Send personalized messages, automate workflows, and track results in real-time.",
             icon: <Rocket color="var(--accent)" size={28} />,
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+            image: "./whatsapplanch.jpg"
         }
     ];
 
@@ -93,10 +93,10 @@ const WhatsAppAPI = () => {
             <div style={{ position: 'absolute', top: '75%', left: '10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(157,0,255,0.06) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
 
             {/* Hero Section */}
-            <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center', paddingTop: '100px' }}>
+            <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div data-aos="fade-up">
-                        <span className="section-tag section-tag--pill" style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'white', border: '1px solid var(--border)', boxShadow: 'var(--shadow-sm)' }}>
+                        <span className="section-tag">
                             <MessageCircle size={18} color="var(--primary)" /> Premium API Solutions
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
@@ -117,7 +117,7 @@ const WhatsAppAPI = () => {
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div style={{ padding: '1rem', background: 'white', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2, boxShadow: '0 30px 60px rgba(0,0,0,0.05)' }}>
-                            <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?q=80&w=1000&auto=format&fit=crop" alt="WhatsApp Marketing Automation" style={{ borderRadius: '30px', width: '100%', height: '550px', objectFit: 'cover', display: 'block' }} />
+                            <img src="./serwhatsapp.png" alt="WhatsApp Marketing Automation" style={{ borderRadius: '30px', width: '100%', height: '550px', objectFit: 'cover', display: 'block' }} />
 
                             <div style={{
                                 position: 'absolute',
@@ -162,7 +162,7 @@ const WhatsAppAPI = () => {
             {/* Everything You Need Section */}
             <section id="features" style={{ padding: '8rem 0', background: 'rgba(255, 0, 122, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag section-tag--pill" style={{ background: 'white', border: '1px solid var(--border)' }}>Marketing Tools</span>
+                    <span className="section-tag">Marketing Tools</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Our WhatsApp Business API helps you connect with customers at scale while staying compliant and reliable.
@@ -225,7 +225,7 @@ const WhatsAppAPI = () => {
             {/* Immersive Image-Heavy Use Cases */}
             <section id="use-cases" style={{ padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag section-tag--pill" style={{ background: 'white', border: '1px solid var(--border)' }}>Versatility</span>
+                    <span className="section-tag">Versatility</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Built for <span className="gradient-text">Multiple Use Cases</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Scale your business communication with dynamic, highly convertible messaging structures driven through the world's most popular messaging app.
@@ -261,7 +261,7 @@ const WhatsAppAPI = () => {
             {/* Beautiful Zig-Zag Workflow */}
             <section id="process" style={{ background: 'linear-gradient(to bottom, rgba(0, 242, 255, 0.02), rgba(255, 0, 122, 0.02))', padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }} data-aos="fade-up">
-                    <span className="section-tag section-tag--pill" style={{ background: 'white', border: '1px solid var(--border)' }}>Integration Flow</span>
+                    <span className="section-tag">Integration Flow</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         A seamless process to integrate WhatsApp Business API and start growing your customer base.
@@ -331,7 +331,7 @@ const WhatsAppAPI = () => {
                     }}></div>
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag section-tag--pill" style={{ background: 'white', border: '1px solid var(--border)' }}>Grow Faster</span>
+                        <span className="section-tag">Grow Faster</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-dark)' }}>
                             Start WhatsApp Marketing <span className="gradient-text">Today</span>
                         </h2>
