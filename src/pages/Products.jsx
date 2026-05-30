@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const Products = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const products = [
@@ -195,7 +195,7 @@ const Products = () => {
             <section id="contact" style={{ background: 'rgba(157, 0, 255, 0.01)' }}>
                 <div className="cta-content" data-aos="zoom-in" style={{
                     textAlign: 'center',
-                    background: '#ddd1ea',
+                    background: '#fff',
                     padding: '6rem 3rem',
                     borderRadius: '40px',
                     border: '1px solid var(--border)',
@@ -203,6 +203,7 @@ const Products = () => {
                     maxWidth: '1000px',
                     margin: '0 auto'
                 }}>
+                    <span className="section-tag">Grand Opening Launch</span>
                     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800 }}>
                         Enjoy Flat <span className="gradient-text">25% OFF</span> on all products
                     </h2>
