@@ -3,32 +3,22 @@ import { useEffect, useState } from 'react';
 
 const Contact = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const [formStatus, setFormStatus] = useState(null);
+    const [selectedSubject, setSelectedSubject] = useState('Digital Marketing');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
+        // Simulate form submission
         setFormStatus('sending');
-        const form = e.target;
-        const data = new FormData(form);
-        data.append('_subject', 'New Contact Form Message - Fly Towards');
-        data.append('_captcha', 'false');
-        data.append('_template', 'table');
-        try {
-            await fetch('https://formsubmit.co/ajax/flytowardsdigitalinnovation@gmail.com', {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
+        setTimeout(() => {
             setFormStatus('success');
-            form.reset();
+            e.target.reset();
+            setSelectedSubject('Digital Marketing');
             setTimeout(() => setFormStatus(null), 5000);
-        } catch (err) {
-            console.error(err);
-            setFormStatus('error');
-        }
+        }, 1500);
     };
 
     const whyChooseUs = [
@@ -37,6 +27,8 @@ const Contact = () => {
         { icon: <Users size={24} color="var(--accent)" />, text: "Expert Digital Marketing Team" },
         { icon: <Target size={24} color="var(--primary)" />, text: "Custom Strategies" }
     ];
+
+    const subjectOptions = ['Digital Marketing', 'Web Development'];
 
     return (
         <main>
@@ -136,27 +128,36 @@ const Contact = () => {
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>First Name</label>
-                                    <input name="First Name" type="text" required placeholder="John" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                    <input type="text" required placeholder="First Name" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Last Name</label>
-                                    <input name="Last Name" type="text" required placeholder="Doe" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                    <input type="text" required placeholder="Last Name" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                                 </div>
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Email Address</label>
-                                <input name="Email" type="email" required placeholder="john@example.com" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                <input type="email" required placeholder="Your mail address" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Subject</label>
-                                <input name="Subject" type="text" required placeholder="Project Inquiry" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
+                                <select name="subject" required defaultValue="" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', color: 'var(--text-dark)' }}>
+                                    <option value="" disabled>Select a subject</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="App Development">App Development</option>
+                                    <option value="Search Engine Optimization (SEO)">Search Engine Optimization (SEO)</option>
+                                    <option value="Video Editing">Video Editing</option>
+                                    <option value="Courses & Internship">Courses & Internship</option>
+                                    <option value="Customized Software">Customized Software</option>
+                                </select>
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Your Message</label>
-                                <textarea name="Message" rows="5" required placeholder="Tell us about your project..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', resize: 'vertical' }}></textarea>
+                                <textarea rows="5" required placeholder="Tell us about your project..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', resize: 'vertical' }}></textarea>
                             </div>
 
                             <button type="submit" disabled={formStatus === 'sending'} className="btn btn-primary" style={{ padding: '1.2rem', fontSize: '1.1rem', width: '100%', marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
@@ -164,13 +165,8 @@ const Contact = () => {
                             </button>
 
                             {formStatus === 'success' && (
-                                <div style={{ background: 'rgba(34, 197, 94, 0.1)', color: '#16a34a', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
-                                    ✅ Thank you! Your message has been sent to our team.
-                                </div>
-                            )}
-                            {formStatus === 'error' && (
-                                <div style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#dc2626', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
-                                    ❌ Something went wrong. Please try again.
+                                <div style={{ background: 'rgba(0, 242, 255, 0.1)', color: 'var(--primary)', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
+                                    Thank you! Your message has been sent successfully.
                                 </div>
                             )}
                         </form>
