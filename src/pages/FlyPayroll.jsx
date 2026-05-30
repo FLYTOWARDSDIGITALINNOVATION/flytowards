@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const FlyPayroll = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const goals = [
@@ -16,7 +16,7 @@ const FlyPayroll = () => {
         {
             title: "Office-Based Employees",
             icon: <Building size={35} color="var(--primary)" />,
-            image: "Office-Based Employees.png",
+            image: "Office-Based Employees.webp",
             features: [
                 { title: "Fixed Office Location", desc: "Employees work from a predefined office location with a configured geo-fence." },
                 { title: "Location-Based Attendance", desc: "Attendance can be marked only when physically present inside the office boundary." }
@@ -26,7 +26,7 @@ const FlyPayroll = () => {
         {
             title: "Field-Based Employees",
             icon: <MapPin size={35} color="var(--secondary)" />,
-            image: "Field-Based Employees.png",
+            image: "Field-Based Employees.webp",
             features: [
                 { title: "Client / Site Based Work", desc: "Employees work at customer or project locations assigned by the admin." },
                 { title: "Dynamic Location Assignment", desc: "Locations can change daily or per task based on business needs." }
@@ -36,7 +36,7 @@ const FlyPayroll = () => {
         {
             title: "Hybrid Workforce",
             icon: <Smartphone size={35} color="var(--accent)" />,
-            image: "Hybrid Workforce.png",
+            image: "Hybrid Workforce.webp",
             features: [
                 { title: "Office + Field Work", desc: "Employees can operate from office or field depending on assigned duties." },
                 { title: "Flexible Attendance Rules", desc: "The system adapts attendance validation based on the assigned work type." },
@@ -75,25 +75,25 @@ const FlyPayroll = () => {
         {
             title: "Security Enforcement",
             icon: <Lock size={24} color="white" />,
-            image: "Security Enforcement.jpg",
+            image: "Security Enforcement.webp",
             desc: "GPS validation, geo fencing, device restrictions, and controlled camera access ensure attendance data cannot be manipulated or misused."
         },
         {
             title: "Live Presence & Anti-Spoof",
             icon: <Camera size={24} color="white" />,
-            image: "Live Presence.png",
+            image: "Live Presence.webp",
             desc: "Prevents photo, video replay, proxy attendance, and other impersonation attempts using real-time camera sessions and liveness detection."
         },
         {
             title: "Automated Payroll Flow",
             icon: <RefreshCcw size={24} color="white" />,
-            image: "Automated Payroll Flow.png",
+            image: "Automated Payroll Flow.webp",
             desc: "Check-in/out times, late entries, and overtime rules automatically flow to payroll processing without manual entry."
         },
         {
             title: "Compliance & Audit",
             icon: <FileCheck size={24} color="white" />,
-            image: "Compliance & Audit.png",
+            image: "Compliance & Audit.webp",
             desc: "Detailed audit logs provide full traceability for compliance checks, internal audits, and management reviews."
         }
     ];
@@ -144,7 +144,7 @@ const FlyPayroll = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
-                                src="Payroll.png"
+                                src="Payroll.webp"
                                 alt="FlyRoll Dashboard Analytics"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
@@ -172,7 +172,7 @@ const FlyPayroll = () => {
                                 </div>
                             </div>
 
-                            <img src="Mobile scan.png" alt="Mobile Scan" style={{
+                            <img src="Mobile scan.webp" alt="Mobile Scan" style={{
                                 position: 'absolute',
                                 top: '-20px',
                                 left: '-30px',
@@ -350,13 +350,13 @@ const FlyPayroll = () => {
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '2rem', padding: '0 1rem' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         <div data-aos="zoom-in" data-aos-delay="100" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="Empowered Teams.png" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
+                            <img src="Empowered Teams.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Empowered Teams</h3>
                             </div>
                         </div>
                         <div data-aos="zoom-in" data-aos-delay="200" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="Data Drive Insights.png" style={{ width: '100%', height: '140%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
+                            <img src="Data Drive Insights.webp" style={{ width: '100%', height: '140%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Data-Driven Insights</h3>
                             </div>
@@ -364,13 +364,13 @@ const FlyPayroll = () => {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         <div data-aos="zoom-in" data-aos-delay="300" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="Enterprise Scale.png" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
+                            <img src="Enterprise Scale.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Enterprise Scale</h3>
                             </div>
                         </div>
                         <div data-aos="zoom-in" data-aos-delay="400" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="Happy Workforce.png" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
+                            <img src="Happy Workforce.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Happy Workforce</h3>
                             </div>
@@ -391,12 +391,12 @@ const FlyPayroll = () => {
                     margin: '0 auto',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'url(https://images.pexels.com/photos/28812446/pexels-photo-28812446.jpeg) center/cover no-repeat'
+                    background: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000) center/cover no-repeat'
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(8, 15, 30, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
 
                     <div style={{ position: 'relative', zIndex: 2 }}>
-                        <span className="section-tag section-tag--pill" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Upgrade Your Operations</span>
+                        <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Upgrade Your Operations</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>
                             Achieve a <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Future-Ready</span> <br /> Attendance System.
                         </h2>

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const FlyBill = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const challenges = [
@@ -11,28 +11,28 @@ const FlyBill = () => {
             title: "Billing Errors",
             description: "Manual calculations cause mistakes and customer dissatisfaction.",
             icon: <FileText size={40} color="var(--secondary)" />,
-            image: "Error.png", // Stressed professional in a sleek environment
+            image: "Error.webp", // Stressed professional in a sleek environment
             delay: "0.1s"
         },
         {
             title: "GST Complexity",
             description: "Tax compliance becomes stressful without automation.",
             icon: <TrendingUp size={40} color="var(--primary)" />,
-            image: "GST Complexity.png", // Beautifully lit tax/accounting documents
+            image: "GST-Complexity.webp", // Beautifully lit tax/accounting documents
             delay: "0.2s"
         },
         {
             title: "Delayed Payments",
             description: "Poor payment tracking affects cash flow.",
             icon: <Clock size={40} color="var(--accent)" />,
-            image: "Delayed Payment.png", // Premium minimalist clock/time tracking
+            image: "Delayed-Payment.webp", // Premium minimalist clock/time tracking
             delay: "0.3s"
         },
         {
             title: "No Insights",
             description: "Lack of reports blocks smart business decisions.",
             icon: <Database size={40} color="var(--secondary)" />,
-            image: "No Insight.png", // Elegant magnifying glass analyzing documents
+            image: "No-Insight.webp", // Elegant magnifying glass analyzing documents
             delay: "0.4s"
         }
     ];
@@ -42,25 +42,25 @@ const FlyBill = () => {
             title: "Smart GST Invoicing",
             description: "Automatic CGST, SGST & IGST calculations with branded invoices.",
             icon: <Settings size={40} color="var(--primary)" />,
-            image: "Smart GST Invoicing.png" // Elegant tablet showing financial calculations
+            image: "Smart-GST-Invoicing.webp" // Elegant tablet showing financial calculations
         },
         {
             title: "Inventory Management",
             description: "Live stock tracking and low-stock alerts.",
             icon: <Briefcase size={40} color="var(--secondary)" />,
-            image: "Inventory Management.png" // Beautifully organized high-end shelves
+            image: "Inventory Management.webp" // Beautifully organized high-end shelves
         },
         {
             title: "Customer & Credit",
             description: "Track customer history, dues and credit limits.",
             icon: <Users size={40} color="var(--accent)" />,
-            image: "Customer & Credit.jpg" // Premium retail customer transaction
+            image: "Customer & Credit.webp" // Premium retail customer transaction
         },
         {
             title: "Payment Tracking",
             description: "Monitor cash, UPI, card and bank payments.",
             icon: <Smartphone size={40} color="var(--primary)" />,
-            image: "payment Tracking.jpeg" // Sleek modern POS payment terminal
+            image: "payment Tracking.webp" // Sleek modern POS payment terminal
         },
         {
             title: "Reports & Analytics",
@@ -72,7 +72,7 @@ const FlyBill = () => {
             title: "Secure Cloud",
             description: "Anytime access with backups and role-based control.",
             icon: <Lock size={40} color="var(--accent)" />,
-            image: "Secure Cloud.png" // Sleek professional neon server room
+            image: "Secure Cloud.webp" // Sleek professional neon server room
         }
     ];
 
@@ -111,7 +111,7 @@ const FlyBill = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
-                                src="Products.jpg.jpeg"
+                                src="Products.jpg.webp"
                                 alt="Fly Bill Dashboard Innovation"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
@@ -139,7 +139,7 @@ const FlyBill = () => {
                                 </div>
                             </div>
                             
-                            <img src="payment.png" alt="Payments" style={{
+                            <img src="payment.webp" alt="Payments" style={{
                                 position: 'absolute',
                                 top: '-20px',
                                 left: '-30px',
@@ -276,7 +276,7 @@ const FlyBill = () => {
                     </div>
                     <div data-aos="fade-left" style={{ position: 'relative', padding: '2rem' }}>
                         <div style={{ position: 'relative', borderRadius: '40px', padding: '1rem', background: 'rgba(255,255,255,0.7)', border: '1px solid var(--border)', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', zIndex: 2 }}>
-                            <img src="/Designed for Efficiency.png" alt="Designed for Efficiency" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover' }} />
+                            <img src="/Designed for Efficiency.webp" alt="Designed for Efficiency" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover' }} />
                         </div>
                         {/* Floating elements */}
                         <div style={{ position: 'absolute', top: '5%', left: '0%', background: 'white', padding: '1.5rem', borderRadius: '25px', boxShadow: '0 15px 40px rgba(0,0,0,0.15)', animation: 'float 5s ease-in-out infinite', zIndex: 3 }}>
@@ -297,8 +297,8 @@ const FlyBill = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }} data-aos="fade-up">
                     {[
                         { title: 'Retail & Wholesale', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop' }, // Beautiful modern neon clothing store
-                        { title: 'Medical & Pharmacy', img: 'pharmacy.jpg' }, // Clean pristine medical environment
-                        { title: 'Restaurants & Cafes', img: 'Restaurants & Cafes.webp' }, // Gorgeous moody fine dining
+                        { title: 'Medical & Pharmacy', img: 'pharmacy.webp' }, // Clean pristine medical environment
+                        { title: 'Restaurants & Cafes', img: 'Restaurants & Cafes.jpg' }, // Gorgeous moody fine dining
                         { title: 'Service Providers', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop' } // Sleek modern office handshake
                     ].map((industry, idx) => (
                         <div key={idx} style={{ position: 'relative', height: '200px', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}>
@@ -316,7 +316,7 @@ const FlyBill = () => {
             <section id="contact" style={{ padding: '5rem 2rem' }}>
                 <div className="cta-content relative" data-aos="zoom-in" style={{
                     textAlign: 'center',
-                    background: 'url("https://images.pexels.com/photos/29101877/pexels-photo-29101877.jpeg") center/cover no-repeat',
+                    background: 'url("https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat',
                     padding: '6rem 3rem',
                     borderRadius: '50px',
                     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
@@ -328,7 +328,7 @@ const FlyBill = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag">Take the Next Step</span>
+                        <span className="section-tag" style={{ background: 'white' }}>Take the Next Step</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
                             Simplify Billing. <br /> <span className="gradient-text">Strengthen Compliance.</span>
                         </h2>

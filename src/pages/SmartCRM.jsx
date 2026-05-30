@@ -4,35 +4,35 @@ import { Link } from 'react-router-dom';
 
 const SmartCRM = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const features = [
         {
             title: "Lead Management",
             description: "Capture, track, and convert leads efficiently with automated pipelines.",
-            img: "Lead Management.jpeg",
+            img: "Lead Management.webp",
             icon: <Target size={30} color="var(--primary)" />,
             delay: "0.1s"
         },
         {
             title: "Sales Pipeline",
             description: "Visual pipelines to monitor deals at every stage and forecast revenue.",
-            img: "Sales pipeline.jpeg",
+            img: "Sales pipeline.webp",
             icon: <BarChart size={30} color="var(--secondary)" />,
             delay: "0.2s"
         },
         {
             title: "Customer Profiles",
             description: "Complete customer history, interactions, and data in one centralized place.",
-            img: "customer profile.webp",
+            img: "customer profile.jpg",
             icon: <Users size={30} color="var(--accent)" />,
             delay: "0.3s"
         },
         {
             title: "Task & Follow-ups",
             description: "Never miss a follow-up with smart reminders and automated task scheduling.",
-            img: "Task.png",
+            img: "Task.webp",
             icon: <Calendar size={30} color="var(--primary)" />,
             delay: "0.4s"
         }
@@ -104,7 +104,7 @@ const SmartCRM = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', background: 'rgba(255, 255, 255, 0.4)' }}>
                             <img
-                                src="Smart CRM.png"
+                                src="Smart CRM.webp"
                                 alt="Smart CRM Analytics Dashboard"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', objectFit: 'cover', height: '500px' }}
@@ -194,7 +194,7 @@ const SmartCRM = () => {
                     </div>
                     <div data-aos="fade-left" style={{ position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', borderRadius: '40px', background: 'var(--bg-white)', border: '1px solid var(--border)' }}>
-                            <img src="Scale Growth.png" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '750x' }} />
+                            <img src="Scale Growth.webp" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '750x' }} />
                             
                             {/* Overlay Stats */}
                             <div style={{ position: 'absolute', top: '10%', right: '-20px', background: 'var(--bg-white)', padding: '1.5rem', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', border: '1px solid var(--border)' }}>
@@ -233,7 +233,7 @@ const SmartCRM = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag section-tag--pill" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Grow Faster</span>
+                        <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Grow Faster</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'white' }}>
                             Build Stronger  <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Customer Relationships</span>
                         </h2>
