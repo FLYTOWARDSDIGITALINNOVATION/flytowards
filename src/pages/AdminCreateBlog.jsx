@@ -20,7 +20,6 @@ import {
     UploadCloud
 } from 'lucide-react';
 import { API_BASE_URL, buildApiUrl } from '../config';
-import CoverCropModal from '../components/CoverCropModal';
 import './AdminCreateBlog.css';
 
 const DRAFT_STORAGE_KEY = 'flytowards_admin_blog_draft_v1';
@@ -963,14 +962,6 @@ const AdminCreateBlog = () => {
                 </div>
 
             {coverCropModalOpen && coverCropSource?.url && (
-                <CoverCropModal
-                    imageSrc={coverCropSource.url}
-                    onApply={handleCoverCropApply}
-                    onCancel={closeCoverCropModal}
-                    isApplying={isApplyingCrop}
-                />
-            )}
-            {false && (
                 <div className="cover-crop-modal" role="dialog" aria-modal="true" aria-labelledby="cover-crop-title">
                     <div className="cover-crop-backdrop" onClick={closeCoverCropModal} />
                     <div className="cover-crop-panel glass-container">

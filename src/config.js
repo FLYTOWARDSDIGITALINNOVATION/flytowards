@@ -8,3 +8,8 @@ export const API_BASE_URL = isLocal
 export const IMAGE_BASE_URL = isLocal 
     ? 'http://localhost:5010' 
     : 'https://flytowardsdigitalinnovation.com/ft-uploads';
+
+export const buildApiUrl = (path) => {
+    const normalizedPath = String(path || '').replace(/^\/+/, '');
+    return `${API_BASE_URL}/${normalizedPath}`;
+};
