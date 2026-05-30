@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -50,6 +50,7 @@ function App() {
                     <Route path="/fly-bill" element={<FlyBill />} />
                     <Route path="/payroll" element={<FlyPayroll />} />
                     <Route path="/smart-crm" element={<SmartCRM />} />
+                    <Route path="/gallery" element={<Navigate to="/career" replace />} />
                     <Route path="/career" element={<Gallery />} />
                     <Route path="/apply" element={<Apply />} />
                     <Route path="/contact" element={<Contact />} />
