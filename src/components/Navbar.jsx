@@ -30,7 +30,7 @@ const Navbar = () => {
     return (
         <nav>
             <Link to="/" className="logo">
-                <img src="/logo.png" alt="Fly Towards Logo" style={{ height: '80px', width: 'auto' }} />
+                <img src="/logo.webp" alt="Fly Towards Logo" style={{ height: '80px', width: 'auto' }} />
             </Link>
 
             <div className="menu-icon" onClick={toggleMenu}>

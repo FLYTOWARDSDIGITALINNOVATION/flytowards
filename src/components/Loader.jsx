@@ -31,7 +31,7 @@ const Loader = () => {
                 >
                     <div style={{ textAlign: 'center' }}>
                         <motion.img
-                            src="/logo.png"
+                            src="/logo.webp"
                             alt="Fly Towards Logo"
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}

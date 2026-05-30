@@ -10,7 +10,7 @@ const Footer = () => {
                 <div style={{ gridColumn: 'span 1' }}>
                     <Link to="/" className="footer-logo-link" style={{ marginBottom: '1.5rem', display: 'inline-flex', textDecoration: 'none' }}>
                         <span className="footer-logo-badge">
-                            <img src="/logo.png" alt="Fly Towards Logo" />
+                            <img src="/logo.webp" alt="Fly Towards Logo" />
                         </span>
                     </Link>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>

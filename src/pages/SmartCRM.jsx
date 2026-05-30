@@ -11,28 +11,28 @@ const SmartCRM = () => {
         {
             title: "Lead Management",
             description: "Capture, track, and convert leads efficiently with automated pipelines.",
-            img: "https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=800&auto=format&fit=crop",
+            img: "Lead Management.webp",
             icon: <Target size={30} color="var(--primary)" />,
             delay: "0.1s"
         },
         {
             title: "Sales Pipeline",
             description: "Visual pipelines to monitor deals at every stage and forecast revenue.",
-            img: "https://images.unsplash.com/photo-1553484771-371a605b060b?q=80&w=800&auto=format&fit=crop",
+            img: "Sales pipeline.webp",
             icon: <BarChart size={30} color="var(--secondary)" />,
             delay: "0.2s"
         },
         {
             title: "Customer Profiles",
             description: "Complete customer history, interactions, and data in one centralized place.",
-            img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop",
+            img: "customer profile.jpg",
             icon: <Users size={30} color="var(--accent)" />,
             delay: "0.3s"
         },
         {
             title: "Task & Follow-ups",
             description: "Never miss a follow-up with smart reminders and automated task scheduling.",
-            img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop",
+            img: "Task.webp",
             icon: <Calendar size={30} color="var(--primary)" />,
             delay: "0.4s"
         }
@@ -104,7 +104,7 @@ const SmartCRM = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', background: 'rgba(255, 255, 255, 0.4)' }}>
                             <img
-                                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000&auto=format&fit=crop&q=80"
+                                src="Smart CRM.webp"
                                 alt="Smart CRM Analytics Dashboard"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', objectFit: 'cover', height: '500px' }}
@@ -194,7 +194,7 @@ const SmartCRM = () => {
                     </div>
                     <div data-aos="fade-left" style={{ position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', borderRadius: '40px', background: 'var(--bg-white)', border: '1px solid var(--border)' }}>
-                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '600px' }} />
+                            <img src="Scale Growth.webp" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '750x' }} />
                             
                             {/* Overlay Stats */}
                             <div style={{ position: 'absolute', top: '10%', right: '-20px', background: 'var(--bg-white)', padding: '1.5rem', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', border: '1px solid var(--border)' }}>

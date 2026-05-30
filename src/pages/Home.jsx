@@ -1,6 +1,7 @@
-import { ArrowRight, CheckCircle2, Globe, Shield, MessageSquare, Briefcase, Users, Star, Quote, ChevronRight, Trophy, Target, Zap, Server, Code, PlaySquare, Smartphone, MonitorSmartphone, BarChart, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe, Shield, MessageSquare, Briefcase, Users, ChevronRight, Trophy, Target, Zap, Server, Code, PlaySquare, Smartphone, MonitorSmartphone, BarChart, TrendingUp } from 'lucide-react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import TestimonialCarousel from '../components/TestimonialCarousel';
 import ProfileCard from '../components/ProfileCard';
 
 const Home = () => {
@@ -40,45 +41,6 @@ const Home = () => {
         { title: '24/7 Support', icon: <Shield size={32} color="var(--accent)" /> },
         { title: 'Skilled & Certified Team', icon: <Users size={32} color="var(--primary)" /> },
         { title: 'Global Experience', icon: <Globe size={32} color="var(--secondary)" /> }
-    ];
-
-    const testimonials = [
-        {
-            quote: "Fly Towards transformed our traditional textile business in Coimbatore into a digital powerhouse. Their strategic SEO and targeted ad campaigns delivered a 300% growth in international inquiries within just one quarter.",
-            author: "Ananya Rajendran",
-            role: "Director, Kovai Silks",
-            location: "Coimbatore"
-        },
-        {
-            quote: "Partnering with Fly Towards was the best decision for our Chennai-based logistics firm. The custom CRM they developed is not only fast and intuitive but has completely revolutionized how we handle our global operations.",
-            author: "Karthik Balasubramanian",
-            role: "Founder, KB Logistics",
-            location: "Chennai"
-        },
-        {
-            quote: "Their creative team perfectly blended Madurai's cultural heritage with modern aesthetics for our brand relaunch. The new visual identity has given us a distinct edge in a highly competitive market.",
-            author: "Meenakshi Sundaram",
-            role: "Marketing Head, Temple City Foods",
-            location: "Madurai"
-        },
-        {
-            quote: "We witnessed an unprecedented surge in footfall at our Salem retail outlets following their Meta ads strategy. Their transparency and data-driven approach make them the most trusted partner in the region.",
-            author: "Shalini Selvam",
-            role: "Managing Director, Selvam Retail",
-            location: "Salem"
-        },
-        {
-            quote: "Fly Towards delivered a world-class mobile application for our healthcare startup in Trichy. The user experience is seamless, and their technical support is consistently exceptional.",
-            author: "Vijay Raghavan",
-            role: "CEO, Trichy HealthTech",
-            location: "Trichy"
-        },
-        {
-            quote: "From building our web presence to managing national-level digital campaigns, Fly Towards has been instrumental in our growth. They truly understand the pulse of Tamil Nadu's business landscape.",
-            author: "Vigneshwar Ram",
-            role: "Owner, VR Enterprises",
-            location: "Tirunelveli"
-        }
     ];
 
     const faqs = [
@@ -128,7 +90,7 @@ const Home = () => {
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', alignItems: 'center', gap: '4rem' }}>
                     <div data-aos="fade-right">
                         <div style={{ position: 'relative', padding: '1rem', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-                            <img src="/Student.png" alt="Students" style={{ borderRadius: '30px', width: '100%', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', zIndex: 2 }} />
+                            <img src="/Student.webp" alt="Students" style={{ borderRadius: '30px', width: '100%', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', zIndex: 2 }} />
                             <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15, zIndex: 1, top: '10%', right: '-10%', width: '150%', height: '150%' }}></div>
                         </div>
                     </div>
@@ -195,7 +157,7 @@ const Home = () => {
                         </div>
                         <div className="solution-header">
                             <div className="solution-img-box">
-                                <img src="digital.png" alt="Digital Marketing" />
+                                <img src="digital.webp" alt="Digital Marketing" />
                             </div>
                             <h3 className="solution-title">Digital <br />Marketing</h3>
                         </div>
@@ -217,7 +179,7 @@ const Home = () => {
                         </div>
                         <div className="solution-header">
                             <div className="solution-img-box">
-                                <img src="1779351607814.png" alt="Custom Business Software Solutions" />
+                                <img src="Roll.webp" alt="Custom Business Software Solutions" />
                             </div>
                             <h3 className="solution-title">Custom Business <br />Software Solutions</h3>
                         </div>
@@ -247,9 +209,11 @@ const Home = () => {
                 }}
             >
                 <div className="section-inner trust-inner">
-                    <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }} data-aos="fade-up">
                         <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Core Value</span>
-                        <h2 style={{ fontSize: '3rem' }}>Why Businesses <span className="gradient-text">Trust Us</span></h2>
+                        <h2 style={{ fontSize: '3rem' }}>
+                            Why Businesses <span className="gradient-text trust-title-line">Trust Us</span>
+                        </h2>
                     </div>
                 </div>
 
@@ -288,7 +252,7 @@ const Home = () => {
             {/* Founder Quote */}
             <section className="section-full" style={{ paddingTop: '160px' }}>
                 <div data-aos="zoom-in">
-                    <ProfileCard image="/sanjay.png" />
+                    <ProfileCard image="/sanjay.webp" />
                 </div>
 
                 {/* Official Partner Badge */}
@@ -296,38 +260,7 @@ const Home = () => {
             </section>
 
             {/* Testimonials */}
-            <section style={{ background: 'rgba(0, 242, 255, 0.01)' }}>
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Client Feedback</span>
-                    <h2 style={{ fontSize: '3rem' }}>What Our <span className="gradient-text">Clients Say</span></h2>
-                </div>
-
-                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
-                    {testimonials.map((test, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ padding: '3rem', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', border: '1px solid var(--border)', background: 'var(--bg-white)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
-                            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.1 }}>
-                                <Quote size={60} color="var(--primary)" />
-                            </div>
-                            <div>
-                                <div style={{ display: 'flex', gap: '4px', marginBottom: '1.5rem' }}>
-                                    {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} fill="var(--accent)" color="var(--accent)" />)}
-                                </div>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-dark)', marginBottom: '2.5rem', fontWeight: 500, position: 'relative', zIndex: 1 }}>
-                                    "{test.quote}"
-                                </p>
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
-                                <h5 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, color: 'var(--text-dark)' }}>{test.author}</h5>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontWeight: 600 }}>{test.role}</span>
-                                    <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--border)' }}></span>
-                                    <span style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 700 }}>{test.location}</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            <TestimonialCarousel />
 
             {/* FAQ Section*/}
             <section id="faq">
@@ -348,7 +281,7 @@ const Home = () => {
                             {/* Adding a display: none by default and unhiding via CSS or just relying on layout */}
                         </div>
                         <div style={{ position: 'relative', marginTop: '1rem' }}>
-                            <img src="students1.png" alt="Customer Support" style={{ borderRadius: '24px', width: '100%', boxShadow: 'var(--shadow)', maxHeight: '350px', objectFit: 'cover' }} />
+                            <img src="students1.webp" alt="Customer Support" style={{ borderRadius: '24px', width: '100%', boxShadow: 'var(--shadow)', maxHeight: '350px', objectFit: 'cover' }} />
                             <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.1 }}></div>
                         </div>
                     </div>
@@ -377,13 +310,13 @@ const Home = () => {
                 </div>
                 <div className="grid max-w-1200" style={{ margin: '0 auto', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
                     <div style={{ overflow: 'hidden', borderRadius: '30px', boxShadow: 'var(--shadow)' }} data-aos="fade-up" data-aos-delay="100">
-                        <img src="Student2.png" alt="Team Discussion" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                        <img src="Student2.webp" alt="Team Discussion" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
                     </div>
                     <div style={{ overflow: 'hidden', borderRadius: '30px', boxShadow: 'var(--shadow)' }} data-aos="fade-up" data-aos-delay="200">
-                        <img src="Student4.png" alt="Business Meeting" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                        <img src="Student4.webp" alt="Business Meeting" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
                     </div>
                     <div style={{ overflow: 'hidden', borderRadius: '30px', boxShadow: 'var(--shadow)' }} data-aos="fade-up" data-aos-delay="300">
-                        <img src="Student3.png" alt="Creative Process" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                        <img src="Student3.webp" alt="Creative Process" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
                     </div>
                 </div>
             </section>
@@ -405,7 +338,6 @@ const Home = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <span className="section-tag" style={{ margin: '0 auto 1.5rem', background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)' }}>Grand Opening Celebration</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: '#fff' }}>
                             Enjoy Flat <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(255, 111, 0, 0.3)' }}>25% OFF</span>
                         </h2>

@@ -1,7 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, Share2, Calendar, Clock, RefreshCw, PenTool } from 'lucide-react';
-import { API_BASE_URL, IMAGE_BASE_URL } from '../config';
+import { ArrowLeft, ArrowRight, Share2, Calendar, Clock, RefreshCw } from 'lucide-react';
+import { buildApiUrl, buildImageUrl } from '../config';
 import './Blog.css';
+
+const isProbablyHtml = (value) => /<\/?[a-z][\s\S]*>/i.test(value || '');
+
+const stripHtml = (html) =>
+    (html || '')
+        .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+const escapeHtml = (text) =>
+    (text || '').replace(/[&<>"']/g, (ch) => {
+        switch (ch) {
+            case '&': return '&amp;';
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '"': return '&quot;';
+            case "'": return '&#039;';
+            default: return ch;
+        }
+    });
+
+const plainTextToHtml = (text) => {
+    const normalized = (text || '').replace(/\r\n/g, '\n').trim();
+    if (!normalized) return '';
+
+    return normalized
+        .split(/\n{2,}/)
+        .map((para) => {
+            const safe = escapeHtml(para).replace(/\n/g, '<br />');
+            return `<p>${safe}</p>`;
+        })
+        .join('');
+};
+
+const getContentHtml = (content) => (isProbablyHtml(content) ? content : plainTextToHtml(content));
 
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
@@ -68,11 +105,17 @@ const Blog = () => {
     const fetchBlogs = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch(`${API_BASE_URL}/blogs`);
+            const response = await fetch(buildApiUrl('/blogs'));
             if (response.ok) {
                 const data = await response.json();
-                // Merge dynamic blogs from MongoDB with the static strategic guide
-                setBlogs([staticArticle, ...data]);
+                // Merge dynamic blogs from MongoDB with the static strategic guide,
+                // then sort so newest posts appear first.
+                const merged = [staticArticle, ...data].sort((a, b) => {
+                    const aTime = new Date(a?.createdAt || 0).getTime();
+                    const bTime = new Date(b?.createdAt || 0).getTime();
+                    return bTime - aTime;
+                });
+                setBlogs(merged);
             } else {
                 setBlogs([staticArticle]);
             }
@@ -92,10 +135,14 @@ const Blog = () => {
 
     const getImageUrl = (coverImage) => {
         if (!coverImage) return 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop';
-        if (coverImage.startsWith('/uploads')) {
-            return `${IMAGE_BASE_URL}${coverImage}`;
-        }
-        return coverImage;
+        return buildImageUrl(coverImage);
+    };
+
+    const getExcerpt = (blog, maxLen) => {
+        if (blog?.desc) return blog.desc;
+        const text = stripHtml(blog?.content || '');
+        if (!text) return '';
+        return text.length > maxLen ? (text.substring(0, maxLen) + '...') : text;
     };
 
     if (selectedBlog) {
@@ -122,15 +169,7 @@ const Blog = () => {
                     </div>
 
                     <div className="reader-body">
-                        {selectedBlog.isStatic ? (
-                            // Render static guide's HTML structure safely
-                            <div dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
-                        ) : (
-                            // Render dynamic blog paragraphs beautifully
-                            selectedBlog.content.split('\n').map((para, i) => (
-                                para.trim() ? <p key={i}>{para}</p> : null
-                            ))
-                        )}
+                        <div dangerouslySetInnerHTML={{ __html: getContentHtml(selectedBlog.content) }} />
                     </div>
                 </div>
             </main>
@@ -180,7 +219,7 @@ const Blog = () => {
                                         {featuredPost.title}
                                     </h2>
                                     <p className="blog-card-excerpt">
-                                        {featuredPost.desc || (featuredPost.content.substring(0, 180) + '...')}
+                                        {getExcerpt(featuredPost, 180)}
                                     </p>
                                     <span className="read-more-link">
                                         Read Article <ArrowRight size={16} />
@@ -204,7 +243,7 @@ const Blog = () => {
                                             </div>
                                             <h3 className="blog-card-title">{blog.title}</h3>
                                             <p className="blog-card-excerpt">
-                                                {blog.content.substring(0, 120)}...
+                                                {getExcerpt(blog, 120)}
                                             </p>
                                             <span className="read-more-link">
                                                 Read Article <ArrowRight size={14} />

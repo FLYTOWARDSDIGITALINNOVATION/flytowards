@@ -16,7 +16,7 @@ const FlyPayroll = () => {
         {
             title: "Office-Based Employees",
             icon: <Building size={35} color="var(--primary)" />,
-            image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop",
+            image: "Office-Based Employees.webp",
             features: [
                 { title: "Fixed Office Location", desc: "Employees work from a predefined office location with a configured geo-fence." },
                 { title: "Location-Based Attendance", desc: "Attendance can be marked only when physically present inside the office boundary." }
@@ -26,7 +26,7 @@ const FlyPayroll = () => {
         {
             title: "Field-Based Employees",
             icon: <MapPin size={35} color="var(--secondary)" />,
-            image: "https://images.unsplash.com/photo-1541888087-b95764d26f74?q=80&w=800&auto=format&fit=crop",
+            image: "Field-Based Employees.webp",
             features: [
                 { title: "Client / Site Based Work", desc: "Employees work at customer or project locations assigned by the admin." },
                 { title: "Dynamic Location Assignment", desc: "Locations can change daily or per task based on business needs." }
@@ -36,7 +36,7 @@ const FlyPayroll = () => {
         {
             title: "Hybrid Workforce",
             icon: <Smartphone size={35} color="var(--accent)" />,
-            image: "https://images.unsplash.com/photo-1587560699334-bea5353f0ce5?q=80&w=800&auto=format&fit=crop",
+            image: "Hybrid Workforce.webp",
             features: [
                 { title: "Office + Field Work", desc: "Employees can operate from office or field depending on assigned duties." },
                 { title: "Flexible Attendance Rules", desc: "The system adapts attendance validation based on the assigned work type." },
@@ -75,25 +75,25 @@ const FlyPayroll = () => {
         {
             title: "Security Enforcement",
             icon: <Lock size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
+            image: "Security Enforcement.webp",
             desc: "GPS validation, geo fencing, device restrictions, and controlled camera access ensure attendance data cannot be manipulated or misused."
         },
         {
             title: "Live Presence & Anti-Spoof",
             icon: <Camera size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+            image: "Live Presence.webp",
             desc: "Prevents photo, video replay, proxy attendance, and other impersonation attempts using real-time camera sessions and liveness detection."
         },
         {
             title: "Automated Payroll Flow",
             icon: <RefreshCcw size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800&auto=format&fit=crop",
+            image: "Automated Payroll Flow.webp",
             desc: "Check-in/out times, late entries, and overtime rules automatically flow to payroll processing without manual entry."
         },
         {
             title: "Compliance & Audit",
             icon: <FileCheck size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?q=80&w=800&auto=format&fit=crop",
+            image: "Compliance & Audit.webp",
             desc: "Detailed audit logs provide full traceability for compliance checks, internal audits, and management reviews."
         }
     ];
@@ -144,7 +144,7 @@ const FlyPayroll = () => {
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
-                                src="payroll.png"
+                                src="Payroll.webp"
                                 alt="FlyRoll Dashboard Analytics"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
@@ -172,7 +172,7 @@ const FlyPayroll = () => {
                                 </div>
                             </div>
 
-                            <img src="https://images.unsplash.com/photo-1510511459019-5d058cf283d5?q=80&w=300&auto=format&fit=crop" alt="Mobile Scan" style={{
+                            <img src="Mobile scan.webp" alt="Mobile Scan" style={{
                                 position: 'absolute',
                                 top: '-20px',
                                 left: '-30px',
@@ -350,13 +350,13 @@ const FlyPayroll = () => {
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '2rem', padding: '0 1rem' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         <div data-aos="zoom-in" data-aos-delay="100" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
+                            <img src="Empowered Teams.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Empowered Teams</h3>
                             </div>
                         </div>
                         <div data-aos="zoom-in" data-aos-delay="200" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
+                            <img src="Data Drive Insights.webp" style={{ width: '100%', height: '140%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Data-Driven Insights</h3>
                             </div>
@@ -364,13 +364,13 @@ const FlyPayroll = () => {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         <div data-aos="zoom-in" data-aos-delay="300" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1570126618953-d437176e8c79?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
+                            <img src="Enterprise Scale.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Enterprise Scale</h3>
                             </div>
                         </div>
                         <div data-aos="zoom-in" data-aos-delay="400" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
+                            <img src="Happy Workforce.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Happy Workforce</h3>
                             </div>
