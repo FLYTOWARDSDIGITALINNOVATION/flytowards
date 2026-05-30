@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const WebDev = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const whyChooseUs = [
@@ -34,31 +34,31 @@ const WebDev = () => {
         {
             title: "WordPress Development",
             description: "Scalable WordPress solutions with custom themes, speed optimization, and clean architecture.",
-            img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop",
+            img: ".//servicewordpress.png",
             icon: <Layout size={30} color="var(--secondary)" />
         },
         {
             title: "Landing Page Development",
             description: "Conversion-focused landing pages designed to turn traffic into qualified leads.",
-            img: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=800&auto=format&fit=crop",
+            img: "./servicelanding.png",
             icon: <MonitorSmartphone size={30} color="var(--accent)" />
         },
         {
             title: "Corporate Websites",
             description: "Professional, trust-driven websites that communicate authority and credibility.",
-            img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+            img: ".//servicecorporate.png",
             icon: <Shield size={30} color="var(--primary)" />
         },
         {
             title: "Website Redesign",
             description: "Modern UI/UX, improved SEO structure, faster load times, and better user flow.",
-            img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
+            img: "./serviceredesign.png",
             icon: <RefreshCcw size={30} color="var(--secondary)" />
         },
         {
             title: "Performance & SEO",
             description: "Technical SEO, speed enhancements, and structure optimization for long-term growth.",
-            img: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop",
+            img: "./serviceseo.png",
             icon: <Gauge size={30} color="var(--accent)" />
         }
     ];
@@ -104,24 +104,11 @@ const WebDev = () => {
                             <a href="#services" className="btn btn-outline" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', border: '1px solid var(--border)' }}>Explore Services</a>
                         </div>
 
-                        <div style={{ marginTop: '3rem', display: 'flex', gap: '2rem', alignItems: 'center' }}>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&auto=format&fit=crop" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '3px solid white', zIndex: 3 }} alt="User" />
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=100&auto=format&fit=crop" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '3px solid white', marginLeft: '-15px', zIndex: 2 }} alt="User" />
-                                <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=100&auto=format&fit=crop" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '3px solid white', marginLeft: '-15px', zIndex: 1 }} alt="User" />
-                            </div>
-                            <div>
-                                <div style={{ display: 'flex', gap: '4px', color: 'var(--accent)' }}>
-                                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={18} fill="currentColor" />)}
-                                </div>
-                                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>100+ Successful Launches</p>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', background: 'rgba(255, 255, 255, 0.4)' }}>
-                            <img src="web_development_hero_cyber_1772536127131.png" alt="Futuristic Web Development Services" className="floating-img" style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', objectFit: 'cover' }} />
+                            <img src="./service image1.png" alt="Futuristic Web Development Services" className="floating-img" style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', objectFit: 'cover' }} />
                             <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15 }}></div>
                         </div>
 
@@ -149,7 +136,7 @@ const WebDev = () => {
                     </p>
                 </div>
 
-                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+                <div className="grid max-w-1200" style={{ margin: '0 auto', padding: '0 2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
                     {coreServices.map((service, idx) => (
                         <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{
                             padding: '0',
@@ -178,7 +165,7 @@ const WebDev = () => {
 
             {/* Why Choose Us & Workflow Side-by-Side */}
             <section id="process" style={{ padding: '6rem 0' }}>
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', alignItems: 'flex-start', gap: '5rem' }}>
+                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', padding: '0 2rem', alignItems: 'flex-start', gap: '5rem' }}>
                     {/* Left Side - Process */}
                     <div data-aos="fade-right">
                         <span className="section-tag">Transparent Workflow</span>
@@ -209,7 +196,7 @@ const WebDev = () => {
                     {/* Right Side - Why Us Image and Cards */}
                     <div data-aos="fade-left" style={{ position: 'relative', paddingTop: '2rem' }}>
                         <div className="glass-container" style={{ padding: '1rem', borderRadius: '40px', background: 'var(--bg-white)', border: '1px solid var(--border)', marginBottom: '3rem' }}>
-                            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000&auto=format&fit=crop" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '400px' }} />
+                            <img src="./serviceprocessdev.png" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '400px' }} />
                         </div>
 
                         <span className="section-tag">Competitive Edge</span>
@@ -253,7 +240,7 @@ const WebDev = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)' }}></div>
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag section-tag--pill" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Let’s Discuss Your Project</span>
+                        <span className="section-tag">Let’s Discuss Your Project</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'white' }}>
                             Ready to Build a Website That <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Works for Your Business?</span>
                         </h2>
