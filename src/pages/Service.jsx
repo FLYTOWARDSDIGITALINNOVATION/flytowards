@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Service = () => {
     useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo(0, 0);
     }, []);
 
     const services = [
@@ -13,6 +13,7 @@ const Service = () => {
             desc: "High-end, performance-focused web architectures designed for conversion and scale.",
             icon: <Monitor size={40} color="var(--primary)" />,
             link: "/web-development",
+            bgImg: "/servicewebdev.png",
             delay: "0s",
             color: "0, 242, 255"
         },
@@ -21,6 +22,7 @@ const Service = () => {
             desc: "Automated customer engagement and marketing campaigns at enterprise scale.",
             icon: <MessageCircle size={40} color="var(--secondary)" />,
             link: "/whatsapp-api",
+            bgImg: "/servicewhatsapp.jpg",
             delay: "0.1s",
             color: "255, 0, 122"
         },
@@ -29,6 +31,7 @@ const Service = () => {
             desc: "ROI-driven campaigns across Google, Meta, and LinkedIn to flood your funnel with leads.",
             icon: <BarChart size={40} color="var(--accent)" />,
             link: "/digital-marketing",
+            bgImg: "/servicedigital.jpg",
             delay: "0.2s",
             color: "157, 0, 255"
         },
@@ -37,6 +40,7 @@ const Service = () => {
             desc: "Sleek, native and cross-platform mobile experiences that users love to engage with.",
             icon: <Smartphone size={40} color="var(--primary)" />,
             link: "#",
+            bgImg: "/serviceappdev.jpg",
             delay: "0.3s",
             color: "0, 242, 255"
         },
@@ -45,6 +49,7 @@ const Service = () => {
             desc: "Complete visual storytelling and design systems that make your brand unmistakable.",
             icon: <Palette size={40} color="var(--secondary)" />,
             link: "#",
+            bgImg: "/servicebrandiden.png",
             delay: "0.4s",
             color: "255, 0, 122"
         },
@@ -53,6 +58,7 @@ const Service = () => {
             desc: "Scalable cloud infrastructure and hosting services to keep your platform online 24/7.",
             icon: <Globe size={40} color="var(--accent)" />,
             link: "#",
+            bgImg: "/servicecloudsol.png",
             delay: "0.5s",
             color: "157, 0, 255"
         }
@@ -132,13 +138,29 @@ const Service = () => {
                 </div>
 
                 <div className="grid">
-                    {services.map((service, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" style={{ transitionDelay: service.delay, position: 'relative', overflow: 'hidden' }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-15px)';
-                                e.currentTarget.style.boxShadow = `0 30px 60px rgba(${service.color}, 0.15)`;
-                                e.currentTarget.style.borderColor = `rgba(${service.color}, 0.3)`;
-                            }}
+	                    {services.map((service, idx) => (
+	                        <div
+	                            key={idx}
+	                            className={`card ${service.bgImg ? 'card--image-bg' : ''}`}
+	                            data-aos="fade-up"
+	                            style={{
+	                                transitionDelay: service.delay,
+	                                position: 'relative',
+	                                overflow: 'hidden',
+	                                ...(service.bgImg
+	                                    ? {
+	                                        backgroundImage: `url(${service.bgImg})`,
+	                                        backgroundSize: 'cover',
+	                                        backgroundPosition: 'center',
+	                                        backgroundRepeat: 'no-repeat'
+	                                    }
+	                                    : {})
+	                            }}
+	                            onMouseEnter={(e) => {
+	                                e.currentTarget.style.transform = 'translateY(-15px)';
+	                                e.currentTarget.style.boxShadow = `0 30px 60px rgba(${service.color}, 0.15)`;
+	                                e.currentTarget.style.borderColor = `rgba(${service.color}, 0.3)`;
+	                            }}
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0)';
                                 e.currentTarget.style.boxShadow = 'var(--shadow)';
@@ -154,8 +176,8 @@ const Service = () => {
                             }}>
                                 {service.icon}
                             </div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 800 }}>{service.title}</h3>
-                            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>{service.desc}</p>
+	                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 800 }}>{service.title}</h3>
+	                            <p style={{ color: service.bgImg ? 'rgba(255,255,255,0.85)' : 'var(--text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>{service.desc}</p>
                             
                             {service.link !== "#" ? (
                                 <Link to={service.link} style={{ 
@@ -165,15 +187,16 @@ const Service = () => {
                                 }}>
                                     Learn More <ArrowRight size={18} />
                                 </Link>
-                            ) : (
-                                <span style={{ 
-                                    display: 'inline-flex', alignItems: 'center', gap: '8px', 
-                                    color: 'var(--text-muted)', fontWeight: 600, fontSize: '0.9rem', marginTop: 'auto',
-                                    opacity: 0.6
-                                }}>
-                                    Coming Soon
-                                </span>
-                            )}
+	                            ) : (
+	                                <span style={{ 
+	                                    display: 'inline-flex', alignItems: 'center', gap: '8px', 
+	                                    color: service.bgImg ? 'rgba(255,255,255,0.9)' : 'var(--text-muted)',
+	                                    fontWeight: 600, fontSize: '0.9rem', marginTop: 'auto',
+	                                    opacity: service.bgImg ? 1 : 0.6
+	                                }}>
+	                                    Coming Soon
+	                                </span>
+	                            )}
                         </div>
                     ))}
                 </div>
@@ -189,16 +212,15 @@ const Service = () => {
                     </p>
                 </div>
 
-                <div className="grid">
-                    {processes.map((process, idx) => (
-                        <div key={idx} style={{
-                            background: 'var(--bg-white)',
-                            padding: '3rem 2rem',
-                            borderRadius: '30px',
-                            border: '1px solid var(--border)',
-                            boxShadow: 'var(--shadow)',
-                            position: 'relative'
-                        }} data-aos="fade-up" data-aos-delay={idx * 100}>
+	                <div className="grid">
+	                    {processes.map((process, idx) => (
+	                        <div key={idx} className="process-card" style={{
+	                            padding: '3rem 2rem',
+	                            borderRadius: '30px',
+	                            border: '1px solid var(--border)',
+	                            boxShadow: 'var(--shadow)',
+	                            position: 'relative'
+	                        }} data-aos="fade-up" data-aos-delay={idx * 100}>
                             <h4 style={{ 
                                 position: 'absolute', top: '1rem', right: '1.5rem', 
                                 fontSize: '4rem', fontWeight: 900, color: 'var(--text-dark)', opacity: 0.05, 
