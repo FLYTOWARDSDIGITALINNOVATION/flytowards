@@ -6,6 +6,12 @@ const DigitalMarketing = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    const heroCardTheme = {
+        background: '#0F172A',
+        accentText: '#38BDF8',
+        subtext: '#CBD5E1',
+    };
+
     const whyChooseUs = [
         {
             title: "Data-Driven Strategies",
@@ -27,40 +33,40 @@ const DigitalMarketing = () => {
         {
             title: "Search Engine Optimization (SEO)",
             description: "Dominate search results and drive organic, high-intent traffic to your website continuously.",
-            icon: <Search size={40} color="var(--primary)" />
+            icon: <Search size={40} color="#0F172A" />
         },
         {
             title: "Social Media Marketing",
             description: "Build an engaged community and strong brand presence across relevant social platforms.",
-            icon: <Users size={40} color="var(--secondary)" />
+            icon: <Users size={40} color="#0F172A" />
         },
         {
             title: "Pay-Per-Click (PPC) Ads",
             description: "Instant, targeted traffic through highly optimized Google and Meta advertising campaigns.",
-            icon: <Target size={40} color="var(--accent)" />
+            icon: <Target size={40} color="#0F172A" />
         },
         {
             title: "Content Marketing",
             description: "Compelling storytelling and valuable content that converts visitors into loyal customers.",
-            icon: <Megaphone size={40} color="var(--primary)" />
+            icon: <Megaphone size={40} color="#0F172A" />
         },
         {
             title: "Email & Automation",
             description: "Nurture leads and drive repeat sales with personalized, automated email sequences.",
-            icon: <Mail size={40} color="var(--secondary)" />
+            icon: <Mail size={40} color="#0F172A" />
         },
         {
             title: "Conversion Optimization",
             description: "Turn more of your existing traffic into revenue through A/B testing and UX improvements.",
-            icon: <TrendingUp size={40} color="var(--accent)" />
+            icon: <TrendingUp size={40} color="#0F172A" />
         }
     ];
 
     const ctaFeatures = [
-        { text: "Proven Results", icon: <Award size={20} color="var(--primary)" /> },
-        { text: "Transparent Reporting", icon: <BarChart3 size={20} color="var(--secondary)" /> },
-        { text: "Scalable Growth", icon: <TrendingUp size={20} color="var(--accent)" /> },
-        { text: "Dedicated Team", icon: <Users size={20} color="var(--primary)" /> }
+        { text: "Proven Results", icon: <Award size={20} color="#F9FAFB" /> },
+        { text: "Transparent Reporting", icon: <BarChart3 size={20} color="#F9FAFB" /> },
+        { text: "Scalable Growth", icon: <TrendingUp size={20} color="#F9FAFB" /> },
+        { text: "Dedicated Team", icon: <Users size={20} color="#F9FAFB" /> }
     ];
 
     return (
@@ -94,10 +100,10 @@ const DigitalMarketing = () => {
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s' }}>
                         <div className="glass-container" style={{ padding: '2rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative' }}>
-                            <div style={{ background: 'var(--text-dark)', borderRadius: '25px', padding: '3rem 2rem', color: 'white', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                                <TrendingUp size={80} color="var(--primary)" style={{ marginBottom: '2rem' }} />
-                                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem', background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>300% Avg ROI</h3>
-                                <p style={{ color: '#cbd5e1', fontSize: '1.1rem', lineHeight: 1.8 }}>
+                            <div style={{ background: heroCardTheme.background, borderRadius: '25px', padding: '3rem 2rem', color: heroCardTheme.subtext, textAlign: 'center', position: 'relative', zIndex: 1 }}>
+                                <TrendingUp size={80} color={heroCardTheme.accentText} style={{ marginBottom: '2rem' }} />
+                                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: heroCardTheme.accentText }}>300% Avg ROI</h3>
+                                <p style={{ color: heroCardTheme.subtext, fontSize: '1.1rem', lineHeight: 1.8 }}>
                                     Stop wasting budget on ineffective ad spend. Our precision-targeted campaigns ensure maximum return on every dollar invested.
                                 </p>
                             </div>
@@ -119,19 +125,39 @@ const DigitalMarketing = () => {
 
                 <div className="grid">
                     {whyChooseUs.map((item, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" style={{ transitionDelay: item.delay, padding: '3.5rem 3rem' }}>
+                        <div
+                            key={idx}
+                            className="card"
+                            data-aos="fade-up"
+                            style={(() => {
+                                const isDataDriven = item.title === 'Data-Driven Strategies';
+                                const isMultiChannel = item.title === 'Multi-Channel Dominance';
+                                return {
+                                    transitionDelay: item.delay,
+                                    padding: '3.5rem 3rem',
+                                    ...((isDataDriven || isMultiChannel)
+                                        ? {
+                                            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url("${encodeURI(isDataDriven ? '/Data-Driven Strategies.webp' : '/Multi-Channel Dominance.webp')}")`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center',
+                                            borderColor: 'rgba(56, 189, 248, 0.5)',
+                                        }
+                                        : {}),
+                                };
+                            })()}
+                        >
                             <div className="mb-4" style={{
-                                background: 'rgba(0, 242, 255, 0.05)',
+                                background: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? 'rgba(56, 189, 248, 0.12)' : 'rgba(0, 242, 255, 0.05)',
                                 padding: '1.2rem',
                                 borderRadius: '25px',
                                 display: 'inline-block'
                             }}>
                                 {item.icon}
                             </div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>{item.title}</h3>
-                            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '1.5rem', lineHeight: 1.7 }}>{item.desc}</p>
+                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? '#E2E8F0' : 'var(--text-dark)' }}>{item.title}</h3>
+                            <p style={{ color: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? '#CBD5E1' : 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '1.5rem', lineHeight: 1.7 }}>{item.desc}</p>
 
-                            <ul style={{ listStyle: 'none', color: 'var(--text-dark)', fontWeight: 600 }}>
+                            <ul style={{ listStyle: 'none', color: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? '#E2E8F0' : 'var(--text-dark)', fontWeight: 600 }}>
                                 {item.points.map((pt, pIdx) => (
                                     <li key={pIdx} style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '0.8rem' }}>
                                         <Award size={18} color="var(--primary)" /> {pt}
@@ -144,7 +170,7 @@ const DigitalMarketing = () => {
             </section>
 
             {/* Core Services Section */}
-            <section id="services">
+            <section id="services" style={{ background: '#FFFFFF' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
                     <span className="section-tag">Our Arsenal</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Omnichannel <span className="gradient-text">Expertise</span></h2>
@@ -155,22 +181,14 @@ const DigitalMarketing = () => {
 
                 <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
                     {coreServices.map((service, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" style={{ padding: '3rem 2.5rem', transition: 'all 0.4s ease' }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-10px)';
-                                e.currentTarget.style.boxShadow = `0 20px 40px rgba(255, 0, 122, 0.1)`;
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = 'var(--shadow)';
-                            }}>
+                        <div key={idx} className="card card--pastel" data-aos="fade-up" style={{ padding: '3rem 2.5rem', transition: 'all 0.4s ease' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-                                <div style={{ background: 'rgba(255, 0, 122, 0.05)', padding: '1rem', borderRadius: '15px' }}>
+                                <div className="icon-box" style={{ padding: '1rem', borderRadius: '15px' }}>
                                     {service.icon}
                                 </div>
                             </div>
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>{service.title}</h3>
-                            <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>{service.description}</p>
+                            <p style={{ lineHeight: 1.7 }}>{service.description}</p>
                         </div>
                     ))}
                 </div>
@@ -179,7 +197,10 @@ const DigitalMarketing = () => {
             {/* Final CTA / Contact */}
             <section id="contact">
                 <div className="cta-content" data-aos="zoom-in" style={{
-                    background: '#fff',
+                    backgroundImage: `url("${encodeURI('/service market.webp')}")`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
                     padding: '6rem 4rem',
                     borderRadius: '40px',
                     border: '1px solid var(--border)',
@@ -193,17 +214,17 @@ const DigitalMarketing = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div>
-                            <span className="section-tag" style={{ justifyContent: 'flex-start' }}>Scale Your Revenue</span>
-                            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            <span className="section-tag" style={{ justifyContent: 'flex-start', color: 'rgba(249, 250, 251, 0.9)' }}>Scale Your Revenue</span>
+                            <h2 style={{ fontSize: 'clamp(2.4rem, 4.6vw, 3.5rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.15, color: '#F9FAFB', textShadow: '0 6px 18px rgba(0, 0, 0, 0.45)' }}>
                                 Ready to Dominate Your <span className="gradient-text">Market?</span>
                             </h2>
-                            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                            <p style={{ fontSize: '1.35rem', color: 'rgba(249, 250, 251, 0.82)', marginBottom: '2.2rem', lineHeight: 1.8, textShadow: '0 4px 14px rgba(0, 0, 0, 0.5)' }}>
                                 Stop leaving money on the table. Let our team of digital growth experts build a custom strategy to skyrocket your sales and brand visibility.
                             </p>
 
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem' }}>
                                 {ctaFeatures.map((feat, idx) => (
-                                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.05rem', fontWeight: 600 }}>
+                                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.15rem', fontWeight: 700, color: 'rgba(249, 250, 251, 0.9)', textShadow: '0 3px 10px rgba(0, 0, 0, 0.45)' }}>
                                         {feat.icon} {feat.text}
                                     </div>
                                 ))}

@@ -47,7 +47,7 @@ const Navbar = () => {
                     </Link>
                     <ul className={`dropdown-menu ${activeDropdown === 'products' ? 'show' : ''}`}>
                         <li onClick={closeMenu}><Link to="/fly-bill">Fly Bill</Link></li>
-                        <li onClick={closeMenu}><Link to="/payroll">FLYROLL</Link></li>
+                        <li onClick={closeMenu}><Link to="/payroll">FlyPayroll</Link></li>
                         <li onClick={closeMenu}><Link to="/smart-crm">Smart CRM</Link></li>
                     </ul>
                 </li>
@@ -64,7 +64,7 @@ const Navbar = () => {
                     </ul>
                 </li>
 
-                <li onClick={closeMenu}><Link to="/gallery" className={location.pathname === '/gallery' ? 'active' : ''}>Gallery</Link></li>
+                <li onClick={closeMenu}><Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''}>Careers</Link></li>
                 <li onClick={closeMenu}><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link></li>
                 <li onClick={closeMenu}><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
 

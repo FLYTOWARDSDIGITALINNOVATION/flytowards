@@ -104,7 +104,6 @@ const FlyBill = () => {
                             <a href="#contact" className="btn btn-primary">
                                 Request a Demo <ArrowRight size={20} />
                             </a>
-                            <a href="#pricing" className="btn btn-outline" style={{ border: '1px solid var(--border)' }}>View Pricing</a>
                         </div>
                     </div>
 
@@ -339,7 +338,6 @@ const FlyBill = () => {
                             <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem' }}>
                                 Book a Free Demo <ArrowRight size={20} />
                             </a>
-                            <a href="mailto:info@flytowards-digital.com" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Request Pricing</a>
                         </div>
                     </div>
                 </div>

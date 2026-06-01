@@ -28,7 +28,7 @@ const Footer = () => {
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <li><Link to="/" className="footer-link">Home</Link></li>
                         <li><Link to="/about" className="footer-link">About Us</Link></li>
-                        <li><Link to="/gallery" className="footer-link">Gallery</Link></li>
+                        <li><Link to="/careers" className="footer-link">Careers</Link></li>
                         <li><Link to="/blog" className="footer-link">Blog</Link></li>
                         <li><Link to="/contact" className="footer-link">Contact</Link></li>
                     </ul>
@@ -39,7 +39,7 @@ const Footer = () => {
                     <h4 style={{ marginBottom: '1.5rem', fontWeight: 800, color: 'white', fontSize: '1.2rem' }}>Products</h4>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <li><Link to="/fly-bill" className="footer-link">Fly Bill</Link></li>
-                        <li><Link to="/payroll" className="footer-link">FLYROLL</Link></li>
+                        <li><Link to="/payroll" className="footer-link">FlyPayroll</Link></li>
                         <li><Link to="/smart-crm" className="footer-link">Smart CRM</Link></li>
                         <li><Link to="/products" className="footer-link">View All Products</Link></li>
                     </ul>

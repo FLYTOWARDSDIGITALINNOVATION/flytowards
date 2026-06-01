@@ -110,9 +110,9 @@ const FlyPayroll = () => {
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
                 <div className="grid-2">
-                    <div data-aos="fade-up">
+                        <div data-aos="fade-up">
                         <div style={{ display: 'inline-flex', padding: '0.5rem 1.2rem', background: 'rgba(0, 242, 255, 0.1)', border: '1px solid rgba(0, 242, 255, 0.2)', borderRadius: '50px', marginBottom: '2rem', alignItems: 'center', gap: '10px' }}>
-                             <Settings size={18} color="var(--primary)" /> <span style={{ fontWeight: 700, color: 'var(--primary)' }}>FlyRoll Ecosystem</span>
+                             <Settings size={18} color="var(--primary)" /> <span style={{ fontWeight: 700, color: 'var(--primary)' }}>FlyPayroll Ecosystem</span>
                         </div>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
                             Fully Automated <br />
@@ -135,7 +135,7 @@ const FlyPayroll = () => {
 
                         <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                             <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                                Go to FlyRoll App <ArrowRight size={20} />
+                                Go to FlyPayroll App <ArrowRight size={20} />
                             </a>
                             <a href="#contact" className="btn btn-outline" style={{ border: '1px solid var(--border)' }}>Request a Demo</a>
                         </div>
@@ -145,7 +145,7 @@ const FlyPayroll = () => {
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
                                 src="Payroll.webp"
-                                alt="FlyRoll Dashboard Analytics"
+                                alt="FlyPayroll Dashboard Analytics"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
                             />
@@ -405,7 +405,7 @@ const FlyPayroll = () => {
                         </p>
                         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                             <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
-                                Go to FlyRoll App <ArrowRight size={20} />
+                                Go to FlyPayroll App <ArrowRight size={20} />
                             </a>
                             <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '1.2rem 3rem', color: 'white', borderColor: 'rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}>Book a Free Demo</a>
                         </div>
