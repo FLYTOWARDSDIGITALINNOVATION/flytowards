@@ -86,19 +86,7 @@ const SmartCRM = () => {
                             <a href="#features" className="btn btn-outline" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', border: '1px solid var(--border)' }}>Explore Features</a>
                         </div>
                         
-                        <div style={{ marginTop: '3rem', display: 'flex', gap: '2rem', alignItems: 'center' }}>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '3px solid white', zIndex: 3 }} alt="User" />
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '3px solid white', marginLeft: '-15px', zIndex: 2 }} alt="User" />
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '3px solid white', marginLeft: '-15px', zIndex: 1 }} alt="User" />
-                            </div>
-                            <div>
-                                <div style={{ display: 'flex', gap: '4px', color: 'var(--accent)' }}>
-                                    {[1,2,3,4,5].map(i => <Star key={i} size={18} fill="currentColor" />)}
-                                </div>
-                                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>Trusted by 500+ Businesses</p>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
