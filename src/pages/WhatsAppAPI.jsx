@@ -4,11 +4,24 @@ import { useEffect } from 'react';
 const WhatsAppAPI = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "We Provide Whatsapp Business API Marketing For Your Business";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "We offering the Whatsapp Business Marketing Service To Send Bulk Messages, Automated Messages for your business growth");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "We offering the Whatsapp Business Marketing Service To Send Bulk Messages, Automated Messages for your business growth");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "whatsapp marketing, Whatsapp API Marketing,");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Whatsapp marketing, Whatsapp API Marketing, ");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/whatsapp-api/");
+
     }, []);
 
     const features = [

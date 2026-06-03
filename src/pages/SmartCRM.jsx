@@ -5,11 +5,24 @@ import { Link } from 'react-router-dom';
 const SmartCRM = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = "Smart CRM | CRM Software Help to Track you Business";
+
+        document.title = "Smart CRM | CRM Software Help to Track your Business";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Fly Towards Smart CRM Software helps businesses track leads, automate sales, manage customer relationships, and close deals faster");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Towards Smart CRM Software Helps Businesses Track Leads, Automate Sales, Manage Customer Relationships, and Close Deals Faster");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "best crm software, crm, contact management software");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "best crm software, crm, contact management software");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/smart-crm/");
+
     }, []);
 
     const features = [

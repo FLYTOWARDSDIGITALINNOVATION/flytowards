@@ -5,11 +5,24 @@ import { Link as RouterLink } from 'react-router-dom';
 const WebDev = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "Website Development For your Business";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "We Help to Build the Best & Reliable Website For You Small to Big Scale Business & Company for Affordable Price");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "We Help to Build the Best & Reliable Website For You Small to Big Scale Business & Company for Affordable Price");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "website development company, web design and development");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "website development company, web design and development");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/web-development/");
+
     }, []);
 
     const coreServices = [

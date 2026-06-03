@@ -5,11 +5,24 @@ import { Link as RouterLink } from 'react-router-dom';
 const Service = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "Fly Towards Digital Innovation Services";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Fly Towards offers Digital Marketing, Software & Website Development services to help businesses grow online with smart technology and result driven solutions.");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Towards offers Digital Marketing, Software & Website Development services to help businesses grow online with smart technology and result driven solutions.");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "Digital Marketing, Software development");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Digital Marketing, Software development");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/service/");
+
     }, []);
 
     const services = [

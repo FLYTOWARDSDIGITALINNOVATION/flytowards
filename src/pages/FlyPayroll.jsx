@@ -4,11 +4,24 @@ import { useEffect } from 'react';
 const FlyPayroll = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "Fly Payroll | No1 Payroll Software For Your Company";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Fly Towards Payroll Software offers Office Field Attendance Solutions with GPS tracking, Face Recognition, and Liveness Detection no biometric devices required.");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Towards Payroll Software offers Office Field Attendance Solutions with GPS tracking, Face Recognition, and Liveness Detection no biometric devices required.");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "Attendance Software, attendance tracking software, attendance management system");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Attendance Software, attendance tracking software, attendance management system");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/payroll/");
+
     }, []);
 
     const goals = [

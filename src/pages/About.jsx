@@ -4,11 +4,24 @@ import { useEffect } from 'react';
 const About = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "About Fly Towards Digital Innovation";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "We Are The Best & Leading IT Company in Sankarankovil Provide the Software & Website Development Digital Marketing Services");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "We Are The Best & Leading IT Company in Sankarankovil Provide the Software & Website Development Digital Marketing Services");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "Digital marketing services, Payroll Software, CRM Software, website development");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Digital marketing services, Payroll Software, CRM Software, Website Development");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/about/");
+
     }, []);
     return (
         <main style={{ position: 'relative', overflow: 'hidden' }}>

@@ -4,11 +4,24 @@ import { useEffect } from 'react';
 const FlyBill = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "Fly Bill | The Best Billing Software";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Fly Bill The Billing Software Help to Business Growth and reduce the time for your business");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Bill The Billing Software Help to Business Growth and Reduce the Time for Your Business");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "Invoice Software, Automated billing Software");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Invoice Software, Automated billing Software");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/fly-bill/");
+
     }, []);
 
     const challenges = [

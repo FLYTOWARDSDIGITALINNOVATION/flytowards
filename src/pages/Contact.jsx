@@ -4,11 +4,24 @@ import { useEffect, useState } from 'react';
 const Contact = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "Contact Fly Towards Digital Innovation";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Let's Talk Share Your Innovation and Idea to us, We are here to help you");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Let's Talk Share Your Innovation and Idea to us, We are here to help you");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Digital marketing services, Payroll Software, CRM Software, website development");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/contact/");
+
     }, []);
 
     const [formStatus, setFormStatus] = useState(null);

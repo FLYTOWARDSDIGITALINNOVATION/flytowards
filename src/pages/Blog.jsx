@@ -99,6 +99,24 @@ const Blog = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        document.title = "The Fly Towards Blogs Page";
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Explore the latest insights on digital marketing, software development, website design, SEO, CRM solutions, and business growth from Fly Towards Digital Innovation ");
+
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Blogs, Recent updates, SEO Blog, Software blogs");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/blog/");
+
         fetchBlogs();
     }, []);
 

@@ -4,11 +4,24 @@ import { useEffect } from 'react';
 const Products = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
         document.title = "Our Software Product";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "We Create the Best And Affordable Business Software like CRM, Payroll, Billing In Sankarankovil");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "We Create the Best And Affordable Business Software like CRM, Payroll, Billing In Sankarankovil");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "Digital marketing services, Payroll Software, CRM Software, website development");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Digital marketing services, Payroll Software, CRM Software, website development");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/products/");
+
     }, []);
 
     const products = [

@@ -4,11 +4,24 @@ import { useEffect } from 'react';
 const DigitalMarketing = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = "Digital Marketing Services";
+
+        document.title = "Our Best Digital Marketing Services";
+
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content", "Fly towards Help to Grow Your Business at Online Presence We Provide The Best Digital Marketing Service");
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly towards Help to Grow Your Business at Online Presence We Provide The Best Digital Marketing Service");
+
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content", "digital marketing agency, performance marketing, marketing strategy");
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "digital marketing agency, performance marketing, marketing strategy");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/digital-marketing/");
+
     }, []);
 
     const heroCardTheme = {

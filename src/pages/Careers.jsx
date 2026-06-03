@@ -4,6 +4,24 @@ import { Users, Briefcase, Zap, ArrowRight, Star, Globe, Clock, ShieldCheck, Hea
 const Careers = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        document.title = "Start Career With us & Join Our Fly Family";
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Start your professional journey with Fly Towards Digital Innovation. Explore current job openings and grow your career in the IT industry");
+
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Digital Marketing career, Software developer career");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/careers/");
+
     }, []);
 
     const [activeFaq, setActiveFaq] = useState(null);
