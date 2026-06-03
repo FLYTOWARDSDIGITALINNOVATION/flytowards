@@ -219,7 +219,7 @@ const Products = () => {
                         <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem' }}>
                             WhatsApp Us <ArrowRight size={20} />
                         </a>
-                        <a href="mailto:info@flytowards-digital.com" className="btn btn-outline" style={{ padding: '1.2rem 3rem' }}>Get Pricing Details</a>
+                        
                     </div>
                 </div>
             </section>

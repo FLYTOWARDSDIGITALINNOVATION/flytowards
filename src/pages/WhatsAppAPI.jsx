@@ -115,7 +115,7 @@ const WhatsAppAPI = () => {
                             <a href="#contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', boxShadow: '0 10px 20px rgba(0, 242, 255, 0.2)' }}>
                                 Get API Access <ArrowRight size={20} />
                             </a>
-                            <a href="#docs" className="btn btn-outline" style={{ border: '1px solid var(--border)', background: 'white' }}>View Documentation</a>
+                            
                         </div>
                     </div>
 
