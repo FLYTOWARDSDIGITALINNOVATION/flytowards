@@ -4,6 +4,11 @@ import { useEffect } from 'react';
 const FlyPayroll = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Fly Payroll | No1 Payroll Software For Your Company";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Fly Towards Payroll Software offers Office Field Attendance Solutions with GPS tracking, Face Recognition, and Liveness Detection no biometric devices required.");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "Attendance Software, attendance tracking software, attendance management system");
     }, []);
 
     const goals = [
@@ -115,8 +120,7 @@ const FlyPayroll = () => {
                              <Settings size={18} color="var(--primary)" /> <span style={{ fontWeight: 700, color: 'var(--primary)' }}>FlyPayroll Ecosystem</span>
                         </div>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-                            Fully Automated <br />
-                            <span className="gradient-text" style={{ textShadow: '0 0 40px rgba(255,0,122,0.3)' }}>Attendance & Payroll</span>
+                            Fly Payroll Automated Attendance Software
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '600px' }}>
                             Office + Field Attendance Solution using GPS, Geo-fencing, Face Recognition and Liveness Detection without any biometric or IoT devices.

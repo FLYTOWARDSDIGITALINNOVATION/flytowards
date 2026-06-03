@@ -5,6 +5,11 @@ import { Link as RouterLink } from 'react-router-dom';
 const Service = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Fly Towards Digital Innovation Services";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Fly Towards offers Digital Marketing, Software & Website Development services to help businesses grow online with smart technology and result driven solutions.");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "Digital Marketing, Software development");
     }, []);
 
     const services = [
@@ -155,8 +160,7 @@ const Service = () => {
                                 <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.3em' }}>Digital Agency Excellence</span>
                             </div>
                             <h1 style={{ fontSize: 'clamp(4rem, 10vw, 6.5rem)', fontWeight: 900, lineHeight: 0.9, marginBottom: '3rem', letterSpacing: '-0.05em' }}>
-                                Building <br />
-                                <span className="gradient-text">Greatness.</span>
+                                Our Services
                             </h1>
                             <p style={{ fontSize: '1.5rem', color: '#64748b', lineHeight: 1.6, marginBottom: '4rem', maxWidth: '650px' }}>
                                 We provide high-impact digital transformation services designed to evolve your business, scale your reach, and dominate your industry.

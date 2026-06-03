@@ -4,6 +4,11 @@ import { useEffect } from 'react';
 const WhatsAppAPI = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "We Provide Whatsapp Business API Marketing For Your Business";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "We offering the Whatsapp Business Marketing Service To Send Bulk Messages, Automated Messages for your business growth");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "whatsapp marketing, Whatsapp API Marketing,");
     }, []);
 
     const features = [
@@ -100,8 +105,7 @@ const WhatsAppAPI = () => {
                             <MessageCircle size={18} color="var(--primary)" /> Premium API Solutions
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-                            Powerful WhatsApp Marketing API <br />
-                            <span className="gradient-text">For Growing Businesses</span>
+                            Whatsapp Business API Marketing
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '600px' }}>
                             Automate conversations, send bulk messages, manage campaigns, and engage customers on WhatsApp using our secure and scalable API.

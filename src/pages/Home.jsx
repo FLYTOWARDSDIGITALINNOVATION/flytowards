@@ -65,7 +65,7 @@ const Home = () => {
                 <div className="home-hero__content">
                     <div className="home-hero__text" data-aos="fade-up">
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '1rem', lineHeight: 1.2 }}>
-                            FLY TOWARDS <br />
+                            Fly Towards Best Software Company <br />
                             <span className="gradient-text" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', display: 'block', marginTop: '0.5rem' }}>DIGITAL INNOVATION</span>
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.6rem', fontWeight: 700, opacity: 0.9, lineHeight: 1.4, maxWidth: '600px' }}>

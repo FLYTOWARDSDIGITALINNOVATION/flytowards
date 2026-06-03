@@ -4,6 +4,11 @@ import { useEffect } from 'react';
 const FlyBill = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Fly Bill | The Best Billing Software";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Fly Bill The Billing Software Help to Business Growth and reduce the time for your business");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "Invoice Software, Automated billing Software");
     }, []);
 
     const challenges = [
@@ -91,7 +96,7 @@ const FlyBill = () => {
                     <div data-aos="fade-up">
                         <span className="section-tag">Fly Bill Ecosystem</span>
                         <h1 className="hero-title">
-                            Professional Billing <br />
+                            Fly Bill The Professional Billing <br />
                             <span className="gradient-text">Software</span>
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.8rem', fontWeight: 700, opacity: 0.9 }}>

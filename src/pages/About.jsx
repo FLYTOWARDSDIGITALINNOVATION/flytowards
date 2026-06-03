@@ -1,6 +1,15 @@
 import { ArrowRight, CheckCircle2, Target, Eye, Code, TrendingUp, Cpu, Monitor, Zap, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 const About = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        document.title = "About Fly Towards Digital Innovation";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "We Are The Best & Leading IT Company in Sankarankovil Provide the Software & Website Development Digital Marketing Services");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "Digital marketing services, Payroll Software, CRM Software, website development");
+    }, []);
     return (
         <main style={{ position: 'relative', overflow: 'hidden' }}>
             <div className="mesh-bg"></div>
@@ -16,7 +25,7 @@ const About = () => {
                     <div data-aos="fade-up">
                         <span className="section-tag">Driven by Innovation.</span>
                         <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 1.1, marginBottom: '2rem', fontWeight: 900 }}>
-                            Focused on <br />
+                            About Us Fly Towards <br />
                             Your <span className="gradient-text">Growth.</span>
                         </h1>
                         <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '3rem', lineHeight: 1.8 }}>

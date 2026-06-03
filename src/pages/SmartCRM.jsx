@@ -5,6 +5,11 @@ import { Link } from 'react-router-dom';
 const SmartCRM = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Smart CRM | CRM Software Help to Track you Business";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Fly Towards Smart CRM Software helps businesses track leads, automate sales, manage customer relationships, and close deals faster");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "best crm software, crm, contact management software");
     }, []);
 
     const features = [
@@ -72,8 +77,7 @@ const SmartCRM = () => {
                             <Rocket size={18} /> Intelligent Business Management
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-                            Scale Growth with <br />
-                            <span className="gradient-text">SmartCRM</span>
+                            Smart CRM Help to Track you Business 
                         </h1>
                         <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '600px', lineHeight: 1.8 }}>
                             SmartCRM helps businesses track leads, automate sales, manage customer relationships, and close deals faster—all in one powerful, elegant platform.

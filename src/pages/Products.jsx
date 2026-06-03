@@ -4,6 +4,11 @@ import { useEffect } from 'react';
 const Products = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Our Software Product";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "We Create the Best And Affordable Business Software like CRM, Payroll, Billing In Sankarankovil");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "Digital marketing services, Payroll Software, CRM Software, website development");
     }, []);
 
     const products = [
@@ -121,7 +126,7 @@ const Products = () => {
                 <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto' }} data-aos="fade-up">
                     <span className="section-tag" style={{ justifyContent: 'center', display: 'flex' }}>Our Ecosystem</span>
                     <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '1.5rem' }}>
-                        Digital Products That <span className="gradient-text">Power Modern Businesses</span>
+                        Our Business Software Products
                     </h1>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
                         Fly-Towards Digital Innovation builds smart, scalable software products designed to help businesses automate operations, improve customer experience, and grow faster.

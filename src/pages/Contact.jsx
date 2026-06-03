@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react';
 const Contact = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Contact Fly Towards Digital Innovation";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Let's Talk Share Your Innovation and Idea to us, We are here to help you");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "");
     }, []);
 
     const [formStatus, setFormStatus] = useState(null);
@@ -52,8 +57,7 @@ const Contact = () => {
                         <Send size={18} /> Contact Us
                     </span>
                     <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                        Let’s Take Your Business to <br />
-                        <span className="gradient-text">New Digital Heights</span>
+                        Contact Us
                     </h1>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
                         Have a project in mind? Need more customers? Or want to grow your brand online? Our team is here to support your digital journey every step of the way.

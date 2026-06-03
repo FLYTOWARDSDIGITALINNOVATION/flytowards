@@ -4,6 +4,11 @@ import { useEffect } from 'react';
 const DigitalMarketing = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Digital Marketing Services";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "Fly towards Help to Grow Your Business at Online Presence We Provide The Best Digital Marketing Service");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "digital marketing agency, performance marketing, marketing strategy");
     }, []);
 
     const heroCardTheme = {
@@ -81,8 +86,7 @@ const DigitalMarketing = () => {
                             <Zap size={18} /> Elite Growth Agency
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-                            Explosive Growth <br />
-                            <span className="gradient-text">Through Digital Marketing</span>
+                            Our Digital Marketing Services
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.4rem', fontWeight: 600, opacity: 0.9, lineHeight: 1.6, maxWidth: '600px' }}>
                             We turn clicks into clients and traffic into revenue.

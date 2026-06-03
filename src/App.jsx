@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -22,6 +22,23 @@ import AdminLogin from './pages/AdminLogin';
 import AdminCreateBlog from './pages/AdminCreateBlog';
 import Loader from './components/Loader';
 
+const DynamicCanonical = () => {
+    const location = useLocation();
+    useEffect(() => {
+        let canonicalLink = document.querySelector("link[rel='canonical']");
+        if (!canonicalLink) {
+            canonicalLink = document.createElement('link');
+            canonicalLink.rel = 'canonical';
+            document.head.appendChild(canonicalLink);
+        }
+        const cleanPath = location.pathname.endsWith('/') && location.pathname !== '/' 
+            ? location.pathname.slice(0, -1) 
+            : location.pathname;
+        canonicalLink.href = `https://www.flytowards.in${cleanPath}`;
+    }, [location]);
+    return null;
+};
+
 function App() {
     useEffect(() => {
         AOS.init({
@@ -33,6 +50,7 @@ function App() {
 
     return (
         <Router>
+            <DynamicCanonical />
             <Loader />
             <div className="app">
                 <Navbar />

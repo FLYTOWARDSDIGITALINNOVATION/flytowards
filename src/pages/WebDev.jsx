@@ -5,6 +5,11 @@ import { Link as RouterLink } from 'react-router-dom';
 const WebDev = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = "Website Development For your Business";
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content", "We Help to Build the Best & Reliable Website For You Small to Big Scale Business & Company for Affordable Price");
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content", "website development company, web design and development");
     }, []);
 
     const coreServices = [
@@ -155,8 +160,7 @@ const WebDev = () => {
                                 <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Web Excellence</span>
                             </div>
                             <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', fontWeight: 900, lineHeight: 0.95, marginBottom: '2.5rem', letterSpacing: '-0.04em' }}>
-                                Engineering <br />
-                                <span className="gradient-text">Digital Futures.</span>
+                                Website Development Service
                             </h1>
                             <p style={{ fontSize: '1.4rem', color: '#64748b', lineHeight: 1.6, marginBottom: '3.5rem', maxWidth: '600px' }}>
                                 We build performance-obsessed web architectures that convert visitors into loyal customers and scale seamlessly with your vision.
