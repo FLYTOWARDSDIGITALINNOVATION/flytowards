@@ -229,6 +229,59 @@ const Careers = () => {
                     box-shadow: 0 0 0 4px rgba(0, 242, 255, 0.1);
                 }
                 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+                @media (max-width: 991px) {
+                    .hero-grid {
+                        grid-template-columns: 1fr !important;
+                        text-align: center;
+                        gap: 3rem !important;
+                    }
+                    .hero-content-box {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .hero-image {
+                        margin-top: 2rem;
+                    }
+                    .hero-image img {
+                        height: 400px !important;
+                    }
+                    .values-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                    }
+                    .journey-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 1.5rem !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .section-padding {
+                        padding: 80px 0 !important;
+                    }
+                    .section-title {
+                        font-size: 2.8rem !important;
+                    }
+                    .hero-title {
+                        font-size: 3rem !important;
+                    }
+                    .roles-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .journey-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .btn-glow {
+                        padding: 1.2rem 3rem !important;
+                        font-size: 1.1rem !important;
+                    }
+                    .gradient-portal {
+                        padding: 6rem 2rem !important;
+                        border-radius: 40px !important;
+                    }
+                }
             `}</style>
 
             {/* Modal - Professional Gmail Submission Form */}
@@ -297,12 +350,12 @@ const Careers = () => {
             </div>
 
             {/* Hero Section */}
-            <section style={{ position: 'relative', zIndex: 1, paddingTop: '180px', paddingBottom: '120px' }}>
+            <section className="section-padding" style={{ position: 'relative', zIndex: 1, paddingTop: '180px', paddingBottom: '120px' }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', alignItems: 'center', gap: '4rem' }}>
-                        <div data-aos="fade-right">
+                    <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', alignItems: 'center', gap: '4rem' }}>
+                        <div data-aos="fade-right" className="hero-content-box">
                             <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '1.5rem' }}>Careers at Fly Towards</span>
-                            <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 6rem)', fontWeight: 800, lineHeight: 0.9, marginBottom: '2.5rem', letterSpacing: '-0.03em', color: '#1e1b4b' }}>
+                            <h1 className="hero-title" style={{ fontSize: 'clamp(3.5rem, 8vw, 6rem)', fontWeight: 800, lineHeight: 0.9, marginBottom: '2.5rem', letterSpacing: '-0.03em', color: '#1e1b4b' }}>
                                 The Future <br /> Needs Your <br />
                                 <span className="gradient-text">Boldness.</span>
                             </h1>
@@ -331,13 +384,13 @@ const Careers = () => {
             </section>
 
             {/* Values Section */}
-            <section style={{ padding: '120px 0', background: '#fcfcfd', position: 'relative', zIndex: 1 }}>
+            <section className="section-padding" style={{ padding: '120px 0', background: '#fcfcfd', position: 'relative', zIndex: 1 }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1.5rem', color: '#1e1b4b' }}>Our Core <span className="gradient-text">DNA</span></h2>
+                        <h2 className="section-title" style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1.5rem', color: '#1e1b4b' }}>Our Core <span className="gradient-text">DNA</span></h2>
                         <p style={{ color: '#64748b', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>We hired humans, not resources. These are the values that bind us together.</p>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2.5rem' }}>
+                    <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2.5rem' }}>
                         {values.map((v, i) => (
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="glass-card" style={{ padding: '4rem 3rem', borderRadius: '40px', textAlign: 'center', background: '#fff' }}>
                                 <div style={{ width: '70px', height: '70px', background: 'var(--primary)', color: 'black', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem' }}>
@@ -352,15 +405,15 @@ const Careers = () => {
             </section>
 
             {/* Role Listings */}
-            <section id="openings" style={{ padding: '120px 0', background: '#f8fafc', color: '#0f172a', position: 'relative', zIndex: 1 }}>
+            <section id="openings" className="section-padding" style={{ padding: '120px 0', background: '#f8fafc', color: '#0f172a', position: 'relative', zIndex: 1 }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                         <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Opportunities</span>
-                        <h2 style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '1rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Join the <span className="gradient-text">Tribe</span></h2>
+                        <h2 className="section-title" style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '1rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Join the <span className="gradient-text">Tribe</span></h2>
                         <p style={{ color: '#64748b', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>We aren't looking for employees. We're looking for architects of the future.</p>
                     </div>
                     
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
+                    <div className="roles-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
                         {openPositions.map((job, idx) => (
                             <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} className="role-card">
                                 <div className="role-img-container">
@@ -406,14 +459,14 @@ const Careers = () => {
             </section>
 
             {/* Hiring Process */}
-            <section id="journey" style={{ padding: '120px 0', position: 'relative', zIndex: 1, background: '#fff' }}>
+            <section id="journey" className="section-padding" style={{ padding: '120px 0', position: 'relative', zIndex: 1, background: '#fff' }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
                         <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Steps to join</span>
-                        <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginTop: '1rem', color: '#1e1b4b' }}>Your Journey <span style={{ color: 'var(--primary)' }}>Starts Here.</span></h2>
+                        <h2 className="section-title" style={{ fontSize: '3.5rem', fontWeight: 800, marginTop: '1rem', color: '#1e1b4b' }}>Your Journey <span style={{ color: 'var(--primary)' }}>Starts Here.</span></h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
+                    <div className="journey-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
                         {hiringSteps.map((step, i) => (
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="journey-step-card" style={{
                                 background: '#f8fafc', padding: '1.5rem', borderRadius: '32px', border: '1px solid #f1f5f9',

@@ -105,6 +105,91 @@ const WhatsAppAPI = () => {
 
     return (
         <main style={{ position: 'relative', overflow: 'hidden' }}>
+            <style>{`
+                .whatsapp-hero-grid { 
+                    display: grid;
+                    grid-template-columns: 1.2fr 0.8fr;
+                    gap: 4rem;
+                    align-items: center;
+                }
+                .features-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+                .feature-row {
+                    display: flex;
+                    gap: 2rem;
+                    flex-wrap: wrap;
+                }
+                .workflow-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5rem;
+                }
+                .workflow-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 4rem;
+                    background: white;
+                    border-radius: 40px;
+                    padding: 1.5rem;
+                    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+                    border: 1px solid var(--border);
+                }
+
+                @media (max-width: 991px) {
+                    .whatsapp-hero-grid {
+                        grid-template-columns: 1fr !important;
+                        text-align: center;
+                    }
+                    .hero-content-box {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .hero-image-v2 {
+                        margin-top: 4rem;
+                    }
+                    .hero-image-v2 img {
+                        height: 400px !important;
+                    }
+                    .feature-card {
+                        flex: 1 1 100% !important;
+                        height: 350px !important;
+                    }
+                    .feature-card p {
+                        max-width: 100% !important;
+                    }
+                    .workflow-item {
+                        flex-direction: column !important;
+                        gap: 2rem !important;
+                        padding: 2rem !important;
+                    }
+                    .workflow-image {
+                        height: 300px !important;
+                    }
+                    .workflow-content {
+                        padding: 1rem !important;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .section-title {
+                        font-size: 2.5rem !important;
+                    }
+                    .feature-card {
+                        padding: 2rem !important;
+                    }
+                    .hero-title {
+                        font-size: 2.8rem !important;
+                    }
+                }
+            `}</style>
             {/* Aesthetic Background Orbs to fill empty spaces */}
             <div style={{ position: 'absolute', top: '15%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,242,255,0.08) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(50px)' }}></div>
             <div style={{ position: 'absolute', top: '40%', right: '-15%', width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(255,0,122,0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
@@ -112,8 +197,8 @@ const WhatsAppAPI = () => {
 
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
-                    <div data-aos="fade-up">
+                <div className="whatsapp-hero-grid max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
+                    <div data-aos="fade-up" className="hero-content-box">
                         <span className="section-tag">
                             <MessageCircle size={18} color="var(--primary)" /> Premium API Solutions
                         </span>
@@ -180,16 +265,16 @@ const WhatsAppAPI = () => {
             <section id="features" style={{ padding: '8rem 0', background: 'rgba(255, 0, 122, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
                     <span className="section-tag">Marketing Tools</span>
-                    <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
+                    <h2 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Our WhatsApp Business API helps you connect with customers at scale while staying compliant and reliable.
                     </p>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
-                    <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                <div className="features-container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+                    <div className="feature-row" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                         {features.slice(0, 2).map((feature, idx) => (
-                            <div key={idx} data-aos="fade-up" style={{
+                            <div key={idx} data-aos="fade-up" className="feature-card" style={{
                                 flex: idx === 0 ? '2 1 600px' : '1 1 300px', // Asymmetric split
                                 minWidth: '300px',
                                 position: 'relative',
@@ -212,9 +297,9 @@ const WhatsAppAPI = () => {
                         ))}
                     </div>
 
-                    <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                    <div className="feature-row" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                         {features.slice(2, 4).map((feature, idx) => (
-                            <div key={idx + 2} data-aos="fade-up" style={{
+                            <div key={idx + 2} data-aos="fade-up" className="feature-card" style={{
                                 flex: idx === 0 ? '1 1 300px' : '2 1 600px', // Reverse asymmetric split
                                 minWidth: '300px',
                                 position: 'relative',
@@ -279,15 +364,15 @@ const WhatsAppAPI = () => {
             <section id="process" style={{ background: 'linear-gradient(to bottom, rgba(0, 242, 255, 0.02), rgba(255, 0, 122, 0.02))', padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }} data-aos="fade-up">
                     <span className="section-tag">Integration Flow</span>
-                    <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
+                    <h2 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         A seamless process to integrate WhatsApp Business API and start growing your customer base.
                     </p>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+                <div className="workflow-container" style={{ display: 'flex', flexDirection: 'column', gap: '5rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
                     {workflowSteps.map((step, idx) => (
-                        <div key={idx} data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"} style={{
+                        <div key={idx} data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"} className="workflow-item" style={{
                             display: 'flex',
                             flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse',
                             alignItems: 'center',
@@ -298,12 +383,12 @@ const WhatsAppAPI = () => {
                             boxShadow: '0 20px 50px rgba(0,0,0,0.05)',
                             border: '1px solid var(--border)'
                         }}>
-                            <div style={{ flex: 1, height: '400px', borderRadius: '30px', overflow: 'hidden', position: 'relative' }}>
+                            <div className="workflow-image" style={{ flex: 1, height: '400px', borderRadius: '30px', overflow: 'hidden', position: 'relative' }}>
                                 <img src={step.image} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(45deg, rgba(0,242,255,0.1), rgba(255,0,122,0.1))', mixBlendMode: 'overlay' }}></div>
                             </div>
 
-                            <div style={{ flex: 1, padding: '2rem 3rem' }}>
+                            <div className="workflow-content" style={{ flex: 1, padding: '2rem 3rem' }}>
                                 <div style={{
                                     width: '80px', height: '80px',
                                     background: `linear-gradient(135deg, rgba(${idx === 0 ? '0, 242, 255' : idx === 1 ? '255, 0, 122' : '157, 0, 255'}, 0.1) 0%, transparent 100%)`,

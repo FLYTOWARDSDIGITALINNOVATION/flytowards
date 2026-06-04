@@ -155,6 +155,78 @@ const WebDev = () => {
                     transform: translateY(-5px) scale(1.02);
                     box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
                 }
+
+                @media (max-width: 768px) {
+                    .hero-section {
+                        padding-top: 120px !important;
+                        padding-bottom: 60px !important;
+                    }
+                    .hero-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 3rem !important;
+                        text-align: center;
+                    }
+                    .hero-grid > div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .hero-image-container img {
+                        height: 400px !important;
+                        border-radius: 40px !important;
+                    }
+                    .services-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                    }
+                    .service-card {
+                        border-radius: 40px !important;
+                    }
+                    .service-card-image {
+                        height: 250px !important;
+                    }
+                    .service-card-content {
+                        padding: 2.5rem !important;
+                    }
+                    .process-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 3rem !important;
+                    }
+                    .step-card {
+                        flex-direction: column !important;
+                        text-align: center;
+                        gap: 2rem !important;
+                        padding: 3rem 2rem !important;
+                        border-radius: 35px !important;
+                    }
+                    .step-card:hover {
+                        transform: translateY(-10px) !important;
+                    }
+                    .step-icon-box {
+                        width: 90px !important;
+                        height: 90px !important;
+                    }
+                    .process-sidebar {
+                        position: relative !important;
+                        top: 0 !important;
+                        margin-top: 6rem;
+                    }
+                    .process-sidebar img {
+                        height: 350px !important;
+                        border-radius: 40px !important;
+                    }
+                    .cta-card {
+                        padding: 60px 30px !important;
+                        border-radius: 40px !important;
+                    }
+                    .section-padding {
+                        padding: 80px 0 !important;
+                    }
+                    .section-title {
+                        font-size: 3rem !important;
+                        line-height: 1.1 !important;
+                    }
+                }
             `}</style>
 
             {/* Ambient decoration */}
@@ -164,9 +236,9 @@ const WebDev = () => {
             </div>
 
             {/* Hero Section */}
-            <section style={{ position: 'relative', zIndex: 1, paddingTop: '180px', paddingBottom: '120px' }}>
+            <section className="hero-section" style={{ position: 'relative', zIndex: 1, paddingTop: '180px', paddingBottom: '120px' }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', alignItems: 'center', gap: '4rem' }}>
+                    <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', alignItems: 'center', gap: '4rem' }}>
                         <div data-aos="fade-right">
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
                                 <div style={{ width: '40px', height: '2px', background: '#00f2ff' }}></div>
@@ -187,7 +259,7 @@ const WebDev = () => {
                                 </a>
                             </div>
                         </div>
-                        <div data-aos="fade-left" className="floating">
+                        <div data-aos="fade-left" className="floating hero-image-container">
                             <div style={{ position: 'relative', borderRadius: '60px', overflow: 'hidden', boxShadow: '0 60px 120px rgba(15, 23, 42, 0.15)' }}>
                                 <img src="service image1.webp" alt="Web Dev" style={{ width: '100%', height: '650px', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent 60%)' }}></div>
@@ -198,23 +270,23 @@ const WebDev = () => {
             </section>
 
             {/* Core Services */}
-            <section id="services" style={{ padding: '120px 0', background: '#f8fafc', position: 'relative', zIndex: 1 }}>
+            <section id="services" className="section-padding" style={{ padding: '120px 0', background: '#f8fafc', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
                         <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.3em' }}>Our Capabilities</span>
-                        <h2 style={{ fontSize: '4rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Comprehensive <span className="gradient-text">Web Solutions.</span></h2>
+                        <h2 className="section-title" style={{ fontSize: '4rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Comprehensive <span className="gradient-text">Web Solutions.</span></h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem' }}>
+                    <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '3rem' }}>
                         {coreServices.map((service, idx) => (
                             <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} className="service-card" style={{ background: 'white', borderRadius: '50px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.03)', border: '1px solid #f1f5f9' }}>
-                                <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
+                                <div className="service-card-image" style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
                                     <img src={service.img} alt={service.title} className="service-img" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease' }} />
                                     <div style={{ position: 'absolute', top: '30px', left: '30px', width: '60px', height: '60px', background: 'white', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}>
                                         {React.cloneElement(service.icon, { color: `rgb(${service.color})` })}
                                     </div>
                                 </div>
-                                <div style={{ padding: '3.5rem' }}>
+                                <div className="service-card-content" style={{ padding: '3.5rem' }}>
                                     <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1.2rem', color: '#1e1b4b' }}>{service.title}</h3>
                                     <p style={{ fontSize: '1.2rem', color: '#64748b', lineHeight: 1.7, marginBottom: '2rem' }}>{service.description}</p>
                                     <RouterLink to="/contact" style={{ fontWeight: 800, color: '#00f2ff', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -228,20 +300,20 @@ const WebDev = () => {
             </section>
 
             {/* Development Process */}
-            <section id="process" style={{ padding: '160px 0', position: 'relative', zIndex: 1, background: '#ffffff' }}>
+            <section id="process" className="section-padding" style={{ padding: '160px 0', position: 'relative', zIndex: 1, background: '#ffffff' }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', gap: '6rem', alignItems: 'flex-start' }}>
+                    <div className="process-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', gap: '6rem', alignItems: 'flex-start' }}>
 
                         <div data-aos="fade-right">
                             <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.3em' }}>Our Workflow</span>
-                            <h2 style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '4rem', color: '#1e1b4b', lineHeight: 1 }}>How We <span className="gradient-text">Build Greatness.</span></h2>
+                            <h2 className="section-title" style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '4rem', color: '#1e1b4b', lineHeight: 1 }}>How We <span className="gradient-text">Build Greatness.</span></h2>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative' }}>
                                 <div style={{ position: 'absolute', top: '60px', bottom: '60px', left: '55px', width: '2px', background: 'linear-gradient(to bottom, #00f2ff, #25d366, #ff007a)', opacity: 0.15 }}></div>
 
                                 {devProcess.map((step, idx) => (
                                     <div key={idx} className="step-card" style={{ display: 'flex', gap: '3rem', alignItems: 'center', padding: '3.5rem', background: '#fcfcfe', borderRadius: '45px', border: '1px solid #f1f5f9', boxShadow: '0 25px 60px rgba(0,0,0,0.02)', position: 'relative', zIndex: 2 }}>
-                                        <div style={{ width: '110px', height: '110px', background: `linear-gradient(135deg, rgba(${step.color}, 0.1) 0%, rgba(${step.color}, 0.2) 100%)`, borderRadius: '35px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: `0 15px 30px rgba(${step.color}, 0.15)` }}>
+                                        <div className="step-icon-box" style={{ width: '110px', height: '110px', background: `linear-gradient(135deg, rgba(${step.color}, 0.1) 0%, rgba(${step.color}, 0.2) 100%)`, borderRadius: '35px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: `0 15px 30px rgba(${step.color}, 0.15)` }}>
                                             {React.cloneElement(step.icon, { color: `rgb(${step.color})` })}
                                         </div>
                                         <div>
@@ -258,7 +330,7 @@ const WebDev = () => {
                         </div>
 
                         {/* Sidebar */}
-                        <div data-aos="fade-left" style={{ position: 'sticky', top: '140px' }}>
+                        <div data-aos="fade-left" className="process-sidebar" style={{ position: 'sticky', top: '140px' }}>
                             <div style={{ borderRadius: '60px', overflow: 'hidden', marginBottom: '5rem', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}>
                                 <img src="Empowered Teams.png" alt="Strategy" style={{ width: '100%', height: '500px', objectFit: 'cover' }} />
                             </div>
@@ -293,7 +365,7 @@ const WebDev = () => {
 
             {/* Final CTA */}
             <section style={{ padding: '0 2rem 140px' }}>
-                <div data-aos="zoom-in" style={{ maxWidth: '1400px', margin: '0 auto', padding: '120px 60px', borderRadius: '80px', textAlign: 'center', background: 'linear-gradient(225deg, #0f172a 0%, #1e1b4b 100%)', position: 'relative', overflow: 'hidden', boxShadow: '0 60px 120px rgba(15, 23, 42, 0.3)' }}>
+                <div data-aos="zoom-in" className="cta-card" style={{ maxWidth: '1400px', margin: '0 auto', padding: '120px 60px', borderRadius: '80px', textAlign: 'center', background: 'linear-gradient(225deg, #0f172a 0%, #1e1b4b 100%)', position: 'relative', overflow: 'hidden', boxShadow: '0 60px 120px rgba(15, 23, 42, 0.3)' }}>
                     <div style={{ position: 'absolute', inset: 0, background: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")', opacity: 0.1 }}></div>
                     <div style={{ position: 'relative', zIndex: 1 }}>
                         <h2 style={{ fontSize: 'clamp(3rem, 7vw, 5rem)', fontWeight: 900, color: 'white', marginBottom: '3rem', letterSpacing: '-0.04em', lineHeight: 1 }}>Ready to Building a <br /><span className="gradient-text">Masterpiece?</span></h2>

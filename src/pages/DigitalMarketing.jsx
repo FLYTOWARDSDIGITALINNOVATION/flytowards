@@ -89,12 +89,77 @@ const DigitalMarketing = () => {
 
     return (
         <main>
+            <style>{`
+                .dm-hero-grid {
+                    display: grid;
+                    grid-template-columns: 1.2fr 0.8fr;
+                    gap: 4rem;
+                    align-items: center;
+                }
+                .dm-why-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 3rem;
+                }
+                .dm-services-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 3rem;
+                }
+                .dm-cta-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                    gap: 4rem;
+                    align-items: center;
+                }
+
+                @media (max-width: 991px) {
+                    .dm-hero-grid {
+                        grid-template-columns: 1fr !important;
+                        text-align: center;
+                    }
+                    .hero-content-box {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .hero-image-v2 {
+                        margin-top: 4rem;
+                        justify-content: center !important;
+                    }
+                    .dm-why-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .dm-cta-grid {
+                        grid-template-columns: 1fr !important;
+                        text-align: center;
+                    }
+                    .cta-features-grid {
+                        justify-items: center;
+                    }
+                    .cta-image-box {
+                        margin-top: 4rem;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .section-title {
+                        font-size: 2.5rem !important;
+                    }
+                    .hero-title {
+                        font-size: 2.8rem !important;
+                    }
+                    .card {
+                        padding: 2.5rem 2rem !important;
+                    }
+                }
+            `}</style>
             <div className="mesh-bg"></div>
 
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center', paddingBottom: '40px' }}>
-                <div className="grid-2">
-                    <div data-aos="fade-up">
+                <div className="dm-hero-grid">
+                    <div data-aos="fade-up" className="hero-content-box">
                         <span className="section-tag" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <Zap size={18} /> Elite Growth Agency
                         </span>
@@ -134,13 +199,13 @@ const DigitalMarketing = () => {
             <section id="whyus" style={{ background: 'rgba(255, 0, 122, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
                     <span className="section-tag">The Unfair Advantage</span>
-                    <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Marketing That <span className="gradient-text">Actually Works</span></h2>
+                    <h2 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Marketing That <span className="gradient-text">Actually Works</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         We blur the lines between marketing, technology, and sales to create comprehensive growth systems.
                     </p>
                 </div>
 
-                <div className="grid">
+                <div className="dm-why-grid">
                     {whyChooseUs.map((item, idx) => (
                         <div
                             key={idx}
@@ -190,13 +255,13 @@ const DigitalMarketing = () => {
             <section id="services" style={{ background: '#FFFFFF' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
                     <span className="section-tag">Our Arsenal</span>
-                    <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Omnichannel <span className="gradient-text">Expertise</span></h2>
+                    <h2 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Omnichannel <span className="gradient-text">Expertise</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Comprehensive digital solutions ensuring your brand captures attention at every stage of the customer journey.
                     </p>
                 </div>
 
-                <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+                <div className="dm-services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
                     {coreServices.map((service, idx) => (
                         <div key={idx} className="card card--pastel" data-aos="fade-up" style={{ padding: '3rem 2.5rem', transition: 'all 0.4s ease' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
@@ -229,17 +294,17 @@ const DigitalMarketing = () => {
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '5px', background: 'var(--gradient-secondary)' }}></div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                    <div className="dm-cta-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div>
                             <span className="section-tag" style={{ justifyContent: 'flex-start', color: 'rgba(249, 250, 251, 0.9)' }}>Scale Your Revenue</span>
-                            <h2 style={{ fontSize: 'clamp(2.4rem, 4.6vw, 3.5rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.15, color: '#F9FAFB', textShadow: '0 6px 18px rgba(0, 0, 0, 0.45)' }}>
+                            <h2 className="section-title" style={{ fontSize: 'clamp(2.4rem, 4.6vw, 3.5rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.15, color: '#F9FAFB', textShadow: '0 6px 18px rgba(0, 0, 0, 0.45)' }}>
                                 Ready to Dominate Your <span className="gradient-text">Market?</span>
                             </h2>
                             <p style={{ fontSize: '1.35rem', color: 'rgba(249, 250, 251, 0.82)', marginBottom: '2.2rem', lineHeight: 1.8, textShadow: '0 4px 14px rgba(0, 0, 0, 0.5)' }}>
                                 Stop leaving money on the table. Let our team of digital growth experts build a custom strategy to skyrocket your sales and brand visibility.
                             </p>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem' }}>
+                            <div className="cta-features-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem' }}>
                                 {ctaFeatures.map((feat, idx) => (
                                     <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.15rem', fontWeight: 700, color: 'rgba(249, 250, 251, 0.9)', textShadow: '0 3px 10px rgba(0, 0, 0, 0.45)' }}>
                                         {feat.icon} {feat.text}
@@ -252,7 +317,7 @@ const DigitalMarketing = () => {
                             </a>
                         </div>
 
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div className="cta-image-box" style={{ display: 'flex', justifyContent: 'center' }}>
                             <div style={{ background: 'rgba(255, 0, 122, 0.05)', padding: '2rem', borderRadius: '50%', position: 'relative' }}>
                                 <div style={{ background: 'rgba(0, 242, 255, 0.05)', padding: '2rem', borderRadius: '50%' }}>
                                     <Target size={100} color="var(--secondary)" />

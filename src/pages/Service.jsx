@@ -155,6 +155,64 @@ const Service = () => {
                     background: white !important;
                     color: black !important;
                 }
+
+                @media (max-width: 768px) {
+                    .hero-section {
+                        padding-top: 120px !important;
+                        padding-bottom: 60px !important;
+                    }
+                    .hero-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 3rem !important;
+                        text-align: center;
+                    }
+                    .hero-grid > div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .hero-image-container img {
+                        height: 400px !important;
+                        border-radius: 40px !important;
+                    }
+                    .hero-image-overlay {
+                        left: 20px !important;
+                        right: 20px !important;
+                        bottom: 20px !important;
+                        padding: 1.5rem !important;
+                        border-radius: 30px !important;
+                    }
+                    .services-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                    }
+                    .service-bento-card {
+                        min-height: auto !important;
+                    }
+                    .service-card-image {
+                        height: 250px !important;
+                    }
+                    .service-card-content {
+                        padding: 2.5rem !important;
+                    }
+                    .processes-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .process-card {
+                        padding: 3rem 2rem !important;
+                    }
+                    .cta-card {
+                        padding: 60px 30px !important;
+                        border-radius: 40px !important;
+                    }
+                    .section-padding {
+                        padding: 80px 0 !important;
+                    }
+                    .section-title {
+                        font-size: 3rem !important;
+                        margin-bottom: 4rem !important;
+                    }
+                }
             `}</style>
 
             {/* Ambient Background decoration */}
@@ -164,9 +222,9 @@ const Service = () => {
             </div>
 
             {/* Hero Section */}
-            <section style={{ position: 'relative', zIndex: 1, paddingTop: '180px', paddingBottom: '120px' }}>
+            <section className="hero-section" style={{ position: 'relative', zIndex: 1, paddingTop: '180px', paddingBottom: '120px' }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: '6rem' }}>
+                    <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: '6rem' }}>
                         <div data-aos="fade-right">
                             <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '2.5rem' }}>
                                 <div style={{ width: '50px', height: '2px', background: '#00f2ff' }}></div>
@@ -187,11 +245,11 @@ const Service = () => {
                                 </RouterLink>
                             </div>
                         </div>
-                        <div data-aos="fade-left" className="floating">
+                        <div data-aos="fade-left" className="floating hero-image-container">
                             <div style={{ position: 'relative', borderRadius: '60px', overflow: 'hidden', boxShadow: '0 80px 150px rgba(15, 23, 42, 0.12)' }}>
                                 <img src="Web & app development.jpg.webp" alt="Service Excellence" style={{ width: '100%', height: '700px', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent 60%)' }}></div>
-                                <div style={{ position: 'absolute', bottom: '40px', left: '40px', right: '40px', padding: '2.5rem', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(25px)', borderRadius: '40px', border: '1px solid rgba(255,255,255,0.2)' }}>
+                                <div className="hero-image-overlay" style={{ position: 'absolute', bottom: '40px', left: '40px', right: '40px', padding: '2.5rem', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(25px)', borderRadius: '40px', border: '1px solid rgba(255,255,255,0.2)' }}>
                                     <h4 style={{ color: 'white', margin: '0 0 0.5rem', fontSize: '1.4rem', fontWeight: 800 }}>99% Customer Success</h4>
                                     <p style={{ color: 'rgba(255,255,255,0.7)', margin: 0, fontSize: '1rem' }}>Data-driven strategies for elite brands.</p>
                                 </div>
@@ -202,14 +260,14 @@ const Service = () => {
             </section>
 
             {/* Services Grid Section */}
-            <section id="offerings" style={{ padding: '140px 0', background: '#f8fafc', position: 'relative', zIndex: 1 }}>
+            <section id="offerings" className="section-padding" style={{ padding: '140px 0', background: '#f8fafc', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '8rem' }}>
                         <span style={{ color: '#ff007a', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.4em' }}>Our Capabilities</span>
-                        <h2 style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Transformative <span className="gradient-text">Solutions.</span></h2>
+                        <h2 className="section-title" style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Transformative <span className="gradient-text">Solutions.</span></h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '3rem' }}>
+                    <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '3rem' }}>
                         {services.map((service, idx) => (
                             <RouterLink 
                                 to={service.link} 
@@ -228,14 +286,14 @@ const Service = () => {
                                     flexDirection: 'column'
                                 }}
                             >
-                                <div style={{ height: '350px', overflow: 'hidden', position: 'relative' }}>
+                                <div className="service-card-image" style={{ height: '350px', overflow: 'hidden', position: 'relative' }}>
                                     <img src={service.img} alt={service.title} className="service-img" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease' }} />
                                     <div className="service-img-overlay" style={{ position: 'absolute', inset: 0, background: `rgb(${service.color})`, opacity: 0, transition: 'opacity 0.4s ease' }}></div>
                                     <div style={{ position: 'absolute', top: '30px', left: '30px', width: '70px', height: '70px', background: 'white', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 15px 35px rgba(0,0,0,0.1)' }}>
                                         {React.cloneElement(service.icon, { color: `rgb(${service.color})` })}
                                     </div>
                                 </div>
-                                <div style={{ padding: '4.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                <div className="service-card-content" style={{ padding: '4.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                     <h3 style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: '1.5rem', color: '#1e1b4b' }}>{service.title}</h3>
                                     <p style={{ fontSize: '1.3rem', color: '#64748b', lineHeight: 1.7, marginBottom: '3rem' }}>{service.desc}</p>
                                     <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '10px', color: `rgb(${service.color})`, fontWeight: 800, fontSize: '1.1rem' }}>
@@ -249,19 +307,20 @@ const Service = () => {
             </section>
 
             {/* Methodology Section */}
-            <section style={{ padding: '160px 0', background: '#ffffff', position: 'relative', zIndex: 1 }}>
+            <section className="section-padding" style={{ padding: '160px 0', background: '#ffffff', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '8rem' }}>
                         <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.4em' }}>Our Process</span>
-                        <h2 style={{ fontSize: '4rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b' }}>Engineered for <span className="gradient-text">Impact.</span></h2>
+                        <h2 className="section-title" style={{ fontSize: '4rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b' }}>Engineered for <span className="gradient-text">Impact.</span></h2>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+                    <div className="processes-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
                         {processes.map((step, idx) => (
                             <div 
                                 key={idx} 
                                 data-aos="fade-up" 
                                 data-aos-delay={idx * 150}
+                                className="process-card"
                                 style={{ 
                                     padding: '4rem 3.5rem', 
                                     background: '#fcfcfe', 
@@ -286,7 +345,7 @@ const Service = () => {
 
             {/* Premium CTA */}
             <section style={{ padding: '0 2rem 160px' }}>
-                <div data-aos="zoom-in" style={{
+                <div data-aos="zoom-in" className="cta-card" style={{
                     maxWidth: '1400px',
                     margin: '0 auto',
                     padding: '120px 60px',
