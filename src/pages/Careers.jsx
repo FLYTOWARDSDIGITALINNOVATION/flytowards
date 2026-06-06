@@ -20,7 +20,7 @@ const Careers = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/careers/");
+            "https://flytowardsdigitalinnovation.com/careers");
 
     }, []);
 
