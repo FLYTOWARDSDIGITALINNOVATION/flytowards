@@ -21,7 +21,7 @@ const WebDev = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/web-development/");
+            "https://flytowardsdigitalinnovation.com/web-development");
 
     }, []);
 
