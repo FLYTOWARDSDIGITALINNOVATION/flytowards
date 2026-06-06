@@ -20,7 +20,7 @@ const Contact = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/contact/");
+            "https://flytowardsdigitalinnovation.com/contact");
 
     }, []);
 
