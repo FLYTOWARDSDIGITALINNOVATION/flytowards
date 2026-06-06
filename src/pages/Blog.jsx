@@ -115,7 +115,7 @@ const Blog = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/blog/");
+            "https://flytowardsdigitalinnovation.com/blog");
 
         fetchBlogs();
     }, []);
