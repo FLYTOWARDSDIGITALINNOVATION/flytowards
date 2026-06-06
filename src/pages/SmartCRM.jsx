@@ -21,7 +21,7 @@ const SmartCRM = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/smart-crm/");
+            "https://flytowardsdigitalinnovation.com/smart-crm");
 
     }, []);
 
