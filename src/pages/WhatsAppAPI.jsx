@@ -20,7 +20,7 @@ const WhatsAppAPI = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/whatsapp-api/");
+            "https://flytowardsdigitalinnovation.com/whatsapp-api");
 
     }, []);
 
