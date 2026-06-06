@@ -20,7 +20,7 @@ const Products = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/products/");
+            "https://flytowardsdigitalinnovation.com/products");
 
     }, []);
 
