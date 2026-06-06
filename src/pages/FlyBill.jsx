@@ -20,7 +20,7 @@ const FlyBill = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/fly-bill/");
+            "https://flytowardsdigitalinnovation.com/fly-bill");
 
     }, []);
 
