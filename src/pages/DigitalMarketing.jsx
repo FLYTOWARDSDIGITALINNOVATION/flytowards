@@ -20,7 +20,7 @@ const DigitalMarketing = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/digital-marketing/");
+            "https://flytowardsdigitalinnovation.com/digital-marketing");
 
     }, []);
 
