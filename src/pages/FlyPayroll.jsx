@@ -20,7 +20,7 @@ const FlyPayroll = () => {
 
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/payroll/");
+            "https://flytowardsdigitalinnovation.com/payroll");
 
     }, []);
 
