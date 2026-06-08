@@ -86,7 +86,7 @@ const dataUrlToFile = (dataUrl, filename) => {
 const AdminCreateBlog = () => {
     // Tab State: 'create' or 'manage'
     const [activeTab, setActiveTab] = useState('create');
-    
+
     // Create Blog States
     const [title, setTitle] = useState('');
     const [content, setContent] = useState(''); // HTML
@@ -94,7 +94,7 @@ const AdminCreateBlog = () => {
     const [coverImageDataUrl, setCoverImageDataUrl] = useState(null); // For drafts
     const [imageFile, setImageFile] = useState(null); // Actual File to send to server
     const [isPublishing, setIsPublishing] = useState(false);
-    
+
     // Manage Blogs States
     const [blogs, setBlogs] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
@@ -120,6 +120,11 @@ const AdminCreateBlog = () => {
     const [coverCropStageSize, setCoverCropStageSize] = useState({ width: 0, height: 0 });
     const [coverCropOffset, setCoverCropOffset] = useState({ x: 0, y: 0 });
     const [isApplyingCrop, setIsApplyingCrop] = useState(false);
+
+    // Image Resize & Preview States
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageControlPos, setImageControlPos] = useState(null);
+    const [isMobilePreview, setIsMobilePreview] = useState(false);
 
     const isEditorEmpty = useMemo(() => {
         const plain = stripHtml(content);
@@ -192,7 +197,58 @@ const AdminCreateBlog = () => {
         if (current !== content) editorRef.current.innerHTML = content || '';
     }, [content]);
 
-    // Improve Enter behavior in contentEditable
+    // improve Enter behavior in contentEditable
+    useEffect(() => {
+        const handleDocClick = (e) => {
+            const img = e.target.closest('.rte-editor img');
+            // Clear previous selections
+            document.querySelectorAll('.rte-editor img').forEach(i => i.classList.remove('is-selected'));
+
+            if (img) {
+                img.classList.add('is-selected');
+                setSelectedImage(img);
+                
+                // Position the controls relative to the image
+                const rect = img.getBoundingClientRect();
+                setImageControlPos({
+                    top: img.offsetTop + img.offsetHeight + 10,
+                    left: img.offsetLeft + (img.offsetWidth / 2)
+                });
+            } else if (!e.target.closest('.image-controls-overlay')) {
+                setSelectedImage(null);
+                setImageControlPos(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleDocClick);
+        return () => document.removeEventListener('mousedown', handleDocClick);
+    }, []);
+
+    const resizeImage = (width) => {
+        if (!selectedImage) return;
+        selectedImage.style.width = width;
+        selectedImage.style.height = 'auto';
+        setContent(editorRef.current.innerHTML);
+    };
+
+    const alignImage = (align) => {
+        if (!selectedImage) return;
+        if (align === 'center') {
+            selectedImage.style.display = 'block';
+            selectedImage.style.margin = '1.5rem auto';
+            selectedImage.style.float = 'none';
+        } else if (align === 'left') {
+            selectedImage.style.display = 'inline-block';
+            selectedImage.style.margin = '0 1.5rem 1rem 0';
+            selectedImage.style.float = 'left';
+        } else if (align === 'right') {
+            selectedImage.style.display = 'inline-block';
+            selectedImage.style.margin = '0 0 1rem 1.5rem';
+            selectedImage.style.float = 'right';
+        }
+        setContent(editorRef.current.innerHTML);
+    };
+
     useEffect(() => {
         try {
             document.execCommand('defaultParagraphSeparator', false, 'p');
@@ -569,7 +625,7 @@ const AdminCreateBlog = () => {
                     // ignore
                 }
                 setDraftState({ status: 'idle', lastSavedAt: null });
-                
+
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             } else {
                 const payload = await parseResponseBody(response);
@@ -726,7 +782,7 @@ const AdminCreateBlog = () => {
     return (
         <section className="admin-blog-section">
             <div className="mesh-bg"></div>
-            
+
             <div className="admin-header">
                 <span className="section-tag">Admin Panel</span>
                 <h1 className="hero-title">FlyTowards <span className="gradient-text">Blog Studio</span></h1>
@@ -735,13 +791,13 @@ const AdminCreateBlog = () => {
 
             {/* Premium Tab Navigation */}
             <div className="admin-tabs-nav">
-                <button 
+                <button
                     className={`tab-nav-btn ${activeTab === 'create' ? 'active' : ''}`}
                     onClick={() => setActiveTab('create')}
                 >
                     <PenTool size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} /> Create Post
                 </button>
-                <button 
+                <button
                     className={`tab-nav-btn ${activeTab === 'manage' ? 'active' : ''}`}
                     onClick={() => setActiveTab('manage')}
                 >
@@ -767,7 +823,7 @@ const AdminCreateBlog = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
                 }}>
                     <span>{status.message}</span>
-                    <button 
+                    <button
                         onClick={() => setStatus({ message: '', type: '' })}
                         style={{
                             background: 'transparent',
@@ -786,284 +842,320 @@ const AdminCreateBlog = () => {
             {activeTab === 'create' ? (
                 <>
                 {/* Create Post Editor */}
-                <div className="editor-container glass-container" data-aos="fade-up">
-                    {/* Editor Actions Toolbar */}
-                    <div className="modern-toolbar">
+                <div className={`editor-container glass-container ${isMobilePreview ? 'mobile-preview' : ''}`} data-aos="fade-up">
+                        {/* Editor Actions Toolbar */}
+                        <div className="modern-toolbar">
                         <div className="toolbar-left">
-                            <span className="draft-status-text">Drafting New Post...</span>
+                            <span className="draft-status-text">{isMobilePreview ? 'Mobile Preview Mode' : 'Drafting New Post...'}</span>
 
-                            <div className="tool-group">
-                                <span className="tool-label">Style</span>
-                                <select
-                                    className="style-select"
-                                    defaultValue="P"
-                                    onChange={(e) => formatBlock(e.target.value)}
-                                >
-                                    <option value="P">Normal</option>
-                                    <option value="H1">Heading 1</option>
-                                    <option value="H2">Heading 2</option>
-                                    <option value="BLOCKQUOTE">Quote</option>
-                                    <option value="PRE">Code Block</option>
-                                </select>
-                            </div>
+                                <div className="tool-group">
+                                    <span className="tool-label">Style</span>
+                                    <select
+                                        className="style-select"
+                                        defaultValue="P"
+                                        onChange={(e) => formatBlock(e.target.value)}
+                                    >
+                                        <option value="P">Normal</option>
+                                        <option value="H1">Heading 1</option>
+                                        <option value="H2">Heading 2</option>
+                                        <option value="BLOCKQUOTE">Quote</option>
+                                        <option value="PRE">Code Block</option>
+                                    </select>
+                                </div>
 
-                            <div className="tool-group">
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('bold')} title="Bold">
-                                    <Bold size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('italic')} title="Italic">
-                                    <Italic size={16} />
-                                </button>
-                                <span className="tool-divider-modern" />
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('insertUnorderedList')} title="Bulleted list">
-                                    <List size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('insertOrderedList')} title="Numbered list">
-                                    <ListOrdered size={16} />
-                                </button>
-                                <span className="tool-divider-modern" />
-                                <button type="button" className="tool-btn-modern" onClick={() => formatBlock('BLOCKQUOTE')} title="Quote">
-                                    <Quote size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={() => formatBlock('PRE')} title="Code block">
-                                    <Code size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={insertInlineCode} title="Inline code">
-                                    <Code size={16} strokeWidth={2.5} />
-                                </button>
-                                <span className="tool-divider-modern" />
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('insertHorizontalRule')} title="Divider">
-                                    <Minus size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={insertLink} title="Insert link">
-                                    <Link2 size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={triggerInlineImagePick} title="Insert image">
-                                    <ImagePlus size={16} />
-                                </button>
-                                <input
-                                    ref={inlineImageInputRef}
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleInlineImagePicked}
-                                    hidden
-                                />
-                                <span className="tool-divider-modern" />
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('undo')} title="Undo">
-                                    <Undo2 size={16} />
-                                </button>
-                                <button type="button" className="tool-btn-modern" onClick={() => exec('redo')} title="Redo">
+                                <div className="tool-group">
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('bold')} title="Bold">
+                                        <Bold size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('italic')} title="Italic">
+                                        <Italic size={16} />
+                                    </button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertUnorderedList')} title="Bulleted list">
+                                        <List size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertOrderedList')} title="Numbered list">
+                                        <ListOrdered size={16} />
+                                    </button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => formatBlock('BLOCKQUOTE')} title="Quote">
+                                        <Quote size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => formatBlock('PRE')} title="Code block">
+                                        <Code size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={insertInlineCode} title="Inline code">
+                                        <Code size={16} strokeWidth={2.5} />
+                                    </button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertHorizontalRule')} title="Divider">
+                                        <Minus size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={insertLink} title="Insert link">
+                                        <Link2 size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={triggerInlineImagePick} title="Insert image">
+                                        <ImagePlus size={16} />
+                                    </button>
+                                    <input
+                                        ref={inlineImageInputRef}
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleInlineImagePicked}
+                                        hidden
+                                    />
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('undo')} title="Undo">
+                                        <Undo2 size={16} />
+                                    </button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('redo')} title="Redo">
                                     <Redo2 size={16} />
                                 </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Main Editor Area */}
-                    <div className="editor-main">
-                        {/* Cover Image */}
-                        <div className={`modern-cover-area ${coverImage ? 'has-image' : ''}`}>
-                            {coverImage ? (
-                                <div className="modern-cover-preview">
-                                    <img src={coverImage} alt="Cover" />
-                                    <label className="btn btn-outline change-cover-float">
-                                        <ImageIcon size={16} /> Change Cover Image
-                                        <input ref={coverImageInputRef} type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
-                                    </label>
-                                </div>
-                            ) : (
-                                <div className="modern-cover-placeholder">
-                                    <div className="icon-glow-box">
-                                        <UploadCloud size={40} color="var(--primary)" />
-                                    </div>
-                                    <h3>Add a Cover Image</h3>
-                                    <p>Make your article stand out with a beautiful cover.</p>
-                                    <label className="btn btn-outline mt-4">
-                                        <ImageIcon size={18} /> Upload Image
-                                        <input ref={coverImageInputRef} type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
-                                    </label>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Editor Content Area */}
-                        <div className="modern-content-inputs">
-                            <textarea 
-                                className="modern-title-input" 
-                                placeholder="Enter your amazing title..."
-                                value={title}
-                                onChange={(e) => {
-                                    setTitle(e.target.value);
-                                    e.target.style.height = 'auto';
-                                    e.target.style.height = (e.target.scrollHeight) + 'px';
-                                }}
-                                rows={1}
-                            />
-
-                            <div
-                                ref={editorRef}
-                                className="modern-body-editor rte-editor"
-                                contentEditable
-                                suppressContentEditableWarning
-                                data-placeholder="Start writing your story here..."
-                                onInput={() => {
-                                    if (!editorRef.current) return;
-                                    const html = editorRef.current.innerHTML;
-                                    const normalizedEmpty = ['<br>', '<p><br></p>', '<div><br></div>'].includes((html || '').trim());
-                                    setContent(normalizedEmpty ? '' : html);
-                                }}
-                                onPaste={(e) => {
-                                    // Paste as plain text to avoid bringing external styles
-                                    e.preventDefault();
-                                    const text = e.clipboardData.getData('text/plain');
-                                    if (!editorRef.current) return;
-                                    editorRef.current.focus();
-                                    try {
-                                        const ok = document.execCommand('insertText', false, text);
-                                        if (!ok) insertTextAtCaret(text);
-                                    } catch {
-                                        insertTextAtCaret(text);
-                                    }
-                                    setContent(editorRef.current.innerHTML);
-                                }}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="editor-actions-bottom">
-                        <div className="editor-actions-left">
-                            <button
-                                type="button"
-                                className="btn btn-outline draft-btn"
-                                onClick={() => saveDraft({ forceStatus: 'saved' })}
-                            >
-                                <Save size={16} /> Save Draft
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-outline draft-delete-btn"
-                                onClick={handleDeleteDraft}
-                                disabled={!title && !content && !coverImageDataUrl}
-                                title="Delete draft"
-                            >
-                                <Trash2 size={16} /> Delete Draft
-                            </button>
-                        </div>
-                        <button
-                            type="button"
-                            className="btn btn-primary publish-btn"
-                            onClick={handlePublish}
-                            disabled={isPublishing}
-                            style={{ opacity: isPublishing ? 0.7 : 1 }}
-                        >
-                            {isPublishing ? 'Publishing...' : 'Publish'} <ArrowRight size={16} />
-                        </button>
-                    </div>
-
-                </div>
-
-            {coverCropModalOpen && coverCropSource?.url && (
-                <CoverCropModal
-                    imageSrc={coverCropSource.url}
-                    onApply={handleCoverCropApply}
-                    onCancel={closeCoverCropModal}
-                    isApplying={isApplyingCrop}
-                />
-            )}
-            {false && (
-                <div className="cover-crop-modal" role="dialog" aria-modal="true" aria-labelledby="cover-crop-title">
-                    <div className="cover-crop-backdrop" onClick={closeCoverCropModal} />
-                    <div className="cover-crop-panel glass-container">
-                        <div className="cover-crop-header">
-                            <div>
-                                <span className="cover-crop-kicker">Cover crop</span>
-                                <h3 id="cover-crop-title">Adjust your image before publishing</h3>
-                            </div>
-                            <button type="button" className="cover-crop-close" onClick={closeCoverCropModal}>
-                                ×
-                            </button>
-                        </div>
-
-                        <div
-                            ref={coverCropStageRef}
-                            className={`cover-crop-stage ${coverCropImageSize.width ? 'is-ready' : 'is-loading'}`}
-                            onPointerDown={handleCoverCropPointerDown}
-                            onPointerMove={handleCoverCropPointerMove}
-                            onPointerUp={handleCoverCropPointerEnd}
-                            onPointerCancel={handleCoverCropPointerEnd}
-                            style={{
-                                aspectRatio: `${COVER_CROP_ASPECT}`,
-                            }}
-                        >
-                            {coverCropSource?.url ? (
-                                <img
-                                    ref={coverCropImageRef}
-                                    src={coverCropSource.url}
-                                    alt="Crop preview"
-                                    draggable="false"
-                                    onLoad={(event) => {
-                                        const image = event.currentTarget;
-                                        setCoverCropImageSize({
-                                            width: image.naturalWidth || 0,
-                                            height: image.naturalHeight || 0,
-                                        });
-                                    }}
-                                    style={(() => {
-                                        const stageWidth = coverCropStageSize.width || 760;
-                                        const stageHeight = coverCropStageSize.height || Math.round(stageWidth / COVER_CROP_ASPECT);
-                                        const imageWidth = coverCropImageSize.width || stageWidth;
-                                        const imageHeight = coverCropImageSize.height || stageHeight;
-                                        const baseScale = Math.max(stageWidth / imageWidth, stageHeight / imageHeight);
-                                        const displayScale = baseScale;
-                                        const displayWidth = imageWidth * displayScale;
-                                        const displayHeight = imageHeight * displayScale;
-                                        const offset = clampCoverCropOffset(coverCropOffset, { width: stageWidth, height: stageHeight }, coverCropImageSize);
-                                        const left = (stageWidth - displayWidth) / 2 + offset.x;
-                                        const top = (stageHeight - displayHeight) / 2 + offset.y;
-
-                                        return {
-                                            width: `${displayWidth}px`,
-                                            height: `${displayHeight}px`,
-                                            left: `${left}px`,
-                                            top: `${top}px`,
-                                        };
-                                    })()}
-                                />
-                            ) : (
-                                <div className="cover-crop-loading">
-                                    <RefreshCw size={20} className="animate-spin" />
-                                    Loading image...
-                                </div>
-                            )}
-                            <div className="cover-crop-grid" />
-                            <div className="cover-crop-hint">Drag to reposition the crop</div>
-                        </div>
-
-                        <div className="cover-crop-footer">
-                            <div className="cover-crop-info">
-                                Drag the photo to choose the crop area.
-                            </div>
-                            <div className="cover-crop-actions">
-                                <button type="button" className="btn btn-outline draft-btn" onClick={resetCoverCrop}>
-                                    Reset
+                                <span className="tool-divider-modern" />
+                                <button 
+                                    type="button" 
+                                    className={`tool-btn-modern ${isMobilePreview ? 'active' : ''}`} 
+                                    onClick={() => setIsMobilePreview(!isMobilePreview)} 
+                                    title="Mobile Preview"
+                                    style={{ color: isMobilePreview ? 'var(--primary)' : 'inherit' }}
+                                >
+                                    <RefreshCw size={16} className={isMobilePreview ? 'animate-pulse' : ''} />
                                 </button>
-                                <button type="button" className="btn btn-outline draft-delete-btn" onClick={closeCoverCropModal}>
-                                    Cancel
+                            </div>
+                        </div>
+                    </div>
+
+                        {/* Main Editor Area */}
+                        <div className="editor-main">
+                            {/* Cover Image */}
+                            <div className={`modern-cover-area ${coverImage ? 'has-image' : ''}`}>
+                                {coverImage ? (
+                                    <div className="modern-cover-preview">
+                                        <img src={coverImage} alt="Cover" />
+                                        <label className="btn btn-outline change-cover-float">
+                                            <ImageIcon size={16} /> Change Cover Image
+                                            <input ref={coverImageInputRef} type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
+                                        </label>
+                                    </div>
+                                ) : (
+                                    <div className="modern-cover-placeholder">
+                                        <div className="icon-glow-box">
+                                            <UploadCloud size={40} color="var(--primary)" />
+                                        </div>
+                                        <h3>Add a Cover Image</h3>
+                                        <p>Make your article stand out with a beautiful cover.</p>
+                                        <label className="btn btn-outline mt-4">
+                                            <ImageIcon size={18} /> Upload Image
+                                            <input ref={coverImageInputRef} type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
+                                        </label>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Editor Content Area */}
+                            <div className="modern-content-inputs">
+                                <textarea
+                                    className="modern-title-input"
+                                    placeholder="Enter your amazing title..."
+                                    value={title}
+                                    onChange={(e) => {
+                                        setTitle(e.target.value);
+                                        e.target.style.height = 'auto';
+                                        e.target.style.height = (e.target.scrollHeight) + 'px';
+                                    }}
+                                    rows={1}
+                                />
+
+                                <div
+                                    ref={editorRef}
+                                    className="modern-body-editor rte-editor"
+                                    contentEditable
+                                    suppressContentEditableWarning
+                                    data-placeholder="Start writing your story here..."
+                                    onInput={() => {
+                                        if (!editorRef.current) return;
+                                        const html = editorRef.current.innerHTML;
+                                        const normalizedEmpty = ['<br>', '<p><br></p>', '<div><br></div>'].includes((html || '').trim());
+                                        setContent(normalizedEmpty ? '' : html);
+                                    }}
+                                    onPaste={(e) => {
+                                        // Paste as plain text to avoid bringing external styles
+                                        e.preventDefault();
+                                        const text = e.clipboardData.getData('text/plain');
+                                        if (!editorRef.current) return;
+                                        editorRef.current.focus();
+                                        try {
+                                            const ok = document.execCommand('insertText', false, text);
+                                            if (!ok) insertTextAtCaret(text);
+                                        } catch {
+                                            insertTextAtCaret(text);
+                                        }
+                                        setContent(editorRef.current.innerHTML);
+                                    }}
+                                />
+
+                            {/* Image Controls Overlay */}
+                            {selectedImage && imageControlPos && (
+                                <div 
+                                    className="image-controls-overlay"
+                                    style={{
+                                        position: 'absolute',
+                                        top: `${imageControlPos.top}px`,
+                                        left: `${imageControlPos.left}px`,
+                                        transform: 'translateX(-50%)'
+                                    }}
+                                >
+                                    <div className="control-group-mini">
+                                        <button className="image-control-btn" onClick={() => resizeImage('25%')}>25%</button>
+                                        <button className="image-control-btn" onClick={() => resizeImage('50%')}>50%</button>
+                                        <button className="image-control-btn" onClick={() => resizeImage('75%')}>75%</button>
+                                        <button className="image-control-btn" onClick={() => resizeImage('100%')}>100%</button>
+                                    </div>
+                                    <div className="mini-divider" />
+                                    <div className="control-group-mini">
+                                        <button className="image-control-btn" onClick={() => alignImage('left')}>Left</button>
+                                        <button className="image-control-btn" onClick={() => alignImage('center')}>Center</button>
+                                        <button className="image-control-btn" onClick={() => alignImage('right')}>Right</button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                        <div className="editor-actions-bottom">
+                            <div className="editor-actions-left">
+                                <button
+                                    type="button"
+                                    className="btn btn-outline draft-btn"
+                                    onClick={() => saveDraft({ forceStatus: 'saved' })}
+                                >
+                                    <Save size={16} /> Save Draft
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn btn-primary publish-btn"
-                                    onClick={applyCoverCrop}
-                                    disabled={isApplyingCrop}
-                                    style={{ opacity: isApplyingCrop ? 0.75 : 1 }}
+                                    className="btn btn-outline draft-delete-btn"
+                                    onClick={handleDeleteDraft}
+                                    disabled={!title && !content && !coverImageDataUrl}
+                                    title="Delete draft"
                                 >
-                                    {isApplyingCrop ? 'Cropping...' : 'Apply Crop'} <ArrowRight size={16} />
+                                    <Trash2 size={16} /> Delete Draft
                                 </button>
                             </div>
+                            <button
+                                type="button"
+                                className="btn btn-primary publish-btn"
+                                onClick={handlePublish}
+                                disabled={isPublishing}
+                                style={{ opacity: isPublishing ? 0.7 : 1 }}
+                            >
+                                {isPublishing ? 'Publishing...' : 'Publish'} <ArrowRight size={16} />
+                            </button>
                         </div>
+
                     </div>
-                </div>
-                )}
+
+                    {coverCropModalOpen && coverCropSource?.url && (
+                        <CoverCropModal
+                            imageSrc={coverCropSource.url}
+                            onApply={handleCoverCropApply}
+                            onCancel={closeCoverCropModal}
+                            isApplying={isApplyingCrop}
+                        />
+                    )}
+                    {false && (
+                        <div className="cover-crop-modal" role="dialog" aria-modal="true" aria-labelledby="cover-crop-title">
+                            <div className="cover-crop-backdrop" onClick={closeCoverCropModal} />
+                            <div className="cover-crop-panel glass-container">
+                                <div className="cover-crop-header">
+                                    <div>
+                                        <span className="cover-crop-kicker">Cover crop</span>
+                                        <h3 id="cover-crop-title">Adjust your image before publishing</h3>
+                                    </div>
+                                    <button type="button" className="cover-crop-close" onClick={closeCoverCropModal}>
+                                        ×
+                                    </button>
+                                </div>
+
+                                <div
+                                    ref={coverCropStageRef}
+                                    className={`cover-crop-stage ${coverCropImageSize.width ? 'is-ready' : 'is-loading'}`}
+                                    onPointerDown={handleCoverCropPointerDown}
+                                    onPointerMove={handleCoverCropPointerMove}
+                                    onPointerUp={handleCoverCropPointerEnd}
+                                    onPointerCancel={handleCoverCropPointerEnd}
+                                    style={{
+                                        aspectRatio: `${COVER_CROP_ASPECT}`,
+                                    }}
+                                >
+                                    {coverCropSource?.url ? (
+                                        <img
+                                            ref={coverCropImageRef}
+                                            src={coverCropSource.url}
+                                            alt="Crop preview"
+                                            draggable="false"
+                                            onLoad={(event) => {
+                                                const image = event.currentTarget;
+                                                setCoverCropImageSize({
+                                                    width: image.naturalWidth || 0,
+                                                    height: image.naturalHeight || 0,
+                                                });
+                                            }}
+                                            style={(() => {
+                                                const stageWidth = coverCropStageSize.width || 760;
+                                                const stageHeight = coverCropStageSize.height || Math.round(stageWidth / COVER_CROP_ASPECT);
+                                                const imageWidth = coverCropImageSize.width || stageWidth;
+                                                const imageHeight = coverCropImageSize.height || stageHeight;
+                                                const baseScale = Math.max(stageWidth / imageWidth, stageHeight / imageHeight);
+                                                const displayScale = baseScale;
+                                                const displayWidth = imageWidth * displayScale;
+                                                const displayHeight = imageHeight * displayScale;
+                                                const offset = clampCoverCropOffset(coverCropOffset, { width: stageWidth, height: stageHeight }, coverCropImageSize);
+                                                const left = (stageWidth - displayWidth) / 2 + offset.x;
+                                                const top = (stageHeight - displayHeight) / 2 + offset.y;
+
+                                                return {
+                                                    width: `${displayWidth}px`,
+                                                    height: `${displayHeight}px`,
+                                                    left: `${left}px`,
+                                                    top: `${top}px`,
+                                                };
+                                            })()}
+                                        />
+                                    ) : (
+                                        <div className="cover-crop-loading">
+                                            <RefreshCw size={20} className="animate-spin" />
+                                            Loading image...
+                                        </div>
+                                    )}
+                                    <div className="cover-crop-grid" />
+                                    <div className="cover-crop-hint">Drag to reposition the crop</div>
+                                </div>
+
+                                <div className="cover-crop-footer">
+                                    <div className="cover-crop-info">
+                                        Drag the photo to choose the crop area.
+                                    </div>
+                                    <div className="cover-crop-actions">
+                                        <button type="button" className="btn btn-outline draft-btn" onClick={resetCoverCrop}>
+                                            Reset
+                                        </button>
+                                        <button type="button" className="btn btn-outline draft-delete-btn" onClick={closeCoverCropModal}>
+                                            Cancel
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-primary publish-btn"
+                                            onClick={applyCoverCrop}
+                                            disabled={isApplyingCrop}
+                                            style={{ opacity: isApplyingCrop ? 0.75 : 1 }}
+                                        >
+                                            {isApplyingCrop ? 'Cropping...' : 'Apply Crop'} <ArrowRight size={16} />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </>
             ) : (
                 /* Manage Posts Dashboard */
@@ -1081,7 +1173,7 @@ const AdminCreateBlog = () => {
                                         <h3 className="manage-item-title">{blog.title}</h3>
                                         <span className="manage-item-date">Published on {formatDate(blog.createdAt)}</span>
                                     </div>
-                                    <button 
+                                    <button
                                         className="manage-delete-btn"
                                         onClick={() => handleDelete(blog._id, blog.title)}
                                     >
