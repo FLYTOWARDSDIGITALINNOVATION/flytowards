@@ -40,9 +40,11 @@
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     position: sticky;
-    top: 94px; /* Keep the formatting bar visible below the fixed navbar */
+    top: 94px;
+    /* Keep the formatting bar visible below the fixed navbar */
     z-index: 120;
-    flex-wrap: wrap; /* allow wrapping on small screens */
+    flex-wrap: wrap;
+    /* allow wrapping on small screens */
     gap: 1rem;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
 }
@@ -146,6 +148,7 @@
     background-color: #f1f5f9;
     border: 1px solid #cbd5e1 !important;
 }
+
 .draft-btn:hover {
     background-color: #e2e8f0 !important;
 }
@@ -183,6 +186,7 @@
     color: white !important;
     border: none !important;
 }
+
 .publish-btn:hover {
     opacity: 0.9;
     transform: translateY(-2px);
@@ -304,7 +308,7 @@
     background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
     border: 1px solid var(--border) !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
     z-index: 10;
     padding: 0.5rem 1rem !important;
     font-size: 0.85rem !important;
@@ -625,13 +629,16 @@
 textarea::-webkit-scrollbar {
     width: 6px;
 }
+
 textarea::-webkit-scrollbar-track {
     background: transparent;
 }
+
 textarea::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 10px;
 }
+
 textarea::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
@@ -641,55 +648,69 @@ textarea::-webkit-scrollbar-thumb:hover {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .toolbar-right {
         width: 100%;
         margin-left: 0;
         justify-content: flex-start;
     }
+
     .editor-actions-bottom {
         flex-direction: column;
         align-items: stretch;
         padding: 1rem 1.25rem 1.25rem;
     }
+
     .editor-actions-left {
         width: 100%;
     }
+
     .editor-actions-left .btn,
     .editor-actions-bottom .publish-btn {
         width: 100%;
         justify-content: center;
     }
+
     .cover-crop-modal {
         padding: 0.75rem;
     }
+
     .cover-crop-panel {
         padding: 1rem;
         border-radius: 22px;
     }
+
     .cover-crop-header {
         flex-direction: column;
     }
+
     .cover-crop-close {
         align-self: flex-start;
     }
+
     .cover-crop-stage {
         min-height: 240px;
         border-radius: 18px;
     }
+
     .cover-crop-footer {
         flex-direction: column;
         align-items: stretch;
     }
+
     .cover-crop-actions {
         width: 100%;
     }
+
     .cover-crop-actions .btn {
         flex: 1 1 100%;
         justify-content: center;
     }
+
     .editor-main {
         padding: 1.5rem;
     }
+
     .modern-title-input {
         font-size: 2rem;
     }
@@ -714,7 +735,7 @@ textarea::-webkit-scrollbar-thumb:hover {
     color: var(--text-muted);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .tab-nav-btn:hover {
@@ -745,13 +766,13 @@ textarea::-webkit-scrollbar-thumb:hover {
     padding: 1.2rem 1.8rem;
     border-radius: 16px;
     border: 1px solid var(--border);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     transition: all 0.3s ease;
 }
 
 .manage-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
     border-color: rgba(0, 242, 255, 0.3);
 }
 
@@ -804,4 +825,119 @@ textarea::-webkit-scrollbar-thumb:hover {
     padding: 4rem 2rem;
     color: var(--text-muted);
     font-family: 'Outfit', sans-serif;
+}
+
+/* --- Image Resizing & Controls --- */
+.rte-editor img {
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    max-width: 100%;
+}
+
+.rte-editor img:hover {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}
+
+.rte-editor img.is-selected {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 10px rgba(0, 242, 255, 0.05);
+}
+
+.image-controls-overlay {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--border);
+    padding: 6px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    pointer-events: auto;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.control-group-mini {
+    display: flex;
+    gap: 4px;
+    padding: 0 4px;
+}
+
+.mini-divider {
+    width: 1px;
+    height: 18px;
+    background: var(--border);
+    margin: 0 4px;
+}
+
+.image-control-btn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-dark);
+}
+
+.image-control-btn:hover {
+    background: #f1f5f9;
+    color: var(--primary);
+}
+
+/* --- Mobile Preview Mode --- */
+.editor-container.mobile-preview {
+    max-width: 420px !important;
+    margin: 3rem auto !important;
+    border: 12px solid #0f172a !important;
+    border-radius: 45px !important;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.3) !important;
+    overflow: hidden !important;
+    aspect-ratio: 9 / 19;
+    height: 880px;
+    position: relative;
+}
+
+.editor-container.mobile-preview .modern-toolbar {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    padding: 0.8rem !important;
+    z-index: 100;
+}
+
+.editor-container.mobile-preview .editor-main {
+    padding: 1.25rem !important;
+    height: calc(100% - 70px);
+    overflow-y: auto;
+}
+
+.editor-container.mobile-preview .modern-title-input {
+    font-size: 1.75rem !important;
+}
+
+.editor-container.mobile-preview .modern-cover-area {
+    min-height: 160px !important;
+}
+
+/* Force perfect mobile images on real mobile viewports */
+@media (max-width: 768px) {
+    .rte-editor img {
+        width: 100% !important;
+        height: auto !important;
+        float: none !important;
+        margin: 1.5rem 0 !important;
+        display: block !important;
+    }
+    
+    .image-controls-overlay {
+        display: none !important;
+    }
 }
