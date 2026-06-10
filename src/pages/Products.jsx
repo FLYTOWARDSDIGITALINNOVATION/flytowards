@@ -5,7 +5,7 @@ const Products = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        document.title = "Our Software Product";
+        document.title = "Fly Towards | Our Top Selling Software Products";
 
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) metaDescription.setAttribute("content",

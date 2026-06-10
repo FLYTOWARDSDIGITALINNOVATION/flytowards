@@ -5,7 +5,7 @@ const FlyBill = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        document.title = "Fly Bill | The Best Billing Software";
+        document.title = "Fly Bill | The Best And Top Billing Software";
 
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) metaDescription.setAttribute("content",

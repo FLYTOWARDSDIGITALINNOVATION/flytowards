@@ -100,11 +100,11 @@ const Blog = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        document.title = "The Fly Towards Blogs Page";
+        document.title = "Fly TowardsDigital Innovation | Blogs Page";
 
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) metaDescription.setAttribute("content",
-            "Explore the latest insights on digital marketing, software development, website design, SEO, CRM solutions, and business growth from Fly Towards Digital Innovation ");
+            "Explore the latest insights on digital marketing, software development, SEO, CRM solutions, and business growth from Fly Towards Digital Innovation");
 
         const metaKeywords = document.querySelector('meta[name="keywords"]');
         if (metaKeywords) metaKeywords.setAttribute("content",
