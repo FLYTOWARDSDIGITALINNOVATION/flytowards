@@ -98,6 +98,7 @@ const AdminCreateBlog = () => {
     // Manage Blogs States
     const [blogs, setBlogs] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
+    const [editingBlogId, setEditingBlogId] = useState(null);
 
     // Global Status Message State
     const [status, setStatus] = useState({ message: '', type: '' });
@@ -579,7 +580,7 @@ const AdminCreateBlog = () => {
         }
 
         setIsPublishing(true);
-        setStatus({ message: 'Publishing blog...', type: 'info' });
+        setStatus({ message: editingBlogId ? 'Updating blog...' : 'Publishing blog...', type: 'info' });
 
         const formData = new FormData();
         formData.append('title', title);
@@ -589,8 +590,11 @@ const AdminCreateBlog = () => {
         }
 
         try {
-            const response = await fetch(buildApiUrl('/blogs'), {
-                method: 'POST',
+            const url = editingBlogId ? buildApiUrl(`/blogs/${editingBlogId}`) : buildApiUrl('/blogs');
+            const method = editingBlogId ? 'PATCH' : 'POST';
+
+            const response = await fetch(url, {
+                method: method,
                 body: formData, // Sending form data so image can be uploaded
             });
 
@@ -598,26 +602,32 @@ const AdminCreateBlog = () => {
                 const payload = await parseResponseBody(response);
 
                 if (payload?.blog) {
-                    setBlogs((currentBlogs) => [
-                        payload.blog,
-                        ...currentBlogs.filter((blog) => blog._id !== payload.blog._id)
-                    ]);
+                    setBlogs((currentBlogs) => {
+                        const exists = currentBlogs.some(b => b._id === payload.blog._id);
+                        if (exists) {
+                            return currentBlogs.map(b => b._id === payload.blog._id ? payload.blog : b);
+                        }
+                        return [payload.blog, ...currentBlogs];
+                    });
                 }
 
+                const actionWord = editingBlogId ? 'updated' : 'published';
                 const publishNote = payload?.storage === 'file'
                     ? 'saved locally because MongoDB is unavailable'
                     : 'saved to MongoDB';
 
                 setStatus({
-                    message: `Blog published successfully — ${publishNote}.`,
+                    message: `Blog ${actionWord} successfully — ${publishNote}.`,
                     type: 'success'
                 });
+
                 // Reset form
                 setTitle('');
                 setContent('');
                 setCoverImage(null);
                 setCoverImageDataUrl(null);
                 setImageFile(null);
+                setEditingBlogId(null);
 
                 try {
                     localStorage.removeItem(DRAFT_STORAGE_KEY);
@@ -627,10 +637,14 @@ const AdminCreateBlog = () => {
                 setDraftState({ status: 'idle', lastSavedAt: null });
 
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
+                
+                if (editingBlogId) {
+                    setActiveTab('manage');
+                }
             } else {
                 const payload = await parseResponseBody(response);
                 setStatus({
-                    message: payload.error || payload.message || `Failed to publish (HTTP ${response.status}).`,
+                    message: payload.error || payload.message || `Failed to ${editingBlogId ? 'update' : 'publish'} (HTTP ${response.status}).`,
                     type: 'error'
                 });
             }
@@ -662,6 +676,9 @@ const AdminCreateBlog = () => {
                 setStatus({ message: 'Blog post deleted successfully!', type: 'success' });
                 // Filter out the deleted blog from UI state
                 setBlogs((currentBlogs) => currentBlogs.filter((blog) => blog._id !== id));
+                if (editingBlogId === id) {
+                    handleCancelEdit();
+                }
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             } else {
                 const payload = await parseResponseBody(response);
@@ -673,6 +690,45 @@ const AdminCreateBlog = () => {
         } catch (error) {
             console.error('Delete error:', error);
             setStatus({ message: `Could not connect to server (${API_BASE_URL}).`, type: 'error' });
+        }
+    };
+
+    const handleEdit = (blog) => {
+        setEditingBlogId(blog._id);
+        setTitle(blog.title || '');
+        setContent(blog.content || '');
+        
+        if (blog.coverImage) {
+            // Check if it's a relative path from the server
+            const fullImageUrl = blog.coverImage.startsWith('http') 
+                ? blog.coverImage 
+                : `${API_BASE_URL}${blog.coverImage}`;
+            setCoverImage(fullImageUrl);
+        } else {
+            setCoverImage(null);
+        }
+        
+        setImageFile(null); // Clear any pending image file
+        setCoverImageDataUrl(null);
+        
+        setActiveTab('create');
+        
+        // Scroll to top of editor
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleCancelEdit = () => {
+        setEditingBlogId(null);
+        setTitle('');
+        setContent('');
+        setCoverImage(null);
+        setImageFile(null);
+        setCoverImageDataUrl(null);
+        
+        try {
+            localStorage.removeItem(DRAFT_STORAGE_KEY);
+        } catch {
+            // ignore
         }
     };
 
@@ -846,7 +902,9 @@ const AdminCreateBlog = () => {
                         {/* Editor Actions Toolbar */}
                         <div className="modern-toolbar">
                         <div className="toolbar-left">
-                            <span className="draft-status-text">{isMobilePreview ? 'Mobile Preview Mode' : 'Drafting New Post...'}</span>
+                            <span className="draft-status-text">
+                                {isMobilePreview ? 'Mobile Preview Mode' : (editingBlogId ? 'Editing Existing Post...' : 'Drafting New Post...')}
+                            </span>
 
                                 <div className="tool-group">
                                     <span className="tool-label">Style</span>
@@ -1024,22 +1082,35 @@ const AdminCreateBlog = () => {
 
                         <div className="editor-actions-bottom">
                             <div className="editor-actions-left">
-                                <button
-                                    type="button"
-                                    className="btn btn-outline draft-btn"
-                                    onClick={() => saveDraft({ forceStatus: 'saved' })}
-                                >
-                                    <Save size={16} /> Save Draft
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-outline draft-delete-btn"
-                                    onClick={handleDeleteDraft}
-                                    disabled={!title && !content && !coverImageDataUrl}
-                                    title="Delete draft"
-                                >
-                                    <Trash2 size={16} /> Delete Draft
-                                </button>
+                                {editingBlogId ? (
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline draft-delete-btn"
+                                        onClick={handleCancelEdit}
+                                        title="Cancel Edit"
+                                    >
+                                        <Undo2 size={16} /> Cancel Edit
+                                    </button>
+                                ) : (
+                                    <>
+                                        <button
+                                            type="button"
+                                            className="btn btn-outline draft-btn"
+                                            onClick={() => saveDraft({ forceStatus: 'saved' })}
+                                        >
+                                            <Save size={16} /> Save Draft
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-outline draft-delete-btn"
+                                            onClick={handleDeleteDraft}
+                                            disabled={!title && !content && !coverImageDataUrl}
+                                            title="Delete draft"
+                                        >
+                                            <Trash2 size={16} /> Delete Draft
+                                        </button>
+                                    </>
+                                )}
                             </div>
                             <button
                                 type="button"
@@ -1048,7 +1119,7 @@ const AdminCreateBlog = () => {
                                 disabled={isPublishing}
                                 style={{ opacity: isPublishing ? 0.7 : 1 }}
                             >
-                                {isPublishing ? 'Publishing...' : 'Publish'} <ArrowRight size={16} />
+                                {isPublishing ? (editingBlogId ? 'Updating...' : 'Publishing...') : (editingBlogId ? 'Update Post' : 'Publish')} <ArrowRight size={16} />
                             </button>
                         </div>
 
@@ -1173,12 +1244,35 @@ const AdminCreateBlog = () => {
                                         <h3 className="manage-item-title">{blog.title}</h3>
                                         <span className="manage-item-date">Published on {formatDate(blog.createdAt)}</span>
                                     </div>
-                                    <button
-                                        className="manage-delete-btn"
-                                        onClick={() => handleDelete(blog._id, blog.title)}
-                                    >
-                                        <Trash2 size={14} /> Delete
-                                    </button>
+                                    <div className="manage-item-actions">
+                                        <button
+                                            className="manage-edit-btn"
+                                            onClick={() => handleEdit(blog)}
+                                            style={{
+                                                background: 'rgba(29, 78, 216, 0.1)',
+                                                color: '#1d4ed8',
+                                                border: '1px solid rgba(29, 78, 216, 0.2)',
+                                                padding: '6px 12px',
+                                                borderRadius: '8px',
+                                                fontSize: '0.85rem',
+                                                fontWeight: '600',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '6px',
+                                                cursor: 'pointer',
+                                                transition: 'all 0.2s ease',
+                                                marginRight: '8px'
+                                            }}
+                                        >
+                                            <PenTool size={14} /> Edit
+                                        </button>
+                                        <button
+                                            className="manage-delete-btn"
+                                            onClick={() => handleDelete(blog._id, blog.title)}
+                                        >
+                                            <Trash2 size={14} /> Delete
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
                         </div>

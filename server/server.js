@@ -140,6 +140,27 @@ const deleteBlogLocally = (id) => {
     return deletedBlog;
 };
 
+const updateBlogLocally = (id, { title, content, coverImage }) => {
+    const localBlogs = readLocalBlogs();
+    const index = localBlogs.findIndex((blog) => blog._id === id);
+
+    if (index === -1) {
+        return null;
+    }
+
+    const updatedBlog = {
+        ...localBlogs[index],
+        title: title || localBlogs[index].title,
+        content: content || localBlogs[index].content,
+        coverImage: coverImage !== undefined ? coverImage : localBlogs[index].coverImage,
+        updatedAt: new Date().toISOString()
+    };
+
+    localBlogs[index] = updatedBlog;
+    writeLocalBlogs(localBlogs);
+    return updatedBlog;
+};
+
 const getBlogsFromStorage = async () => {
     if (isMongoStorageActive()) {
         try {
@@ -173,6 +194,28 @@ const createBlogInStorage = async ({ title, content, coverImage }) => {
 
     const blog = saveBlogLocally({ title, content, coverImage });
     return { storage: 'file', blog };
+};
+
+const updateBlogInStorage = async (id, { title, content, coverImage }) => {
+    if (isMongoStorageActive()) {
+        try {
+            const updatedBlog = await Blog.findByIdAndUpdate(
+                id,
+                { title, content, coverImage },
+                { new: true }
+            );
+            if (updatedBlog) {
+                return { storage: 'mongo', blog: updatedBlog };
+            }
+            return null;
+        } catch (error) {
+            console.warn('MongoDB update failed, switching to local JSON storage:', error.message);
+            blogStorageMode = 'file';
+        }
+    }
+
+    const updatedBlog = updateBlogLocally(id, { title, content, coverImage });
+    return updatedBlog ? { storage: 'file', blog: updatedBlog } : null;
 };
 
 const deleteBlogFromStorage = async (id) => {
@@ -304,6 +347,37 @@ app.delete('/api/blogs/:id', async (req, res) => {
     } catch (error) {
         console.error('Failed to delete blog:', error);
         res.status(500).json({ error: 'Failed to delete blog' });
+    }
+});
+
+// 4. Update a blog post by ID
+app.patch('/api/blogs/:id', upload.single('coverImage'), async (req, res) => {
+    try {
+        const { id } = req.params;
+        const title = typeof req.body.title === 'string' ? req.body.title.trim() : '';
+        const content = typeof req.body.content === 'string' ? req.body.content.trim() : '';
+
+        const updateData = {};
+        if (title) updateData.title = title;
+        if (content) updateData.content = content;
+        if (req.file) {
+            updateData.coverImage = `/uploads/${req.file.filename}`;
+        }
+
+        const updated = await updateBlogInStorage(id, updateData);
+
+        if (!updated) {
+            return res.status(404).json({ error: 'Blog not found' });
+        }
+
+        return res.status(200).json({
+            message: 'Blog updated successfully',
+            blog: updated.blog,
+            storage: updated.storage
+        });
+    } catch (error) {
+        console.error('Failed to update blog:', error);
+        res.status(500).json({ error: 'Failed to update blog' });
     }
 });
 
