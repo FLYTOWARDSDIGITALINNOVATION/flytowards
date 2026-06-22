@@ -211,7 +211,7 @@ const HANDLE_LABELS = {
 
 const DEFAULT_VIEWPORT = { width: 0, height: 300 };
 
-export default function CoverCropModal({ imageSrc, onApply, onCancel, isApplying = false }) {
+export default function CoverCropModal({ imageSrc, onApply, onCancel, onSkip, isApplying = false }) {
     const titleId = useId();
     const infoId = useId();
     const viewportRef = useRef(null);
@@ -488,6 +488,11 @@ export default function CoverCropModal({ imageSrc, onApply, onCancel, isApplying
         onCancel?.();
     };
 
+    const handleSkip = () => {
+        clearStatusTimer();
+        onSkip?.();
+    };
+
     const handleImageLoad = (event) => {
         const image = event.currentTarget;
         setIsImageLoaded(true);
@@ -634,6 +639,10 @@ export default function CoverCropModal({ imageSrc, onApply, onCancel, isApplying
                         <button type="button" className="ft-cover-crop__button ft-cover-crop__button--reset" onClick={handleReset}>
                             <RotateCcw size={16} />
                             Reset
+                        </button>
+
+                        <button type="button" className="ft-cover-crop__button ft-cover-crop__button--cancel" onClick={handleSkip} style={{ background: 'var(--primary)', color: 'white', borderColor: 'transparent' }}>
+                            Skip / Use Original
                         </button>
 
                         <button type="button" className="ft-cover-crop__button ft-cover-crop__button--cancel" onClick={handleCancel}>

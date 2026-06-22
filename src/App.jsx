@@ -22,6 +22,7 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 const Careers = React.lazy(() => import('./pages/Careers'));
 const AdminLogin = React.lazy(() => import('./pages/AdminLogin'));
 const AdminCreateBlog = React.lazy(() => import('./pages/AdminCreateBlog'));
+const Internship = React.lazy(() => import('./pages/Internship'));
 
 const DynamicCanonical = () => {
     const location = useLocation();
@@ -69,6 +70,7 @@ function App() {
                         <Route path="/payroll" element={<FlyPayroll />} />
                         <Route path="/smart-crm" element={<SmartCRM />} />
                         <Route path="/careers" element={<Careers />} />
+                        <Route path="/internship" element={<Internship />} />
                         <Route path="/contact" element={<Contact />} />
                         
                         {/* Admin Routes */}

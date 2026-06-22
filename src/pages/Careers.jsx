@@ -27,7 +27,7 @@ const Careers = () => {
     const [activeFaq, setActiveFaq] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [selectedJob, setSelectedJob] = useState("");
-    
+
     const handleApplyClick = (jobTitle) => {
         setSelectedJob(jobTitle);
         setShowModal(true);
@@ -294,9 +294,9 @@ const Careers = () => {
                         <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '0.5rem', color: '#1e1b4b' }}>Apply for <span style={{ color: 'var(--primary)' }}>{selectedJob}</span></h2>
                         <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>Your application and CV will be sent directly to our recruitment team.</p>
 
-                        <form 
-                            action="https://formsubmit.co/flytowardsdigitalinnovation@gmail.com" 
-                            method="POST" 
+                        <form
+                            action="https://formsubmit.co/Info@flytowardsdigitalinnovation.Com"
+                            method="POST"
                             encType="multipart/form-data"
                             style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}
                         >
@@ -305,7 +305,7 @@ const Careers = () => {
                             <input type="hidden" name="_template" value="table" />
                             <input type="hidden" name="_captcha" value="false" />
                             <input type="hidden" name="Job_Position" value={selectedJob} />
-                            
+
                             <div style={{ gridColumn: 'span 2' }}>
                                 <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>Full Name</label>
                                 <input required type="text" name="Candidate_Name" className="form-input" placeholder="Enter your full name" />
@@ -412,7 +412,7 @@ const Careers = () => {
                         <h2 className="section-title" style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '1rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Join the <span className="gradient-text">Tribe</span></h2>
                         <p style={{ color: '#64748b', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>We aren't looking for employees. We're looking for architects of the future.</p>
                     </div>
-                    
+
                     <div className="roles-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
                         {openPositions.map((job, idx) => (
                             <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} className="role-card">
@@ -431,7 +431,7 @@ const Careers = () => {
                                 <div style={{ padding: '2.5rem' }}>
                                     <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.8rem' }}>{job.department}</span>
                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1.2rem', color: '#1e1b4b', minHeight: '60px' }}>{job.title}</h3>
-                                    
+
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '2rem' }}>
                                         {job.tags.map((tag, tIdx) => (
                                             <span key={tIdx} style={{ padding: '6px 12px', background: '#f1f5f9', color: '#475569', fontSize: '0.8rem', fontWeight: 700, borderRadius: '8px' }}>#{tag}</span>
@@ -443,8 +443,8 @@ const Careers = () => {
                                             <span style={{ fontSize: '0.75rem', color: '#94a3b8', fontWeight: 600, textTransform: 'uppercase' }}>Location</span>
                                             <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1e293b' }}>{job.location}</span>
                                         </div>
-                                        <button 
-                                            className="btn btn-primary" 
+                                        <button
+                                            className="btn btn-primary"
                                             style={{ padding: '0.8rem 2rem', borderRadius: '15px', fontSize: '0.9rem', fontWeight: 800 }}
                                             onClick={() => handleApplyClick(job.title)}
                                         >

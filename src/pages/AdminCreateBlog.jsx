@@ -1131,6 +1131,15 @@ const AdminCreateBlog = () => {
                             onApply={handleCoverCropApply}
                             onCancel={closeCoverCropModal}
                             isApplying={isApplyingCrop}
+                            onSkip={() => {
+                                if (coverCropSource?.url && coverCropSource?.file) {
+                                    setCoverImage(coverCropSource.url);
+                                    setImageFile(coverCropSource.file);
+                                    // Don't set coverImageDataUrl for original files to avoid storage limits
+                                    setCoverImageDataUrl(null); 
+                                    closeCoverCropModal();
+                                }
+                            }}
                         />
                     )}
                     {false && (

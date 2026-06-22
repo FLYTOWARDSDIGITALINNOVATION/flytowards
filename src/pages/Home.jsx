@@ -64,9 +64,9 @@ const Home = () => {
 
                 <div className="home-hero__content">
                     <div className="home-hero__text" data-aos="fade-up">
-                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '1rem', lineHeight: 1.2 }}>
-                            Fly Towards Best Software Company <br />
-                            <span className="gradient-text" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', display: 'block', marginTop: '0.5rem' }}>DIGITAL INNOVATION</span>
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)', marginBottom: '1rem', lineHeight: 1.3 }}>
+                            <span style={{ whiteSpace: 'nowrap', display: 'block' }}>Fly Towards Best Software Company</span>
+                            <span className="gradient-text" style={{ fontSize: '0.85em', display: 'block' }}>DIGITAL INNOVATION</span>
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.6rem', fontWeight: 700, opacity: 0.9, lineHeight: 1.4, maxWidth: '600px' }}>
                             Empowering Businesses Through <br /> Digital Marketing & IT Innovation
@@ -78,7 +78,28 @@ const Home = () => {
                             <a href="#services" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                                 Explore Our Service <ArrowRight size={20} />
                             </a>
-                            <Link to="/contact" className="btn btn-outline" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>Get a Free Consultation</Link>
+                            <Link to="/contact" className="btn btn-outline" style={{ 
+                                padding: '1.2rem 2.5rem', 
+                                fontSize: '1.1rem',
+                                color: 'white',
+                                borderColor: 'rgba(255,255,255,0.3)',
+                                background: 'rgba(255,255,255,0.05)'
+                            }}>Free Consolidation</Link>
+                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-shine" style={{ 
+                                padding: '1.2rem 2.5rem', 
+                                fontSize: '1.1rem', 
+                                background: 'linear-gradient(135deg, #00F2FF 0%, #007AFF 100%)',
+                                color: 'white',
+                                borderRadius: '60px',
+                                textDecoration: 'none',
+                                fontWeight: 700,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)'
+                            }}>
+                                <Shield size={20} /> Free Website Authentication
+                            </a>
                         </div>
                     </div>
                 </div>
