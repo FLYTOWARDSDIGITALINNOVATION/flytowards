@@ -12,8 +12,8 @@ const normalizeBaseUrl = (value) => {
 const envApiBaseUrl = normalizeBaseUrl(import.meta?.env?.VITE_API_BASE_URL);
 const envImageBaseUrl = normalizeBaseUrl(import.meta?.env?.VITE_IMAGE_BASE_URL);
 
-export const API_BASE_URL = envApiBaseUrl || (isLocalHost ? '/api' : 'https://flytowardsdigitalinnovation.com/ft-api');
-export const IMAGE_BASE_URL = envImageBaseUrl || (isLocalHost ? '' : 'https://flytowardsdigitalinnovation.com/ft-uploads');
+export const API_BASE_URL = envApiBaseUrl || (isLocalHost ? 'http://localhost:5010/api' : 'https://flytowardsdigitalinnovation.com/ft-api');
+export const IMAGE_BASE_URL = envImageBaseUrl || (isLocalHost ? 'http://localhost:5010' : 'https://flytowardsdigitalinnovation.com/ft-uploads');
 
 export const buildApiUrl = (path = '') => {
     const normalizedPath = path.startsWith('/') ? path : `/${path}`;

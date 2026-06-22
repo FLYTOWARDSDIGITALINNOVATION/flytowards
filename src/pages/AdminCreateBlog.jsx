@@ -1,26 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
     ArrowRight,
-    Bold,
-    Code,
     Image as ImageIcon,
-    ImagePlus,
-    Italic,
-    Link2,
-    List,
-    ListOrdered,
-    Minus,
     PenTool,
-    Quote,
-    Redo2,
     RefreshCw,
     Save,
     Trash2,
-    Undo2,
     UploadCloud
 } from 'lucide-react';
 import { API_BASE_URL, buildApiUrl } from '../config';
-import CoverCropModal from '../components/CoverCropModal';
 import './AdminCreateBlog.css';
 
 const DRAFT_STORAGE_KEY = 'flytowards_admin_blog_draft_v1';
@@ -316,22 +304,21 @@ const AdminCreateBlog = () => {
         };
     }, [title, content, coverImageDataUrl]);
 
-    const handleCoverImageUpload = async (e) => {
+    const handleCoverImageUpload = (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        if (coverCropObjectUrlRef.current) {
-            URL.revokeObjectURL(coverCropObjectUrlRef.current);
-            coverCropObjectUrlRef.current = null;
-        }
-
         const objectUrl = URL.createObjectURL(file);
-        coverCropObjectUrlRef.current = objectUrl;
-        setCoverCropSource({ file, url: objectUrl, name: file.name, type: file.type || 'image/jpeg' });
-        setCoverCropImageSize({ width: 0, height: 0 });
-        setCoverCropStageSize({ width: 0, height: 0 });
-        setCoverCropOffset({ x: 0, y: 0 });
-        setCoverCropModalOpen(true);
+        setCoverImage(objectUrl);
+        setImageFile(file);
+
+        // Also store as dataUrl for draft saving (if small enough)
+        const reader = new FileReader();
+        reader.onload = () => {
+            const dataUrl = reader.result;
+            setCoverImageDataUrl(dataUrl.length <= 1_800_000 ? dataUrl : null);
+        };
+        reader.readAsDataURL(file);
 
         e.target.value = '';
     };
@@ -898,88 +885,25 @@ const AdminCreateBlog = () => {
             {activeTab === 'create' ? (
                 <>
                 {/* Create Post Editor */}
-                <div className={`editor-container glass-container ${isMobilePreview ? 'mobile-preview' : ''}`} data-aos="fade-up">
-                        {/* Editor Actions Toolbar */}
-                        <div className="modern-toolbar">
+                <div className="editor-container glass-container" data-aos="fade-up">
+                    <div className="modern-toolbar">
                         <div className="toolbar-left">
                             <span className="draft-status-text">
-                                {isMobilePreview ? 'Mobile Preview Mode' : (editingBlogId ? 'Editing Existing Post...' : 'Drafting New Post...')}
+                                {editingBlogId ? 'Editing Existing Post...' : 'Drafting New Post...'}
                             </span>
-
-                                <div className="tool-group">
-                                    <span className="tool-label">Style</span>
-                                    <select
-                                        className="style-select"
-                                        defaultValue="P"
-                                        onChange={(e) => formatBlock(e.target.value)}
-                                    >
-                                        <option value="P">Normal</option>
-                                        <option value="H1">Heading 1</option>
-                                        <option value="H2">Heading 2</option>
-                                        <option value="BLOCKQUOTE">Quote</option>
-                                        <option value="PRE">Code Block</option>
-                                    </select>
-                                </div>
-
-                                <div className="tool-group">
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('bold')} title="Bold">
-                                        <Bold size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('italic')} title="Italic">
-                                        <Italic size={16} />
-                                    </button>
-                                    <span className="tool-divider-modern" />
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertUnorderedList')} title="Bulleted list">
-                                        <List size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertOrderedList')} title="Numbered list">
-                                        <ListOrdered size={16} />
-                                    </button>
-                                    <span className="tool-divider-modern" />
-                                    <button type="button" className="tool-btn-modern" onClick={() => formatBlock('BLOCKQUOTE')} title="Quote">
-                                        <Quote size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={() => formatBlock('PRE')} title="Code block">
-                                        <Code size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={insertInlineCode} title="Inline code">
-                                        <Code size={16} strokeWidth={2.5} />
-                                    </button>
-                                    <span className="tool-divider-modern" />
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertHorizontalRule')} title="Divider">
-                                        <Minus size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={insertLink} title="Insert link">
-                                        <Link2 size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={triggerInlineImagePick} title="Insert image">
-                                        <ImagePlus size={16} />
-                                    </button>
-                                    <input
-                                        ref={inlineImageInputRef}
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={handleInlineImagePicked}
-                                        hidden
-                                    />
-                                    <span className="tool-divider-modern" />
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('undo')} title="Undo">
-                                        <Undo2 size={16} />
-                                    </button>
-                                    <button type="button" className="tool-btn-modern" onClick={() => exec('redo')} title="Redo">
-                                    <Redo2 size={16} />
-                                </button>
-                                <span className="tool-divider-modern" />
-                                <button 
-                                    type="button" 
-                                    className={`tool-btn-modern ${isMobilePreview ? 'active' : ''}`} 
-                                    onClick={() => setIsMobilePreview(!isMobilePreview)} 
-                                    title="Mobile Preview"
-                                    style={{ color: isMobilePreview ? 'var(--primary)' : 'inherit' }}
-                                >
-                                    <RefreshCw size={16} className={isMobilePreview ? 'animate-pulse' : ''} />
-                                </button>
-                            </div>
+                        </div>
+                        <div className="toolbar-right">
+                            <button className="btn btn-outline draft-btn" onClick={() => saveDraft({ forceStatus: 'saved' })}>
+                                <Save size={16} /> Save Draft
+                            </button>
+                            <button
+                                className="btn btn-primary publish-btn"
+                                onClick={handlePublish}
+                                disabled={isPublishing}
+                                style={{ opacity: isPublishing ? 0.7 : 1 }}
+                            >
+                                {isPublishing ? (editingBlogId ? 'Updating...' : 'Publishing...') : (editingBlogId ? 'Update Post' : 'Publish')} <ArrowRight size={16} />
+                            </button>
                         </div>
                     </div>
 
@@ -1080,48 +1004,7 @@ const AdminCreateBlog = () => {
                         </div>
                     </div>
 
-                        <div className="editor-actions-bottom">
-                            <div className="editor-actions-left">
-                                {editingBlogId ? (
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline draft-delete-btn"
-                                        onClick={handleCancelEdit}
-                                        title="Cancel Edit"
-                                    >
-                                        <Undo2 size={16} /> Cancel Edit
-                                    </button>
-                                ) : (
-                                    <>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline draft-btn"
-                                            onClick={() => saveDraft({ forceStatus: 'saved' })}
-                                        >
-                                            <Save size={16} /> Save Draft
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="btn btn-outline draft-delete-btn"
-                                            onClick={handleDeleteDraft}
-                                            disabled={!title && !content && !coverImageDataUrl}
-                                            title="Delete draft"
-                                        >
-                                            <Trash2 size={16} /> Delete Draft
-                                        </button>
-                                    </>
-                                )}
-                            </div>
-                            <button
-                                type="button"
-                                className="btn btn-primary publish-btn"
-                                onClick={handlePublish}
-                                disabled={isPublishing}
-                                style={{ opacity: isPublishing ? 0.7 : 1 }}
-                            >
-                                {isPublishing ? (editingBlogId ? 'Updating...' : 'Publishing...') : (editingBlogId ? 'Update Post' : 'Publish')} <ArrowRight size={16} />
-                            </button>
-                        </div>
+
 
                     </div>
 

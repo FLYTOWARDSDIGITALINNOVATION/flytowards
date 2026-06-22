@@ -126,13 +126,13 @@ const Blog = () => {
             const response = await fetch(buildApiUrl('/blogs'));
             if (response.ok) {
                 const data = await response.json();
-                // Merge dynamic blogs from MongoDB with the static strategic guide,
-                // then sort so newest posts appear first.
-                const merged = [staticArticle, ...data].sort((a, b) => {
+                // Dynamic blogs sorted newest first, static article always stays featured at top
+                const dynamicSorted = [...data].sort((a, b) => {
                     const aTime = new Date(a?.createdAt || 0).getTime();
                     const bTime = new Date(b?.createdAt || 0).getTime();
                     return bTime - aTime;
                 });
+                const merged = [staticArticle, ...dynamicSorted];
                 setBlogs(merged);
             } else {
                 setBlogs([staticArticle]);
@@ -263,9 +263,6 @@ const Blog = () => {
                                             <p className="blog-card-excerpt">
                                                 {getExcerpt(blog, 120)}
                                             </p>
-                                            <span className="read-more-link">
-                                                Read Article <ArrowRight size={14} />
-                                            </span>
                                         </div>
                                     </div>
                                 ))}
