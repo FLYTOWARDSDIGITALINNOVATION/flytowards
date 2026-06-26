@@ -315,7 +315,7 @@ const Internship = () => {
                                     <p style={{ color: '#64748b', fontSize: '1.2rem', marginTop: '1rem' }}>Complete your industrial dossier to begin the selection process.</p>
                                 </div>
 
-                                <form action="https://formsubmit.co/Info@flytowardsdigitalinnovation.Com" method="POST">
+                                <form action="https://formsubmit.co/info@flytowardsdigitalinnovation.com" method="POST">
                                     <input type="hidden" name="_subject" value={`New Internship Application: ${selectedProgram}`} />
                                     
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '2.5rem' }}>

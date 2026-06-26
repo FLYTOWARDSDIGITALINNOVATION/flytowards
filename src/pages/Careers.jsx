@@ -295,7 +295,7 @@ const Careers = () => {
                         <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>Your application and CV will be sent directly to our recruitment team.</p>
 
                         <form
-                            action="https://formsubmit.co/Info@flytowardsdigitalinnovation.Com"
+                            action="https://formsubmit.co/info@flytowardsdigitalinnovation.com"
                             method="POST"
                             encType="multipart/form-data"
                             style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}

@@ -19,7 +19,7 @@ const AdminLogin = () => {
         setError(false);
         setIsLoading(true);
 
-        const ADMIN_EMAIL = "Info@flytowardsdigitalinnovation.Com";
+        const ADMIN_EMAIL = "info@flytowardsdigitalinnovation.com";
         const ADMIN_PASS = "admin123";
 
         // Simulating authentication

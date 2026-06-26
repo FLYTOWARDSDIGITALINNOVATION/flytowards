@@ -33,7 +33,7 @@ const Contact = () => {
         try {
             const formData = new FormData(e.target);
             // Using FormSubmit.co AJAX for professional in-page feedback
-            const response = await fetch("https://formsubmit.co/ajax/Info@flytowardsdigitalinnovation.Com", {
+            const response = await fetch("https://formsubmit.co/ajax/info@flytowardsdigitalinnovation.com", {
                 method: "POST",
                 body: formData
             });
@@ -107,7 +107,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 700 }}>Email Address</h4>
-                                        <a href="mailto:Info@flytowardsdigitalinnovation.Com" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', textDecoration: 'none', wordBreak: 'break-all' }}>Info@flytowardsdigitalinnovation.Com</a>
+                                        <a href="mailto:info@flytowardsdigitalinnovation.com" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', textDecoration: 'none', wordBreak: 'break-all' }}>info@flytowardsdigitalinnovation.com</a>
                                     </div>
                                 </div>
 
@@ -185,7 +185,7 @@ const Contact = () => {
 
                             {formStatus === 'success' && (
                                 <div style={{ background: 'rgba(0, 242, 255, 0.1)', color: 'var(--primary)', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
-                                    Thank you! Your message has been sent successfully to Info@flytowardsdigitalinnovation.Com.
+                                    Thank you! Your message has been sent successfully to info@flytowardsdigitalinnovation.com.
                                 </div>
                             )}
 
