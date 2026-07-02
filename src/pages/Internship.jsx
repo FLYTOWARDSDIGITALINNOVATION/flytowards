@@ -55,8 +55,7 @@ const Internship = () => {
 
     const stats = [
         { label: "Duration", value: "3-6 Months" },
-        { label: "Format", value: "Hybrid / Remote" },
-        { label: "Batch Size", value: "Limited to 15" }
+        { label: "Format", value: "Online / Offline" }
     ];
 
     return (
@@ -192,21 +191,21 @@ const Internship = () => {
                 <div className="hero-bg-img"></div>
                 <div className="glass-overlay"></div>
                 <div className="max-w-1200" style={{ margin: '0 auto', position: 'relative', zIndex: 5 }}>
-                    <div data-aos="fade-down" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.1)', padding: '10px 25px', borderRadius: '50px', backdropFilter: 'blur(10px)', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.2)' }}>
+                    <div data-aos="fade-down" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.07)', padding: '10px 25px', borderRadius: '50px', backdropFilter: 'blur(10px)', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.15)' }}>
                         <Rocket size={18} color="var(--primary)" />
-                        <span style={{ fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.1em' }}>2025 BATCH ENROLLMENT OPEN</span>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.12em' }}>INDUSTRIAL INTERNSHIP ENROLLMENT OPEN</span>
                     </div>
                     <h1 data-aos="zoom-out" style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: '2.5rem' }}>
                         Elevate Your <br />
-                        <span style={{ color: 'var(--primary)', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Future Self.</span>
+                        <span className="gradient-text" style={{ textShadow: '0 0 30px rgba(0, 242, 255, 0.3)', display: 'inline-block' }}>Future Self.</span>
                     </h1>
                     <p data-aos="fade-up" style={{ fontSize: '1.4rem', color: '#94a3b8', maxWidth: '650px', margin: '0 auto 4rem', lineHeight: 1.6 }}>
                         A curated selection of industrial internships designed to transform ambitious minds into world-class engineers and strategists.
                     </p>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', maxWidth: '600px', margin: '0 auto', flexWrap: 'wrap' }}>
                         {stats.map((s, i) => (
-                            <div key={i} data-aos="fade-up" data-aos-delay={i * 100} style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <div key={i} data-aos="fade-up" data-aos-delay={i * 100} style={{ padding: '1.5rem 2.5rem', background: 'rgba(255,255,255,0.05)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)', flex: '1', minWidth: '220px', textAlign: 'center' }}>
                                 <div style={{ fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', marginBottom: '0.5rem', fontWeight: 800 }}>{s.label}</div>
                                 <div style={{ fontSize: '1.2rem', fontWeight: 700 }}>{s.value}</div>
                             </div>

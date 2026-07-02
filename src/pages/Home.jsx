@@ -16,15 +16,15 @@ const Home = () => {
         };
     }, []);
 
-    const digitalMarketingServices = [
-        "Search Engine Optimization (SEO)",
-        "Social Media Marketing",
-        "Google Ads / Meta ads",
-        "LinkedIn Marketing",
-        "Digital Marketing Strategy",
-        "Branding & Design",
-        "WhatsApp Marketing",
-        "Video Edits and Production"
+    const softwareDevelopmentServices = [
+        "Web Application Development",
+        "Mobile App Development",
+        "Ecommerce Website",
+        "SaaS Product Software",
+        "Enterprise ERP Systems",
+        "Cloud Solutions & Hosting",
+        "Custom API Integrations",
+        "UI/UX Interface Design"
     ];
 
     const itSolutionsServices = [
@@ -171,21 +171,21 @@ const Home = () => {
 
                 <div className="grid" style={{ margin: '0 auto', gap: '3rem', width: '100%' }}>
 
-                    {/* Marketing Column */}
+                    {/* Software Development Column */}
                     <div className="card" data-aos="fade-right" style={{ padding: '3.5rem', borderTop: '4px solid var(--primary)', position: 'relative', overflow: 'hidden' }}>
                         <div style={{ position: 'absolute', top: '-10%', right: '-5%', opacity: 0.05, transform: 'rotate(15deg)' }}>
-                            <Target size={200} />
+                            <Code size={200} />
                         </div>
                         <div className="solution-header">
                             <div className="solution-img-box">
-                                <img src="digital.webp" alt="Digital Marketing" />
+                                <img src="Web & app development.jpg.webp" alt="Our Services" />
                             </div>
-                            <h3 className="solution-title">Digital <br />Marketing</h3>
+                            <h3 className="solution-title">Our <br />Services</h3>
                         </div>
 
                         <ul style={{ listStyle: 'none', color: 'var(--text-dark)', fontSize: '1.1rem' }}>
-                            {digitalMarketingServices.map((service, idx) => (
-                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '1rem 0', borderBottom: idx !== digitalMarketingServices.length - 1 ? '1px solid var(--border)' : 'none' }}>
+                            {softwareDevelopmentServices.map((service, idx) => (
+                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '1rem 0', borderBottom: idx !== softwareDevelopmentServices.length - 1 ? '1px solid var(--border)' : 'none' }}>
                                     <CheckCircle2 size={22} color="var(--primary)" style={{ flexShrink: 0 }} />
                                     <span style={{ fontWeight: 500 }}>{service}</span>
                                 </li>

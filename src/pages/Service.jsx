@@ -51,6 +51,14 @@ const Service = () => {
             color: "157, 0, 255"
         },
         {
+            title: "SEO Optimization",
+            desc: "Command search engine rankings, optimize Core Web Vitals, and build sustainable organic traffic pipelines.",
+            icon: <TrendingUp size={35} />,
+            link: "/seo",
+            img: "serviceseo.webp",
+            color: "0, 242, 255"
+        },
+        {
             title: "App Development",
             desc: "Premium native and cross-platform mobile experiences crafted with precision for the modern user.",
             icon: <Smartphone size={35} />,
@@ -269,17 +277,17 @@ const Service = () => {
 
                     <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '3rem' }}>
                         {services.map((service, idx) => (
-                            <RouterLink 
-                                to={service.link} 
-                                key={idx} 
-                                data-aos="fade-up" 
+                            <RouterLink
+                                to={service.link}
+                                key={idx}
+                                data-aos="fade-up"
                                 data-aos-delay={idx * 100}
                                 className="service-bento-card"
-                                style={{ 
+                                style={{
                                     textDecoration: 'none',
-                                    background: 'white', 
-                                    borderRadius: '50px', 
-                                    overflow: 'hidden', 
+                                    background: 'white',
+                                    borderRadius: '50px',
+                                    overflow: 'hidden',
                                     boxShadow: '0 30px 60px rgba(0,0,0,0.03)',
                                     border: '1px solid #f1f5f9',
                                     display: 'flex',
@@ -316,15 +324,15 @@ const Service = () => {
 
                     <div className="processes-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
                         {processes.map((step, idx) => (
-                            <div 
-                                key={idx} 
-                                data-aos="fade-up" 
+                            <div
+                                key={idx}
+                                data-aos="fade-up"
                                 data-aos-delay={idx * 150}
                                 className="process-card"
-                                style={{ 
-                                    padding: '4rem 3.5rem', 
-                                    background: '#fcfcfe', 
-                                    borderRadius: '45px', 
+                                style={{
+                                    padding: '4rem 3.5rem',
+                                    background: '#fcfcfe',
+                                    borderRadius: '45px',
                                     border: '1px solid #f1f5f9',
                                     position: 'relative',
                                     overflow: 'hidden',

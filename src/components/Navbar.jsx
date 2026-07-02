@@ -8,7 +8,7 @@ const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
 
     const isProductsActive = ['/products', '/fly-bill', '/payroll', '/smart-crm'].includes(location.pathname);
-    const isServicesActive = ['/service', '/web-development', '/whatsapp-api', '/digital-marketing'].includes(location.pathname);
+    const isServicesActive = ['/service', '/web-development', '/whatsapp-api', '/digital-marketing', '/seo'].includes(location.pathname);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -60,10 +60,12 @@ const Navbar = () => {
                         <li onClick={closeMenu}><Link to="/web-development">Web Development</Link></li>
                         <li onClick={closeMenu}><Link to="/whatsapp-api">WhatsApp Marketing API</Link></li>
                         <li onClick={closeMenu}><Link to="/digital-marketing">Digital Marketing</Link></li>
+                        <li onClick={closeMenu}><Link to="/seo">SEO Optimization</Link></li>
                         <li onClick={closeMenu}><Link to="/service">All Services</Link></li>
                     </ul>
                 </li>
 
+                <li onClick={closeMenu}><Link to="/industries" className={location.pathname === '/industries' ? 'active' : ''}>Industries</Link></li>
                 <li onClick={closeMenu}><Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''}>Careers</Link></li>
                 <li onClick={closeMenu}><Link to="/internship" className={location.pathname === '/internship' ? 'active' : ''}>Internship</Link></li>
                 <li onClick={closeMenu}><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link></li>

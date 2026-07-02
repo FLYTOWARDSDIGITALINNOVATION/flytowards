@@ -10,11 +10,13 @@ import Loader from './components/Loader';
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Service = React.lazy(() => import('./pages/Service'));
+const Industries = React.lazy(() => import('./pages/Industries'));
 const WebDev = React.lazy(() => import('./pages/WebDev'));
 const WhatsAppAPI = React.lazy(() => import('./pages/WhatsAppAPI'));
 const Blog = React.lazy(() => import('./pages/Blog'));
 const Products = React.lazy(() => import('./pages/Products'));
 const DigitalMarketing = React.lazy(() => import('./pages/DigitalMarketing'));
+const SEO = React.lazy(() => import('./pages/SEO'));
 const FlyBill = React.lazy(() => import('./pages/FlyBill'));
 const FlyPayroll = React.lazy(() => import('./pages/FlyPayroll'));
 const SmartCRM = React.lazy(() => import('./pages/SmartCRM'));
@@ -33,8 +35,8 @@ const DynamicCanonical = () => {
             canonicalLink.rel = 'canonical';
             document.head.appendChild(canonicalLink);
         }
-        const cleanPath = location.pathname.endsWith('/') && location.pathname !== '/' 
-            ? location.pathname.slice(0, -1) 
+        const cleanPath = location.pathname.endsWith('/') && location.pathname !== '/'
+            ? location.pathname.slice(0, -1)
             : location.pathname;
         canonicalLink.href = `https://www.flytowards.in${cleanPath}`;
     }, [location]);
@@ -61,9 +63,11 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/service" element={<Service />} />
+                        <Route path="/industries" element={<Industries />} />
                         <Route path="/web-development" element={<WebDev />} />
                         <Route path="/whatsapp-api" element={<WhatsAppAPI />} />
                         <Route path="/digital-marketing" element={<DigitalMarketing />} />
+                        <Route path="/seo" element={<SEO />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/fly-bill" element={<FlyBill />} />
@@ -72,7 +76,7 @@ function App() {
                         <Route path="/careers" element={<Careers />} />
                         <Route path="/internship" element={<Internship />} />
                         <Route path="/contact" element={<Contact />} />
-                        
+
                         {/* Admin Routes */}
                         <Route path="/admin" element={<AdminLogin />} />
                         <Route path="/admin/create-blog" element={<AdminCreateBlog />} />
