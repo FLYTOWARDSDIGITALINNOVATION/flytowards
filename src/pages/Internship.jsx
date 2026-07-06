@@ -38,8 +38,8 @@ const Internship = () => {
             desc: "Fuel business success through data and digital reach.",
             courses: [
                 { title: "Digital Marketing", desc: "Dominate the digital landscape with proven strategies.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop", icon: <Globe size={20} />, detail: "Strategic Growth" },
-                { title: "Data Mining & BI", desc: "Translate raw data into powerful business insights.", image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=2070&auto=format&fit=crop", icon: <Search size={20} />, detail: "Business Intelligence" },
-                { title: "SEO Engineering", desc: "Master the art of search visibility and optimization.", image: "https://images.unsplash.com/photo-1562577353-35f4144ada65?q=80&w=2072&auto=format&fit=crop", icon: <Zap size={20} />, detail: "Search Optimization" }
+                { title: "Data Mining & BI", desc: "Translate raw data into powerful business insights.", image: "https://images.unsplash.com/photo-1551288049-bebda436639a?q=80&w=800&auto=format&fit=crop", icon: <Search size={20} />, detail: "Business Intelligence" },
+                { title: "SEO Engineering", desc: "Master the art of search visibility and optimization.", image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=800&auto=format&fit=crop", icon: <Zap size={20} />, detail: "Search Optimization" }
             ]
         },
         {
@@ -240,7 +240,7 @@ const Internship = () => {
                                                     <span className="category-tag">Featured Program</span>
                                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0f172a', marginBottom: '1rem' }}>{course.title}</h3>
                                                     <p style={{ color: '#64748b', marginBottom: '2.5rem', lineHeight: 1.8, fontSize: '1.05rem' }}>{course.desc}</p>
-                                                    
+
                                                     <div style={{ padding: '1rem 0', borderTop: '1px solid #f1f5f9', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                                         <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#94a3b8' }}>{course.detail}</span>
                                                         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--primary)' }}></div>
@@ -316,7 +316,7 @@ const Internship = () => {
 
                                 <form action="https://formsubmit.co/info@flytowardsdigitalinnovation.com" method="POST">
                                     <input type="hidden" name="_subject" value={`New Internship Application: ${selectedProgram}`} />
-                                    
+
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '2.5rem' }}>
                                         <div style={{ position: 'relative' }}>
                                             <label style={{ display: 'block', fontWeight: 800, color: '#64748b', marginBottom: '1rem', fontSize: '0.85rem', textTransform: 'uppercase' }}>Identity</label>

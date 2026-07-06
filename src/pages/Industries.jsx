@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { HardHat, Gem, Coins, GraduationCap, Stethoscope, Factory, Store, ArrowRight, CheckCircle2, ChevronRight, Server, Zap, ShieldCheck } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronRight, Server, Zap, ShieldCheck } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Industries = () => {
@@ -30,7 +30,7 @@ const Industries = () => {
             title: "Construction",
             tagline: "Build with technical precision",
             desc: "Custom ERP & project management environments designed to control budgets, manage sites, and automate supplier transactions.",
-            icon: <HardHat size={35} />,
+            img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
             color: "249, 115, 22", // Orange
             features: [
                 "Real-time material & inventory tracking",
@@ -42,7 +42,7 @@ const Industries = () => {
             title: "Jewelry Shop",
             tagline: "Luster meets smart management",
             desc: "High-security inventory management with client tracking schemes, barcode support, and elegant visual cataloging.",
-            icon: <Gem size={35} />,
+            img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80",
             color: "13, 148, 136", // Emerald/Teal
             features: [
                 "RFID & Barcode stock controls",
@@ -54,7 +54,7 @@ const Industries = () => {
             title: "Gold Loan",
             tagline: "Secure interest & pledge workflows",
             desc: "Calculators and ledger frameworks built for fast pawn processing, interest accrual audit, and payment reminders.",
-            icon: <Coins size={35} />,
+            img: "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=800&q=80",
             color: "202, 138, 4", // Gold
             features: [
                 "Live market gold rate synchronization",
@@ -66,7 +66,7 @@ const Industries = () => {
             title: "School / College",
             tagline: "Nurturing smart digital campuses",
             desc: "Next-gen ERP systems supporting fee collecting portals, digital grading sheets, timetables, and teacher-parent workspaces.",
-            icon: <GraduationCap size={35} />,
+            img: "Student.webp",
             color: "29, 78, 216", // Royal Blue
             features: [
                 "Admissions & student lifecycle tracking",
@@ -78,7 +78,7 @@ const Industries = () => {
             title: "Hospital & Clinic",
             tagline: "Prioritize seamless patient care",
             desc: "OPD scheduling portals, EMR records integration, smart pharmacy tracking, and doctor availability widgets.",
-            icon: <Stethoscope size={35} />,
+            img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
             color: "5, 150, 105", // Emerald Green
             features: [
                 "Electronic health records (EHR) database",
@@ -90,7 +90,7 @@ const Industries = () => {
             title: "Manufacturing",
             tagline: "Zero downtime product workflows",
             desc: "Materials Requirements Planning (MRP), quality check control nodes, assembly flow schedules, and logistics sync.",
-            icon: <Factory size={35} />,
+            img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
             color: "79, 70, 229", // Indigo
             features: [
                 "Shop floor execution & machine logs",
@@ -102,7 +102,7 @@ const Industries = () => {
             title: "Retail Shop",
             tagline: "Next-gen point-of-sale efficiency",
             desc: "Multi-counter billing modules with integrated digital payment gateways, bulk discount controllers, and vendor sync engines.",
-            icon: <Store size={35} />,
+            img: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80",
             color: "219, 39, 119", // Pink
             features: [
                 "High-speed POS with barcode scan",
@@ -130,8 +130,8 @@ const Industries = () => {
                     transform: translateY(-12px);
                     box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08) !important;
                 }
-                .industry-card:hover .industry-icon-wrapper {
-                    transform: scale(1.1) rotate(5deg);
+                .industry-card:hover .industry-card-image-el {
+                    transform: scale(1.08);
                 }
                 .industry-card::before {
                     content: '';
@@ -279,32 +279,22 @@ const Industries = () => {
                                     '--color': industry.color
                                 }}
                             >
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
-                                    <div 
-                                        className="industry-icon-wrapper" 
-                                        style={{ 
-                                            width: '72px', 
-                                            height: '72px', 
-                                            borderRadius: '22px', 
-                                            background: `rgba(${industry.color}, 0.08)`, 
-                                            display: 'flex', 
-                                            alignItems: 'center', 
-                                            justifyContent: 'center',
-                                            color: `rgb(${industry.color})`,
-                                            transition: 'all 0.4s ease'
-                                        }}
-                                    >
-                                        {industry.icon}
-                                    </div>
+                                <div style={{ width: '100%', height: '220px', borderRadius: '25px', overflow: 'hidden', marginBottom: '2.5rem', position: 'relative' }}>
+                                    <img src={industry.img} alt={industry.title} className="industry-card-image-el" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease-in-out' }} />
+                                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 23, 42, 0.4), transparent)' }}></div>
                                     <span style={{ 
+                                        position: 'absolute',
+                                        bottom: '20px',
+                                        right: '20px',
                                         fontSize: '0.8rem', 
                                         fontWeight: 800, 
                                         color: `rgb(${industry.color})`, 
-                                        background: `rgba(${industry.color}, 0.1)`, 
+                                        background: 'white', 
                                         padding: '0.4rem 1.2rem', 
                                         borderRadius: '20px', 
                                         textTransform: 'uppercase', 
-                                        letterSpacing: '1px' 
+                                        letterSpacing: '1px',
+                                        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
                                     }}>
                                         Smart Tech
                                     </span>

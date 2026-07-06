@@ -44,10 +44,10 @@ const Home = () => {
     ];
 
     const faqs = [
-        { q: "What exactly does Fly Towards Digital Innovation do?", a: "We provide complete digital marketing and IT solutions to increase your reach and revenue." },
+        { q: "What exactly does Fly Towards Digital Innovation do?", a: "We provide complete IT solutions to increase your reach and revenue." },
         { q: "How can this help my business grow?", a: "Our data-driven strategies and custom campaigns focus on real, measurable business results. It helps businesses reach customers online, increase visibility, and grow sales faster than traditional methods." },
-        { q: "Do you offer both Marketing and Engineering?", a: "Yes, we handle everything — from marketing to web, app, and software development." },
-        { q: "Does digital marketing actually work?", a: "Yes! Targeted campaigns attract the right audience who are ready to buy your products or services." }
+        { q: "Do you offer custom software development?", a: "Yes, we handle everything from web app, mobile app, to custom software development." },
+        { q: "Do custom IT solutions actually work?", a: "Yes! Modern systems and custom software improve efficiency, reduce operating costs, and boost overall sales." }
     ];
 
     return (
@@ -69,25 +69,25 @@ const Home = () => {
                             <span className="gradient-text" style={{ fontSize: '0.85em', display: 'block' }}>DIGITAL INNOVATION</span>
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.6rem', fontWeight: 700, opacity: 0.9, lineHeight: 1.4, maxWidth: '600px' }}>
-                            Empowering Businesses Through <br /> Digital Marketing & IT Innovation
+                            Empowering Businesses Through <br /> IT & Software Innovation
                         </h2>
                         <p style={{ fontSize: '1.2rem', color: 'rgba(255, 255, 255, 0.85)', marginBottom: '3rem', maxWidth: '600px', lineHeight: 1.8 }}>
-                            We help brands grow, connect, and succeed through result-driven digital marketing and modern IT solutions.
+                            We help brands grow, connect, and succeed through result-driven IT and custom software solutions.
                         </p>
                         <div className="home-hero__actions" style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                             <a href="#services" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                                 Explore Our Service <ArrowRight size={20} />
                             </a>
-                            <Link to="/contact" className="btn btn-outline" style={{ 
-                                padding: '1.2rem 2.5rem', 
+                            <Link to="/contact" className="btn btn-outline" style={{
+                                padding: '1.2rem 2.5rem',
                                 fontSize: '1.1rem',
                                 color: 'white',
                                 borderColor: 'rgba(255,255,255,0.3)',
                                 background: 'rgba(255,255,255,0.05)'
                             }}>Free Consolidation</Link>
-                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-shine" style={{ 
-                                padding: '1.2rem 2.5rem', 
-                                fontSize: '1.1rem', 
+                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-shine" style={{
+                                padding: '1.2rem 2.5rem',
+                                fontSize: '1.1rem',
                                 background: 'linear-gradient(135deg, #00F2FF 0%, #007AFF 100%)',
                                 color: 'white',
                                 borderRadius: '60px',
@@ -108,57 +108,57 @@ const Home = () => {
             {/* Who We Are */}
             <section id="about" className="about-section section-full">
                 <div className="section-inner">
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', alignItems: 'center', gap: '4rem' }}>
-                    <div data-aos="fade-right">
-                        <div style={{ position: 'relative', padding: '1rem', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-                            <img src="/Student.webp" alt="Students" style={{ borderRadius: '30px', width: '100%', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', zIndex: 2 }} />
-                            <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15, zIndex: 1, top: '10%', right: '-10%', width: '150%', height: '150%' }}></div>
+                    <div className="grid-2 max-w-1200" style={{ margin: '0 auto', alignItems: 'center', gap: '4rem' }}>
+                        <div data-aos="fade-right">
+                            <div style={{ position: 'relative', padding: '1rem', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+                                <img src="/Student.webp" alt="Students" style={{ borderRadius: '30px', width: '100%', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', zIndex: 2 }} />
+                                <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15, zIndex: 1, top: '10%', right: '-10%', width: '150%', height: '150%' }}></div>
+                            </div>
+                        </div>
+                        <div data-aos="fade-left" style={{ paddingTop: '2rem' }}>
+                            <span className="section-tag" style={{ marginBottom: '1.5rem' }}>Who We Are</span>
+                            <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>Bridging Creativity <br /><span className="gradient-text">with Technology</span></h2>
+                            <p style={{ fontSize: '1.2rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '2rem' }}>
+                                Fly Towards is a growth focused company offering end-to-end IT and Software Solutions. Our mission is to bridge creativity with technology — helping businesses boost visibility, sales, and performance in the digital world.
+                            </p>
+                            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                    <CheckCircle2 size={24} color="var(--primary)" style={{ flexShrink: 0 }} />
+                                    <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Innovative Strategies</span>
+                                </li>
+                                <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                    <CheckCircle2 size={24} color="var(--secondary)" style={{ flexShrink: 0 }} />
+                                    <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Modern Tech Architecture</span>
+                                </li>
+                                <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                    <CheckCircle2 size={24} color="var(--accent)" style={{ flexShrink: 0 }} />
+                                    <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Result-Driven Approach</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div data-aos="fade-left" style={{ paddingTop: '2rem' }}>
-                        <span className="section-tag" style={{ marginBottom: '1.5rem' }}>Who We Are</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>Bridging Creativity <br/><span className="gradient-text">with Technology</span></h2>
-                        <p style={{ fontSize: '1.2rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '2rem' }}>
-                            Fly Towards is a growth focused company offering end-to-end Digital Marketing and IT Solutions. Our mission is to bridge creativity with technology — helping businesses boost visibility, sales, and performance in the digital world.
-                        </p>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                 <CheckCircle2 size={24} color="var(--primary)" style={{ flexShrink: 0 }} />
-                                 <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Innovative Strategies</span>
-                             </li>
-                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                 <CheckCircle2 size={24} color="var(--secondary)" style={{ flexShrink: 0 }} />
-                                 <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Modern Tech Architecture</span>
-                             </li>
-                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                 <CheckCircle2 size={24} color="var(--accent)" style={{ flexShrink: 0 }} />
-                                 <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Result-Driven Approach</span>
-                             </li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div className="stats-grid-v2 text-center about-stats-card" data-aos="fade-up">
-                    <div className="stat-item-v2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{ background: 'var(--nav-accent)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: '0 14px 35px rgba(11, 61, 145, 0.22)' }}>
-                            <Users size={32} color="#fff" />
+                    <div className="stats-grid-v2 text-center about-stats-card" data-aos="fade-up">
+                        <div className="stat-item-v2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div style={{ background: 'var(--nav-accent)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: '0 14px 35px rgba(11, 61, 145, 0.22)' }}>
+                                <Users size={32} color="#fff" />
+                            </div>
+                            <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Experienced Employees</span>
                         </div>
-                        <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Experienced Employees</span>
-                    </div>
-                    <div className="stat-item-v2" style={{ borderLeft: '1px solid var(--border)', borderRight: '1px solid var(--border)', paddingLeft: '3rem', paddingRight: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{ background: 'var(--nav-accent)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: '0 14px 35px rgba(11, 61, 145, 0.22)' }}>
-                            <Trophy size={32} color="#fff" />
+                        <div className="stat-item-v2" style={{ borderLeft: '1px solid var(--border)', borderRight: '1px solid var(--border)', paddingLeft: '3rem', paddingRight: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div style={{ background: 'var(--nav-accent)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: '0 14px 35px rgba(11, 61, 145, 0.22)' }}>
+                                <Trophy size={32} color="#fff" />
+                            </div>
+                            <span className="stat-num" style={{ fontSize: '2.5rem', marginBottom: '0.2rem' }}>15+</span>
+                            <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Clients Served</span>
                         </div>
-                        <span className="stat-num" style={{ fontSize: '2.5rem', marginBottom: '0.2rem' }}>15+</span>
-                        <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Clients Served</span>
-                    </div>
-                    <div className="stat-item-v2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{ background: 'var(--nav-accent)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: '0 14px 35px rgba(11, 61, 145, 0.22)' }}>
-                            <Globe size={32} color="#fff" />
+                        <div className="stat-item-v2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div style={{ background: 'var(--nav-accent)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: '0 14px 35px rgba(11, 61, 145, 0.22)' }}>
+                                <Globe size={32} color="#fff" />
+                            </div>
+                            <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Trusted by Global Brands</span>
                         </div>
-                        <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Trusted by Global Brands</span>
                     </div>
-                </div>
                 </div>
             </section>
 
@@ -292,12 +292,12 @@ const Home = () => {
                             Let’s Build Your <br /><span className="gradient-text">Digital Future</span> Together
                         </h2>
                         <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '3rem', lineHeight: 1.7 }}>
-                            Whether you need a powerful digital marketing strategy or a custom IT solution, we’re ready to help your business grow.
+                            Whether you need a custom software or an IT solution, we’re ready to help your business grow.
                         </p>
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', marginBottom: '3rem', display: 'inline-flex' }}>
                             Start Your Journey <ArrowRight size={20} />
                         </Link>
-                        
+
                         <div style={{ position: 'relative', marginTop: '2rem', display: 'none' }} className="faq-img-desktop">
                             {/* Adding a display: none by default and unhiding via CSS or just relying on layout */}
                         </div>
@@ -357,7 +357,7 @@ const Home = () => {
                     background: 'url(https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&q=80&w=1800) center/cover no-repeat'
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
-                    
+
                     <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: '#fff' }}>
                             Enjoy Flat <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(255, 111, 0, 0.3)' }}>25% OFF</span>

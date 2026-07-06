@@ -250,15 +250,7 @@ const ProfileCard = ({ image }) => {
                         </p>
                         <div className="ft-profile-rule" aria-hidden="true" />
                         <div className="ft-profile-name">Mr. Sanjay Kumar</div>
-                        <div className="ft-profile-role">Founder &amp; CEO</div>
-
-                        <div className="ft-profile-brandRow">
-                            <div className="ft-profile-brandText" aria-label="Fly Towards / Digital Innovation">
-                                <span>Fly Towards</span>
-                                <span className="ft-profile-brandSlash" aria-hidden="true">/</span>
-                                <span>Digital Innovation</span>
-                            </div>
-                        </div>
+                        <div className="ft-profile-role">Founder &amp; Director</div>
                     </div>
                 </div>
             </div>

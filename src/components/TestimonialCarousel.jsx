@@ -53,12 +53,12 @@ const DEFAULT_TESTIMONIALS = [
 ];
 
 const AVATAR_GRADIENTS = [
-    'linear-gradient(135deg, #6d28d9 0%, #c026d3 100%)',
-    'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 55%, #ec4899 100%)',
-    'linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #a855f7 100%)',
-    'linear-gradient(135deg, #9333ea 0%, #db2777 55%, #c026d3 100%)',
-    'linear-gradient(135deg, #5b21b6 0%, #7c3aed 50%, #ec4899 100%)',
-    'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #d946ef 100%)',
+    'linear-gradient(135deg, #00f2ff 0%, #ff007a 100%)',
+    'linear-gradient(135deg, #3b82f6 0%, #ec4899 100%)',
+    'linear-gradient(135deg, #06b6d4 0%, #d946ef 100%)',
+    'linear-gradient(135deg, #2563eb 0%, #db2777 100%)',
+    'linear-gradient(135deg, #0ea5e9 0%, #f43f5e 100%)',
+    'linear-gradient(135deg, #60a5fa 0%, #f472b6 100%)',
 ];
 
 const styles = {
@@ -69,7 +69,7 @@ const styles = {
         margin: 0,
         overflow: 'hidden',
         padding: 'clamp(4rem, 7vw, 6.5rem) 0',
-        background: 'linear-gradient(160deg, #f5f3ff, #fdf4ff, #ede9fe)',
+        background: 'linear-gradient(160deg, #e0f7ff, #fff0f5, #e6f0fa)',
     },
     inner: {
         position: 'relative',
@@ -94,7 +94,7 @@ const styles = {
     eyebrow: {
         display: 'block',
         marginBottom: '0.85rem',
-        color: '#6d28d9',
+        color: '#ff007a',
         fontSize: 'clamp(0.72rem, 1.15vw, 0.9rem)',
         fontWeight: 900,
         letterSpacing: '0.34em',
@@ -108,7 +108,7 @@ const styles = {
         letterSpacing: '-0.04em',
     },
     titleAccent: {
-        background: 'linear-gradient(135deg, #6d28d9 0%, #c026d3 50%, #8b5cf6 100%)',
+        background: 'linear-gradient(135deg, #00f2ff 0%, #ff007a 100%)',
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
@@ -123,13 +123,13 @@ const styles = {
         width: 'clamp(2.6rem, 5vw, 3.5rem)',
         height: 'clamp(2.6rem, 5vw, 3.5rem)',
         borderRadius: '999px',
-        border: '1px solid rgba(109, 40, 217, 0.18)',
+        border: '1px solid rgba(0, 242, 255, 0.25)',
         background: 'rgba(255, 255, 255, 0.94)',
-        color: '#6d28d9',
+        color: '#ff007a',
         display: 'grid',
         placeItems: 'center',
         cursor: 'pointer',
-        boxShadow: '0 14px 28px rgba(109, 40, 217, 0.12)',
+        boxShadow: '0 14px 28px rgba(0, 242, 255, 0.10)',
         transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
         WebkitTapHighlightColor: 'transparent',
     },
@@ -147,8 +147,8 @@ const styles = {
         padding: 'clamp(1.3rem, 3vw, 2.4rem)',
         borderRadius: '24px',
         background: '#ffffff',
-        border: '1px solid rgba(109, 40, 217, 0.14)',
-        boxShadow: '0 24px 60px rgba(109, 40, 217, 0.14)',
+        border: '1px solid rgba(0, 242, 255, 0.18)',
+        boxShadow: '0 24px 60px rgba(0, 242, 255, 0.10)',
         overflow: 'hidden',
     },
     quoteMark: {
@@ -157,7 +157,7 @@ const styles = {
         right: 'clamp(0.85rem, 1.8vw, 1.2rem)',
         fontSize: 'clamp(4rem, 8vw, 6.5rem)',
         lineHeight: 1,
-        color: 'rgba(109, 40, 217, 0.12)',
+        color: 'rgba(0, 242, 255, 0.18)',
         userSelect: 'none',
         pointerEvents: 'none',
         zIndex: 0,
@@ -198,7 +198,7 @@ const styles = {
         width: '100%',
         height: '1px',
         borderRadius: '999px',
-        background: 'linear-gradient(90deg, rgba(109, 40, 217, 0) 0%, rgba(109, 40, 217, 0.35) 20%, rgba(192, 38, 211, 0.9) 50%, rgba(109, 40, 217, 0.35) 80%, rgba(109, 40, 217, 0) 100%)',
+        background: 'linear-gradient(90deg, rgba(0, 242, 255, 0) 0%, rgba(0, 242, 255, 0.35) 20%, rgba(255, 0, 122, 0.9) 50%, rgba(0, 242, 255, 0.35) 80%, rgba(0, 242, 255, 0) 100%)',
     },
     authorRow: {
         display: 'flex',
@@ -226,7 +226,7 @@ const styles = {
         fontSize: 'clamp(0.95rem, 1.75vw, 1.1rem)',
         fontWeight: 900,
         letterSpacing: '0.04em',
-        boxShadow: '0 16px 30px rgba(109, 40, 217, 0.22)',
+        boxShadow: '0 16px 30px rgba(0, 242, 255, 0.22)',
         flexShrink: 0,
     },
     nameBlock: {
@@ -251,7 +251,7 @@ const styles = {
         justifyContent: 'center',
         padding: '0.72rem 1rem',
         borderRadius: '999px',
-        background: 'linear-gradient(135deg, #6d28d9, #c026d3)',
+        background: 'linear-gradient(135deg, #00f2ff, #ff007a)',
         color: '#ffffff',
         fontSize: 'clamp(0.72rem, 1.3vw, 0.88rem)',
         fontWeight: 900,
@@ -259,7 +259,7 @@ const styles = {
         textTransform: 'uppercase',
         whiteSpace: 'nowrap',
         flex: '0 0 auto',
-        boxShadow: '0 16px 28px rgba(109, 40, 217, 0.22)',
+        boxShadow: '0 16px 28px rgba(0, 242, 255, 0.22)',
     },
     footer: {
         display: 'flex',
@@ -290,7 +290,7 @@ const styles = {
         height: '10px',
         border: 'none',
         borderRadius: '999px',
-        background: 'rgba(109, 40, 217, 0.24)',
+        background: 'rgba(0, 242, 255, 0.24)',
         padding: 0,
         cursor: 'pointer',
         transition: 'width 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
@@ -298,8 +298,8 @@ const styles = {
     },
     dotActive: {
         width: '28px',
-        background: 'linear-gradient(135deg, #6d28d9, #c026d3)',
-        boxShadow: '0 8px 20px rgba(109, 40, 217, 0.26)',
+        background: 'linear-gradient(135deg, #00f2ff, #ff007a)',
+        boxShadow: '0 8px 20px rgba(0, 242, 255, 0.26)',
     },
 };
 
@@ -412,7 +412,7 @@ export default function TestimonialCarousel({ testimonials = DEFAULT_TESTIMONIAL
         <section className="ft-testimonial-carousel" aria-label="Client testimonials">
             <style>{`
 .ft-testimonial-carousel__titleAccent {
-    background: linear-gradient(135deg, #6d28d9 0%, #c026d3 50%, #8b5cf6 100%);
+    background: linear-gradient(135deg, #00f2ff 0%, #ff007a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -424,7 +424,7 @@ export default function TestimonialCarousel({ testimonials = DEFAULT_TESTIMONIAL
 
 .ft-testimonial-carousel__arrow:focus-visible,
 .ft-testimonial-carousel__dot:focus-visible {
-    outline: 3px solid rgba(109, 40, 217, 0.22);
+    outline: 3px solid rgba(0, 242, 255, 0.3);
     outline-offset: 4px;
 }
 
