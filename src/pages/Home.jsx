@@ -78,25 +78,13 @@ const Home = () => {
                             <a href="#services" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
                                 Explore Our Service <ArrowRight size={20} />
                             </a>
-                            <Link to="/contact" className="btn btn-outline" style={{
+                            <Link to="/contact" className="btn btn-primary" style={{
                                 padding: '1.2rem 2.5rem',
-                                fontSize: '1.1rem',
-                                color: 'white',
-                                borderColor: 'rgba(255,255,255,0.3)',
-                                background: 'rgba(255,255,255,0.05)'
+                                fontSize: '1.1rem'
                             }}>Free Consolidation</Link>
-                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-shine" style={{
+                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{
                                 padding: '1.2rem 2.5rem',
-                                fontSize: '1.1rem',
-                                background: 'linear-gradient(135deg, #00F2FF 0%, #007AFF 100%)',
-                                color: 'white',
-                                borderRadius: '60px',
-                                textDecoration: 'none',
-                                fontWeight: 700,
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '10px',
-                                boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)'
+                                fontSize: '1.1rem'
                             }}>
                                 <Shield size={20} /> Free Website Authentication
                             </a>

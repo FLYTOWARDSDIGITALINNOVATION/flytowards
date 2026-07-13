@@ -419,7 +419,7 @@ const Industries = () => {
                                 <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.4rem 4rem', borderRadius: '50px', fontWeight: 900, fontSize: '1.15rem' }}>
                                     Request a Demo
                                 </RouterLink>
-                                <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-outline cta-hover-industry" style={{ padding: '1.4rem 4rem', borderRadius: '50px', fontWeight: 900, fontSize: '1.15rem', color: 'white', borderColor: 'rgba(255,255,255,0.2)', transition: 'all 0.3s ease' }}>
+                                <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp" style={{ padding: '1.4rem 4rem', borderRadius: '50px', fontWeight: 900, fontSize: '1.15rem' }}>
                                     WhatsApp Consultation
                                 </a>
                             </div>
