@@ -182,7 +182,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div className="reader-cover-box">
+                    <div className={`reader-cover-box align-${selectedBlog.imageAlign || 'center'}`}>
                         <img src={getImageUrl(selectedBlog.coverImage)} alt={selectedBlog.title} />
                     </div>
 
@@ -224,7 +224,7 @@ const Blog = () => {
                     <>
                         {/* Featured Post Card */}
                         {featuredPost && (
-                            <div className="featured-blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(featuredPost); window.scrollTo(0,0); }}>
+                            <div className={`featured-blog-card align-${featuredPost.imageAlign || 'left'}`} data-aos="fade-up" onClick={() => { setSelectedBlog(featuredPost); window.scrollTo(0,0); }}>
                                 <div className="featured-img-box">
                                     <img src={getImageUrl(featuredPost.coverImage)} alt={featuredPost.title} />
                                 </div>
@@ -249,13 +249,13 @@ const Blog = () => {
                         {/* Other Articles Grid */}
                         {standardPosts.length > 0 ? (
                             <div className="blogs-grid">
-                                {standardPosts.map((blog) => (
-                                    <div key={blog._id} className="blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(blog); window.scrollTo(0,0); }}>
-                                        <div className="blog-card-img">
-                                            <img src={getImageUrl(blog.coverImage)} alt={blog.title} />
-                                        </div>
-                                        <div className="blog-card-content">
-                                            <div className="blog-meta">
+                                 {standardPosts.map((blog) => (
+                                     <div key={blog._id} className={`blog-card align-${blog.imageAlign || 'center'}`} data-aos="fade-up" onClick={() => { setSelectedBlog(blog); window.scrollTo(0,0); }}>
+                                         <div className="blog-card-img">
+                                             <img src={getImageUrl(blog.coverImage)} alt={blog.title} />
+                                         </div>
+                                         <div className="blog-card-content">
+                                             <div className="blog-meta">
                                                 <span className="blog-tag">{blog.category || 'Insights'}</span>
                                                 <Calendar size={14} /> <span>{formatDate(blog.createdAt)}</span>
                                             </div>

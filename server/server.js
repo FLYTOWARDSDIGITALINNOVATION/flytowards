@@ -5,11 +5,11 @@ const multer = require('multer');
 const path = require('path');
 const dns = require('dns');
 const fs = require('fs');
-const { randomUUID } = require('crypto');
 
-// Force using Google DNS to reduce local Windows querySrv resolution issues.
+// Force Google DNS to avoid Windows DNS resolution issues with MongoDB Atlas SRV records
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 
+// Load .env from server/ or project root
 [
     path.join(__dirname, '.env'),
     path.join(__dirname, '..', '.env')
@@ -24,368 +24,192 @@ const PORT = Number(process.env.PORT) || 5000;
 const MONGODB_URI = typeof process.env.MONGODB_URI === 'string' ? process.env.MONGODB_URI.trim() : '';
 const CORS_ORIGINS = (process.env.CORS_ORIGIN || '')
     .split(',')
-    .map((origin) => origin.trim())
+    .map((o) => o.trim())
     .filter(Boolean);
 
-// Middleware
+// ── Middleware ──────────────────────────────────────────────────────────────
 app.use(cors(CORS_ORIGINS.length ? { origin: CORS_ORIGINS } : {}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve uploaded images publicly
+// Serve uploaded images (cover photos saved to disk)
 const uploadsDir = path.join(__dirname, 'uploads');
 fs.mkdirSync(uploadsDir, { recursive: true });
 app.use('/uploads', express.static(uploadsDir));
 
-// File-based fallback store for blogs
-const dataDir = path.join(__dirname, 'data');
-const localBlogStorePath = path.join(dataDir, 'blogs.json');
-fs.mkdirSync(dataDir, { recursive: true });
-
-let blogStorageMode = 'file';
-
+// ── MongoDB connection events ────────────────────────────────────────────────
 mongoose.connection.on('connected', () => {
-    console.log('Connected to MongoDB successfully!');
+    console.log('✅ Connected to MongoDB successfully!');
 });
 
 mongoose.connection.on('error', (err) => {
-    console.error('MongoDB connection error:', err.message);
+    console.error('❌ MongoDB connection error:', err.message);
 });
 
 mongoose.connection.on('disconnected', () => {
-    console.warn('MongoDB disconnected.');
-    if (blogStorageMode === 'mongo') {
-        blogStorageMode = 'file';
-        console.warn('Falling back to local JSON storage.');
-    }
+    console.warn('⚠️  MongoDB disconnected.');
 });
 
-const isMongoUriConfigured = () =>
-    Boolean(MONGODB_URI) && !/^your_mongodb_connection_string_here$/i.test(MONGODB_URI);
+const isMongoReady = () => mongoose.connection.readyState === 1;
 
-const getDatabaseState = () => {
-    switch (mongoose.connection.readyState) {
-        case 0:
-            return 'disconnected';
-        case 1:
-            return 'connected';
-        case 2:
-            return 'connecting';
-        case 3:
-            return 'disconnecting';
-        default:
-            return 'unknown';
-    }
-};
-
-const isMongoStorageActive = () =>
-    blogStorageMode === 'mongo' && mongoose.connection.readyState === 1;
-
-const readLocalBlogs = () => {
-    try {
-        if (!fs.existsSync(localBlogStorePath)) {
-            return [];
-        }
-
-        const raw = fs.readFileSync(localBlogStorePath, 'utf8');
-        if (!raw.trim()) {
-            return [];
-        }
-
-        const parsed = JSON.parse(raw);
-        return Array.isArray(parsed) ? parsed : [];
-    } catch (error) {
-        console.warn('Failed to read local blog store:', error.message);
-        return [];
-    }
-};
-
-const writeLocalBlogs = (blogs) => {
-    fs.writeFileSync(localBlogStorePath, JSON.stringify(blogs, null, 2), 'utf8');
-};
-
-const sortBlogsNewestFirst = (blogs) =>
-    [...blogs].sort((a, b) => {
-        const aTime = new Date(a?.createdAt || 0).getTime();
-        const bTime = new Date(b?.createdAt || 0).getTime();
-        return bTime - aTime;
-    });
-
-const buildLocalBlog = ({ title, content, coverImage }) => ({
-    _id: randomUUID(),
-    title,
-    content,
-    coverImage,
-    createdAt: new Date().toISOString()
-});
-
-const saveBlogLocally = ({ title, content, coverImage }) => {
-    const blog = buildLocalBlog({ title, content, coverImage });
-    const localBlogs = readLocalBlogs();
-    localBlogs.unshift(blog);
-    writeLocalBlogs(localBlogs);
-    return blog;
-};
-
-const deleteBlogLocally = (id) => {
-    const localBlogs = readLocalBlogs();
-    const nextBlogs = localBlogs.filter((blog) => blog._id !== id);
-
-    if (nextBlogs.length === localBlogs.length) {
-        return null;
-    }
-
-    const deletedBlog = localBlogs.find((blog) => blog._id === id) || null;
-    writeLocalBlogs(nextBlogs);
-    return deletedBlog;
-};
-
-const updateBlogLocally = (id, { title, content, coverImage }) => {
-    const localBlogs = readLocalBlogs();
-    const index = localBlogs.findIndex((blog) => blog._id === id);
-
-    if (index === -1) {
-        return null;
-    }
-
-    const updatedBlog = {
-        ...localBlogs[index],
-        title: title || localBlogs[index].title,
-        content: content || localBlogs[index].content,
-        coverImage: coverImage !== undefined ? coverImage : localBlogs[index].coverImage,
-        updatedAt: new Date().toISOString()
-    };
-
-    localBlogs[index] = updatedBlog;
-    writeLocalBlogs(localBlogs);
-    return updatedBlog;
-};
-
-const getBlogsFromStorage = async () => {
-    if (isMongoStorageActive()) {
-        try {
-            const blogs = await Blog.find().sort({ createdAt: -1 });
-            return { storage: 'mongo', blogs };
-        } catch (error) {
-            console.warn('MongoDB fetch failed, switching to local JSON storage:', error.message);
-            blogStorageMode = 'file';
-        }
-    }
-
-    return { storage: 'file', blogs: sortBlogsNewestFirst(readLocalBlogs()) };
-};
-
-const createBlogInStorage = async ({ title, content, coverImage }) => {
-    if (isMongoStorageActive()) {
-        try {
-            const newBlog = new Blog({
-                title,
-                content,
-                coverImage
-            });
-
-            await newBlog.save();
-            return { storage: 'mongo', blog: newBlog };
-        } catch (error) {
-            console.warn('MongoDB save failed, switching to local JSON storage:', error.message);
-            blogStorageMode = 'file';
-        }
-    }
-
-    const blog = saveBlogLocally({ title, content, coverImage });
-    return { storage: 'file', blog };
-};
-
-const updateBlogInStorage = async (id, { title, content, coverImage }) => {
-    if (isMongoStorageActive()) {
-        try {
-            const updatedBlog = await Blog.findByIdAndUpdate(
-                id,
-                { title, content, coverImage },
-                { new: true }
-            );
-            if (updatedBlog) {
-                return { storage: 'mongo', blog: updatedBlog };
-            }
-            return null;
-        } catch (error) {
-            console.warn('MongoDB update failed, switching to local JSON storage:', error.message);
-            blogStorageMode = 'file';
-        }
-    }
-
-    const updatedBlog = updateBlogLocally(id, { title, content, coverImage });
-    return updatedBlog ? { storage: 'file', blog: updatedBlog } : null;
-};
-
-const deleteBlogFromStorage = async (id) => {
-    if (isMongoStorageActive()) {
-        try {
-            const deletedBlog = await Blog.findByIdAndDelete(id);
-            if (deletedBlog) {
-                return { storage: 'mongo', blog: deletedBlog };
-            }
-            return null;
-        } catch (error) {
-            console.warn('MongoDB delete failed, switching to local JSON storage:', error.message);
-            blogStorageMode = 'file';
-        }
-    }
-
-    const deletedBlog = deleteBlogLocally(id);
-    return deletedBlog ? { storage: 'file', blog: deletedBlog } : null;
-};
-
-// Define Blog Schema and Model
+// ── Blog Schema & Model ──────────────────────────────────────────────────────
 const blogSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    content: { type: String, required: true },
-    coverImage: { type: String },
-    createdAt: { type: Date, default: Date.now },
+    title:      { type: String, required: true },
+    content:    { type: String, required: true },
+    coverImage: { type: String, default: '' },
+    imageAlign: { type: String, enum: ['left', 'center', 'right'], default: 'left' },
+    createdAt:  { type: Date, default: Date.now },
 });
 
 const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
 
-// Configure Multer for Image Uploads
+// ── Multer – image upload to disk ───────────────────────────────────────────
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, uploadsDir);
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
+    destination: (_req, _file, cb) => cb(null, uploadsDir),
+    filename:    (_req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
 });
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
-const connectMongo = async () => {
-    if (!isMongoUriConfigured()) {
-        console.warn('MONGODB_URI is not configured. Using local JSON storage.');
-        blogStorageMode = 'file';
-        return false;
-    }
-
-    try {
-        console.log('Connecting to MongoDB...');
-        await mongoose.connect(MONGODB_URI, {
-            family: 4,
-            tlsAllowInvalidCertificates: true,
-            serverSelectionTimeoutMS: 5000
+// ── Helper: require MongoDB to be connected ──────────────────────────────────
+const requireMongo = (req, res, next) => {
+    if (!isMongoReady()) {
+        return res.status(503).json({
+            error: 'Database unavailable. Please check the MongoDB connection and try again.',
         });
-        blogStorageMode = 'mongo';
-        return true;
-    } catch (err) {
-        blogStorageMode = 'file';
-        console.warn('MongoDB unavailable, using local JSON storage.', err.message);
-        return false;
     }
+    next();
 };
 
-// --- API Routes ---
+// ── API Routes ───────────────────────────────────────────────────────────────
 
+// Health check
 app.get('/api/health', (req, res) => {
+    const states = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disconnecting' };
     res.status(200).json({
         status: 'ok',
-        database: getDatabaseState(),
-        storage: isMongoStorageActive() ? 'mongo' : 'file'
+        database: states[mongoose.connection.readyState] || 'unknown',
+        storage: isMongoReady() ? 'mongo' : 'unavailable',
     });
 });
 
-// 1. Create a new blog post
-app.post('/api/blogs', upload.single('coverImage'), async (req, res) => {
+// 1. Create a new blog post  (MongoDB only)
+app.post('/api/blogs', requireMongo, upload.single('coverImage'), async (req, res) => {
     try {
-        const title = typeof req.body.title === 'string' ? req.body.title.trim() : '';
+        const title   = typeof req.body.title   === 'string' ? req.body.title.trim()   : '';
         const content = typeof req.body.content === 'string' ? req.body.content.trim() : '';
+        const imageAlign = ['left', 'center', 'right'].includes(req.body.imageAlign) ? req.body.imageAlign : 'left';
 
         if (!title || !content) {
             return res.status(400).json({ error: 'Title and content are required.' });
         }
 
-        const coverImagePath = req.file ? `/uploads/${req.file.filename}` : '';
-        const { blog, storage: storageMode } = await createBlogInStorage({
-            title,
-            content,
-            coverImage: coverImagePath
-        });
+        const coverImage = req.file ? `/uploads/${req.file.filename}` : '';
+
+        const blog = new Blog({ title, content, coverImage, imageAlign });
+        await blog.save();
 
         return res.status(201).json({
             message: 'Blog created successfully',
             blog,
-            storage: storageMode
+            storage: 'mongo',
         });
     } catch (error) {
         console.error('Failed to create blog:', error);
-        res.status(500).json({ error: 'Failed to create blog' });
+        res.status(500).json({ error: 'Failed to create blog. Please try again.' });
     }
 });
 
-// 2. Get all blogs (for displaying on the frontend)
-app.get('/api/blogs', async (req, res) => {
+// 2. Get all blogs  (MongoDB only)
+app.get('/api/blogs', requireMongo, async (req, res) => {
     try {
-        const { blogs } = await getBlogsFromStorage();
+        const blogs = await Blog.find().sort({ createdAt: -1 });
         res.status(200).json(blogs);
     } catch (error) {
         console.error('Failed to fetch blogs:', error);
-        res.status(500).json({ error: 'Failed to fetch blogs' });
+        res.status(500).json({ error: 'Failed to fetch blogs.' });
     }
 });
 
-// 3. Delete a blog post by ID
-app.delete('/api/blogs/:id', async (req, res) => {
+// 3. Delete a blog post by ID  (MongoDB only)
+app.delete('/api/blogs/:id', requireMongo, async (req, res) => {
     try {
-        const { id } = req.params;
-        const deleted = await deleteBlogFromStorage(id);
+        const deleted = await Blog.findByIdAndDelete(req.params.id);
 
         if (!deleted) {
-            return res.status(404).json({ error: 'Blog not found' });
+            return res.status(404).json({ error: 'Blog not found.' });
         }
 
         return res.status(200).json({
             message: 'Blog deleted successfully',
-            blog: deleted.blog,
-            storage: deleted.storage
+            blog: deleted,
+            storage: 'mongo',
         });
     } catch (error) {
         console.error('Failed to delete blog:', error);
-        res.status(500).json({ error: 'Failed to delete blog' });
+        res.status(500).json({ error: 'Failed to delete blog.' });
     }
 });
 
-// 4. Update a blog post by ID
-app.patch('/api/blogs/:id', upload.single('coverImage'), async (req, res) => {
+// 4. Update a blog post by ID  (MongoDB only)
+app.patch('/api/blogs/:id', requireMongo, upload.single('coverImage'), async (req, res) => {
     try {
-        const { id } = req.params;
-        const title = typeof req.body.title === 'string' ? req.body.title.trim() : '';
+        const title   = typeof req.body.title   === 'string' ? req.body.title.trim()   : '';
         const content = typeof req.body.content === 'string' ? req.body.content.trim() : '';
+        const imageAlign = req.body.imageAlign;
 
         const updateData = {};
-        if (title) updateData.title = title;
+        if (title)   updateData.title   = title;
         if (content) updateData.content = content;
-        if (req.file) {
-            updateData.coverImage = `/uploads/${req.file.filename}`;
+        if (req.file) updateData.coverImage = `/uploads/${req.file.filename}`;
+        if (['left', 'center', 'right'].includes(imageAlign)) {
+            updateData.imageAlign = imageAlign;
         }
 
-        const updated = await updateBlogInStorage(id, updateData);
+        const updated = await Blog.findByIdAndUpdate(req.params.id, updateData, { new: true });
 
         if (!updated) {
-            return res.status(404).json({ error: 'Blog not found' });
+            return res.status(404).json({ error: 'Blog not found.' });
         }
 
         return res.status(200).json({
             message: 'Blog updated successfully',
-            blog: updated.blog,
-            storage: updated.storage
+            blog: updated,
+            storage: 'mongo',
         });
     } catch (error) {
         console.error('Failed to update blog:', error);
-        res.status(500).json({ error: 'Failed to update blog' });
+        res.status(500).json({ error: 'Failed to update blog.' });
     }
 });
 
+// ── Connect to MongoDB and start server ──────────────────────────────────────
 const startServer = async () => {
-    await connectMongo();
+    if (!MONGODB_URI || /^your_mongodb_connection_string_here$/i.test(MONGODB_URI)) {
+        console.error('❌ MONGODB_URI is not configured in .env — server will start but all API calls will return 503.');
+    } else {
+        try {
+            console.log('🔌 Connecting to MongoDB...');
+            await mongoose.connect(MONGODB_URI, {
+                family: 4,
+                tlsAllowInvalidCertificates: true,
+                serverSelectionTimeoutMS: 8000,
+            });
+            
+            // Migration: Set imageAlign to 'center' for all posts except the nature post ('cx m m')
+            // so they don't default to horizontal style.
+            await Blog.updateMany(
+                { title: { $ne: "cx m m" } },
+                { $set: { imageAlign: "center" } }
+            );
+            console.log("🛠️  Database alignment layout migration completed.");
+        } catch (err) {
+            console.error('❌ Could not connect to MongoDB:', err.message);
+            console.error('   All blog API calls will return 503 until the database is reachable.');
+        }
+    }
 
     app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
     });
 };
 

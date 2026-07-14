@@ -176,7 +176,6 @@ const AdminLogin = () => {
                             required
                             type="email"
                             className="login-input"
-                            placeholder="Email Address"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         />
@@ -188,7 +187,6 @@ const AdminLogin = () => {
                             required
                             type={showPassword ? "text" : "password"}
                             className="login-input"
-                            placeholder="Password"
                             value={formData.password}
                             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         />

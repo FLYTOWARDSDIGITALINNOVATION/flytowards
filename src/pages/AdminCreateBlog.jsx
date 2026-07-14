@@ -1,14 +1,29 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+    AlignCenter,
+    AlignLeft,
+    AlignRight,
     ArrowRight,
+    Bold,
+    Code,
     Image as ImageIcon,
+    ImagePlus,
+    Italic,
+    Link2,
+    List,
+    ListOrdered,
+    Minus,
     PenTool,
+    Quote,
+    Redo2,
     RefreshCw,
     Save,
     Trash2,
+    Undo2,
     UploadCloud
 } from 'lucide-react';
 import { API_BASE_URL, buildApiUrl } from '../config';
+import CoverCropModal from '../components/CoverCropModal';
 import './AdminCreateBlog.css';
 
 const DRAFT_STORAGE_KEY = 'flytowards_admin_blog_draft_v1';
@@ -50,7 +65,6 @@ const fileToDataUrl = (file) =>
 const parseResponseBody = async (response) => {
     const raw = await response.text();
     if (!raw) return {};
-
     try {
         return JSON.parse(raw);
     } catch {
@@ -61,10 +75,8 @@ const parseResponseBody = async (response) => {
 const dataUrlToFile = (dataUrl, filename) => {
     const [meta, base64Data] = (dataUrl || '').split(',');
     if (!meta || !base64Data) return null;
-
     const match = meta.match(/data:(.*?);base64/);
     const mime = match?.[1] || 'application/octet-stream';
-
     const binary = atob(base64Data);
     const bytes = new Uint8Array(binary.length);
     for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
@@ -77,16 +89,16 @@ const AdminCreateBlog = () => {
 
     // Create Blog States
     const [title, setTitle] = useState('');
-    const [content, setContent] = useState(''); // HTML
-    const [coverImage, setCoverImage] = useState(null); // Preview URL or DataURL
-    const [coverImageDataUrl, setCoverImageDataUrl] = useState(null); // For drafts
-    const [imageFile, setImageFile] = useState(null); // Actual File to send to server
+    const [content, setContent] = useState('');
+    const [coverImage, setCoverImage] = useState(null);
+    const [coverImageDataUrl, setCoverImageDataUrl] = useState(null);
+    const [imageFile, setImageFile] = useState(null);
+    const [imageAlign, setImageAlign] = useState('center'); // 'left' | 'center' | 'right'
     const [isPublishing, setIsPublishing] = useState(false);
 
     // Manage Blogs States
     const [blogs, setBlogs] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
-    const [editingBlogId, setEditingBlogId] = useState(null);
 
     // Global Status Message State
     const [status, setStatus] = useState({ message: '', type: '' });
@@ -109,11 +121,6 @@ const AdminCreateBlog = () => {
     const [coverCropStageSize, setCoverCropStageSize] = useState({ width: 0, height: 0 });
     const [coverCropOffset, setCoverCropOffset] = useState({ x: 0, y: 0 });
     const [isApplyingCrop, setIsApplyingCrop] = useState(false);
-
-    // Image Resize & Preview States
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [imageControlPos, setImageControlPos] = useState(null);
-    const [isMobilePreview, setIsMobilePreview] = useState(false);
 
     const isEditorEmpty = useMemo(() => {
         const plain = stripHtml(content);
@@ -139,10 +146,10 @@ const AdminCreateBlog = () => {
                     : [];
                 setBlogs(sorted);
             } else {
-                console.error("Failed to fetch blogs from server");
+                console.error('Failed to fetch blogs from server');
             }
         } catch (error) {
-            console.error("Failed to fetch blogs:", error);
+            console.error('Failed to fetch blogs:', error);
         } finally {
             setIsFetching(false);
         }
@@ -156,18 +163,15 @@ const AdminCreateBlog = () => {
                 didHydrateDraftRef.current = true;
                 return;
             }
-
             const draft = JSON.parse(raw);
             if (draft?.title) setTitle(draft.title);
             if (draft?.content) setContent(draft.content);
-
             if (draft?.coverImageDataUrl) {
                 setCoverImage(draft.coverImageDataUrl);
                 setCoverImageDataUrl(draft.coverImageDataUrl);
                 const restoredFile = dataUrlToFile(draft.coverImageDataUrl, draft.coverImageFilename || 'cover-image');
                 if (restoredFile) setImageFile(restoredFile);
             }
-
             if (draft?.updatedAt) {
                 setDraftState({ status: 'saved', lastSavedAt: draft.updatedAt });
             }
@@ -186,58 +190,7 @@ const AdminCreateBlog = () => {
         if (current !== content) editorRef.current.innerHTML = content || '';
     }, [content]);
 
-    // improve Enter behavior in contentEditable
-    useEffect(() => {
-        const handleDocClick = (e) => {
-            const img = e.target.closest('.rte-editor img');
-            // Clear previous selections
-            document.querySelectorAll('.rte-editor img').forEach(i => i.classList.remove('is-selected'));
-
-            if (img) {
-                img.classList.add('is-selected');
-                setSelectedImage(img);
-                
-                // Position the controls relative to the image
-                const rect = img.getBoundingClientRect();
-                setImageControlPos({
-                    top: img.offsetTop + img.offsetHeight + 10,
-                    left: img.offsetLeft + (img.offsetWidth / 2)
-                });
-            } else if (!e.target.closest('.image-controls-overlay')) {
-                setSelectedImage(null);
-                setImageControlPos(null);
-            }
-        };
-
-        document.addEventListener('mousedown', handleDocClick);
-        return () => document.removeEventListener('mousedown', handleDocClick);
-    }, []);
-
-    const resizeImage = (width) => {
-        if (!selectedImage) return;
-        selectedImage.style.width = width;
-        selectedImage.style.height = 'auto';
-        setContent(editorRef.current.innerHTML);
-    };
-
-    const alignImage = (align) => {
-        if (!selectedImage) return;
-        if (align === 'center') {
-            selectedImage.style.display = 'block';
-            selectedImage.style.margin = '1.5rem auto';
-            selectedImage.style.float = 'none';
-        } else if (align === 'left') {
-            selectedImage.style.display = 'inline-block';
-            selectedImage.style.margin = '0 1.5rem 1rem 0';
-            selectedImage.style.float = 'left';
-        } else if (align === 'right') {
-            selectedImage.style.display = 'inline-block';
-            selectedImage.style.margin = '0 0 1rem 1.5rem';
-            selectedImage.style.float = 'right';
-        }
-        setContent(editorRef.current.innerHTML);
-    };
-
+    // Improve Enter behavior in contentEditable
     useEffect(() => {
         try {
             document.execCommand('defaultParagraphSeparator', false, 'p');
@@ -264,25 +217,22 @@ const AdminCreateBlog = () => {
         }
     };
 
+
     const handleDeleteDraft = () => {
         const hasAnything = Boolean(title || content || coverImageDataUrl);
         if (!hasAnything) return;
-
         const ok = window.confirm('Delete this draft? This will clear the title, content, and cover image.');
         if (!ok) return;
-
         setTitle('');
         setContent('');
         setCoverImage(null);
         setCoverImageDataUrl(null);
         setImageFile(null);
-
         try {
             localStorage.removeItem(DRAFT_STORAGE_KEY);
         } catch {
             // ignore
         }
-
         setDraftState({ status: 'idle', lastSavedAt: null });
         setStatus({ message: 'Draft deleted.', type: 'success' });
         setTimeout(() => setStatus({ message: '', type: '' }), 3000);
@@ -292,33 +242,30 @@ const AdminCreateBlog = () => {
     useEffect(() => {
         if (!didHydrateDraftRef.current) return;
         if (!title && !content && !coverImageDataUrl) return;
-
         setDraftState((s) => (s.status === 'saving' ? s : { ...s, status: 'saving' }));
         if (autosaveTimerRef.current) clearTimeout(autosaveTimerRef.current);
-        autosaveTimerRef.current = setTimeout(() => {
-            saveDraft();
-        }, 700);
-
+        autosaveTimerRef.current = setTimeout(() => { saveDraft(); }, 700);
         return () => {
             if (autosaveTimerRef.current) clearTimeout(autosaveTimerRef.current);
         };
-    }, [title, content, coverImageDataUrl]);
+    }, [title, content, coverImageDataUrl]); // eslint-disable-line
 
-    const handleCoverImageUpload = (e) => {
+    const handleCoverImageUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
-        const objectUrl = URL.createObjectURL(file);
-        setCoverImage(objectUrl);
-        setImageFile(file);
+        if (coverCropObjectUrlRef.current) {
+            URL.revokeObjectURL(coverCropObjectUrlRef.current);
+            coverCropObjectUrlRef.current = null;
+        }
 
-        // Also store as dataUrl for draft saving (if small enough)
-        const reader = new FileReader();
-        reader.onload = () => {
-            const dataUrl = reader.result;
-            setCoverImageDataUrl(dataUrl.length <= 1_800_000 ? dataUrl : null);
-        };
-        reader.readAsDataURL(file);
+        const objectUrl = URL.createObjectURL(file);
+        coverCropObjectUrlRef.current = objectUrl;
+        setCoverCropSource({ file, url: objectUrl, name: file.name, type: file.type || 'image/jpeg' });
+        setCoverCropImageSize({ width: 0, height: 0 });
+        setCoverCropStageSize({ width: 0, height: 0 });
+        setCoverCropOffset({ x: 0, y: 0 });
+        setCoverCropModalOpen(true);
 
         e.target.value = '';
     };
@@ -327,7 +274,6 @@ const AdminCreateBlog = () => {
         if (!coverCropSource?.url || !coverCropSource.file) {
             throw new Error('No cover image selected.');
         }
-
         if (!cropRect || !Number.isFinite(cropRect.x) || !Number.isFinite(cropRect.y) || !Number.isFinite(cropRect.w) || !Number.isFinite(cropRect.h)) {
             throw new Error('Invalid crop area.');
         }
@@ -341,16 +287,14 @@ const AdminCreateBlog = () => {
                 img.src = coverCropSource.url;
             });
 
-            const targetWidth = Math.max(1, Math.round(cropRect.w));
-            const targetHeight = Math.max(1, Math.round(cropRect.h));
+            const targetWidth = Math.round(cropRect.w);
+            const targetHeight = Math.round(cropRect.h);
             const canvas = document.createElement('canvas');
-            canvas.width = targetWidth;
+            canvas.width  = targetWidth;
             canvas.height = targetHeight;
 
             const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                throw new Error('Canvas not supported');
-            }
+            if (!ctx) throw new Error('Canvas not supported');
 
             ctx.fillStyle = '#ffffff';
             ctx.fillRect(0, 0, targetWidth, targetHeight);
@@ -358,9 +302,7 @@ const AdminCreateBlog = () => {
 
             const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
             const croppedFile = dataUrlToFile(dataUrl, buildCroppedCoverFileName(coverCropSource.name));
-            if (!croppedFile) {
-                throw new Error('Could not build cropped file');
-            }
+            if (!croppedFile) throw new Error('Could not build cropped file');
 
             setCoverImage(dataUrl);
             setImageFile(croppedFile);
@@ -386,178 +328,58 @@ const AdminCreateBlog = () => {
         coverCropPointerRef.current = null;
     };
 
-    const resetCoverCrop = () => {
-        setCoverCropOffset({ x: 0, y: 0 });
-    };
-
     const clampCoverCropOffset = (nextOffset, stageSize = coverCropStageSize, imageSize = coverCropImageSize) => {
-        if (!stageSize.width || !stageSize.height || !imageSize.width || !imageSize.height) {
-            return nextOffset;
-        }
-
-        const baseScale = Math.max(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
-        const displayScale = baseScale;
-        const displayWidth = imageSize.width * displayScale;
-        const displayHeight = imageSize.height * displayScale;
-        const maxOffsetX = Math.max(0, (displayWidth - stageSize.width) / 2);
-        const maxOffsetY = Math.max(0, (displayHeight - stageSize.height) / 2);
-
+        if (!stageSize.width || !stageSize.height || !imageSize.width || !imageSize.height) return nextOffset;
+        const baseScale    = Math.max(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
+        const displayWidth  = imageSize.width  * baseScale;
+        const displayHeight = imageSize.height * baseScale;
+        const maxOffsetX   = Math.max(0, (displayWidth  - stageSize.width)  / 2);
+        const maxOffsetY   = Math.max(0, (displayHeight - stageSize.height) / 2);
         return {
             x: clamp(nextOffset.x, -maxOffsetX, maxOffsetX),
             y: clamp(nextOffset.y, -maxOffsetY, maxOffsetY),
         };
     };
 
-    const handleCoverCropPointerDown = (e) => {
-        if (!coverCropSource?.url || !coverCropImageSize.width) return;
-        e.preventDefault();
-        e.currentTarget.setPointerCapture?.(e.pointerId);
-        coverCropPointerRef.current = {
-            pointerId: e.pointerId,
-            startX: e.clientX,
-            startY: e.clientY,
-            originX: coverCropOffset.x,
-            originY: coverCropOffset.y,
-        };
-    };
-
-    const handleCoverCropPointerMove = (e) => {
-        const drag = coverCropPointerRef.current;
-        if (!drag || drag.pointerId !== e.pointerId) return;
-
-        const nextOffset = {
-            x: drag.originX + (e.clientX - drag.startX),
-            y: drag.originY + (e.clientY - drag.startY),
-        };
-
-        setCoverCropOffset(clampCoverCropOffset(nextOffset));
-    };
-
-    const handleCoverCropPointerEnd = (e) => {
-        const drag = coverCropPointerRef.current;
-        if (!drag || drag.pointerId !== e.pointerId) return;
-        coverCropPointerRef.current = null;
-        e.currentTarget.releasePointerCapture?.(e.pointerId);
-    };
-
-    const applyCoverCrop = async () => {
-        if (!coverCropSource?.url || !coverCropImageRef.current || !coverCropImageSize.width || !coverCropStageSize.width || !coverCropStageSize.height) {
-            return;
-        }
-
-        setIsApplyingCrop(true);
-        try {
-            const image = coverCropImageRef.current;
-            const stageSize = coverCropStageSize;
-            const imageSize = coverCropImageSize;
-            const baseScale = Math.max(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
-            const displayScale = baseScale;
-            const displayWidth = imageSize.width * displayScale;
-            const displayHeight = imageSize.height * displayScale;
-            const offset = clampCoverCropOffset(coverCropOffset, stageSize, imageSize);
-            const left = (stageSize.width - displayWidth) / 2 + offset.x;
-            const top = (stageSize.height - displayHeight) / 2 + offset.y;
-            const sourceW = Math.max(1, Math.min(imageSize.width, stageSize.width / displayScale));
-            const sourceH = Math.max(1, Math.min(imageSize.height, stageSize.height / displayScale));
-            const sourceX = clamp((-left) / displayScale, 0, Math.max(0, imageSize.width - sourceW));
-            const sourceY = clamp((-top) / displayScale, 0, Math.max(0, imageSize.height - sourceH));
-
-            const targetWidth = Math.min(COVER_CROP_OUTPUT_WIDTH, Math.max(1200, imageSize.width));
-            const targetHeight = Math.round(targetWidth / COVER_CROP_ASPECT);
-
-            const canvas = document.createElement('canvas');
-            canvas.width = targetWidth;
-            canvas.height = targetHeight;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                throw new Error('Canvas not supported');
-            }
-
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, targetWidth, targetHeight);
-            ctx.drawImage(image, sourceX, sourceY, sourceW, sourceH, 0, 0, targetWidth, targetHeight);
-
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-            const croppedFile = dataUrlToFile(dataUrl, buildCroppedCoverFileName(coverCropSource.name));
-            if (!croppedFile) {
-                throw new Error('Could not build cropped file');
-            }
-
-            setCoverImage(dataUrl);
-            setImageFile(croppedFile);
-
-            const maxBytes = 1_800_000;
-            if (croppedFile.size <= maxBytes) {
-                setCoverImageDataUrl(dataUrl);
-            } else {
-                setCoverImageDataUrl(null);
-            }
-
-            closeCoverCropModal();
-        } catch (error) {
-            console.error('Cover crop failed:', error);
-            setStatus({ message: 'Could not crop the selected image. Please try again.', type: 'error' });
-            setTimeout(() => setStatus({ message: '', type: '' }), 4000);
-        } finally {
-            setIsApplyingCrop(false);
-        }
-    };
-
     useEffect(() => {
         if (!coverCropModalOpen) return undefined;
-
         const measureStage = () => {
             const rect = coverCropStageRef.current?.getBoundingClientRect();
-            if (rect?.width && rect?.height) {
-                setCoverCropStageSize({ width: rect.width, height: rect.height });
-            }
+            if (rect?.width && rect?.height) setCoverCropStageSize({ width: rect.width, height: rect.height });
         };
-
         measureStage();
-
-        let resizeObserver = null;
+        let ro = null;
         if (typeof ResizeObserver !== 'undefined' && coverCropStageRef.current) {
-            resizeObserver = new ResizeObserver(measureStage);
-            resizeObserver.observe(coverCropStageRef.current);
+            ro = new ResizeObserver(measureStage);
+            ro.observe(coverCropStageRef.current);
         } else {
             window.addEventListener('resize', measureStage);
         }
-
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                closeCoverCropModal();
-            }
-        };
+        const handleKeyDown = (event) => { if (event.key === 'Escape') closeCoverCropModal(); };
         window.addEventListener('keydown', handleKeyDown);
-
         return () => {
-            resizeObserver?.disconnect();
+            ro?.disconnect();
             window.removeEventListener('resize', measureStage);
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, [coverCropModalOpen, coverCropSource?.url]);
+    }, [coverCropModalOpen, coverCropSource?.url]); // eslint-disable-line
 
     useEffect(() => {
         if (coverCropModalOpen || !coverCropObjectUrlRef.current) return undefined;
-
         const objectUrl = coverCropObjectUrlRef.current;
         coverCropObjectUrlRef.current = null;
-        const cleanupTimer = window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
-
-        return () => window.clearTimeout(cleanupTimer);
+        const t = window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+        return () => window.clearTimeout(t);
     }, [coverCropModalOpen]);
 
     useEffect(() => {
-        if (!coverCropModalOpen || !coverCropStageSize.width || !coverCropStageSize.height || !coverCropImageSize.width || !coverCropImageSize.height) {
-            return;
-        }
-
+        if (!coverCropModalOpen || !coverCropStageSize.width || !coverCropStageSize.height || !coverCropImageSize.width || !coverCropImageSize.height) return;
         setCoverCropOffset((current) => {
             const next = clampCoverCropOffset(current, coverCropStageSize, coverCropImageSize);
             if (next.x === current.x && next.y === current.y) return current;
             return next;
         });
-    }, [coverCropModalOpen, coverCropStageSize.width, coverCropStageSize.height, coverCropImageSize.width, coverCropImageSize.height]);
+    }, [coverCropModalOpen, coverCropStageSize.width, coverCropStageSize.height, coverCropImageSize.width, coverCropImageSize.height]); // eslint-disable-line
 
     const handlePublish = async () => {
         if (!title || isEditorEmpty) {
@@ -565,114 +387,62 @@ const AdminCreateBlog = () => {
             setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             return;
         }
-
         setIsPublishing(true);
-        setStatus({ message: editingBlogId ? 'Updating blog...' : 'Publishing blog...', type: 'info' });
+        setStatus({ message: 'Publishing blog...', type: 'info' });
 
         const formData = new FormData();
         formData.append('title', title);
         formData.append('content', content);
-        if (imageFile) {
-            formData.append('coverImage', imageFile);
-        }
+        formData.append('imageAlign', imageAlign);
+        if (imageFile) formData.append('coverImage', imageFile);
 
         try {
-            const url = editingBlogId ? buildApiUrl(`/blogs/${editingBlogId}`) : buildApiUrl('/blogs');
-            const method = editingBlogId ? 'PATCH' : 'POST';
-
-            const response = await fetch(url, {
-                method: method,
-                body: formData, // Sending form data so image can be uploaded
+            const response = await fetch(buildApiUrl('/blogs'), {
+                method: 'POST',
+                body: formData,
             });
 
             if (response.ok) {
                 const payload = await parseResponseBody(response);
-
                 if (payload?.blog) {
-                    setBlogs((currentBlogs) => {
-                        const exists = currentBlogs.some(b => b._id === payload.blog._id);
-                        if (exists) {
-                            return currentBlogs.map(b => b._id === payload.blog._id ? payload.blog : b);
-                        }
-                        return [payload.blog, ...currentBlogs];
-                    });
+                    setBlogs((prev) => [payload.blog, ...prev.filter((b) => b._id !== payload.blog._id)]);
                 }
+                const publishNote = 'saved to MongoDB';
+                setStatus({ message: `Blog published successfully — ${publishNote}.`, type: 'success' });
 
-                const actionWord = editingBlogId ? 'updated' : 'published';
-                const publishNote = payload?.storage === 'file'
-                    ? 'saved locally because MongoDB is unavailable'
-                    : 'saved to MongoDB';
-
-                setStatus({
-                    message: `Blog ${actionWord} successfully — ${publishNote}.`,
-                    type: 'success'
-                });
-
-                // Reset form
                 setTitle('');
                 setContent('');
                 setCoverImage(null);
                 setCoverImageDataUrl(null);
                 setImageFile(null);
-                setEditingBlogId(null);
-
-                try {
-                    localStorage.removeItem(DRAFT_STORAGE_KEY);
-                } catch {
-                    // ignore
-                }
+                setImageAlign('center');
+                try { localStorage.removeItem(DRAFT_STORAGE_KEY); } catch { /* ignore */ }
                 setDraftState({ status: 'idle', lastSavedAt: null });
-
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
-                
-                if (editingBlogId) {
-                    setActiveTab('manage');
-                }
             } else {
                 const payload = await parseResponseBody(response);
-                setStatus({
-                    message: payload.error || payload.message || `Failed to ${editingBlogId ? 'update' : 'publish'} (HTTP ${response.status}).`,
-                    type: 'error'
-                });
+                setStatus({ message: payload.error || payload.message || `Failed to publish (HTTP ${response.status}).`, type: 'error' });
             }
         } catch (error) {
             console.error('Publish error:', error);
-            setStatus({
-                message: `Could not connect to server (${API_BASE_URL}). Start the backend with \`cd server && npm start\`.`,
-                type: 'error'
-            });
+            setStatus({ message: `Could not connect to server (${API_BASE_URL}). Start the backend with \`cd server && npm start\`.`, type: 'error' });
         } finally {
             setIsPublishing(false);
         }
     };
 
-    // Delete Blog Handler
     const handleDelete = async (id, blogTitle) => {
-        if (!window.confirm(`Are you sure you want to delete the blog post: "${blogTitle}"?`)) {
-            return;
-        }
-
+        if (!window.confirm(`Are you sure you want to delete the blog post: "${blogTitle}"?`)) return;
         setStatus({ message: 'Deleting blog post...', type: 'info' });
-
         try {
-            const response = await fetch(buildApiUrl(`/blogs/${id}`), {
-                method: 'DELETE',
-            });
-
+            const response = await fetch(buildApiUrl(`/blogs/${id}`), { method: 'DELETE' });
             if (response.ok) {
                 setStatus({ message: 'Blog post deleted successfully!', type: 'success' });
-                // Filter out the deleted blog from UI state
-                setBlogs((currentBlogs) => currentBlogs.filter((blog) => blog._id !== id));
-                if (editingBlogId === id) {
-                    handleCancelEdit();
-                }
+                setBlogs((prev) => prev.filter((b) => b._id !== id));
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             } else {
                 const payload = await parseResponseBody(response);
-                setStatus({
-                    message: payload.error || payload.message || `Failed to delete (HTTP ${response.status}).`,
-                    type: 'error'
-                });
+                setStatus({ message: payload.error || payload.message || `Failed to delete (HTTP ${response.status}).`, type: 'error' });
             }
         } catch (error) {
             console.error('Delete error:', error);
@@ -680,78 +450,26 @@ const AdminCreateBlog = () => {
         }
     };
 
-    const handleEdit = (blog) => {
-        setEditingBlogId(blog._id);
-        setTitle(blog.title || '');
-        setContent(blog.content || '');
-        
-        if (blog.coverImage) {
-            // Check if it's a relative path from the server
-            const fullImageUrl = blog.coverImage.startsWith('http') 
-                ? blog.coverImage 
-                : `${API_BASE_URL}${blog.coverImage}`;
-            setCoverImage(fullImageUrl);
-        } else {
-            setCoverImage(null);
-        }
-        
-        setImageFile(null); // Clear any pending image file
-        setCoverImageDataUrl(null);
-        
-        setActiveTab('create');
-        
-        // Scroll to top of editor
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    const handleCancelEdit = () => {
-        setEditingBlogId(null);
-        setTitle('');
-        setContent('');
-        setCoverImage(null);
-        setImageFile(null);
-        setCoverImageDataUrl(null);
-        
-        try {
-            localStorage.removeItem(DRAFT_STORAGE_KEY);
-        } catch {
-            // ignore
-        }
-    };
-
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    };
+    const formatDate = (dateString) =>
+        new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 
     const exec = (command, value = null) => {
         if (!editorRef.current) return;
         editorRef.current.focus();
-        try {
-            document.execCommand(command, false, value);
-        } catch (e) {
-            console.warn(`Command failed: ${command}`, e);
-        }
-        // sync state
+        try { document.execCommand(command, false, value); } catch (e) { console.warn(`Command failed: ${command}`, e); }
         const html = editorRef.current.innerHTML;
         setContent(html === '<br>' ? '' : html);
     };
 
-    const formatBlock = (blockTag) => {
-        if (!blockTag) return;
-        exec('formatBlock', blockTag);
-    };
+    const formatBlock = (blockTag) => { if (blockTag) exec('formatBlock', blockTag); };
 
     const wrapSelection = (tagName, attributes = {}) => {
         const selection = window.getSelection();
         if (!selection || selection.rangeCount === 0) return false;
         const range = selection.getRangeAt(0);
         if (range.collapsed) return false;
-
         const wrapper = document.createElement(tagName);
-        Object.entries(attributes).forEach(([key, value]) => {
-            wrapper.setAttribute(key, value);
-        });
+        Object.entries(attributes).forEach(([k, v]) => wrapper.setAttribute(k, v));
         wrapper.appendChild(range.extractContents());
         range.insertNode(wrapper);
         range.setStartAfter(wrapper);
@@ -777,13 +495,10 @@ const AdminCreateBlog = () => {
     const insertLink = () => {
         if (!editorRef.current) return;
         editorRef.current.focus();
-
         const url = window.prompt('Enter a URL (https://...)');
         if (!url) return;
-
         const selection = window.getSelection();
         const hasSelection = selection && selection.rangeCount > 0 && !selection.getRangeAt(0).collapsed;
-
         if (hasSelection) {
             const didWrap = wrapSelection('a', { href: url, target: '_blank', rel: 'noopener noreferrer' });
             if (!didWrap) return;
@@ -791,7 +506,6 @@ const AdminCreateBlog = () => {
             const text = window.prompt('Link text', url) || url;
             exec('insertHTML', `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`);
         }
-
         setContent(editorRef.current.innerHTML);
     };
 
@@ -799,15 +513,11 @@ const AdminCreateBlog = () => {
         if (!editorRef.current) return;
         editorRef.current.focus();
         const wrapped = wrapSelection('code', { class: 'rte-inline-code' });
-        if (!wrapped) {
-            exec('insertHTML', '<code class="rte-inline-code">code</code>');
-        }
+        if (!wrapped) exec('insertHTML', '<code class="rte-inline-code">code</code>');
         setContent(editorRef.current.innerHTML);
     };
 
-    const triggerInlineImagePick = () => {
-        inlineImageInputRef.current?.click();
-    };
+    const triggerInlineImagePick = () => { inlineImageInputRef.current?.click(); };
 
     const handleInlineImagePicked = async (e) => {
         const file = e.target.files?.[0];
@@ -832,7 +542,7 @@ const AdminCreateBlog = () => {
                 <p className="admin-subtitle">Design, publish, and manage your strategic articles in real-time.</p>
             </div>
 
-            {/* Premium Tab Navigation */}
+            {/* Tab Navigation */}
             <div className="admin-tabs-nav">
                 <button
                     className={`tab-nav-btn ${activeTab === 'create' ? 'active' : ''}`}
@@ -851,61 +561,82 @@ const AdminCreateBlog = () => {
             {/* Status Messages */}
             {status.message && (
                 <div style={{
-                    maxWidth: '1000px',
-                    margin: '0 auto 1.5rem',
-                    padding: '1rem 1.5rem',
-                    borderRadius: '12px',
+                    maxWidth: '1000px', margin: '0 auto 1.5rem',
+                    padding: '1rem 1.5rem', borderRadius: '12px',
                     backgroundColor: status.type === 'error' ? '#fef2f2' : (status.type === 'success' ? '#ecfdf5' : '#eff6ff'),
                     border: `1px solid ${status.type === 'error' ? '#fee2e2' : (status.type === 'success' ? '#d1fae5' : '#dbeafe')}`,
                     color: status.type === 'error' ? '#b91c1c' : (status.type === 'success' ? '#047857' : '#1d4ed8'),
-                    fontWeight: '600',
-                    fontFamily: 'Inter, sans-serif',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                    fontWeight: '600', fontFamily: 'Inter, sans-serif',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.02)',
                 }}>
                     <span>{status.message}</span>
                     <button
                         onClick={() => setStatus({ message: '', type: '' })}
-                        style={{
-                            background: 'transparent',
-                            border: 'none',
-                            color: 'inherit',
-                            cursor: 'pointer',
-                            fontSize: '1.1rem',
-                            fontWeight: '700'
-                        }}
-                    >
-                        ×
-                    </button>
+                        style={{ background: 'transparent', border: 'none', color: 'inherit', cursor: 'pointer', fontSize: '1.1rem', fontWeight: '700' }}
+                    >×</button>
                 </div>
             )}
 
             {activeTab === 'create' ? (
                 <>
-                {/* Create Post Editor */}
-                <div className="editor-container glass-container" data-aos="fade-up">
-                    <div className="modern-toolbar">
-                        <div className="toolbar-left">
-                            <span className="draft-status-text">
-                                {editingBlogId ? 'Editing Existing Post...' : 'Drafting New Post...'}
-                            </span>
+                    {/* Create Post Editor */}
+                    <div className="editor-container glass-container" data-aos="fade-up">
+
+                        {/* Sticky Formatting Toolbar */}
+                        <div className="modern-toolbar">
+                            <div className="toolbar-left">
+                                <span className="draft-status-text">Drafting New Post…</span>
+
+                                <div className="tool-group">
+                                    <span className="tool-label">Style</span>
+                                    <select
+                                        className="style-select"
+                                        defaultValue="P"
+                                        onChange={(e) => formatBlock(e.target.value)}
+                                    >
+                                        <option value="P">Normal</option>
+                                        <option value="H1">Heading 1</option>
+                                        <option value="H2">Heading 2</option>
+                                        <option value="BLOCKQUOTE">Quote</option>
+                                        <option value="PRE">Code Block</option>
+                                    </select>
+                                </div>
+
+                                <div className="tool-group">
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('bold')}    title="Bold">   <Bold        size={16} /></button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('italic')}  title="Italic"> <Italic      size={16} /></button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertUnorderedList')} title="Bullet list">  <List        size={16} /></button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertOrderedList')}   title="Number list"> <ListOrdered  size={16} /></button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => formatBlock('BLOCKQUOTE')} title="Quote"> <Quote   size={16} /></button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('undo')}    title="Undo">  <Undo2       size={16} /></button>
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('redo')}    title="Redo">  <Redo2       size={16} /></button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={triggerInlineImagePick} title="Insert image">  <ImagePlus   size={16} /></button>
+                                    <button type="button" className="tool-btn-modern" onClick={insertLink}             title="Insert link">   <Link2       size={16} /></button>
+                                    <button type="button" className="tool-btn-modern" onClick={insertInlineCode}       title="Inline code">   <Code        size={16} /></button>
+                                    <span className="tool-divider-modern" />
+                                    <button type="button" className="tool-btn-modern" onClick={() => exec('insertHorizontalRule')} title="Divider"> <Minus size={16} /></button>
+                                </div>
+                            </div>
+
+                            <div className="toolbar-right">
+                                <button className="btn btn-outline draft-btn" onClick={() => saveDraft({ forceStatus: 'saved' })}>
+                                    <Save size={16} /> Save Draft
+                                </button>
+                                <button
+                                    className="btn btn-primary publish-btn"
+                                    onClick={handlePublish}
+                                    disabled={isPublishing}
+                                    style={{ opacity: isPublishing ? 0.7 : 1 }}
+                                >
+                                    {isPublishing ? 'Publishing…' : 'Publish'} <ArrowRight size={16} />
+                                </button>
+                            </div>
                         </div>
-                        <div className="toolbar-right">
-                            <button className="btn btn-outline draft-btn" onClick={() => saveDraft({ forceStatus: 'saved' })}>
-                                <Save size={16} /> Save Draft
-                            </button>
-                            <button
-                                className="btn btn-primary publish-btn"
-                                onClick={handlePublish}
-                                disabled={isPublishing}
-                                style={{ opacity: isPublishing ? 0.7 : 1 }}
-                            >
-                                {isPublishing ? (editingBlogId ? 'Updating...' : 'Publishing...') : (editingBlogId ? 'Update Post' : 'Publish')} <ArrowRight size={16} />
-                            </button>
-                        </div>
-                    </div>
 
                         {/* Main Editor Area */}
                         <div className="editor-main">
@@ -934,16 +665,65 @@ const AdminCreateBlog = () => {
                                 )}
                             </div>
 
-                            {/* Editor Content Area */}
+                            {/* Image Position Selector — only shown when cover image is set */}
+                            {coverImage && (
+                                <div style={{
+                                    display: 'flex', alignItems: 'center', gap: '1rem',
+                                    padding: '0.85rem 1.5rem', background: '#f8fafc',
+                                    borderRadius: '14px', border: '1px solid #e2e8f0',
+                                    marginBottom: '2rem', flexWrap: 'wrap',
+                                }}>
+                                    <span style={{
+                                        fontSize: '0.72rem', fontWeight: 700, color: '#64748b',
+                                        textTransform: 'uppercase', letterSpacing: '0.1em', flexShrink: 0,
+                                    }}>Image Layout</span>
+
+                                    <div style={{
+                                        display: 'flex', background: '#e2e8f0',
+                                        padding: '3px', borderRadius: '10px', gap: '2px',
+                                    }}>
+                                        {[
+                                            { val: 'left',   label: 'Image Left',   icon: <AlignLeft   size={14} /> },
+                                            { val: 'center', label: 'Image Top',    icon: <AlignCenter size={14} /> },
+                                            { val: 'right',  label: 'Image Right',  icon: <AlignRight  size={14} /> },
+                                        ].map(({ val, label, icon }) => (
+                                            <button
+                                                key={val}
+                                                type="button"
+                                                onClick={() => setImageAlign(val)}
+                                                title={label}
+                                                style={{
+                                                    display: 'flex', alignItems: 'center', gap: '5px',
+                                                    padding: '5px 14px', borderRadius: '8px', border: 'none',
+                                                    background: imageAlign === val ? '#fff' : 'transparent',
+                                                    color: imageAlign === val ? '#06b6d4' : '#64748b',
+                                                    fontWeight: 700, fontSize: '0.78rem',
+                                                    cursor: 'pointer', fontFamily: 'Inter, sans-serif',
+                                                    boxShadow: imageAlign === val ? '0 2px 6px rgba(0,0,0,0.1)' : 'none',
+                                                    transition: 'all 0.18s',
+                                                }}
+                                            >
+                                                {icon} {label}
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    <span style={{ fontSize: '0.72rem', color: '#94a3b8', fontStyle: 'italic' }}>
+                                        Sets image position in blog listing &amp; article view
+                                    </span>
+                                </div>
+                            )}
+
+                            {/* Title + Body */}
                             <div className="modern-content-inputs">
                                 <textarea
                                     className="modern-title-input"
-                                    placeholder="Enter your amazing title..."
+                                    placeholder="Enter your amazing title…"
                                     value={title}
                                     onChange={(e) => {
                                         setTitle(e.target.value);
                                         e.target.style.height = 'auto';
-                                        e.target.style.height = (e.target.scrollHeight) + 'px';
+                                        e.target.style.height = e.target.scrollHeight + 'px';
                                     }}
                                     rows={1}
                                 />
@@ -953,15 +733,14 @@ const AdminCreateBlog = () => {
                                     className="modern-body-editor rte-editor"
                                     contentEditable
                                     suppressContentEditableWarning
-                                    data-placeholder="Start writing your story here..."
+                                    data-placeholder="Start writing your story here…"
                                     onInput={() => {
                                         if (!editorRef.current) return;
                                         const html = editorRef.current.innerHTML;
-                                        const normalizedEmpty = ['<br>', '<p><br></p>', '<div><br></div>'].includes((html || '').trim());
-                                        setContent(normalizedEmpty ? '' : html);
+                                        const empty = ['<br>', '<p><br></p>', '<div><br></div>'].includes((html || '').trim());
+                                        setContent(empty ? '' : html);
                                     }}
                                     onPaste={(e) => {
-                                        // Paste as plain text to avoid bringing external styles
                                         e.preventDefault();
                                         const text = e.clipboardData.getData('text/plain');
                                         if (!editorRef.current) return;
@@ -969,45 +748,24 @@ const AdminCreateBlog = () => {
                                         try {
                                             const ok = document.execCommand('insertText', false, text);
                                             if (!ok) insertTextAtCaret(text);
-                                        } catch {
-                                            insertTextAtCaret(text);
-                                        }
+                                        } catch { insertTextAtCaret(text); }
                                         setContent(editorRef.current.innerHTML);
                                     }}
                                 />
-
-                            {/* Image Controls Overlay */}
-                            {selectedImage && imageControlPos && (
-                                <div 
-                                    className="image-controls-overlay"
-                                    style={{
-                                        position: 'absolute',
-                                        top: `${imageControlPos.top}px`,
-                                        left: `${imageControlPos.left}px`,
-                                        transform: 'translateX(-50%)'
-                                    }}
-                                >
-                                    <div className="control-group-mini">
-                                        <button className="image-control-btn" onClick={() => resizeImage('25%')}>25%</button>
-                                        <button className="image-control-btn" onClick={() => resizeImage('50%')}>50%</button>
-                                        <button className="image-control-btn" onClick={() => resizeImage('75%')}>75%</button>
-                                        <button className="image-control-btn" onClick={() => resizeImage('100%')}>100%</button>
-                                    </div>
-                                    <div className="mini-divider" />
-                                    <div className="control-group-mini">
-                                        <button className="image-control-btn" onClick={() => alignImage('left')}>Left</button>
-                                        <button className="image-control-btn" onClick={() => alignImage('center')}>Center</button>
-                                        <button className="image-control-btn" onClick={() => alignImage('right')}>Right</button>
-                                    </div>
-                                </div>
-                            )}
+                            </div>
                         </div>
+
+                        {/* Hidden inline-image file input */}
+                        <input
+                            ref={inlineImageInputRef}
+                            type="file"
+                            accept="image/*"
+                            onChange={handleInlineImagePicked}
+                            hidden
+                        />
                     </div>
 
-
-
-                    </div>
-
+                    {/* Cover Crop Modal */}
                     {coverCropModalOpen && coverCropSource?.url && (
                         <CoverCropModal
                             imageSrc={coverCropSource.url}
@@ -1018,115 +776,20 @@ const AdminCreateBlog = () => {
                                 if (coverCropSource?.url && coverCropSource?.file) {
                                     setCoverImage(coverCropSource.url);
                                     setImageFile(coverCropSource.file);
-                                    // Don't set coverImageDataUrl for original files to avoid storage limits
-                                    setCoverImageDataUrl(null); 
+                                    setCoverImageDataUrl(null);
                                     closeCoverCropModal();
                                 }
                             }}
                         />
                     )}
-                    {false && (
-                        <div className="cover-crop-modal" role="dialog" aria-modal="true" aria-labelledby="cover-crop-title">
-                            <div className="cover-crop-backdrop" onClick={closeCoverCropModal} />
-                            <div className="cover-crop-panel glass-container">
-                                <div className="cover-crop-header">
-                                    <div>
-                                        <span className="cover-crop-kicker">Cover crop</span>
-                                        <h3 id="cover-crop-title">Adjust your image before publishing</h3>
-                                    </div>
-                                    <button type="button" className="cover-crop-close" onClick={closeCoverCropModal}>
-                                        ×
-                                    </button>
-                                </div>
-
-                                <div
-                                    ref={coverCropStageRef}
-                                    className={`cover-crop-stage ${coverCropImageSize.width ? 'is-ready' : 'is-loading'}`}
-                                    onPointerDown={handleCoverCropPointerDown}
-                                    onPointerMove={handleCoverCropPointerMove}
-                                    onPointerUp={handleCoverCropPointerEnd}
-                                    onPointerCancel={handleCoverCropPointerEnd}
-                                    style={{
-                                        aspectRatio: `${COVER_CROP_ASPECT}`,
-                                    }}
-                                >
-                                    {coverCropSource?.url ? (
-                                        <img
-                                            ref={coverCropImageRef}
-                                            src={coverCropSource.url}
-                                            alt="Crop preview"
-                                            draggable="false"
-                                            onLoad={(event) => {
-                                                const image = event.currentTarget;
-                                                setCoverCropImageSize({
-                                                    width: image.naturalWidth || 0,
-                                                    height: image.naturalHeight || 0,
-                                                });
-                                            }}
-                                            style={(() => {
-                                                const stageWidth = coverCropStageSize.width || 760;
-                                                const stageHeight = coverCropStageSize.height || Math.round(stageWidth / COVER_CROP_ASPECT);
-                                                const imageWidth = coverCropImageSize.width || stageWidth;
-                                                const imageHeight = coverCropImageSize.height || stageHeight;
-                                                const baseScale = Math.max(stageWidth / imageWidth, stageHeight / imageHeight);
-                                                const displayScale = baseScale;
-                                                const displayWidth = imageWidth * displayScale;
-                                                const displayHeight = imageHeight * displayScale;
-                                                const offset = clampCoverCropOffset(coverCropOffset, { width: stageWidth, height: stageHeight }, coverCropImageSize);
-                                                const left = (stageWidth - displayWidth) / 2 + offset.x;
-                                                const top = (stageHeight - displayHeight) / 2 + offset.y;
-
-                                                return {
-                                                    width: `${displayWidth}px`,
-                                                    height: `${displayHeight}px`,
-                                                    left: `${left}px`,
-                                                    top: `${top}px`,
-                                                };
-                                            })()}
-                                        />
-                                    ) : (
-                                        <div className="cover-crop-loading">
-                                            <RefreshCw size={20} className="animate-spin" />
-                                            Loading image...
-                                        </div>
-                                    )}
-                                    <div className="cover-crop-grid" />
-                                    <div className="cover-crop-hint">Drag to reposition the crop</div>
-                                </div>
-
-                                <div className="cover-crop-footer">
-                                    <div className="cover-crop-info">
-                                        Drag the photo to choose the crop area.
-                                    </div>
-                                    <div className="cover-crop-actions">
-                                        <button type="button" className="btn btn-outline draft-btn" onClick={resetCoverCrop}>
-                                            Reset
-                                        </button>
-                                        <button type="button" className="btn btn-outline draft-delete-btn" onClick={closeCoverCropModal}>
-                                            Cancel
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="btn btn-primary publish-btn"
-                                            onClick={applyCoverCrop}
-                                            disabled={isApplyingCrop}
-                                            style={{ opacity: isApplyingCrop ? 0.75 : 1 }}
-                                        >
-                                            {isApplyingCrop ? 'Cropping...' : 'Apply Crop'} <ArrowRight size={16} />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
                 </>
             ) : (
-                /* Manage Posts Dashboard */
+                /* Manage Posts */
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }} data-aos="fade-up">
                     {isFetching ? (
                         <div style={{ textAlign: 'center', padding: '4rem 2rem' }}>
-                            <RefreshCw className="animate-spin" size={40} style={{ margin: '0 auto 1rem', animation: 'spin 2s linear infinite', color: 'var(--primary)' }} />
-                            <p style={{ color: 'var(--text-muted)', fontFamily: 'Outfit' }}>Fetching articles...</p>
+                            <RefreshCw size={40} style={{ margin: '0 auto 1rem', display: 'block', animation: 'spin 2s linear infinite', color: 'var(--primary)' }} />
+                            <p style={{ color: 'var(--text-muted)', fontFamily: 'Outfit' }}>Fetching articles…</p>
                         </div>
                     ) : blogs.length > 0 ? (
                         <div className="manage-list">
@@ -1136,35 +799,12 @@ const AdminCreateBlog = () => {
                                         <h3 className="manage-item-title">{blog.title}</h3>
                                         <span className="manage-item-date">Published on {formatDate(blog.createdAt)}</span>
                                     </div>
-                                    <div className="manage-item-actions">
-                                        <button
-                                            className="manage-edit-btn"
-                                            onClick={() => handleEdit(blog)}
-                                            style={{
-                                                background: 'rgba(29, 78, 216, 0.1)',
-                                                color: '#1d4ed8',
-                                                border: '1px solid rgba(29, 78, 216, 0.2)',
-                                                padding: '6px 12px',
-                                                borderRadius: '8px',
-                                                fontSize: '0.85rem',
-                                                fontWeight: '600',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: '6px',
-                                                cursor: 'pointer',
-                                                transition: 'all 0.2s ease',
-                                                marginRight: '8px'
-                                            }}
-                                        >
-                                            <PenTool size={14} /> Edit
-                                        </button>
-                                        <button
-                                            className="manage-delete-btn"
-                                            onClick={() => handleDelete(blog._id, blog.title)}
-                                        >
-                                            <Trash2 size={14} /> Delete
-                                        </button>
-                                    </div>
+                                    <button
+                                        className="manage-delete-btn"
+                                        onClick={() => handleDelete(blog._id, blog.title)}
+                                    >
+                                        <Trash2 size={14} /> Delete
+                                    </button>
                                 </div>
                             ))}
                         </div>
