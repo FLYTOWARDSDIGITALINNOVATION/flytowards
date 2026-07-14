@@ -689,6 +689,7 @@ textarea::-webkit-scrollbar-thumb:hover {
     }
 
     .cover-crop-stage {
+        
         min-height: 240px;
         border-radius: 18px;
     }

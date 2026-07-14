@@ -29,7 +29,7 @@ const DEFAULT_TESTIMONIALS = [
     {
         name: 'Eves Era',
         initials: 'EE',
-        serviceCategory: 'Digital Marketing',
+        serviceCategory: 'Web Development',
         rating: 4,
         text: 'Our social media reach and customer enquiries increased after working with their marketing team. Professional service, creative ideas, and excellent campaign management!',
         badge: 'CLIENT',

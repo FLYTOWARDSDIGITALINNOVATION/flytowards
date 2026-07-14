@@ -345,7 +345,19 @@ const FlyBill = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag" style={{ background: 'white' }}>Take the Next Step</span>
+                        <span style={{
+                            display: 'inline-flex',
+                            padding: '0.5rem 1.2rem',
+                            background: 'rgba(255, 0, 122, 0.08)',
+                            border: '1px solid rgba(255, 0, 122, 0.2)',
+                            borderRadius: '50px',
+                            marginBottom: '1.5rem',
+                            fontWeight: 800,
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            color: 'var(--secondary)'
+                        }}>Take the Next Step</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
                             Simplify Billing. <br /> <span className="gradient-text">Strengthen Compliance.</span>
                         </h2>

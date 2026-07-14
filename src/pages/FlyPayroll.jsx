@@ -154,7 +154,7 @@ const FlyPayroll = () => {
                             <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                                 Go to FlyPayroll App <ArrowRight size={20} />
                             </a>
-                            <a href="#contact" className="btn btn-outline" style={{ border: '1px solid var(--border)' }}>Request a Demo</a>
+                            <a href="#contact" className="btn btn-outline" style={{ borderColor: 'rgba(15, 23, 42, 0.25)' }}>Request a Demo</a>
                         </div>
                     </div>
 
@@ -413,7 +413,19 @@ const FlyPayroll = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(8, 15, 30, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
 
                     <div style={{ position: 'relative', zIndex: 2 }}>
-                        <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Upgrade Your Operations</span>
+                        <span style={{
+                            display: 'inline-flex',
+                            padding: '0.5rem 1.2rem',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            borderRadius: '50px',
+                            marginBottom: '1.5rem',
+                            fontWeight: 800,
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            color: 'white'
+                        }}>Upgrade Your Operations</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>
                             Achieve a <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Future-Ready</span> <br /> Attendance System.
                         </h2>

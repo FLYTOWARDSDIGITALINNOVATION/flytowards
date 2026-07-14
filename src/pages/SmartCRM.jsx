@@ -100,7 +100,7 @@ const SmartCRM = () => {
                             <a href="#contact" className="btn btn-primary" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
                                 Start Free Trial <ArrowRight size={20} />
                             </a>
-                            <a href="#features" className="btn btn-outline" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', border: '1px solid var(--border)' }}>Explore Features</a>
+                            <a href="#features" className="btn btn-outline" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', borderColor: 'rgba(15, 23, 42, 0.25)' }}>Explore Features</a>
                         </div>
                         
 
@@ -238,7 +238,19 @@ const SmartCRM = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Grow Faster</span>
+                        <span style={{
+                            display: 'inline-flex',
+                            padding: '0.5rem 1.2rem',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            borderRadius: '50px',
+                            marginBottom: '1.5rem',
+                            fontWeight: 800,
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            color: 'white'
+                        }}>Grow Faster</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'white' }}>
                             Build Stronger  <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Customer Relationships</span>
                         </h2>
