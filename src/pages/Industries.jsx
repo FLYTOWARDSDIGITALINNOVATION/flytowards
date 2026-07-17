@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, CheckCircle2, ChevronRight, Server, Zap, ShieldCheck } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Industries = () => {
+    const [expandedCard, setExpandedCard] = useState(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
 
@@ -36,7 +38,8 @@ const Industries = () => {
                 "Real-time material & inventory tracking",
                 "Contractor & workforce logs automation",
                 "Milestone billing & progress invoicing"
-            ]
+            ],
+            detailedInfo: "Our construction billing modules track materials from procurement to site delivery. We support contractor ledger sheets, sub-contract log reports, and integrate directly with supply chain inventory databases to avoid costly budget overruns. Real-time material audits ensure project milestones are logged on time."
         },
         {
             title: "Jewelry Shop",
@@ -48,7 +51,8 @@ const Industries = () => {
                 "RFID & Barcode stock controls",
                 "Gold & silver savings scheme tracking",
                 "Interactive digital catalogue displays"
-            ]
+            ],
+            detailedInfo: "Secure counter operations with multi-rate processing. Easily track saving schemes (chit funds) with automated customer SMS reminders, generate barcode labels, audit gold weight vs purity (under 22k/18k), and print premium GST-complaint invoices with custom branding layouts."
         },
         {
             title: "Gold Loan",
@@ -60,7 +64,8 @@ const Industries = () => {
                 "Live market gold rate synchronization",
                 "Flexible scheme & interest tier setup",
                 "Auto SMS & WhatsApp payment alerts"
-            ]
+            ],
+            detailedInfo: "Pledge processing module calculates daily or monthly interest accruals, handling compound interest and auction processes for overdue accounts. Secure drawer logs and digital signatures are archived to verify collateral purity and interest payouts in real-time."
         },
         {
             title: "School / College",
@@ -72,7 +77,8 @@ const Industries = () => {
                 "Admissions & student lifecycle tracking",
                 "Integrated online fee collections",
                 "Automated report cards & gradebook"
-            ]
+            ],
+            detailedInfo: "Complete student lifecycle manager starting from online registrations, seat allocation, fee due reminders, exam scheduling, automatic generation of report cards, and parent-teacher communication portals with direct SMS and WhatsApp logs."
         },
         {
             title: "Hospital & Clinic",
@@ -84,7 +90,8 @@ const Industries = () => {
                 "Electronic health records (EHR) database",
                 "WhatsApp Booking & OPD queue updates",
                 "Ward availability & pharmacy counter bills"
-            ]
+            ],
+            detailedInfo: "Patient appointment queues sync in real-time. Store health history securely in compliance with EMR standards, manage pharmacy stock, and issue barcode prescriptions directly to pharmacy counters with customized billing logs and dosage notes."
         },
         {
             title: "Manufacturing",
@@ -96,7 +103,8 @@ const Industries = () => {
                 "Shop floor execution & machine logs",
                 "Automated supply chain notifications",
                 "Preventive maintenance scheduling"
-            ]
+            ],
+            detailedInfo: "Bill of materials (BOM) management, production line load scheduling, material requisition flow, worker shift logs, and quality check checkpoints that prevent defective shipments. Live dashboard reporting syncs raw inventory consumption with sales demand."
         },
         {
             title: "Retail Shop",
@@ -108,7 +116,8 @@ const Industries = () => {
                 "High-speed POS with barcode scan",
                 "Omnichannel inventory reconciliation",
                 "Customer database & loyalty points list"
-            ]
+            ],
+            detailedInfo: "Barcode-enabled fast checkouts, multi-session cash registers, purchase order automation for vendor replenishment, loyalty points program, and real-time dashboard analytics tracking daily sales, margins, and sales rep performance indicators."
         }
     ];
 
@@ -263,19 +272,20 @@ const Industries = () => {
                         </p>
                     </div>
 
-                    <div className="industries-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
+                        <div className="industries-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
                         {industriesList.map((industry, index) => (
                             <div 
                                 key={index} 
                                 className="industry-card" 
                                 data-aos="fade-up" 
                                 data-aos-delay={index * 80}
+                                onClick={() => setExpandedCard(expandedCard === index ? null : index)}
                                 style={{
                                     background: 'white',
                                     borderRadius: '40px',
                                     padding: '3.5rem',
-                                    border: '1px solid #f1f5f9',
-                                    boxShadow: '0 15px 30px rgba(0,0,0,0.015)',
+                                    border: expandedCard === index ? `2px solid rgb(${industry.color})` : '1px solid #f1f5f9',
+                                    boxShadow: expandedCard === index ? `0 20px 45px rgba(${industry.color.replace(/ /g, '')}, 0.12)` : '0 15px 30px rgba(0,0,0,0.015)',
                                     '--color': industry.color
                                 }}
                             >
@@ -322,6 +332,50 @@ const Industries = () => {
                                             </li>
                                         ))}
                                     </ul>
+                                </div>
+
+                                <div style={{
+                                    maxHeight: expandedCard === index ? '350px' : '0',
+                                    opacity: expandedCard === index ? 1 : 0,
+                                    overflow: 'hidden',
+                                    transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                                    marginTop: expandedCard === index ? '2rem' : '0',
+                                    paddingTop: expandedCard === index ? '1.5rem' : '0',
+                                    borderTop: expandedCard === index ? '1px dashed #e2e8f0' : 'none'
+                                }}>
+                                    <h5 style={{ fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', color: `rgb(${industry.color})`, letterSpacing: '1.5px', marginBottom: '0.8rem' }}>
+                                        Deep Dive Integration
+                                    </h5>
+                                    <p style={{ fontSize: '0.98rem', color: '#475569', lineHeight: 1.7, margin: 0 }}>
+                                        {industry.detailedInfo}
+                                    </p>
+                                </div>
+
+                                <div style={{
+                                    marginTop: '2.5rem',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    borderTop: '1px solid #f8fafc',
+                                    paddingTop: '1.5rem'
+                                }}>
+                                    <span 
+                                        style={{
+                                            background: expandedCard === index ? `rgb(${industry.color})` : 'rgba(0, 0, 0, 0.03)',
+                                            color: expandedCard === index ? 'white' : '#475569',
+                                            border: 'none',
+                                            padding: '0.6rem 1.4rem',
+                                            borderRadius: '50px',
+                                            fontSize: '0.8rem',
+                                            fontWeight: 800,
+                                            display: 'inline-flex',
+                                            alignItems: 'center',
+                                            gap: '6px',
+                                            transition: 'all 0.3s'
+                                        }}
+                                    >
+                                        {expandedCard === index ? 'Hide Details' : 'View Integration Details'}
+                                        <ChevronRight size={14} style={{ transform: expandedCard === index ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }} />
+                                    </span>
                                 </div>
                             </div>
                         ))}

@@ -36,14 +36,14 @@ const SEO = () => {
             title: "Core Web Vitals & Technical Speed",
             desc: "Speed is a primary search engine ranking factor. We optimize code execution, caching policies, and Cumulative Layout Shifts.",
             points: ["Under 2s First Contentful Paint", "Optimal Schema Markup", "Mobile Usability Fixes"],
-            icon: <Gauge size={40} color="var(--primary)" />,
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=80&h=80&q=80",
             delay: "0.1s"
         },
         {
             title: "Intent-Focused Keyword Clusters",
             desc: "We look beyond search volumes. We prioritize transaction-ready search queries that directly generate sales pipeline.",
             points: ["Commercial Intent Focus", "Topic Map Abstractions", "Competitor Keyword Hijack"],
-            icon: <Target size={40} color="var(--secondary)" />,
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=80&h=80&q=80",
             delay: "0.2s"
         }
     ];
@@ -52,32 +52,32 @@ const SEO = () => {
         {
             title: "Technical SEO Audits",
             description: "Deep codebase scanning covering canonical errors, crawl loops, robots blockages, and duplicate tag resolutions.",
-            icon: <Search size={40} color="#1d4ed8" />
+            image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "On-Page Semantic Optimization",
             description: "Keyword density tuning, responsive heading hierarchies, LSI integration, metadata audits, and internal page link maps.",
-            icon: <Layout size={40} color="#059669" />
+            image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Authority Link Acquisition",
             description: "Ethical link-building strategies using manual outreach, custom resource pages, and guest features to scale Domain Authority.",
-            icon: <Link2 size={40} color="#9d00ff" />
+            image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Local SEO & GMB Optimization",
             description: "Climb Google's Map Pack using localized citations, Google Business profile posts, local keywords, and reviews automation.",
-            icon: <MapPin size={40} color="#ca8a04" />
+            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Semantic Content Calendars",
             description: "Creating comprehensive content plans matching Google's E-E-A-T directives, ensuring you establish domain authority.",
-            icon: <Users size={40} color="#db2777" />
+            image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Rank Analytics & Custom Dashboards",
             description: "Monitor changes with daily position trackers, clicks attribution logs, search impressions breakdowns, and competitive audits.",
-            icon: <LineChart size={40} color="#00f2ff" />
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=150&h=150&q=80"
         }
     ];
 
@@ -222,12 +222,15 @@ const SEO = () => {
                             }}
                         >
                             <div className="mb-4" style={{
-                                background: 'rgba(56, 189, 248, 0.12)',
-                                padding: '1.2rem',
-                                borderRadius: '25px',
-                                display: 'inline-block'
+                                background: 'rgba(56, 189, 248, 0.05)',
+                                padding: '0.4rem',
+                                borderRadius: '20px',
+                                display: 'inline-block',
+                                overflow: 'hidden',
+                                width: '70px',
+                                height: '70px'
                             }}>
-                                {item.icon}
+                                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                             </div>
                             <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#E2E8F0' }}>{item.title}</h3>
                             <p style={{ color: '#CBD5E1', fontSize: '1.1rem', marginBottom: '1.5rem', lineHeight: 1.7 }}>{item.desc}</p>
@@ -258,8 +261,8 @@ const SEO = () => {
                     {coreServices.map((service, idx) => (
                         <div key={idx} className="card card--pastel" data-aos="fade-up" style={{ padding: '3rem 2.5rem', transition: 'all 0.4s ease' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-                                <div className="icon-box" style={{ padding: '1rem', borderRadius: '15px' }}>
-                                    {service.icon}
+                                <div className="icon-box" style={{ padding: '0.4rem', borderRadius: '15px', overflow: 'hidden', width: '65px', height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <img src={service.image} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' }} />
                                 </div>
                             </div>
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#0f172a' }}>{service.title}</h3>

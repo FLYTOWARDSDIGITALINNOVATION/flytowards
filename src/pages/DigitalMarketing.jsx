@@ -35,14 +35,14 @@ const DigitalMarketing = () => {
             title: "Data-Driven Strategies",
             desc: "We don't guess. Every campaign is backed by deep analytics and consumer insights.",
             points: ["Audience Analysis", "Competitor Research", "ROI Tracking"],
-            icon: <LineChart size={40} color="var(--primary)" />,
+            image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=80&h=80&q=80",
             delay: "0.1s"
         },
         {
             title: "Multi-Channel Dominance",
             desc: "Reach your audience exactly where they are, across all major digital touchpoints.",
             points: ["Google Search", "Meta & IG", "LinkedIn B2B"],
-            icon: <Globe size={40} color="var(--secondary)" />,
+            image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=80&h=80&q=80",
             delay: "0.2s"
         }
     ];
@@ -51,32 +51,32 @@ const DigitalMarketing = () => {
         {
             title: "Search Engine Optimization (SEO)",
             description: "Dominate search results and drive organic, high-intent traffic to your website continuously.",
-            icon: <Search size={40} color="#0F172A" />
+            image: "https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Social Media Marketing",
             description: "Build an engaged community and strong brand presence across relevant social platforms.",
-            icon: <Users size={40} color="#0F172A" />
+            image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Pay-Per-Click (PPC) Ads",
             description: "Instant, targeted traffic through highly optimized Google and Meta advertising campaigns.",
-            icon: <Target size={40} color="#0F172A" />
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Content Marketing",
             description: "Compelling storytelling and valuable content that converts visitors into loyal customers.",
-            icon: <Megaphone size={40} color="#0F172A" />
+            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Email & Automation",
             description: "Nurture leads and drive repeat sales with personalized, automated email sequences.",
-            icon: <Mail size={40} color="#0F172A" />
+            image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=150&h=150&q=80"
         },
         {
             title: "Conversion Optimization",
             description: "Turn more of your existing traffic into revenue through A/B testing and UX improvements.",
-            icon: <TrendingUp size={40} color="#0F172A" />
+            image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=150&h=150&q=80"
         }
     ];
 
@@ -229,12 +229,15 @@ const DigitalMarketing = () => {
                             })()}
                         >
                             <div className="mb-4" style={{
-                                background: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? 'rgba(56, 189, 248, 0.12)' : 'rgba(0, 242, 255, 0.05)',
-                                padding: '1.2rem',
-                                borderRadius: '25px',
-                                display: 'inline-block'
+                                background: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? 'rgba(56, 189, 248, 0.05)' : 'rgba(0, 242, 255, 0.05)',
+                                padding: '0.4rem',
+                                borderRadius: '20px',
+                                display: 'inline-block',
+                                overflow: 'hidden',
+                                width: '70px',
+                                height: '70px'
                             }}>
-                                {item.icon}
+                                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                             </div>
                             <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? '#E2E8F0' : 'var(--text-dark)' }}>{item.title}</h3>
                             <p style={{ color: (item.title === 'Data-Driven Strategies' || item.title === 'Multi-Channel Dominance') ? '#CBD5E1' : 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '1.5rem', lineHeight: 1.7 }}>{item.desc}</p>
@@ -265,8 +268,8 @@ const DigitalMarketing = () => {
                     {coreServices.map((service, idx) => (
                         <div key={idx} className="card card--pastel" data-aos="fade-up" style={{ padding: '3rem 2.5rem', transition: 'all 0.4s ease' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-                                <div className="icon-box" style={{ padding: '1rem', borderRadius: '15px' }}>
-                                    {service.icon}
+                                <div className="icon-box" style={{ padding: '0.4rem', borderRadius: '15px', overflow: 'hidden', width: '65px', height: '65px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <img src={service.image} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px' }} />
                                 </div>
                             </div>
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>{service.title}</h3>

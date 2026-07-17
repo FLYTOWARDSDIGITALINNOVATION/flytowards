@@ -28,10 +28,30 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Ensure no inputs are empty or just whitespace
+        const form = e.target;
+        const requiredElements = form.querySelectorAll('input[required], textarea[required]');
+        let hasErrors = false;
+        
+        requiredElements.forEach(el => {
+            if (!el.value.trim()) {
+                el.style.border = '2px solid red';
+                hasErrors = true;
+            } else {
+                el.style.border = '1px solid var(--border)';
+            }
+        });
+        
+        if (hasErrors) {
+            alert('Please fill out all required fields properly.');
+            return;
+        }
+
         setFormStatus('sending');
         
         try {
-            const formData = new FormData(e.target);
+            const formData = new FormData(form);
             // Using FormSubmit.co AJAX for professional in-page feedback
             const response = await fetch("https://formsubmit.co/ajax/info@flytowardsdigitalinnovation.com", {
                 method: "POST",

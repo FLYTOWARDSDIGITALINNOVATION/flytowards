@@ -33,6 +33,35 @@ const Careers = () => {
         setShowModal(true);
     };
 
+    const handleFormSubmit = (e) => {
+        const form = e.target;
+        const requiredElements = form.querySelectorAll('input[required]');
+        let hasErrors = false;
+        
+        requiredElements.forEach(el => {
+            if (el.type === 'file') {
+                if (!el.files || el.files.length === 0) {
+                    el.style.border = '2px solid red';
+                    hasErrors = true;
+                } else {
+                    el.style.border = '1px solid #e2e8f0';
+                }
+            } else {
+                if (!el.value.trim()) {
+                    el.style.border = '2px solid red';
+                    hasErrors = true;
+                } else {
+                    el.style.border = '1px solid #e2e8f0';
+                }
+            }
+        });
+
+        if (hasErrors) {
+            e.preventDefault();
+            alert('Please fill out all required fields and upload your resume.');
+        }
+    };
+
     const values = [
         { icon: <Lightbulb size={28} />, title: "Relentless Curiosity", desc: "We don't just follow trends; we ask 'Why?' and 'What's next?' to lead the industry." },
         { icon: <ShieldCheck size={28} />, title: "Radical Ownership", desc: "Every team member is an owner. We take pride in our work and its impact on the world." },
@@ -297,6 +326,7 @@ const Careers = () => {
                         <form
                             action="https://formsubmit.co/info@flytowardsdigitalinnovation.com"
                             method="POST"
+                            onSubmit={handleFormSubmit}
                             encType="multipart/form-data"
                             style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}
                         >

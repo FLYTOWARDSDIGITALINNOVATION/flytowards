@@ -154,7 +154,27 @@ const FlyPayroll = () => {
                             <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                                 Go to FlyPayroll App <ArrowRight size={20} />
                             </a>
-                            <a href="#contact" className="btn btn-outline" style={{ borderColor: 'rgba(15, 23, 42, 0.25)' }}>Request a Demo</a>
+                            <a 
+                                href="#contact" 
+                                className="btn btn-outline" 
+                                style={{ 
+                                    borderColor: 'rgba(15, 23, 42, 0.25)', 
+                                    color: '#0f172a', 
+                                    transition: 'all 0.3s ease' 
+                                }} 
+                                onMouseEnter={(e) => { 
+                                    e.currentTarget.style.backgroundColor = 'var(--primary)'; 
+                                    e.currentTarget.style.borderColor = 'var(--primary)'; 
+                                    e.currentTarget.style.color = '#fff'; 
+                                }} 
+                                onMouseLeave={(e) => { 
+                                    e.currentTarget.style.backgroundColor = 'transparent'; 
+                                    e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.25)'; 
+                                    e.currentTarget.style.color = '#0f172a'; 
+                                }}
+                            >
+                                Request Demo
+                            </a>
                         </div>
                     </div>
 

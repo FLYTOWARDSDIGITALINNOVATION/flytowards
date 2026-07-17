@@ -444,7 +444,7 @@ const WhatsAppAPI = () => {
                             <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 20px rgba(0, 242, 255, 0.2)' }}>
                                 Get Started Today <ArrowRight size={20} />
                             </a>
-                            <a href="mailto:info@flytowards-digital.com" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Talk to Us</a>
+                            <a href="mailto:info@flytowards-digital.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Talk to Us</a>
                         </div>
                     </div>
                 </div>
