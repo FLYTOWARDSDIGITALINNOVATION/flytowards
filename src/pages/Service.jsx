@@ -376,7 +376,7 @@ const Service = () => {
                             <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.6rem 4.5rem', borderRadius: '60px', fontWeight: 900, fontSize: '1.3rem' }}>
                                 Start Your Project
                             </RouterLink>
-                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-outline cta-hover" style={{ padding: '1.6rem 4.5rem', borderRadius: '60px', fontWeight: 900, fontSize: '1.3rem', color: 'white', borderColor: 'rgba(255,255,255,0.2)', transition: 'all 0.3s ease' }}>
+                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: '1.6rem 4.5rem', borderRadius: '60px', fontWeight: 900, fontSize: '1.3rem', color: 'white', background: '#25D366', border: 'none', transition: 'all 0.3s ease', display: 'inline-block', textDecoration: 'none', boxShadow: '0 10px 25px rgba(37, 211, 102, 0.3)' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#128C7E'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#25D366'; }}>
                                 WhatsApp Us
                             </a>
                         </div>

@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import CommonFAQ from './components/CommonFAQ';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
@@ -82,6 +83,7 @@ function App() {
                         <Route path="/admin/create-blog" element={<AdminCreateBlog />} />
                     </Routes>
                 </Suspense>
+                <CommonFAQ />
                 <Footer />
             </div>
         </Router>

@@ -213,26 +213,25 @@ const Products = () => {
             <section id="contact" style={{ background: 'rgba(157, 0, 255, 0.01)' }}>
                 <div className="cta-content" data-aos="zoom-in" style={{
                     textAlign: 'center',
-                    background: '#fff',
+                    background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
                     padding: '6rem 3rem',
                     borderRadius: '40px',
-                    border: '1px solid var(--border)',
-                    boxShadow: 'var(--shadow)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 40px 80px rgba(15, 23, 42, 0.35)',
                     maxWidth: '1000px',
-                    margin: '0 auto'
+                    margin: '0 auto',
+                    color: '#fff'
                 }}>
-                    <span className="section-tag">Grand Opening Launch</span>
-                    <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800 }}>
+                    <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: 'white' }}>
                         Enjoy Flat <span className="gradient-text">25% OFF</span> on all products
                     </h2>
-                    <p style={{ fontSize: '1.3rem', margin: '2rem 0 3rem' }}>
+                    <p style={{ fontSize: '1.3rem', margin: '2rem 0 3rem', color: '#cbd5e1' }}>
                         Ready to automate and grow your business operations? Reach out to us today.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem' }}>
+                        <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: '1.2rem 3rem', background: '#25D366', color: 'white', border: 'none', borderRadius: '30px', fontWeight: 700, transition: 'all 0.3s ease', display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#128C7E'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#25D366'; }}>
                             WhatsApp Us <ArrowRight size={20} />
                         </a>
-                        
                     </div>
                 </div>
             </section>

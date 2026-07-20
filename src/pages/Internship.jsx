@@ -20,6 +20,26 @@ const Internship = () => {
         setShowModal(true);
     };
 
+    const handleFormSubmit = (e) => {
+        const form = e.target;
+        const requiredElements = form.querySelectorAll('input[required]');
+        let hasErrors = false;
+        
+        requiredElements.forEach(el => {
+            if (!el.value.trim()) {
+                el.style.border = '2px solid red';
+                hasErrors = true;
+            } else {
+                el.style.border = '2px solid #f1f5f9';
+            }
+        });
+
+        if (hasErrors) {
+            e.preventDefault();
+            alert('Please fill out all required fields properly.');
+        }
+    };
+
     const categories = [
         {
             name: "Technical Hub",
@@ -314,7 +334,7 @@ const Internship = () => {
                                     <p style={{ color: '#64748b', fontSize: '1.2rem', marginTop: '1rem' }}>Complete your industrial dossier to begin the selection process.</p>
                                 </div>
 
-                                <form action="https://formsubmit.co/info@flytowardsdigitalinnovation.com" method="POST">
+                                <form action="https://formsubmit.co/info@flytowardsdigitalinnovation.com" method="POST" onSubmit={handleFormSubmit}>
                                     <input type="hidden" name="_subject" value={`New Internship Application: ${selectedProgram}`} />
 
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', marginBottom: '2.5rem' }}>
