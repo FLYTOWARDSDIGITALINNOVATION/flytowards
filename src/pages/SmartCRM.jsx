@@ -140,17 +140,17 @@ const SmartCRM = () => {
                     {features.map((feature, idx) => (
                         <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ 
                             padding: '0', 
-                            overflow: 'hidden', 
+                            overflow: 'visible', 
                             display: 'flex', 
                             flexDirection: 'column',
-                            border: '1px solid var(--border)',
-                            background: 'var(--bg-white)'
+                            border: 'none',
+                            background: 'transparent'
                         }}>
-                            <div style={{ height: '220px', width: '100%', overflow: 'hidden', position: 'relative' }}>
+                            <div style={{ height: '220px', width: '100%', overflow: 'hidden', position: 'relative', borderRadius: '20px' }}>
                                 <img src={feature.img} alt={feature.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="hover-zoom" />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))' }}></div>
                             </div>
-                            <div style={{ padding: '2.5rem' }}>
+                            <div style={{ padding: '2rem 0' }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '1.5rem' }}>
                                     <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '12px', borderRadius: '15px' }}>
                                         {feature.icon}

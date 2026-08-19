@@ -20,13 +20,15 @@ const ProfileCard = ({ image }) => {
 }
 
 .ft-profile-card {
-    background: #ffffff;
-    border: 1px solid #f0ece4;
-    border-radius: 28px;
-    overflow: hidden;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 0;
+    overflow: visible;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
+    padding-bottom: 3.5rem;
     animation: ftProfileFadeUp 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -56,7 +58,9 @@ const ProfileCard = ({ image }) => {
 .ft-profile-left {
     position: relative;
     min-height: 420px;
-    background: #ffffff;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 .ft-profile-image {
