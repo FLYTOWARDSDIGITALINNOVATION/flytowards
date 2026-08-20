@@ -1,0 +1,7 @@
+
+> server@1.0.0 start
+> node server.js
+
+◇ injected env (2) from .env // tip: ⌘ suppress logs { quiet: true }
+Connecting to MongoDB...
+Server is running on http://localhost:5000

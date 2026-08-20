@@ -110,13 +110,20 @@ const Internship = () => {
                 }
 
                 .program-grid {
+<<<<<<< HEAD
                     display: flex;
                     flex-direction: column;
                     gap: 3.5rem;
+=======
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 3rem;
+>>>>>>> origin/main
                     padding: 40px 0;
                 }
 
                 .elegant-card {
+<<<<<<< HEAD
                     background: transparent;
                     border: none;
                     border-bottom: 1px solid rgba(15, 23, 42, 0.08);
@@ -156,6 +163,29 @@ const Internship = () => {
                     }
                 }
 
+=======
+                    background: white;
+                    border-radius: 40px;
+                    border: 1px solid #f1f5f9;
+                    overflow: hidden;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                    height: 100%;
+                }
+
+                .elegant-card:hover {
+                    transform: translateY(-15px);
+                    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+                    border-color: rgba(0, 242, 255, 0.3);
+                }
+
+                .card-img-wrapper {
+                    height: 240px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+>>>>>>> origin/main
                 .card-img {
                     width: 100%;
                     height: 100%;
@@ -274,7 +304,11 @@ const Internship = () => {
                                                         {course.icon}
                                                     </div>
                                                 </div>
+<<<<<<< HEAD
                                                 <div style={{ padding: '0.5rem 0', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+=======
+                                                <div style={{ padding: '3rem' }}>
+>>>>>>> origin/main
                                                     <span className="category-tag">Featured Program</span>
                                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0f172a', marginBottom: '1rem' }}>{course.title}</h3>
                                                     <p style={{ color: '#64748b', marginBottom: '2.5rem', lineHeight: 1.8, fontSize: '1.05rem' }}>{course.desc}</p>

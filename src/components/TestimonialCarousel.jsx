@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import { useEffect, useState } from 'react';
+>>>>>>> origin/main
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 
 const DEFAULT_TESTIMONIALS = [
@@ -337,6 +341,7 @@ function normalizeTestimonials(items) {
 function StarRating({ rating }) {
     const safeRating = Math.max(1, Math.min(5, Math.round(Number(rating) || 5)));
 
+<<<<<<< HEAD
   return (
     <section className="testimonial-section section-full" style={{ padding: '4rem 1rem', background: 'var(--bg-light)' }}>
       <div className="section-inner" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
@@ -368,3 +373,243 @@ function StarRating({ rating }) {
 };
 
 export default TestimonialCarousel;
+=======
+    return (
+        <div className="ft-testimonial-carousel__stars" aria-label={`Rating ${safeRating} out of 5`}>
+            <div className="ft-testimonial-carousel__starsTrack" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, index) => {
+                    const filled = index < safeRating;
+
+                    return (
+                        <Star
+                            key={`star-${index}`}
+                            className="ft-testimonial-carousel__star"
+                            size={18}
+                            strokeWidth={2}
+                            color={filled ? '#f59e0b' : '#d1d5db'}
+                            fill={filled ? '#f59e0b' : 'none'}
+                        />
+                    );
+                })}
+            </div>
+
+            <span className="ft-testimonial-carousel__ratingValue">{safeRating} / 5</span>
+        </div>
+    );
+}
+
+export default function TestimonialCarousel({ testimonials = DEFAULT_TESTIMONIALS }) {
+    const slides = normalizeTestimonials(testimonials);
+    const total = slides.length;
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [direction, setDirection] = useState(1);
+    useEffect(() => {
+        if (total <= 1) {
+            return undefined;
+        }
+
+        const timer = window.setInterval(() => {
+            setDirection(1);
+            setActiveIndex((prev) => (prev + 1) % total);
+        }, 4000);
+
+        return () => window.clearInterval(timer);
+    }, [total]);
+
+    const currentIndex = total > 0 ? ((activeIndex % total) + total) % total : 0;
+    const current = slides[currentIndex] || slides[0];
+    const currentLabel = String(currentIndex + 1).padStart(2, '0');
+    const totalLabel = String(total).padStart(2, '0');
+
+    const goToNext = () => {
+        if (total <= 1) return;
+        setDirection(1);
+        setActiveIndex((prev) => (prev + 1) % total);
+    };
+
+    const goToPrev = () => {
+        if (total <= 1) return;
+        setDirection(-1);
+        setActiveIndex((prev) => (prev - 1 + total) % total);
+    };
+
+    const goToIndex = (targetIndex) => {
+        if (targetIndex === currentIndex || total <= 1) {
+            return;
+        }
+
+        const forwardDistance = (targetIndex - currentIndex + total) % total;
+        const backwardDistance = (currentIndex - targetIndex + total) % total;
+
+        setDirection(forwardDistance <= backwardDistance ? 1 : -1);
+        setActiveIndex(targetIndex);
+    };
+
+    return (
+        <section className="ft-testimonial-carousel" aria-label="Client testimonials">
+            <style>{`
+.ft-testimonial-carousel__titleAccent {
+    background: linear-gradient(135deg, #00f2ff 0%, #ff007a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ft-testimonial-carousel__arrow:hover {
+    transform: translateY(-2px);
+}
+
+.ft-testimonial-carousel__arrow:focus-visible,
+.ft-testimonial-carousel__dot:focus-visible {
+    outline: 3px solid rgba(0, 242, 255, 0.3);
+    outline-offset: 4px;
+}
+
+.ft-testimonial-carousel__card--next {
+    animation: ftSlideFromRight 560ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.ft-testimonial-carousel__card--prev {
+    animation: ftSlideFromLeft 560ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+@keyframes ftSlideFromRight {
+    from {
+        opacity: 0;
+        transform: translate3d(42px, 0, 0) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes ftSlideFromLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-42px, 0, 0) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ft-testimonial-carousel__card,
+    .ft-testimonial-carousel__arrow,
+    .ft-testimonial-carousel__dot {
+        animation: none;
+        transition: none;
+    }
+}
+            `}</style>
+
+            <div style={styles.inner}>
+                <div style={{ ...styles.header, justifyContent: 'flex-start' }}>
+                    <div style={styles.headingBlock}>
+                        <span style={styles.eyebrow}>CLIENT FEEDBACK</span>
+                        <h2 style={styles.title}>
+                            What Our <span className="ft-testimonial-carousel__titleAccent">Clients Say</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div style={styles.stage}>
+                    <button
+                        type="button"
+                        className="ft-testimonial-carousel__arrow"
+                        style={styles.arrow}
+                        onClick={goToPrev}
+                        aria-label="Previous testimonial"
+                    >
+                        <ArrowLeft size={18} />
+                    </button>
+
+                    <div style={styles.viewport}>
+                        <article
+                            key={`${currentIndex}-${direction}`}
+                            className={`ft-testimonial-carousel__card ${direction > 0 ? 'ft-testimonial-carousel__card--next' : 'ft-testimonial-carousel__card--prev'}`}
+                            style={styles.card}
+                            aria-label={`Testimonial ${currentLabel} of ${totalLabel}`}
+                            aria-live="polite"
+                            aria-atomic="true"
+                        >
+                            <span style={styles.quoteMark} aria-hidden="true">
+                                "
+                            </span>
+
+                            <div style={styles.cardContent}>
+                                <StarRating rating={current.rating} />
+                                <p style={styles.review}>{current.text}</p>
+                            </div>
+
+                            <div style={styles.divider} aria-hidden="true" />
+
+                            <div style={styles.authorRow}>
+                                <div style={styles.authorGroup}>
+                                    <div
+                                        aria-hidden="true"
+                                        style={{
+                                            ...styles.avatar,
+                                            background: AVATAR_GRADIENTS[currentIndex % AVATAR_GRADIENTS.length],
+                                        }}
+                                    >
+                                        {current.initials}
+                                    </div>
+
+                                    <div style={styles.nameBlock}>
+                                        <h3 style={styles.name}>{current.name}</h3>
+                                        <p style={styles.role}>{current.serviceCategory}</p>
+                                    </div>
+                                </div>
+
+                                <div style={styles.badge}>{current.badge}</div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <button
+                        type="button"
+                        className="ft-testimonial-carousel__arrow"
+                        style={styles.arrow}
+                        onClick={goToNext}
+                        aria-label="Next testimonial"
+                    >
+                        <ArrowRight size={18} />
+                    </button>
+                </div>
+
+                <div style={styles.footer} aria-label="Testimonial pagination">
+                    <div style={styles.counter}>
+                        {currentLabel} / {totalLabel}
+                    </div>
+
+                    <div style={styles.dots}>
+                        {slides.map((item, index) => {
+                            const isActive = index === currentIndex;
+
+                            return (
+                                <button
+                                    key={`${item.name}-${index}`}
+                                    type="button"
+                                    className={`ft-testimonial-carousel__dot ${isActive ? 'is-active' : ''}`}
+                                    style={{
+                                        ...styles.dot,
+                                        ...(isActive ? styles.dotActive : null),
+                                    }}
+                                    aria-label={`Go to testimonial ${String(index + 1).padStart(2, '0')}`}
+                                    aria-current={isActive ? 'true' : 'false'}
+                                    onClick={() => goToIndex(index)}
+                                />
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+>>>>>>> origin/main

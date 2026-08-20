@@ -145,6 +145,7 @@ const Careers = () => {
                 .hero-image { animation: float 8s ease-in-out infinite; }
                 
                 .glass-card {
+<<<<<<< HEAD
                     background: transparent;
                     backdrop-filter: none;
                     border: none;
@@ -177,6 +178,32 @@ const Careers = () => {
                     border-radius: 24px;
                     overflow: hidden;
                     flex-shrink: 0;
+=======
+                    background: rgba(255, 255, 255, 0.7);
+                    backdrop-filter: blur(15px);
+                    border: 1px solid rgba(255, 255, 255, 0.8);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+                .glass-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+                
+                .role-card {
+                    background: white;
+                    border: 1px solid #f1f5f9;
+                    border-radius: 35px;
+                    overflow: hidden;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative;
+                }
+                .role-card:hover {
+                    transform: translateY(-12px) scale(1.02);
+                    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+                    border-color: var(--primary);
+                }
+                .role-img-container {
+                    height: 220px;
+                    overflow: hidden;
+>>>>>>> origin/main
                     position: relative;
                 }
                 .role-img {
@@ -186,6 +213,7 @@ const Careers = () => {
                     transition: transform 0.8s ease;
                 }
                 .role-card:hover .role-img {
+<<<<<<< HEAD
                     transform: scale(1.05);
                 }
 
@@ -199,6 +227,9 @@ const Careers = () => {
                         width: 100% !important;
                         height: 220px !important;
                     }
+=======
+                    transform: scale(1.1);
+>>>>>>> origin/main
                 }
 
                 .journey-step-card:hover img { transform: scale(1.1); }
@@ -442,8 +473,13 @@ const Careers = () => {
                     </div>
                     <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2.5rem' }}>
                         {values.map((v, i) => (
+<<<<<<< HEAD
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="glass-card" style={{ padding: '2rem 1.5rem 2rem 2.5rem', textAlign: 'left' }}>
                                 <div style={{ width: '70px', height: '70px', background: 'var(--primary)', color: 'black', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 2rem 0' }}>
+=======
+                            <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="glass-card" style={{ padding: '4rem 3rem', borderRadius: '40px', textAlign: 'center', background: '#fff' }}>
+                                <div style={{ width: '70px', height: '70px', background: 'var(--primary)', color: 'black', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem' }}>
+>>>>>>> origin/main
                                     {v.icon}
                                 </div>
                                 <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1.2rem', color: '#1e1b4b' }}>{v.title}</h3>
@@ -463,7 +499,11 @@ const Careers = () => {
                         <p style={{ color: '#64748b', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>We aren't looking for employees. We're looking for architects of the future.</p>
                     </div>
 
+<<<<<<< HEAD
                     <div className="roles-grid" style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
+=======
+                    <div className="roles-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
+>>>>>>> origin/main
                         {openPositions.map((job, idx) => (
                             <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} className="role-card">
                                 <div className="role-img-container">
@@ -478,7 +518,11 @@ const Careers = () => {
                                         {job.icon}
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div style={{ padding: '0.5rem 0', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+=======
+                                <div style={{ padding: '2.5rem' }}>
+>>>>>>> origin/main
                                     <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.8rem' }}>{job.department}</span>
                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1.2rem', color: '#1e1b4b', minHeight: '60px' }}>{job.title}</h3>
 
@@ -519,7 +563,11 @@ const Careers = () => {
                     <div className="journey-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
                         {hiringSteps.map((step, i) => (
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="journey-step-card" style={{
+<<<<<<< HEAD
                                 background: 'var(--card-bg-light)', padding: '1.5rem', borderRadius: '32px', border: '1px solid #f1f5f9',
+=======
+                                background: '#f8fafc', padding: '1.5rem', borderRadius: '32px', border: '1px solid #f1f5f9',
+>>>>>>> origin/main
                                 transition: 'all 0.3s'
                             }}>
                                 <div style={{
@@ -549,6 +597,7 @@ const Careers = () => {
             </section>
 
             {/* FAQ Section */}
+<<<<<<< HEAD
             <section style={{ padding: '6rem 8%', background: '#ffffff', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '900px', margin: '0 auto' }}>
                     <div style={{ marginBottom: '3rem' }} data-aos="fade-up">
@@ -606,6 +655,39 @@ const Careers = () => {
                                 </div>
                             );
                         })}
+=======
+            <section style={{ padding: '120px 0', position: 'relative', zIndex: 1, background: '#fcfcfd' }}>
+                <div className="max-w-800" style={{ margin: '0 auto', padding: '0 2rem' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                        <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1rem', color: '#1e1b4b' }}>Common <span style={{ color: 'var(--primary)' }}>Questions</span></h2>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        {faqs.map((faq, i) => (
+                            <div key={i} data-aos="fade-up" style={{
+                                padding: '2.2rem', background: '#fff', borderRadius: '24px',
+                                cursor: 'pointer', border: activeFaq === i ? '2px solid var(--primary)' : '2px solid rgba(0,0,0,0.05)',
+                                transition: 'all 0.3s',
+                                boxShadow: activeFaq === i ? '0 15px 30px rgba(0, 242, 255, 0.1)' : 'none'
+                            }} onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <h4 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#1e1b4b' }}>{faq.q}</h4>
+                                    <div style={{
+                                        width: '32px', height: '32px', borderRadius: '50%',
+                                        background: activeFaq === i ? 'var(--primary)' : '#f1f5f9',
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        color: activeFaq === i ? 'black' : '#64748b', transition: 'all 0.3s'
+                                    }}>
+                                        <span style={{ fontSize: '1.2rem', fontWeight: 800 }}>{activeFaq === i ? '−' : '+'}</span>
+                                    </div>
+                                </div>
+                                {activeFaq === i && (
+                                    <p style={{ marginTop: '1.5rem', color: '#64748b', fontSize: '1.15rem', lineHeight: 1.8, animation: 'fadeIn 0.5s ease' }}>
+                                        {faq.a}
+                                    </p>
+                                )}
+                            </div>
+                        ))}
+>>>>>>> origin/main
                     </div>
                 </div>
             </section>

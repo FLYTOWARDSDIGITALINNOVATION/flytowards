@@ -5,34 +5,71 @@ import { Link } from 'react-router-dom';
 const SmartCRM = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+<<<<<<< HEAD
+=======
+
+        document.title = "Smart CRM | CRM Software Help to Track your Business";
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Towards Smart CRM Software Helps Businesses Track Leads, Automate Sales, Manage Customer Relationships, and Close Deals Faster");
+
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "best crm software, crm, contact management software");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/smart-crm");
+
+>>>>>>> origin/main
     }, []);
 
     const features = [
         {
             title: "Lead Management",
             description: "Capture, track, and convert leads efficiently with automated pipelines.",
+<<<<<<< HEAD
             img: "https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=800&auto=format&fit=crop",
+=======
+            img: "Lead Management.webp",
+>>>>>>> origin/main
             icon: <Target size={30} color="var(--primary)" />,
             delay: "0.1s"
         },
         {
             title: "Sales Pipeline",
             description: "Visual pipelines to monitor deals at every stage and forecast revenue.",
+<<<<<<< HEAD
             img: "https://images.unsplash.com/photo-1553484771-371a605b060b?q=80&w=800&auto=format&fit=crop",
+=======
+            img: "Sales pipeline.webp",
+>>>>>>> origin/main
             icon: <BarChart size={30} color="var(--secondary)" />,
             delay: "0.2s"
         },
         {
             title: "Customer Profiles",
             description: "Complete customer history, interactions, and data in one centralized place.",
+<<<<<<< HEAD
             img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop",
+=======
+            img: "customer profile.jpg",
+>>>>>>> origin/main
             icon: <Users size={30} color="var(--accent)" />,
             delay: "0.3s"
         },
         {
             title: "Task & Follow-ups",
             description: "Never miss a follow-up with smart reminders and automated task scheduling.",
+<<<<<<< HEAD
             img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop",
+=======
+            img: "Task.webp",
+>>>>>>> origin/main
             icon: <Calendar size={30} color="var(--primary)" />,
             delay: "0.4s"
         }
@@ -72,8 +109,12 @@ const SmartCRM = () => {
                             <Rocket size={18} /> Intelligent Business Management
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+<<<<<<< HEAD
                             Scale Growth with <br />
                             <span className="gradient-text">SmartCRM</span>
+=======
+                            Smart CRM Help to Track you Business 
+>>>>>>> origin/main
                         </h1>
                         <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '600px', lineHeight: 1.8 }}>
                             SmartCRM helps businesses track leads, automate sales, manage customer relationships, and close deals faster—all in one powerful, elegant platform.
@@ -83,6 +124,7 @@ const SmartCRM = () => {
                             <a href="#contact" className="btn btn-primary" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
                                 Start Free Trial <ArrowRight size={20} />
                             </a>
+<<<<<<< HEAD
                             <a href="#features" className="btn btn-outline" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', border: '1px solid var(--border)' }}>Explore Features</a>
                         </div>
                         
@@ -99,12 +141,22 @@ const SmartCRM = () => {
                                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 600 }}>Trusted by 500+ Businesses</p>
                             </div>
                         </div>
+=======
+                            <a href="#features" className="btn btn-outline" style={{ padding: '1.2rem 3rem', fontSize: '1.1rem', borderColor: 'rgba(15, 23, 42, 0.25)' }}>Explore Features</a>
+                        </div>
+                        
+
+>>>>>>> origin/main
                     </div>
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', background: 'rgba(255, 255, 255, 0.4)' }}>
                             <img
+<<<<<<< HEAD
                                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1000&auto=format&fit=crop&q=80"
+=======
+                                src="Smart CRM.webp"
+>>>>>>> origin/main
                                 alt="Smart CRM Analytics Dashboard"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', objectFit: 'cover', height: '500px' }}
@@ -140,6 +192,7 @@ const SmartCRM = () => {
                     {features.map((feature, idx) => (
                         <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ 
                             padding: '0', 
+<<<<<<< HEAD
                             overflow: 'visible', 
                             display: 'flex', 
                             flexDirection: 'column',
@@ -151,6 +204,19 @@ const SmartCRM = () => {
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))' }}></div>
                             </div>
                             <div style={{ padding: '2rem 0' }}>
+=======
+                            overflow: 'hidden', 
+                            display: 'flex', 
+                            flexDirection: 'column',
+                            border: '1px solid var(--border)',
+                            background: 'var(--bg-white)'
+                        }}>
+                            <div style={{ height: '220px', width: '100%', overflow: 'hidden', position: 'relative' }}>
+                                <img src={feature.img} alt={feature.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="hover-zoom" />
+                                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))' }}></div>
+                            </div>
+                            <div style={{ padding: '2.5rem' }}>
+>>>>>>> origin/main
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '1.5rem' }}>
                                     <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '12px', borderRadius: '15px' }}>
                                         {feature.icon}
@@ -194,7 +260,11 @@ const SmartCRM = () => {
                     </div>
                     <div data-aos="fade-left" style={{ position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', borderRadius: '40px', background: 'var(--bg-white)', border: '1px solid var(--border)' }}>
+<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '600px' }} />
+=======
+                            <img src="Scale Growth.webp" alt="Team Collaboration" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover', height: '750x' }} />
+>>>>>>> origin/main
                             
                             {/* Overlay Stats */}
                             <div style={{ position: 'absolute', top: '10%', right: '-20px', background: 'var(--bg-white)', padding: '1.5rem', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', border: '1px solid var(--border)' }}>
@@ -233,7 +303,23 @@ const SmartCRM = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
+<<<<<<< HEAD
                         <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Grow Faster</span>
+=======
+                        <span style={{
+                            display: 'inline-flex',
+                            padding: '0.5rem 1.2rem',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            borderRadius: '50px',
+                            marginBottom: '1.5rem',
+                            fontWeight: 800,
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            color: 'white'
+                        }}>Grow Faster</span>
+>>>>>>> origin/main
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'white' }}>
                             Build Stronger  <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Customer Relationships</span>
                         </h2>
