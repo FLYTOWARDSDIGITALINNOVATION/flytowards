@@ -4,6 +4,14 @@ import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, MessageCircle } fro
 const Footer = () => {
     return (
         <footer style={{ background: '#0a0a0a', paddingTop: '4rem', paddingBottom: '2rem', borderTop: '1px solid var(--border)' }}>
+<<<<<<< HEAD
+            <div className="footer-grid max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
+
+                {/* Column 1: Brand & Address */}
+                <div style={{ gridColumn: 'span 1' }}>
+                    <Link to="/" className="logo" style={{ marginBottom: '1.5rem', display: 'block', textDecoration: 'none' }}>
+                        <img src="/logo.webp" alt="Fly Towards Logo" style={{ height: '100px', width: '100px', borderRadius: '50%', objectFit: 'cover' }} />
+=======
             <div className="footer-grid max-w-1200" style={{ margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', padding: '0 2rem' }}>
 
                 {/* Column 1: Brand & Address */}
@@ -12,6 +20,7 @@ const Footer = () => {
                         <span className="footer-logo-badge">
                             <img src="/logo.webp" alt="Fly Towards Logo" />
                         </span>
+>>>>>>> origin/main
                     </Link>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>
                         Empowering your growth with our digital expertise. Bridging creativity with technology to boost your visibility and performance.
@@ -28,9 +37,13 @@ const Footer = () => {
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <li><Link to="/" className="footer-link">Home</Link></li>
                         <li><Link to="/about" className="footer-link">About Us</Link></li>
+<<<<<<< HEAD
+                        <li><Link to="/gallery" className="footer-link">Gallery</Link></li>
+=======
                         <li><Link to="/industries" className="footer-link">Industries</Link></li>
                         <li><Link to="/careers" className="footer-link">Careers</Link></li>
                         <li><Link to="/internship" className="footer-link">Internship</Link></li>
+>>>>>>> origin/main
                         <li><Link to="/blog" className="footer-link">Blog</Link></li>
                         <li><Link to="/contact" className="footer-link">Contact</Link></li>
                     </ul>
@@ -41,10 +54,24 @@ const Footer = () => {
                     <h4 style={{ marginBottom: '1.5rem', fontWeight: 800, color: 'white', fontSize: '1.2rem' }}>Products</h4>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <li><Link to="/fly-bill" className="footer-link">Fly Bill</Link></li>
+<<<<<<< HEAD
+                        <li><Link to="/payroll" className="footer-link">FLYROLL</Link></li>
+                        <li><Link to="/smart-crm" className="footer-link">Smart CRM</Link></li>
+                        <li><Link to="/products" className="footer-link">View All Products</Link></li>
+                    </ul>
+
+                    <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
+                        <a href="https://www.facebook.com/profile.php?id=61574481060238" target="_blank" rel="noopener noreferrer" className="social-icon"><Facebook size={18} /></a>
+                        <a href="https://www.instagram.com/flytowardsdigitalinnovation/" target="_blank" rel="noopener noreferrer" className="social-icon"><Instagram size={18} /></a>
+                        <a href="https://www.linkedin.com/in/sanjay-kumar-k-founder/" target="_blank" rel="noopener noreferrer" className="social-icon"><Linkedin size={18} /></a>
+                        <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp"><MessageCircle size={18} /></a>
+                    </div>
+=======
                         <li><Link to="/payroll" className="footer-link">FlyPayroll</Link></li>
                         <li><Link to="/smart-crm" className="footer-link">Smart CRM</Link></li>
                         <li><Link to="/products" className="footer-link">View All Products</Link></li>
                     </ul>
+>>>>>>> origin/main
                 </div>
 
                 {/* Column 4: Services */}
@@ -56,6 +83,8 @@ const Footer = () => {
                         <li><Link to="/digital-marketing" className="footer-link">Digital Marketing</Link></li>
                         <li><Link to="/service" className="footer-link">All Services</Link></li>
                     </ul>
+<<<<<<< HEAD
+=======
 
                     <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
                         <a href="https://www.facebook.com/profile.php?id=61574481060238" target="_blank" rel="noopener noreferrer" className="social-icon"><Facebook size={18} /></a>
@@ -63,6 +92,7 @@ const Footer = () => {
                         <a href="https://www.linkedin.com/in/sanjay-kumar-k-founder/" target="_blank" rel="noopener noreferrer" className="social-icon"><Linkedin size={18} /></a>
                         <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="social-icon" title="WhatsApp"><MessageCircle size={18} /></a>
                     </div>
+>>>>>>> origin/main
                 </div>
 
             </div>
@@ -73,6 +103,8 @@ const Footer = () => {
 
             {/* Embedded styles specifically for footer links to keep hover effects clean */}
             <style jsx>{`
+<<<<<<< HEAD
+=======
                 .footer-logo-link {
                     justify-content: flex-start;
                 }
@@ -93,6 +125,7 @@ const Footer = () => {
                     object-fit: contain;
                     display: block;
                 }
+>>>>>>> origin/main
                 .footer-link {
                     color: var(--text-muted);
                     text-decoration: none;
@@ -118,6 +151,8 @@ const Footer = () => {
                     background: var(--primary);
                     transform: translateY(-3px);
                 }
+<<<<<<< HEAD
+=======
 
                 @media (max-width: 968px) {
                     .footer-logo-link {
@@ -133,6 +168,7 @@ const Footer = () => {
                         padding: 12px;
                     }
                 }
+>>>>>>> origin/main
             `}</style>
         </footer>
     );

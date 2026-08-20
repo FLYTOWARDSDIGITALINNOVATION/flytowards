@@ -1,4 +1,17 @@
 // Central configuration for dynamic environment switching
+<<<<<<< HEAD
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+export const API_BASE_URL = isLocal 
+    ? 'http://localhost:5000/api' 
+    : 'https://flytowardsdigitalinnovation.com/ft-api';
+
+export const IMAGE_BASE_URL = isLocal 
+    ? 'http://localhost:5000' 
+    : 'https://flytowardsdigitalinnovation.com/ft-uploads';
+
+export const DEFAULT_CONTACT_EMAIL = 'flytowardsdigitalinnovation@gmail.com';
+=======
 const isBrowser = typeof window !== 'undefined';
 const isLocalHost =
     isBrowser &&
@@ -28,3 +41,4 @@ export const buildImageUrl = (path = '') => {
     if (!IMAGE_BASE_URL) return normalizedPath;
     return `${IMAGE_BASE_URL}${normalizedPath}`;
 };
+>>>>>>> origin/main

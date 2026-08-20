@@ -6,7 +6,10 @@ import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+<<<<<<< HEAD
+=======
 import CommonFAQ from './components/CommonFAQ';
+>>>>>>> origin/main
 
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
@@ -64,6 +67,11 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/service" element={<Service />} />
+<<<<<<< HEAD
+                        <Route path="/services" element={<Service />} />
+                        <Route path="/services/" element={<Service />} />
+=======
+>>>>>>> origin/main
                         <Route path="/industries" element={<Industries />} />
                         <Route path="/web-development" element={<WebDev />} />
                         <Route path="/whatsapp-api" element={<WhatsAppAPI />} />
@@ -77,13 +85,47 @@ function App() {
                         <Route path="/careers" element={<Careers />} />
                         <Route path="/internship" element={<Internship />} />
                         <Route path="/contact" element={<Contact />} />
+<<<<<<< HEAD
+                        <Route path="/contact/" element={<Contact />} />
+
+                        {/* Internal SEO Service Routes */}
+                        <Route path="/services/custom-software-development/" element={<Contact />} />
+                        <Route path="/services/enterprise-software-development/" element={<Contact />} />
+                        <Route path="/services/web-application-development/" element={<WebDev />} />
+                        <Route path="/services/mobile-app-development/" element={<Contact />} />
+                        <Route path="/services/saas-development/" element={<Contact />} />
+                        <Route path="/services/software-maintenance-support/" element={<Contact />} />
+                        <Route path="/services/crm-development/" element={<SmartCRM />} />
+                        <Route path="/services/erp-development/" element={<Contact />} />
+                        <Route path="/services/api-development/" element={<Contact />} />
+                        <Route path="/services/cloud-application-development/" element={<Contact />} />
+                        <Route path="/services/ai-software-development/" element={<Contact />} />
+                        <Route path="/services/business-process-automation/" element={<Contact />} />
+                        <Route path="/services/software-consulting/" element={<Contact />} />
+                        <Route path="/services/software-modernization/" element={<Contact />} />
+                        <Route path="/services/ui-ux-design/" element={<Contact />} />
+
+                        {/* Internal SEO Industry Routes */}
+                        <Route path="/industries/healthcare/" element={<Industries />} />
+                        <Route path="/industries/manufacturing/" element={<Industries />} />
+                        <Route path="/industries/retail/" element={<Industries />} />
+                        <Route path="/industries/education/" element={<Industries />} />
+                        <Route path="/industries/construction/" element={<Industries />} />
+                        <Route path="/industries/hospitality/" element={<Industries />} />
+                        <Route path="/industries/logistics/" element={<Industries />} />
+                        <Route path="/industries/finance/" element={<Industries />} />
+=======
+>>>>>>> origin/main
 
                         {/* Admin Routes */}
                         <Route path="/admin" element={<AdminLogin />} />
                         <Route path="/admin/create-blog" element={<AdminCreateBlog />} />
                     </Routes>
                 </Suspense>
+<<<<<<< HEAD
+=======
                 <CommonFAQ />
+>>>>>>> origin/main
                 <Footer />
             </div>
         </Router>

@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
+import { ArrowLeft, ArrowRight, Share2, Calendar, Clock, RefreshCw, PenTool } from 'lucide-react';
+import { API_BASE_URL, IMAGE_BASE_URL } from '../config';
+import './Blog.css';
+
+=======
 import { ArrowLeft, ArrowRight, Share2, Calendar, Clock, RefreshCw } from 'lucide-react';
 import { buildApiUrl, buildImageUrl } from '../config';
 import './Blog.css';
@@ -40,6 +46,7 @@ const plainTextToHtml = (text) => {
 
 const getContentHtml = (content) => (isProbablyHtml(content) ? content : plainTextToHtml(content));
 
+>>>>>>> origin/main
 const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     const [selectedBlog, setSelectedBlog] = useState(null);
@@ -99,6 +106,8 @@ const Blog = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+<<<<<<< HEAD
+=======
 
         document.title = "Fly TowardsDigital Innovation | Blogs Page";
 
@@ -117,12 +126,20 @@ const Blog = () => {
         if (canonical) canonical.setAttribute("href",
             "https://flytowardsdigitalinnovation.com/blog");
 
+>>>>>>> origin/main
         fetchBlogs();
     }, []);
 
     const fetchBlogs = async () => {
         setIsLoading(true);
         try {
+<<<<<<< HEAD
+            const response = await fetch(`${API_BASE_URL}/blogs`);
+            if (response.ok) {
+                const data = await response.json();
+                // Merge dynamic blogs from MongoDB with the static strategic guide
+                setBlogs([staticArticle, ...data]);
+=======
             const response = await fetch(buildApiUrl('/blogs'));
             if (response.ok) {
                 const data = await response.json();
@@ -134,6 +151,7 @@ const Blog = () => {
                 });
                 const merged = [staticArticle, ...dynamicSorted];
                 setBlogs(merged);
+>>>>>>> origin/main
             } else {
                 setBlogs([staticArticle]);
             }
@@ -153,6 +171,12 @@ const Blog = () => {
 
     const getImageUrl = (coverImage) => {
         if (!coverImage) return 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop';
+<<<<<<< HEAD
+        if (coverImage.startsWith('/uploads')) {
+            return `${IMAGE_BASE_URL}${coverImage}`;
+        }
+        return coverImage;
+=======
         return buildImageUrl(coverImage);
     };
 
@@ -161,6 +185,7 @@ const Blog = () => {
         const text = stripHtml(blog?.content || '');
         if (!text) return '';
         return text.length > maxLen ? (text.substring(0, maxLen) + '...') : text;
+>>>>>>> origin/main
     };
 
     if (selectedBlog) {
@@ -187,7 +212,19 @@ const Blog = () => {
                     </div>
 
                     <div className="reader-body">
+<<<<<<< HEAD
+                        {selectedBlog.isStatic ? (
+                            // Render static guide's HTML structure safely
+                            <div dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
+                        ) : (
+                            // Render dynamic blog paragraphs beautifully
+                            selectedBlog.content.split('\n').map((para, i) => (
+                                para.trim() ? <p key={i}>{para}</p> : null
+                            ))
+                        )}
+=======
                         <div dangerouslySetInnerHTML={{ __html: getContentHtml(selectedBlog.content) }} />
+>>>>>>> origin/main
                     </div>
                 </div>
             </main>
@@ -237,7 +274,11 @@ const Blog = () => {
                                         {featuredPost.title}
                                     </h2>
                                     <p className="blog-card-excerpt">
+<<<<<<< HEAD
+                                        {featuredPost.desc || (featuredPost.content.substring(0, 180) + '...')}
+=======
                                         {getExcerpt(featuredPost, 180)}
+>>>>>>> origin/main
                                     </p>
                                     <span className="read-more-link">
                                         Read Article <ArrowRight size={16} />
@@ -261,8 +302,16 @@ const Blog = () => {
                                             </div>
                                             <h3 className="blog-card-title">{blog.title}</h3>
                                             <p className="blog-card-excerpt">
+<<<<<<< HEAD
+                                                {blog.content.substring(0, 120)}...
+                                            </p>
+                                            <span className="read-more-link">
+                                                Read Article <ArrowRight size={14} />
+                                            </span>
+=======
                                                 {getExcerpt(blog, 120)}
                                             </p>
+>>>>>>> origin/main
                                         </div>
                                     </div>
                                 ))}

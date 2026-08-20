@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React, { useState } from 'react';
+=======
 import { useEffect, useState } from 'react';
+>>>>>>> origin/main
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 
 const DEFAULT_TESTIMONIALS = [
@@ -337,6 +341,39 @@ function normalizeTestimonials(items) {
 function StarRating({ rating }) {
     const safeRating = Math.max(1, Math.min(5, Math.round(Number(rating) || 5)));
 
+<<<<<<< HEAD
+  return (
+    <section className="testimonial-section section-full" style={{ padding: '4rem 1rem', background: 'var(--bg-light)' }}>
+      <div className="section-inner" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+        <span className="section-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>Testimonials</span>
+        <h2 style={{ marginBottom: '2rem', fontSize: 'clamp(2rem, 3vw, 2.8rem)' }}>What Our Clients Say</h2>
+        <div className="testimonial-card" style={{ position: 'relative', padding: '3rem', borderRadius: '30px', background: 'white', boxShadow: 'var(--shadow)', minHeight: '260px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.35rem', marginBottom: '1.5rem' }}>
+            {Array.from({ length: 5 }).map((_, starIndex) => (
+              <Star key={starIndex} size={20} color="var(--primary)" />
+            ))}
+          </div>
+          <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'var(--text-dark)', marginBottom: '2rem' }}>
+            “{item.quote}”
+          </p>
+          <div style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text-dark)' }}>{item.author}</div>
+          <div style={{ color: 'var(--text-muted)', marginTop: '0.35rem' }}>{item.role}</div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem' }}>
+            <button type="button" onClick={prev} className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              <ArrowLeft size={16} /> Previous
+            </button>
+            <button type="button" onClick={next} className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              Next <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialCarousel;
+=======
     return (
         <div className="ft-testimonial-carousel__stars" aria-label={`Rating ${safeRating} out of 5`}>
             <div className="ft-testimonial-carousel__starsTrack" aria-hidden="true">
@@ -575,3 +612,4 @@ export default function TestimonialCarousel({ testimonials = DEFAULT_TESTIMONIAL
         </section>
     );
 }
+>>>>>>> origin/main

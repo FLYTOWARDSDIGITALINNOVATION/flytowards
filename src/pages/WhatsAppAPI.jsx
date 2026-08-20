@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 const WhatsAppAPI = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+<<<<<<< HEAD
+=======
 
         document.title = "We Provide Whatsapp Business API Marketing For Your Business";
 
@@ -22,6 +24,7 @@ const WhatsAppAPI = () => {
         if (canonical) canonical.setAttribute("href",
             "https://flytowardsdigitalinnovation.com/whatsapp-api");
 
+>>>>>>> origin/main
     }, []);
 
     const features = [
@@ -105,6 +108,8 @@ const WhatsAppAPI = () => {
 
     return (
         <main style={{ position: 'relative', overflow: 'hidden' }}>
+<<<<<<< HEAD
+=======
             <style>{`
                 .whatsapp-hero-grid { 
                     display: grid;
@@ -190,6 +195,7 @@ const WhatsAppAPI = () => {
                     }
                 }
             `}</style>
+>>>>>>> origin/main
             {/* Aesthetic Background Orbs to fill empty spaces */}
             <div style={{ position: 'absolute', top: '15%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,242,255,0.08) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(50px)' }}></div>
             <div style={{ position: 'absolute', top: '40%', right: '-15%', width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(255,0,122,0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
@@ -197,13 +203,23 @@ const WhatsAppAPI = () => {
 
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
+<<<<<<< HEAD
+                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
+                    <div data-aos="fade-up">
+=======
                 <div className="whatsapp-hero-grid max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div data-aos="fade-up" className="hero-content-box">
+>>>>>>> origin/main
                         <span className="section-tag">
                             <MessageCircle size={18} color="var(--primary)" /> Premium API Solutions
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+<<<<<<< HEAD
+                            Powerful WhatsApp Marketing API <br />
+                            <span className="gradient-text">For Growing Businesses</span>
+=======
                             Whatsapp Business API Marketing
+>>>>>>> origin/main
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '600px' }}>
                             Automate conversations, send bulk messages, manage campaigns, and engage customers on WhatsApp using our secure and scalable API.
@@ -213,7 +229,11 @@ const WhatsAppAPI = () => {
                             <a href="#contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', boxShadow: '0 10px 20px rgba(0, 242, 255, 0.2)' }}>
                                 Get API Access <ArrowRight size={20} />
                             </a>
+<<<<<<< HEAD
+                            <a href="#docs" className="btn btn-outline" style={{ border: '1px solid var(--border)', background: 'white' }}>View Documentation</a>
+=======
                             
+>>>>>>> origin/main
                         </div>
                     </div>
 
@@ -265,16 +285,27 @@ const WhatsAppAPI = () => {
             <section id="features" style={{ padding: '8rem 0', background: 'rgba(255, 0, 122, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
                     <span className="section-tag">Marketing Tools</span>
+<<<<<<< HEAD
+                    <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
+=======
                     <h2 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
+>>>>>>> origin/main
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Our WhatsApp Business API helps you connect with customers at scale while staying compliant and reliable.
                     </p>
                 </div>
 
+<<<<<<< HEAD
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+                    <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                        {features.slice(0, 2).map((feature, idx) => (
+                            <div key={idx} data-aos="fade-up" style={{
+=======
                 <div className="features-container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
                     <div className="feature-row" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                         {features.slice(0, 2).map((feature, idx) => (
                             <div key={idx} data-aos="fade-up" className="feature-card" style={{
+>>>>>>> origin/main
                                 flex: idx === 0 ? '2 1 600px' : '1 1 300px', // Asymmetric split
                                 minWidth: '300px',
                                 position: 'relative',
@@ -297,9 +328,15 @@ const WhatsAppAPI = () => {
                         ))}
                     </div>
 
+<<<<<<< HEAD
+                    <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                        {features.slice(2, 4).map((feature, idx) => (
+                            <div key={idx + 2} data-aos="fade-up" style={{
+=======
                     <div className="feature-row" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                         {features.slice(2, 4).map((feature, idx) => (
                             <div key={idx + 2} data-aos="fade-up" className="feature-card" style={{
+>>>>>>> origin/main
                                 flex: idx === 0 ? '1 1 300px' : '2 1 600px', // Reverse asymmetric split
                                 minWidth: '300px',
                                 position: 'relative',
@@ -364,15 +401,25 @@ const WhatsAppAPI = () => {
             <section id="process" style={{ background: 'linear-gradient(to bottom, rgba(0, 242, 255, 0.02), rgba(255, 0, 122, 0.02))', padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }} data-aos="fade-up">
                     <span className="section-tag">Integration Flow</span>
+<<<<<<< HEAD
+                    <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
+=======
                     <h2 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
+>>>>>>> origin/main
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         A seamless process to integrate WhatsApp Business API and start growing your customer base.
                     </p>
                 </div>
 
+<<<<<<< HEAD
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+                    {workflowSteps.map((step, idx) => (
+                        <div key={idx} data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"} style={{
+=======
                 <div className="workflow-container" style={{ display: 'flex', flexDirection: 'column', gap: '5rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
                     {workflowSteps.map((step, idx) => (
                         <div key={idx} data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"} className="workflow-item" style={{
+>>>>>>> origin/main
                             display: 'flex',
                             flexDirection: idx % 2 === 0 ? 'row' : 'row-reverse',
                             alignItems: 'center',
@@ -383,12 +430,20 @@ const WhatsAppAPI = () => {
                             boxShadow: '0 20px 50px rgba(0,0,0,0.05)',
                             border: '1px solid var(--border)'
                         }}>
+<<<<<<< HEAD
+                            <div style={{ flex: 1, height: '400px', borderRadius: '30px', overflow: 'hidden', position: 'relative' }}>
+=======
                             <div className="workflow-image" style={{ flex: 1, height: '400px', borderRadius: '30px', overflow: 'hidden', position: 'relative' }}>
+>>>>>>> origin/main
                                 <img src={step.image} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(45deg, rgba(0,242,255,0.1), rgba(255,0,122,0.1))', mixBlendMode: 'overlay' }}></div>
                             </div>
 
+<<<<<<< HEAD
+                            <div style={{ flex: 1, padding: '2rem 3rem' }}>
+=======
                             <div className="workflow-content" style={{ flex: 1, padding: '2rem 3rem' }}>
+>>>>>>> origin/main
                                 <div style={{
                                     width: '80px', height: '80px',
                                     background: `linear-gradient(135deg, rgba(${idx === 0 ? '0, 242, 255' : idx === 1 ? '255, 0, 122' : '157, 0, 255'}, 0.1) 0%, transparent 100%)`,
@@ -444,7 +499,11 @@ const WhatsAppAPI = () => {
                             <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 20px rgba(0, 242, 255, 0.2)' }}>
                                 Get Started Today <ArrowRight size={20} />
                             </a>
+<<<<<<< HEAD
+                            <a href="mailto:info@flytowards-digital.com" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Talk to Us</a>
+=======
                             <a href="mailto:info@flytowards-digital.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Talk to Us</a>
+>>>>>>> origin/main
                         </div>
                     </div>
                 </div>
@@ -453,4 +512,8 @@ const WhatsAppAPI = () => {
     );
 };
 
+<<<<<<< HEAD
 export default WhatsAppAPI;
+=======
+export default WhatsAppAPI;
+>>>>>>> origin/main
