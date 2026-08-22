@@ -1,5 +1,11 @@
-import { ArrowRight, CheckCircle2, Globe, Shield, MessageSquare, Briefcase, Users, Star, Quote, ChevronRight, Trophy, Target, Zap, Server, Code, PlaySquare, Smartphone, MonitorSmartphone, BarChart, TrendingUp } from 'lucide-react';
-import { useEffect } from 'react';
+import { 
+    ArrowRight, CheckCircle2, Globe, Shield, Users, Star, Quote, ChevronRight, 
+    Target, Zap, Server, Code, Smartphone, MonitorSmartphone, BarChart, 
+    TrendingUp, Settings, Wrench, Layers, Network, Database, Search, 
+    FileText, Palette, Activity, ShoppingBag, Truck, GraduationCap, 
+    HardHat, Hotel, HelpCircle, ChevronDown, ChevronUp
+} from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -7,342 +13,239 @@ const Home = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const digitalMarketingServices = [
-        "Search Engine Optimization (SEO)",
-        "Social Media Marketing",
-        "Google Ads / Meta ads",
-        "LinkedIn Marketing",
-        "Digital Marketing Strategy",
-        "Branding & Design",
-        "WhatsApp Marketing",
-        "Video Edits and Production"
+    const [activeFaq, setActiveFaq] = useState(null);
+
+    const toggleFaq = (index) => {
+        setActiveFaq(activeFaq === index ? null : index);
+    };
+
+    const capabilities = [
+        { title: "Business process automation", icon: <CpuIcon size={24} color="var(--primary)" /> },
+        { title: "Centralised business operations", icon: <Database size={24} color="var(--secondary)" /> },
+        { title: "Internal workflow management", icon: <Layers size={24} color="var(--accent)" /> },
+        { title: "Data and application integration", icon: <Network size={24} color="var(--primary)" /> },
+        { title: "Customer-facing applications", icon: <Users size={24} color="var(--secondary)" /> },
+        { title: "Business-specific dashboards", icon: <BarChart size={24} color="var(--accent)" /> },
+        { title: "Digital products and SaaS platforms", icon: <Globe size={24} color="var(--primary)" /> },
+        { title: "Modernisation of outdated software systems", icon: <Wrench size={24} color="var(--secondary)" /> }
     ];
 
-    const itSolutionsServices = [
-        "Billing Software",
-        "CRM Systems",
-        "Attendance Systems",
-        "Booking Systems",
-        "Inventory Systems"
+    const services = [
+        {
+            title: "Custom Software Development",
+            desc: "Build software around your specific workflows, users, data and business requirements rather than forcing your processes into a generic product.",
+            link: "/service",
+            icon: <Code size={32} color="var(--primary)" />
+        },
+        {
+            title: "Enterprise Software Development",
+            desc: "Develop business software designed to support larger operational requirements, multiple users, structured workflows and connected business functions.",
+            link: "/services/enterprise-software-development",
+            icon: <Server size={32} color="var(--secondary)" />
+        },
+        {
+            title: "SaaS Development",
+            desc: "Turn a software idea into a SaaS product with the functionality and architecture required for a subscription-based digital business.",
+            link: "/products",
+            icon: <Zap size={32} color="var(--accent)" />
+        },
+        {
+            title: "Web Application Development",
+            desc: "Develop browser-based applications for internal operations, customer interactions, business workflows and digital products.",
+            link: "/services/web-development",
+            icon: <MonitorSmartphone size={32} color="var(--primary)" />
+        },
+        {
+            title: "Mobile App Development",
+            desc: "Create mobile applications that support customer experiences, field operations, employee workflows or specific business use cases.",
+            link: "/services/mobile-app-development",
+            icon: <Smartphone size={32} color="var(--secondary)" />
+        },
+        {
+            title: "Software Maintenance",
+            desc: "Maintain and improve existing software as requirements change, helping businesses continue using important applications while addressing new needs.",
+            link: "/services/software-maintenance-support",
+            icon: <Wrench size={32} color="var(--accent)" />
+        },
+        {
+            title: "Digital Transformation",
+            desc: "Modernise manual or disconnected business processes through software, automation and better-connected digital systems.",
+            link: "/services",
+            icon: <TrendingUp size={32} color="var(--primary)" />
+        }
     ];
 
-    const whyTrustUs = [
-        { title: 'Data-Driven Strategy', icon: <Target size={32} color="var(--primary)" /> },
-        { title: 'Transparent Reporting', icon: <BarChart size={32} color="var(--secondary)" />, iconAlternative: <Zap size={32} color="var(--secondary)" /> },
-        { title: '24/7 Support', icon: <Shield size={32} color="var(--accent)" /> },
-        { title: 'Skilled & Certified Team', icon: <Users size={32} color="var(--primary)" /> },
-        { title: 'Global Experience', icon: <Globe size={32} color="var(--secondary)" /> }
+    const whyCustomSoftware = [
+        {
+            title: "Designed Around Your Processes",
+            desc: "Instead of changing your workflow to fit a software product, the solution can be structured around your actual business requirements.",
+            icon: <Settings size={28} color="var(--primary)" />
+        },
+        {
+            title: "Built for Specific Users",
+            desc: "Different teams need different tools. Software can be designed around the people who will use it, from administrators and managers to operational teams and customers.",
+            icon: <Users size={28} color="var(--secondary)" />
+        },
+        {
+            title: "Better Connected Systems",
+            desc: "Businesses often work with multiple applications that do not communicate effectively. Custom development can help create more connected workflows and applications.",
+            icon: <Network size={28} color="var(--accent)" />
+        },
+        {
+            title: "Room to Scale",
+            desc: "As business requirements change, software may need new functionality, integrations, users or workflows. A properly planned custom solution can be developed with future requirements in mind.",
+            icon: <TrendingUp size={28} color="var(--primary)" />
+        },
+        {
+            title: "Focused on Business Problems",
+            desc: "The starting point should be the business problem, not the technology. We focus on understanding what the software needs to accomplish before defining the solution.",
+            icon: <Target size={28} color="var(--secondary)" />
+        }
     ];
 
-    const testimonials = [
+    const industries = [
+        { name: "Healthcare", desc: "Software solutions for healthcare-related workflows, operational management and digital processes.", icon: <Activity size={32} color="var(--primary)" /> },
+        { name: "Manufacturing", desc: "Applications that can support production-related workflows, business operations, data management and process visibility.", icon: <Settings size={32} color="var(--secondary)" /> },
+        { name: "Retail", desc: "Software for retail operations, customer-facing experiences, business workflows and connected processes.", icon: <ShoppingBag size={32} color="var(--accent)" /> },
+        { name: "Logistics", desc: "Solutions designed around logistics workflows, operational coordination and information management.", icon: <Truck size={32} color="var(--primary)" /> },
+        { name: "Education", desc: "Digital applications that support education-related processes, administration and user interactions.", icon: <GraduationCap size={32} color="var(--secondary)" /> },
+        { name: "Construction", desc: "Software solutions designed around construction-related workflows, project processes and operational requirements.", icon: <HardHat size={32} color="var(--accent)" /> },
+        { name: "Hospitality", desc: "Applications that can support hospitality operations, customer interactions and business processes.", icon: <Hotel size={32} color="var(--primary)" /> }
+    ];
+
+    const processSteps = [
+        { step: "01", title: "Understand", desc: "We begin by understanding the business problem, current process, users and desired outcome.", icon: <Search size={24} /> },
+        { step: "02", title: "Define", desc: "The requirements are translated into a clearer software scope, functionality and solution direction.", icon: <FileText size={24} /> },
+        { step: "03", title: "Design", desc: "The user experience and application structure are planned around the people and processes that will use the system.", icon: <Palette size={24} /> },
+        { step: "04", title: "Develop", desc: "The software is developed according to the agreed requirements, functionality and technical direction.", icon: <Code size={24} /> },
+        { step: "05", title: "Improve", desc: "Software can continue to evolve as the business adds new requirements, users, integrations or capabilities.", icon: <TrendingUp size={24} /> }
+    ];
+
+    const businessOutcomes = [
+        "Reduce dependence on manual processes",
+        "Bring business information into more centralised systems",
+        "Connect previously disconnected workflows",
+        "Support growing operational requirements",
+        "Improve access to business information",
+        "Create better digital experiences for customers and employees",
+        "Replace outdated or difficult-to-maintain applications",
+        "Establish a stronger foundation for future digital initiatives"
+    ];
+
+    const strengths = [
         {
-            quote: "Fly Towards transformed our traditional textile business in Coimbatore into a digital powerhouse. Their strategic SEO and targeted ad campaigns delivered a 300% growth in international inquiries within just one quarter.",
-            author: "Ananya Rajendran",
-            role: "Director, Kovai Silks",
-            location: "Coimbatore"
+            title: "Technical Expertise",
+            desc: "Software projects require both business understanding and technical execution. We approach development with attention to the requirements behind the application.",
+            icon: <Shield size={32} color="var(--primary)" />
         },
         {
-            quote: "Partnering with Fly Towards was the best decision for our Chennai-based logistics firm. The custom CRM they developed is not only fast and intuitive but has completely revolutionized how we handle our global operations.",
-            author: "Karthik Balasubramanian",
-            role: "Founder, KB Logistics",
-            location: "Chennai"
+            title: "Experienced Development Team",
+            desc: "Our development approach is supported by developers working across software development requirements.",
+            icon: <Users size={32} color="var(--secondary)" />
         },
         {
-            quote: "Their creative team perfectly blended Madurai's cultural heritage with modern aesthetics for our brand relaunch. The new visual identity has given us a distinct edge in a highly competitive market.",
-            author: "Meenakshi Sundaram",
-            role: "Marketing Head, Temple City Foods",
-            location: "Madurai"
+            title: "End-to-End Development",
+            desc: "From understanding requirements to developing the software, the focus is on providing an end-to-end development approach.",
+            icon: <Layers size={32} color="var(--accent)" />
         },
         {
-            quote: "We witnessed an unprecedented surge in footfall at our Salem retail outlets following their Meta ads strategy. Their transparency and data-driven approach make them the most trusted partner in the region.",
-            author: "Shalini Selvam",
-            role: "Managing Director, Selvam Retail",
-            location: "Salem"
-        },
-        {
-            quote: "Fly Towards delivered a world-class mobile application for our healthcare startup in Trichy. The user experience is seamless, and their technical support is consistently exceptional.",
-            author: "Vijay Raghavan",
-            role: "CEO, Trichy HealthTech",
-            location: "Trichy"
-        },
-        {
-            quote: "From building our web presence to managing national-level digital campaigns, Fly Towards has been instrumental in our growth. They truly understand the pulse of Tamil Nadu's business landscape.",
-            author: "Vigneshwar Ram",
-            role: "Owner, VR Enterprises",
-            location: "Tirunelveli"
+            title: "Flexible Engagement",
+            desc: "Different businesses have different project requirements and engagement needs. Our strategy includes flexible engagement models as a core strength.",
+            icon: <Globe size={32} color="var(--primary)" />
         }
     ];
 
     const faqs = [
-        { q: "What exactly does Fly Towards Digital Innovation do?", a: "We provide complete digital marketing and IT solutions to increase your reach and revenue." },
-        { q: "How can this help my business grow?", a: "Our data-driven strategies and custom campaigns focus on real, measurable business results. It helps businesses reach customers online, increase visibility, and grow sales faster than traditional methods." },
-        { q: "Do you offer both Marketing and Engineering?", a: "Yes, we handle everything — from marketing to web, app, and software development." },
-        { q: "Does digital marketing actually work?", a: "Yes! Targeted campaigns attract the right audience who are ready to buy your products or services." }
+        {
+            q: "What does custom software development include?",
+            a: "Custom software development involves designing and building software around a business's specific requirements, workflows, users and operational needs. Depending on the project, this can include business applications, enterprise software, SaaS products, web applications, mobile applications and software improvements."
+        },
+        {
+            q: "When should a business consider custom software?",
+            a: "Custom software can be worth considering when existing products do not adequately support your workflows, when multiple systems need to be connected, when manual processes create operational challenges, or when a business needs a software product built for a specific purpose."
+        },
+        {
+            q: "Do you develop software for specific industries?",
+            a: "Yes. The company's SEO strategy identifies healthcare, manufacturing, retail, logistics, education, construction and hospitality as target industries. The exact software requirements are determined based on each business and project."
+        },
+        {
+            q: "Can you develop a new software product from an idea?",
+            a: "Yes, where the project requirements are suitable for custom development. The initial discussion should establish the business objective, users, required functionality, technical requirements and expected scope before development begins."
+        },
+        {
+            q: "Can you work with an existing software system?",
+            a: "Existing software can be considered as part of a project where the requirement involves maintenance, improvement, modernisation, integration or development of additional functionality. The appropriate approach depends on the existing application's condition and technical requirements."
+        }
     ];
 
     return (
         <main>
             <div className="mesh-bg"></div>
 
-            {/* Hero Section */}
-            <section className="hero hero--video" style={{ minHeight: '90vh' }}>
+            {/* Section 1 — Hero */}
+            <section className="hero hero--video" style={{ minHeight: '85vh' }}>
                 <div className="hero-video" aria-hidden="true">
                     <video autoPlay muted loop playsInline preload="auto">
-                        <source src="/backgroundvideo.mp4" type="video/mp4" />
+                        <source src="/Background.mp4" type="video/mp4" />
                     </video>
                     <div className="hero-video-overlay"></div>
                 </div>
 
                 <div className="hero-content" data-aos="fade-up">
-                    <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '1rem', lineHeight: 1.2 }}>
-                        FLY TOWARDS <br />
-                        <span className="gradient-text" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', display: 'block', marginTop: '0.5rem' }}>DIGITAL INNOVATION</span>
+                    <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#fff', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                        <Zap size={16} /> Fly Towards Digital Innovation
+                    </span>
+                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                        Custom Software Development <br />
+                        <span className="gradient-text" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)', display: 'block', marginTop: '0.5rem' }}>Services for Growing Businesses</span>
                     </h1>
-                    <h2 className="mb-4" style={{ fontSize: '1.6rem', fontWeight: 700, opacity: 0.95, lineHeight: 1.4, maxWidth: '900px', margin: '0 auto', color: '#fff' }}>
-                        Empowering Businesses Through <br /> Digital Marketing & IT Innovation
-                    </h2>
-                    <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.85)', marginBottom: '3rem', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.8 }}>
-                        We help brands grow, connect, and succeed through result-driven digital marketing and modern IT solutions.
+                    <p style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.85)', marginBottom: '3rem', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.8 }}>
+                        Build software around your unique business processes, workflows, and goals with tailored software development services designed for your business.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <a href="#services" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                            Explore Our Service <ArrowRight size={20} />
+                        <Link to="/contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                            Discuss Your Software Requirement <ArrowRight size={20} />
+                        </Link>
+                        <a href="#services" className="btn btn-outline btn-outline-on-video" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
+                            Explore Our Services
                         </a>
-                        <Link to="/contact" className="btn btn-outline btn-outline-on-video" style={{ padding: '1.2rem 2.5rem', fontSize: '1.1rem' }}>
-                            Get a Free Consultation
-                        </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Who We Are */}
-            <section id="about" style={{ background: 'rgba(0, 242, 255, 0.01)' }}>
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', alignItems: 'center', gap: '4rem' }}>
-                    <div data-aos="fade-right">
-                        <div style={{ position: 'relative', padding: '1rem', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1000" alt="Team Collaboration" style={{ borderRadius: '30px', width: '100%', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', zIndex: 2 }} />
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Strategy" style={{ borderRadius: '30px', width: '65%', position: 'absolute', bottom: '-40px', right: '-30px', border: '8px solid var(--bg-white)', zIndex: 3, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
-                            <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15, zIndex: 1, top: '10%', right: '-10%', width: '150%', height: '150%' }}></div>
-                        </div>
-                    </div>
-                    <div data-aos="fade-left" style={{ paddingTop: '2rem' }}>
-                        <span className="section-tag" style={{ marginBottom: '1.5rem' }}>Who We Are</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>Bridging Creativity <br/><span className="gradient-text">with Technology</span></h2>
-                        <p style={{ fontSize: '1.2rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '2rem' }}>
-                            Fly Towards is a growth focused company offering end-to-end Digital Marketing and IT Solutions. Our mission is to bridge creativity with technology — helping businesses boost visibility, sales, and performance in the digital world.
-                        </p>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                 <CheckCircle2 size={24} color="var(--primary)" style={{ flexShrink: 0 }} />
-                                 <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Innovative Strategies</span>
-                             </li>
-                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                 <CheckCircle2 size={24} color="var(--secondary)" style={{ flexShrink: 0 }} />
-                                 <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Modern Tech Architecture</span>
-                             </li>
-                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                 <CheckCircle2 size={24} color="var(--accent)" style={{ flexShrink: 0 }} />
-                                 <span style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-dark)' }}>Result-Driven Approach</span>
-                             </li>
-                        </ul>
-                    </div>
-                </div> 
-                
-                <div className="stats-grid-v2 text-center" style={{ marginTop: '7rem', justifyContent: 'center', width: '100%', maxWidth: '1000px', margin: '7rem auto 0', background: 'var(--bg-white)', padding: '3.5rem', borderRadius: '30px', border: '1px solid var(--border)', boxShadow: 'var(--shadow)' }} data-aos="fade-up">
-                    <div className="stat-item-v2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-                            <Users size={32} color="var(--primary)" />
-                        </div>
-                        <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Experienced Employees</span>
-                    </div>
-                    <div className="stat-item-v2" style={{ borderLeft: '1px solid var(--border)', borderRight: '1px solid var(--border)', paddingLeft: '3rem', paddingRight: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{ background: 'rgba(255, 0, 122, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-                            <Trophy size={32} color="var(--secondary)" />
-                        </div>
-                        <span className="stat-num" style={{ fontSize: '2.5rem', marginBottom: '0.2rem' }}>15+</span>
-                        <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Clients Served</span>
-                    </div>
-                    <div className="stat-item-v2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div style={{ background: 'rgba(157, 0, 255, 0.1)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-                            <Globe size={32} color="var(--accent)" />
-                        </div>
-                        <span className="stat-label" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Trusted by Global Brands</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* Core Solutions Grid */}
-            <section id="services">
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Our Expertise</span>
-                    <h2 style={{ fontSize: '3.5rem' }}>Solutions Targeted <span className="gradient-text">for Growth</span></h2>
-                </div>
-
-                <div className="grid" style={{ margin: '0 auto', gap: '3rem', width: '100%' }}>
-
-                    {/* Marketing Column */}
-                    <div className="card" data-aos="fade-right" style={{ padding: '3.5rem', borderTop: '4px solid var(--primary)', position: 'relative', overflow: 'hidden' }}>
-                        <div style={{ position: 'absolute', top: '-10%', right: '-5%', opacity: 0.05, transform: 'rotate(15deg)' }}>
-                            <Target size={200} />
-                        </div>
-                        <div className="solution-header">
-                            <div className="solution-img-box">
-                                <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=2074&auto=format&fit=crop" alt="Digital Marketing" />
-                            </div>
-                            <h3 className="solution-title">Digital <br />Marketing</h3>
-                        </div>
-
-                        <ul style={{ listStyle: 'none', color: 'var(--text-dark)', fontSize: '1.1rem' }}>
-                            {digitalMarketingServices.map((service, idx) => (
-                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '1rem 0', borderBottom: idx !== digitalMarketingServices.length - 1 ? '1px solid var(--border)' : 'none' }}>
-                                    <CheckCircle2 size={22} color="var(--primary)" style={{ flexShrink: 0 }} />
-                                    <span style={{ fontWeight: 500 }}>{service}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* IT Column */}
-                    <div className="card" data-aos="fade-left" style={{ padding: '3.5rem', borderTop: '4px solid var(--secondary)', position: 'relative', overflow: 'hidden' }}>
-                        <div style={{ position: 'absolute', top: '-10%', right: '-5%', opacity: 0.03, transform: 'rotate(-15deg)' }}>
-                            <Code size={200} />
-                        </div>
-                        <div className="solution-header">
-                            <div className="solution-img-box">
-                                <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2072&auto=format&fit=crop" alt="Custom Business Software Solutions" />
-                            </div>
-                            <h3 className="solution-title">Custom Business <br />Software Solutions</h3>
-                        </div>
-
-                        <ul style={{ listStyle: 'none', color: 'var(--text-dark)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-                            {itSolutionsServices.map((service, idx) => (
-                                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '1rem 0', borderBottom: idx !== itSolutionsServices.length - 1 ? '1px solid var(--border)' : 'none' }}>
-                                    <CheckCircle2 size={22} color="var(--secondary)" style={{ flexShrink: 0 }} />
-                                    <span style={{ fontWeight: 500 }}>{service}</span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <Link to="/service" className="btn btn-outline" style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                            View All Services <ArrowRight size={18} />
-                        </Link>
-                    </div>
-
-                </div>
-            </section>
-
-            {/* Why Businesses Trust Us */}
-            <section style={{ 
-                background: 'linear-gradient(rgba(240, 245, 255, 0.95), rgba(255, 240, 250, 0.95)), url(https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop) center/cover fixed',
-                padding: '5rem 0'
-            }}>
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Core Value</span>
-                    <h2 style={{ fontSize: '3rem' }}>Why Businesses <span className="gradient-text">Trust Us</span></h2>
-                </div>
-                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-                    {whyTrustUs.map((item, i) => (
-                        <div key={i} className="card" style={{ padding: '2.5rem 1.5rem', textAlign: 'center', transition: 'all 0.3s ease', cursor: 'grab' }}
-                            data-aos="fade-up" data-aos-delay={i * 100}
-                            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-10px)'; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
-                        >
-                            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                                {item.iconAlternative || item.icon}
-                            </div>
-                            <h4 style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-dark)' }}>{item.title}</h4>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Founder Quote */}
-            <section style={{ paddingTop: '160px' }}>
-                <div className="founder-card" data-aos="zoom-in">
-                    <div className="founder-img-container">
-                        <img src="/sanjay.webp" alt="Mr. SANJAY KUMAR" />
-                    </div>
-                    <div>
-                        <Quote size={50} color="var(--secondary)" style={{ margin: '0 auto 1.5rem', opacity: 0.2 }} />
-                        <p style={{ fontSize: '1.6rem', fontWeight: 500, fontStyle: 'italic', marginBottom: '2.5rem', lineHeight: 1.6, color: 'var(--text-dark)' }}>
-                            "Every brand has a story — we’re here to make it reach the world. At Fly Towards, we make that happen through Innovation, strategy and commitment"
-                        </p>
-                        <h4 className="founder-name">Mr. SANJAY KUMAR</h4>
-                        <div className="founder-role">Founder</div>
-                    </div>
-                </div>
-
-                {/* Official Partner Badge */}
-
-            </section>
-
-            {/* Testimonials */}
-            <section style={{ background: 'rgba(0, 242, 255, 0.01)' }}>
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Client Feedback</span>
-                    <h2 style={{ fontSize: '3rem' }}>What Our <span className="gradient-text">Clients Say</span></h2>
-                </div>
-
-                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
-                    {testimonials.map((test, idx) => (
-                        <div key={idx} className="card testimonial-card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ padding: '3rem', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', border: '1px solid var(--border)', background: 'var(--bg-white)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
-                            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.1 }}>
-                                <Quote size={60} color="var(--primary)" />
-                            </div>
-                            <div>
-                                <div className="testimonial-stars" style={{ display: 'flex', gap: '4px', marginBottom: '1.5rem' }}>
-                                    {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} fill="var(--accent)" color="var(--accent)" />)}
-                                </div>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-dark)', marginBottom: '2.5rem', fontWeight: 500, position: 'relative', zIndex: 1 }}>
-                                    "{test.quote}"
-                                </p>
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
-                                <h5 style={{ fontSize: '1.2rem', fontWeight: 800, margin: 0, color: 'var(--text-dark)' }}>{test.author}</h5>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <span style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontWeight: 600 }}>{test.role}</span>
-                                    <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--border)' }}></span>
-                                    <span style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 700 }}>{test.location}</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section id="faq">
+            {/* Section 2 — Business Problems */}
+            <section id="problems" style={{ padding: '6rem 8% 4rem' }}>
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '4rem', alignItems: 'flex-start' }}>
-                    <div data-aos="fade-right" style={{ position: 'sticky', top: '120px' }}>
-                        <span className="section-tag">Your Questions Answered</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                            Let’s Build Your <br /><span className="gradient-text">Digital Future</span> Together
+                    <div data-aos="fade-right">
+                        <span className="section-tag">Software Built Around Your Business</span>
+                        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            Why businesses outgrow spreadsheets, disconnected tools and outdated systems
                         </h2>
-                        <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '3rem', lineHeight: 1.7 }}>
-                            Whether you need a powerful digital marketing strategy or a custom IT solution, we’re ready to help your business grow.
+                        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+                            Generic software can be useful when your processes fit the product. But when your business has unique workflows, multiple teams, specialised requirements or existing systems, adapting your operations to someone else's software can create unnecessary complexity.
                         </p>
-                        <Link to="/contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', marginBottom: '3rem', display: 'inline-flex' }}>
-                            Start Your Journey <ArrowRight size={20} />
+                        <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '2rem', fontWeight: 600 }}>
+                            Custom software gives your business the opportunity to build around the way you actually work.
+                        </p>
+                        <p style={{ fontSize: '1.1rem', color: 'var(--text-dark)', marginBottom: '2rem', fontStyle: 'italic' }}>
+                            The goal is not simply to build another application. It is to create software that has a clear purpose within your business.
+                        </p>
+                        <Link to="/contact" className="btn btn-primary">
+                            Tell Us What You Need to Build <ArrowRight size={18} />
                         </Link>
-                        
-                        <div style={{ position: 'relative', marginTop: '2rem', display: 'none' }} className="faq-img-desktop">
-                            {/* Adding a display: none by default and unhiding via CSS or just relying on layout */}
-                        </div>
-                        <div style={{ position: 'relative', marginTop: '1rem' }}>
-                            <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=800" alt="Customer Support" style={{ borderRadius: '24px', width: '100%', boxShadow: 'var(--shadow)', maxHeight: '350px', objectFit: 'cover' }} />
-                            <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.1 }}></div>
-                        </div>
                     </div>
 
                     <div data-aos="fade-left">
-                        <div className="faq-grid" style={{ gridTemplateColumns: '1fr', gap: '1.5rem' }}>
-                            {faqs.map((faq, idx) => (
-                                <div key={idx} className="card" style={{ padding: '2rem', borderLeft: '4px solid var(--primary)' }}>
-                                    <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                        <div style={{ background: 'rgba(0, 242, 255, 0.1)', color: 'var(--primary)', width: '30px', height: '30px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '0.9rem' }}>Q</div>
-                                        {faq.q}
-                                    </h3>
-                                    <p style={{ color: 'var(--text-muted)', margin: 0, paddingLeft: '42px', lineHeight: 1.7 }}>{faq.a}</p>
+                        <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
+                            We help businesses turn operational requirements into software solutions that can support:
+                        </h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
+                            {capabilities.map((cap, idx) => (
+                                <div key={idx} className="capability-item">
+                                    <div style={{ padding: '8px', background: 'rgba(0, 242, 255, 0.05)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        {cap.icon}
+                                    </div>
+                                    <span style={{ fontWeight: 600, fontSize: '1.05rem', color: 'var(--text-dark)' }}>{cap.title}</span>
                                 </div>
                             ))}
                         </div>
@@ -350,27 +253,288 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Gallery / Our Impact */}
-            <section style={{ padding: '5rem 1rem', background: 'var(--bg-white)' }}>
+            {/* Section 3 — What We Build */}
+            <section id="services" style={{ padding: '6rem 8%', background: 'rgba(0, 242, 255, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Our Impact</span>
-                    <h2 style={{ fontSize: '3rem' }}>Moments of <span className="gradient-text">Excellence</span></h2>
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Software Services</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Software Development Services for Different Business Needs</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '850px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        Every software project has a different purpose. Some businesses need an internal system to replace manual processes. Others need a customer-facing platform, a mobile application or a complete digital product. Our software development and services cover different stages and types of business requirements.
+                    </p>
                 </div>
-                <div className="grid max-w-1200" style={{ margin: '0 auto', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-                    <div style={{ overflow: 'hidden', borderRadius: '30px', boxShadow: 'var(--shadow)' }} data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600" alt="Team Discussion" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+                    {services.map((svc, idx) => (
+                        <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 50} style={{ padding: '2.5rem', borderRadius: '24px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'var(--bg-white)' }}>
+                            <div>
+                                <div style={{ width: '60px', height: '60px', borderRadius: '15px', background: 'rgba(0, 242, 255, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                                    {svc.icon}
+                                </div>
+                                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-dark)' }}>{svc.title}</h3>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '2rem' }}>{svc.desc}</p>
+                            </div>
+                            <Link to={svc.link} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-dark)', fontWeight: 700, textDecoration: 'none', marginTop: 'auto' }}>
+                                Learn More <ArrowRight size={16} />
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '4rem' }} data-aos="fade-up">
+                    <Link to="/service" className="btn btn-outline" style={{ padding: '1rem 2.5rem' }}>
+                        View All Software Services <ArrowRight size={18} />
+                    </Link>
+                </div>
+            </section>
+
+            {/* Section 4 — Why Custom Software */}
+            <section id="why-custom" style={{ padding: '6rem 8%' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Pillars of Custom Solutions</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Why Businesses Choose Custom Software</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '850px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        Off-the-shelf software is not always the right fit. A business may have unique approval processes, specialised workflows, legacy applications, multiple departments or requirements that standard products cannot adequately address. Custom software can provide a more tailored approach.
+                    </p>
+                </div>
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                    {whyCustomSoftware.map((pillar, idx) => (
+                        <div key={idx} className="card card--hover-secondary" data-aos="fade-up" data-aos-delay={idx * 50} style={{ padding: '2rem', borderRadius: '20px', background: 'var(--bg-white)' }}>
+                            <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'rgba(255, 0, 122, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                                {pillar.icon}
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.75rem', color: 'var(--text-dark)' }}>{pillar.title}</h3>
+                            <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>{pillar.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Section 5 — Industries */}
+            <section id="industries" style={{ padding: '6rem 8%', background: 'rgba(255, 0, 122, 0.01)' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Industry Coverage</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Built for Industries With Real Operational Challenges</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '850px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        Different industries have different workflows, regulations, customer expectations and operational requirements. Our approach to custom software development can be adapted to the needs of different business environments.
+                    </p>
+                </div>
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                    {industries.map((ind, idx) => (
+                        <div key={idx} className="card card--hover-accent" data-aos="fade-up" data-aos-delay={idx * 50} style={{ padding: '2rem', borderRadius: '20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'var(--bg-white)' }}>
+                            <div>
+                                <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'rgba(157, 0, 255, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                                    {ind.icon}
+                                </div>
+                                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.75rem', color: 'var(--text-dark)' }}>{ind.name}</h3>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>{ind.desc}</p>
+                            </div>
+                            <Link to={ind.link} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-dark)', fontWeight: 700, textDecoration: 'none', fontSize: '0.95rem', marginTop: 'auto' }}>
+                                Explore {ind.name} Software <ArrowRight size={14} />
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '4rem' }} data-aos="fade-up">
+                    <Link to="/contact" className="btn btn-outline" style={{ padding: '1rem 2.5rem' }}>
+                        Explore Industry Solutions <ArrowRight size={18} />
+                    </Link>
+                </div>
+            </section>
+
+            {/* Section 6 — How We Approach Software Development */}
+            <section id="process" style={{ padding: '6rem 8%' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Development Methodology</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>From Business Requirement to Working Software</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        A successful software project starts with understanding the business behind the requirement.
+                    </p>
+                </div>
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+                    {processSteps.map((step, idx) => (
+                        <div key={idx} className="process-card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ padding: '2.5rem 2rem', borderRadius: '24px', border: '1px solid var(--border)', position: 'relative', overflow: 'hidden' }}>
+                            <span style={{ position: 'absolute', top: '1rem', right: '1.5rem', fontSize: '3rem', fontWeight: 900, color: 'var(--text-dark)', opacity: 0.05, fontFamily: 'Outfit' }}>
+                                {step.step}
+                            </span>
+                            <div style={{ width: '50px', height: '50px', borderRadius: '12px', background: 'var(--gradient-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                                {step.icon}
+                            </div>
+                            <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.75rem', color: 'var(--text-dark)' }}>
+                                {step.step}. {step.title}
+                            </h3>
+                            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '4rem', maxWidth: '800px', marginInline: 'auto' }} data-aos="fade-up">
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-dark)', fontWeight: 500, fontStyle: 'italic', lineHeight: 1.7 }}>
+                        This approach keeps the development process connected to the business objective rather than treating software development as an isolated technical task.
+                    </p>
+                </div>
+            </section>
+
+            {/* Section 7 — Business Outcomes */}
+            <section id="outcomes" style={{ padding: '6rem 8%', background: 'rgba(0, 242, 255, 0.01)' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Business Value</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Software That Supports Better Business Operations</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '850px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        The value of software is not simply the number of features it contains. A useful business application should help people work more effectively, make information easier to manage and reduce unnecessary operational complexity.
+                    </p>
+                </div>
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+                    {businessOutcomes.map((outcome, idx) => (
+                        <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 50} style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid var(--border)', background: 'var(--bg-white)', display: 'flex', gap: '15px', alignItems: 'flex-start', boxShadow: 'none' }}>
+                            <CheckCircle2 size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                            <span style={{ fontWeight: 600, color: 'var(--text-dark)', fontSize: '1rem', lineHeight: 1.4 }}>{outcome}</span>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', maxWidth: '800px', marginInline: 'auto' }} data-aos="fade-up">
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                        * Specific outcomes will depend on the business, requirements and implementation scope. We do not promise the same result for every project because every software environment is different.
+                    </p>
+                </div>
+            </section>
+
+            {/* Section 8 — Why Fly Towards Digital Innovation */}
+            <section id="why-us" style={{ padding: '6rem 8%' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Stated Strengths</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Why Work With Fly Towards Digital Innovation?</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '850px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        Choosing a custom software development company is about more than finding someone who can write code. You need a development partner that can understand the business requirement, translate it into software and support the project from development through future improvements. Fly Towards Digital Innovation's stated strengths include technical expertise, experienced developers, end-to-end development and flexible engagement models.
+                    </p>
+                </div>
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                    {strengths.map((item, idx) => (
+                        <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 50} style={{ padding: '2.5rem 2rem', borderRadius: '24px', background: 'var(--bg-white)' }}>
+                            <div style={{ width: '60px', height: '60px', borderRadius: '15px', background: 'rgba(0, 242, 255, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                                {item.icon}
+                            </div>
+                            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-dark)' }}>{item.title}</h3>
+                            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '4rem' }} data-aos="fade-up">
+                    <Link to="/contact" className="btn btn-primary" style={{ padding: '1.1rem 2.8rem' }}>
+                        Talk About Your Software Project <ArrowRight size={18} />
+                    </Link>
+                </div>
+            </section>
+
+            {/* Section 9 — Agency Discussion */}
+            <section id="agency-discussion" style={{ padding: '6rem 8%' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Project Discussion</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Looking for a Custom Software Development Agency?</h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '850px', margin: '1.5rem auto 0', lineHeight: 1.7 }}>
+                        If your current software no longer fits the way your business operates, or if you are starting a new digital product or internal application, the first step is understanding what you actually need to build. You do not need to have every technical detail defined before starting the conversation.
+                    </p>
+                </div>
+
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }} data-aos="fade-up">
+                    <div className="card" style={{ padding: '3rem 2.5rem', borderRadius: '24px', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow)' }}>
+                        <h4 style={{ color: 'var(--text-dark)', fontSize: '1.35rem', marginBottom: '1.25rem', fontWeight: 800 }}>Requirement Scenarios</h4>
+                        <ul style={{ paddingLeft: '1.2rem', margin: 0, color: 'var(--text-muted)', fontSize: '1.05rem', display: 'flex', flexDirection: 'column', gap: '10px', lineHeight: 1.7 }}>
+                            <li style={{ listStyleType: 'disc' }}>A manual process needs to be automated.</li>
+                            <li style={{ listStyleType: 'disc' }}>Several systems need to work together.</li>
+                            <li style={{ listStyleType: 'disc' }}>An existing application needs to be modernised.</li>
+                        </ul>
                     </div>
-                    <div style={{ overflow: 'hidden', borderRadius: '30px', boxShadow: 'var(--shadow)' }} data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=600" alt="Business Meeting" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
-                    </div>
-                    <div style={{ overflow: 'hidden', borderRadius: '30px', boxShadow: 'var(--shadow)' }} data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=600" alt="Creative Process" style={{ width: '100%', height: '300px', objectFit: 'cover', transition: 'transform 0.5s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                    <div className="card" style={{ padding: '3rem 2.5rem', borderRadius: '24px', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow)' }}>
+                        <h4 style={{ color: 'var(--text-dark)', fontSize: '1.35rem', marginBottom: '1.25rem', fontWeight: 800 }}>Product Needs</h4>
+                        <ul style={{ paddingLeft: '1.2rem', margin: 0, color: 'var(--text-muted)', fontSize: '1.05rem', display: 'flex', flexDirection: 'column', gap: '10px', lineHeight: 1.7 }}>
+                            <li style={{ listStyleType: 'disc' }}>Your business needs a software platform built around a specific workflow.</li>
+                            <li style={{ listStyleType: 'disc' }}>A new SaaS or digital product needs to be developed.</li>
+                            <li style={{ listStyleType: 'disc' }}>Your team needs a web or mobile application for a specific business requirement.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            {/* Final CTA / Contact */}
-            <section id="launch" style={{ padding: '4rem 1rem' }}>
+            {/* Section 10 — FAQs */}
+            <section id="faq" style={{ padding: '6rem 8%', background: 'rgba(157, 0, 255, 0.01)' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
+                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>FAQ</span>
+                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                        Frequently Asked <span className="gradient-text">Questions</span>
+                    </h2>
+                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '1rem auto 0' }}>
+                        Common questions from buyers looking for custom software solutions.
+                    </p>
+                </div>
+
+                <div style={{ maxWidth: '800px', margin: '0 auto' }} data-aos="fade-up">
+                    {faqs.map((faq, idx) => {
+                        const isOpen = activeFaq === idx;
+                        return (
+                            <div key={idx} style={{
+                                borderBottom: '1px solid var(--border)',
+                                padding: '1.5rem 0',
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => toggleFaq(idx)}
+                            >
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    gap: '1rem'
+                                }}>
+                                    <h3 style={{
+                                        fontSize: '1.25rem',
+                                        fontWeight: 700,
+                                        margin: 0,
+                                        color: isOpen ? 'var(--secondary)' : 'var(--text-dark)',
+                                        transition: 'color 0.3s ease',
+                                        textAlign: 'left'
+                                    }}>
+                                        {faq.q}
+                                    </h3>
+                                    <div style={{
+                                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                                        transition: 'transform 0.3s ease',
+                                        color: isOpen ? 'var(--secondary)' : 'var(--text-muted)'
+                                    }}>
+                                        <ChevronDown size={24} />
+                                    </div>
+                                </div>
+                                <div style={{
+                                    maxHeight: isOpen ? '300px' : '0px',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                                    opacity: isOpen ? 1 : 0
+                                }}>
+                                    <p style={{
+                                        color: 'var(--text-muted)',
+                                        fontSize: '1.05rem',
+                                        lineHeight: 1.7,
+                                        marginTop: '1rem',
+                                        marginBottom: '0.5rem',
+                                        textAlign: 'left'
+                                    }}>
+                                        {faq.a}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </section>
+
+            {/* Section 11 — Final CTA */}
+            <section id="contact-cta" style={{ padding: '6rem 1rem' }}>
                 <div className="cta-content" data-aos="zoom-in" style={{
                     textAlign: 'center',
                     padding: '6rem 3rem',
@@ -381,28 +545,59 @@ const Home = () => {
                     margin: '0 auto',
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'url(https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fit=crop&q=80&w=1800) center/cover no-repeat'
+                    background: 'url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1800) center/cover no-repeat'
                 }}>
-                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.95) 0%, rgba(10, 15, 25, 0.98) 100%)', zIndex: 1 }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <div className="cta-kicker">Grand Opening Celebration</div>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: '#fff' }}>
-                            Enjoy Flat <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>25% OFF</span>
+                        <span className="section-tag" style={{ color: 'var(--primary)', marginBottom: '1.5rem', justifyContent: 'center', marginInline: 'auto' }}>Get Started</span>
+                        
+                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, color: '#fff', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            Let's Discuss What Your Business <span className="gradient-text">Needs to Build</span>
                         </h2>
-                        <p style={{ fontSize: '1.3rem', margin: '1rem auto 3rem', maxWidth: '600px', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}>
-                            On all services! This is a limited time launch offer. Ready to build your digital future together? Let's talk to our experts.
-                        </p>
+                        
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem', maxWidth: '850px' }}>
+                            <p style={{ fontSize: '1.25rem', fontWeight: 600, color: '#fff', margin: 0, lineHeight: 1.6 }}>
+                                The right software starts with the right understanding of the problem.
+                            </p>
+                            <p style={{ fontSize: '1.15rem', color: 'rgba(255,255,255,0.75)', margin: 0, lineHeight: 1.8 }}>
+                                Whether you need to automate an internal process, replace an outdated application, connect multiple systems, build a SaaS product or develop a business-specific web or mobile application, start by telling us what you are trying to achieve.
+                            </p>
+                            <p style={{ fontSize: '1.15rem', color: 'rgba(255,255,255,0.75)', margin: 0, lineHeight: 1.8, fontWeight: 500 }}>
+                                Let's explore the requirement, understand the business problem and determine what needs to be built.
+                            </p>
+                        </div>
+                        
                         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
-                                Enquire Now <ArrowRight size={20} />
-                            </a>
-                            <Link to="/contact" className="btn btn-outline" style={{ padding: '1.2rem 3rem', color: '#fff', borderColor: 'rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}>Contact Us</Link>
+                            <Link to="/contact" className="btn btn-primary" style={{ padding: '1.2rem 3rem', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
+                                Discuss Your Software Requirement <ArrowRight size={20} />
+                            </Link>
+                            <Link to="/contact" className="btn btn-outline" style={{ padding: '1.2rem 3rem', color: '#fff', borderColor: 'rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}>
+                                Contact Fly Towards Digital Innovation
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+    );
+};
+
+// Simple custom component inline helper for CPU/Process icon
+const CpuIcon = ({ size, color }) => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <rect x="9" y="9" width="6" height="6" />
+            <line x1="9" y1="1" x2="9" y2="4" />
+            <line x1="15" y1="1" x2="15" y2="4" />
+            <line x1="9" y1="20" x2="9" y2="23" />
+            <line x1="15" y1="20" x2="15" y2="23" />
+            <line x1="20" y1="9" x2="23" y2="9" />
+            <line x1="20" y1="15" x2="23" y2="15" />
+            <line x1="1" y1="9" x2="4" y2="9" />
+            <line x1="1" y1="15" x2="4" y2="15" />
+        </svg>
     );
 };
 

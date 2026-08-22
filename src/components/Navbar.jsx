@@ -43,25 +43,60 @@ const Navbar = () => {
                         Products <ChevronDown size={12} strokeWidth={3} className={activeDropdown === 'products' ? 'rotate' : ''} />
                     </Link>
                     <ul className={`dropdown-menu ${activeDropdown === 'products' ? 'show' : ''}`}>
-                        <li onClick={closeMenu}><Link to="/fly-bill">Fly Bill</Link></li>
-                        <li onClick={closeMenu}><Link to="/payroll">FLYROLL</Link></li>
-                        <li onClick={closeMenu}><Link to="/smart-crm">Smart CRM</Link></li>
+                        <li onClick={closeMenu}><Link to="/products/payroll-software">Payroll Software</Link></li>
+                        <li onClick={closeMenu}><Link to="/products/billing-software">Billing Software</Link></li>
+                        <li onClick={closeMenu}><Link to="/products/crm-software">CRM Software</Link></li>
+                        <li onClick={closeMenu}><Link to="/products/food-delivery-solution">Food Delivery Solution</Link></li>
+                        <li onClick={closeMenu}><Link to="/products/fix">Fix Product</Link></li>
                     </ul>
                 </li>
 
-                <li className={`dropdown ${activeDropdown === 'services' ? 'mobile-active' : ''}`}>
-                    <Link to="/service" onClick={(e) => toggleDropdown('services', e)}>
+                <li className={`dropdown dropdown--mega ${activeDropdown === 'services' ? 'mobile-active' : ''}`}>
+                    <Link to="/services" onClick={(e) => toggleDropdown('services', e)}>
                         Service <ChevronDown size={12} strokeWidth={3} className={activeDropdown === 'services' ? 'rotate' : ''} />
                     </Link>
                     <ul className={`dropdown-menu ${activeDropdown === 'services' ? 'show' : ''}`}>
-                        <li onClick={closeMenu}><Link to="/web-development">Web Development</Link></li>
-                        <li onClick={closeMenu}><Link to="/whatsapp-api">WhatsApp Marketing API</Link></li>
-                        <li onClick={closeMenu}><Link to="/digital-marketing">Digital Marketing</Link></li>
-                        <li onClick={closeMenu}><Link to="/service">All Services</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/custom-software-development">Custom Software Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/enterprise-software-development">Enterprise Software Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/web-application-development">Web Application Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/mobile-app-development">Mobile App Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/saas-development">SaaS Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/crm-development">CRM Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/erp-development">ERP Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/api-development">API Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/cloud-application-development">Cloud App Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/ai-software-development">AI Software Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/business-process-automation">Business Process Automation</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/software-consulting">Software Consulting</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/software-modernization">Software Modernization</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/software-maintenance-support">Maintenance & Support</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/ui-ux-design">UI/UX Design</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/web-development">Web Development</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/whatsapp-api">WhatsApp Marketing API</Link></li>
+                        <li onClick={closeMenu}><Link to="/services/digital-marketing">Digital Marketing</Link></li>
+                        <li onClick={closeMenu}><Link to="/services">All Services</Link></li>
                     </ul>
                 </li>
 
-                <li onClick={closeMenu}><Link to="/gallery" className={location.pathname === '/gallery' ? 'active' : ''}>Gallery</Link></li>
+                <li className={`dropdown ${activeDropdown === 'industries' ? 'mobile-active' : ''}`}>
+                    <Link to="/industries" className={location.pathname === '/industries' ? 'active' : ''} onClick={(e) => toggleDropdown('industries', e)}>
+                        Industries <ChevronDown size={12} strokeWidth={3} className={activeDropdown === 'industries' ? 'rotate' : ''} />
+                    </Link>
+                    <ul className={`dropdown-menu ${activeDropdown === 'industries' ? 'show' : ''}`}>
+                        <li onClick={closeMenu}><Link to="/industries/manufacturing">Manufacturing</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/healthcare">Healthcare</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/education">Education</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/construction">Construction</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/retail">Retail</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/finance">Finance</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/travel">Travel</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/hospitality">Hospitality</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/insurance">Insurance</Link></li>
+                        <li onClick={closeMenu}><Link to="/industries/government">Government</Link></li>
+                    </ul>
+                </li>
+                <li onClick={closeMenu}><Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''}>Careers</Link></li>
+                <li onClick={closeMenu}><Link to="/internship" className={location.pathname === '/internship' ? 'active' : ''}>Internship</Link></li>
                 <li onClick={closeMenu}><Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link></li>
                 <li onClick={closeMenu}><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
             </ul>

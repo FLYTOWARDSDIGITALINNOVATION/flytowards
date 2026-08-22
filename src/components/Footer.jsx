@@ -26,7 +26,9 @@ const Footer = () => {
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <li><Link to="/" className="footer-link">Home</Link></li>
                         <li><Link to="/about" className="footer-link">About Us</Link></li>
-                        <li><Link to="/gallery" className="footer-link">Gallery</Link></li>
+                        <li><Link to="/industries" className="footer-link">Industries</Link></li>
+                        <li><Link to="/careers" className="footer-link">Careers</Link></li>
+                        <li><Link to="/internship" className="footer-link">Internship</Link></li>
                         <li><Link to="/blog" className="footer-link">Blog</Link></li>
                         <li><Link to="/contact" className="footer-link">Contact</Link></li>
                     </ul>
@@ -36,9 +38,9 @@ const Footer = () => {
                 <div>
                     <h4 style={{ marginBottom: '1.5rem', fontWeight: 800, color: 'white', fontSize: '1.2rem' }}>Products</h4>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                        <li><Link to="/fly-bill" className="footer-link">Fly Bill</Link></li>
-                        <li><Link to="/payroll" className="footer-link">FLYROLL</Link></li>
-                        <li><Link to="/smart-crm" className="footer-link">Smart CRM</Link></li>
+                        <li><Link to="/products/billing-software" className="footer-link">Billing Software</Link></li>
+                        <li><Link to="/products/payroll-software" className="footer-link">Payroll Software</Link></li>
+                        <li><Link to="/products/crm-software" className="footer-link">CRM Software</Link></li>
                         <li><Link to="/products" className="footer-link">View All Products</Link></li>
                     </ul>
 
@@ -54,10 +56,10 @@ const Footer = () => {
                 <div>
                     <h4 style={{ marginBottom: '1.5rem', fontWeight: 800, color: 'white', fontSize: '1.2rem' }}>Service</h4>
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                        <li><Link to="/web-development" className="footer-link">Web Development</Link></li>
-                        <li><Link to="/whatsapp-api" className="footer-link">WhatsApp Marketing API</Link></li>
-                        <li><Link to="/digital-marketing" className="footer-link">Digital Marketing</Link></li>
-                        <li><Link to="/service" className="footer-link">All Services</Link></li>
+                        <li><Link to="/services/web-development" className="footer-link">Web Development</Link></li>
+                        <li><Link to="/services/whatsapp-api" className="footer-link">WhatsApp Marketing API</Link></li>
+                        <li><Link to="/services/digital-marketing" className="footer-link">Digital Marketing</Link></li>
+                        <li><Link to="/services" className="footer-link">All Services</Link></li>
                     </ul>
                 </div>
 
