@@ -4,6 +4,27 @@ import { useEffect } from 'react';
 const FlyPayroll = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+<<<<<<< HEAD
+=======
+
+        document.title = "Fly Payroll | No1 Payroll Software For Your Company";
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Towards Payroll Software offers Office Field Attendance Solutions with GPS tracking, Face Recognition, and Liveness Detection no biometric devices required.");
+
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Attendance Software, attendance tracking software, attendance management system");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/payroll");
+
+>>>>>>> origin/main
     }, []);
 
     const goals = [
@@ -16,7 +37,11 @@ const FlyPayroll = () => {
         {
             title: "Office-Based Employees",
             icon: <Building size={35} color="var(--primary)" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Office-Based Employees.webp",
+>>>>>>> origin/main
             features: [
                 { title: "Fixed Office Location", desc: "Employees work from a predefined office location with a configured geo-fence." },
                 { title: "Location-Based Attendance", desc: "Attendance can be marked only when physically present inside the office boundary." }
@@ -26,7 +51,11 @@ const FlyPayroll = () => {
         {
             title: "Field-Based Employees",
             icon: <MapPin size={35} color="var(--secondary)" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1541888087-b95764d26f74?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Field-Based Employees.webp",
+>>>>>>> origin/main
             features: [
                 { title: "Client / Site Based Work", desc: "Employees work at customer or project locations assigned by the admin." },
                 { title: "Dynamic Location Assignment", desc: "Locations can change daily or per task based on business needs." }
@@ -36,7 +65,11 @@ const FlyPayroll = () => {
         {
             title: "Hybrid Workforce",
             icon: <Smartphone size={35} color="var(--accent)" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1587560699334-bea5353f0ce5?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Hybrid Workforce.webp",
+>>>>>>> origin/main
             features: [
                 { title: "Office + Field Work", desc: "Employees can operate from office or field depending on assigned duties." },
                 { title: "Flexible Attendance Rules", desc: "The system adapts attendance validation based on the assigned work type." },
@@ -75,25 +108,41 @@ const FlyPayroll = () => {
         {
             title: "Security Enforcement",
             icon: <Lock size={24} color="white" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Security Enforcement.webp",
+>>>>>>> origin/main
             desc: "GPS validation, geo fencing, device restrictions, and controlled camera access ensure attendance data cannot be manipulated or misused."
         },
         {
             title: "Live Presence & Anti-Spoof",
             icon: <Camera size={24} color="white" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Live Presence.webp",
+>>>>>>> origin/main
             desc: "Prevents photo, video replay, proxy attendance, and other impersonation attempts using real-time camera sessions and liveness detection."
         },
         {
             title: "Automated Payroll Flow",
             icon: <RefreshCcw size={24} color="white" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Automated Payroll Flow.webp",
+>>>>>>> origin/main
             desc: "Check-in/out times, late entries, and overtime rules automatically flow to payroll processing without manual entry."
         },
         {
             title: "Compliance & Audit",
             icon: <FileCheck size={24} color="white" />,
+<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?q=80&w=800&auto=format&fit=crop",
+=======
+            image: "Compliance & Audit.webp",
+>>>>>>> origin/main
             desc: "Detailed audit logs provide full traceability for compliance checks, internal audits, and management reviews."
         }
     ];
@@ -110,6 +159,7 @@ const FlyPayroll = () => {
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
                 <div className="grid-2">
+<<<<<<< HEAD
                     <div data-aos="fade-up">
                         <div style={{ display: 'inline-flex', padding: '0.5rem 1.2rem', background: 'rgba(0, 242, 255, 0.1)', border: '1px solid rgba(0, 242, 255, 0.2)', borderRadius: '50px', marginBottom: '2rem', alignItems: 'center', gap: '10px' }}>
                              <Settings size={18} color="var(--primary)" /> <span style={{ fontWeight: 700, color: 'var(--primary)' }}>FlyRoll Ecosystem</span>
@@ -117,6 +167,14 @@ const FlyPayroll = () => {
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
                             Fully Automated <br />
                             <span className="gradient-text" style={{ textShadow: '0 0 40px rgba(255,0,122,0.3)' }}>Attendance & Payroll</span>
+=======
+                        <div data-aos="fade-up">
+                        <div style={{ display: 'inline-flex', padding: '0.5rem 1.2rem', background: 'rgba(0, 242, 255, 0.1)', border: '1px solid rgba(0, 242, 255, 0.2)', borderRadius: '50px', marginBottom: '2rem', alignItems: 'center', gap: '10px' }}>
+                             <Settings size={18} color="var(--primary)" /> <span style={{ fontWeight: 700, color: 'var(--primary)' }}>FlyPayroll Ecosystem</span>
+                        </div>
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+                            Fly Payroll Automated Attendance Software
+>>>>>>> origin/main
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '600px' }}>
                             Office + Field Attendance Solution using GPS, Geo-fencing, Face Recognition and Liveness Detection without any biometric or IoT devices.
@@ -135,17 +193,48 @@ const FlyPayroll = () => {
 
                         <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                             <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+<<<<<<< HEAD
                                 Go to FlyRoll App <ArrowRight size={20} />
                             </a>
                             <a href="#contact" className="btn btn-outline" style={{ border: '1px solid var(--border)' }}>Request a Demo</a>
+=======
+                                Go to FlyPayroll App <ArrowRight size={20} />
+                            </a>
+                            <a 
+                                href="#contact" 
+                                className="btn btn-outline" 
+                                style={{ 
+                                    borderColor: 'rgba(15, 23, 42, 0.25)', 
+                                    color: '#0f172a', 
+                                    transition: 'all 0.3s ease' 
+                                }} 
+                                onMouseEnter={(e) => { 
+                                    e.currentTarget.style.backgroundColor = 'var(--primary)'; 
+                                    e.currentTarget.style.borderColor = 'var(--primary)'; 
+                                    e.currentTarget.style.color = '#fff'; 
+                                }} 
+                                onMouseLeave={(e) => { 
+                                    e.currentTarget.style.backgroundColor = 'transparent'; 
+                                    e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.25)'; 
+                                    e.currentTarget.style.color = '#0f172a'; 
+                                }}
+                            >
+                                Request Demo
+                            </a>
+>>>>>>> origin/main
                         </div>
                     </div>
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
+<<<<<<< HEAD
                                 src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=800&auto=format&fit=crop"
                                 alt="FlyRoll Dashboard Analytics"
+=======
+                                src="Payroll.webp"
+                                alt="FlyPayroll Dashboard Analytics"
+>>>>>>> origin/main
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
                             />
@@ -172,7 +261,11 @@ const FlyPayroll = () => {
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1510511459019-5d058cf283d5?q=80&w=300&auto=format&fit=crop" alt="Mobile Scan" style={{
+=======
+                            <img src="Mobile scan.webp" alt="Mobile Scan" style={{
+>>>>>>> origin/main
                                 position: 'absolute',
                                 top: '-20px',
                                 left: '-30px',
@@ -251,6 +344,7 @@ const FlyPayroll = () => {
                     <h2 className="responsive-h2">Attendance <span className="gradient-text">Workflows</span></h2>
                 </div>
 
+<<<<<<< HEAD
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '4rem', alignItems: 'center' }}>
                     <div data-aos="fade-right" style={{ position: 'relative' }}>
                         <div style={{ position: 'relative', borderRadius: '40px', padding: '1rem', background: 'rgba(255, 255, 255, 0.7)', border: '1px solid var(--border)', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
@@ -265,19 +359,78 @@ const FlyPayroll = () => {
                                 <h3 className="responsive-h3" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '15px', fontSize: '1.5rem' }}>
                                     {workflow.icon} {workflow.title}
                                 </h3>
+=======
+                <div className="grid max-w-1200" style={{ margin: '0 auto', gap: '2.5rem', alignItems: 'stretch' }}>
+                    {workflows.map((workflow, idx) => {
+                        const themeVars = idx === 0
+                            ? {
+                                '--workflow-card-bg': 'linear-gradient(135deg, #06143a 0%, #0b3d91 55%, #ffffff 140%)',
+                                '--workflow-card-border': 'rgba(11, 61, 145, 0.30)',
+                                '--workflow-heading-color': 'rgba(255, 255, 255, 0.96)',
+                                '--workflow-step-bg': 'rgba(255, 255, 255, 0.92)',
+                                '--workflow-step-border': 'rgba(255, 255, 255, 0.30)',
+                                '--workflow-step-text': 'rgba(15, 23, 42, 0.96)',
+                                '--workflow-number-bg': 'linear-gradient(135deg, #ffffff 0%, #1d4ed8 100%)',
+                                '--workflow-number-color': '#06143a',
+                                '--workflow-shine-opacity': '0.22'
+                            }
+                            : {
+                                '--workflow-card-bg': 'linear-gradient(135deg, #ff1b1b 0%, #000000 78%)',
+                                '--workflow-card-border': 'rgba(255, 27, 27, 0.28)',
+                                '--workflow-heading-color': 'rgba(255, 255, 255, 0.96)',
+                                '--workflow-step-bg': 'rgba(0, 0, 0, 0.32)',
+                                '--workflow-step-border': 'rgba(255, 255, 255, 0.14)',
+                                '--workflow-step-text': 'rgba(255, 255, 255, 0.92)',
+                                '--workflow-number-bg': 'linear-gradient(135deg, #ff1b1b 0%, #000000 100%)',
+                                '--workflow-number-color': '#ffffff',
+                                '--workflow-shine-opacity': '0.14'
+                            };
+
+                        return (
+                            <div
+                                key={idx}
+                                className="card workflow-box"
+                                data-aos="fade-up"
+                                data-aos-delay={`${idx * 100}`}
+                                style={{ position: 'relative', padding: '2rem', ...themeVars }}
+                            >
+                                <h3
+                                    className="responsive-h3"
+                                    style={{
+                                        marginBottom: '1.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '15px',
+                                        fontSize: '1.5rem',
+                                        color: 'var(--workflow-heading-color, var(--text-dark))'
+                                    }}
+                                >
+                                    {workflow.icon} {workflow.title}
+                                </h3>
+
+>>>>>>> origin/main
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                     {workflow.steps.map((step, sIdx) => (
                                         <div key={sIdx} className="workflow-card" style={{ padding: '0.8rem 1rem' }}>
                                             <div className="workflow-number" style={{ width: '25px', height: '25px', fontSize: '0.9rem' }}>
                                                 {sIdx + 1}
                                             </div>
+<<<<<<< HEAD
                                             <span style={{ fontWeight: 600, color: 'var(--text-dark)', fontSize: '0.95rem' }}>{step}</span>
+=======
+                                            <span style={{ fontWeight: 600, color: 'var(--workflow-step-text, var(--text-dark))', fontSize: '0.95rem' }}>{step}</span>
+>>>>>>> origin/main
                                         </div>
                                     ))}
                                 </div>
                             </div>
+<<<<<<< HEAD
                         ))}
                     </div>
+=======
+                        );
+                    })}
+>>>>>>> origin/main
                 </div>
             </section>
 
@@ -316,13 +469,21 @@ const FlyPayroll = () => {
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '2rem', padding: '0 1rem' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         <div data-aos="zoom-in" data-aos-delay="100" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
+=======
+                            <img src="Empowered Teams.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
+>>>>>>> origin/main
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Empowered Teams</h3>
                             </div>
                         </div>
                         <div data-aos="zoom-in" data-aos-delay="200" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
+=======
+                            <img src="Data Drive Insights.webp" style={{ width: '100%', height: '140%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
+>>>>>>> origin/main
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Data-Driven Insights</h3>
                             </div>
@@ -330,13 +491,21 @@ const FlyPayroll = () => {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                         <div data-aos="zoom-in" data-aos-delay="300" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1570126618953-d437176e8c79?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
+=======
+                            <img src="Enterprise Scale.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
+>>>>>>> origin/main
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Enterprise Scale</h3>
                             </div>
                         </div>
                         <div data-aos="zoom-in" data-aos-delay="400" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
+=======
+                            <img src="Happy Workforce.webp" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
+>>>>>>> origin/main
                             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
                                 <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Happy Workforce</h3>
                             </div>
@@ -362,7 +531,23 @@ const FlyPayroll = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(8, 15, 30, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
 
                     <div style={{ position: 'relative', zIndex: 2 }}>
+<<<<<<< HEAD
                         <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Upgrade Your Operations</span>
+=======
+                        <span style={{
+                            display: 'inline-flex',
+                            padding: '0.5rem 1.2rem',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            borderRadius: '50px',
+                            marginBottom: '1.5rem',
+                            fontWeight: 800,
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            color: 'white'
+                        }}>Upgrade Your Operations</span>
+>>>>>>> origin/main
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>
                             Achieve a <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Future-Ready</span> <br /> Attendance System.
                         </h2>
@@ -371,7 +556,11 @@ const FlyPayroll = () => {
                         </p>
                         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                             <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
+<<<<<<< HEAD
                                 Go to FlyRoll App <ArrowRight size={20} />
+=======
+                                Go to FlyPayroll App <ArrowRight size={20} />
+>>>>>>> origin/main
                             </a>
                             <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '1.2rem 3rem', color: 'white', borderColor: 'rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}>Book a Free Demo</a>
                         </div>

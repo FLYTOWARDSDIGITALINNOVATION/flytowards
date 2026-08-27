@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cover Crop Modal</title>
+    <link rel="stylesheet" href="./image-crop-modal.css" />
+</head>
+<body>
+    <main class="demo-shell">
+        <section class="demo-copy" aria-label="Crop modal demo">
+            <p class="demo-eyebrow">Standalone demo</p>
+            <h1>Image Crop Modal</h1>
+            <p>
+                This page demonstrates the exact crop modal behavior in plain HTML, CSS, and vanilla JavaScript.
+                The modal opens on load, and the launch button below can reopen it after closing.
+            </p>
+            <button type="button" class="demo-launch" id="openCropModal">
+                Open Crop Modal
+            </button>
+        </section>
+    </main>
+
+    <div class="crop-modal is-open" id="cropModal" aria-hidden="false">
+        <div class="crop-modal__backdrop" data-close-modal="true"></div>
+
+        <section
+            class="crop-modal__card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cropTitle"
+            aria-describedby="cropInfo"
+        >
+            <header class="crop-modal__header">
+                <div class="crop-modal__header-copy">
+                    <span class="crop-modal__eyebrow">COVER CROP</span>
+                    <h2 class="crop-modal__title" id="cropTitle">
+                        Adjust your image before publishing
+                    </h2>
+                </div>
+
+                <button type="button" class="crop-modal__close" id="closeCropModal" aria-label="Close modal">
+                    &times;
+                </button>
+            </header>
+
+            <div class="crop-viewport" id="cropViewport">
+                <img
+                    class="crop-viewport__image"
+                    id="cropImage"
+                    src="./Student.webp"
+                    alt="Crop preview"
+                    draggable="false"
+                />
+
+                <div class="crop-badge" id="sizeBadge" hidden></div>
+                <div class="crop-hint" id="hintText">Click and drag to select crop area</div>
+
+                <div class="crop-selection" id="cropBox" hidden>
+                    <div class="crop-selection__grid" aria-hidden="true">
+                        <span class="crop-selection__line crop-selection__line--v1"></span>
+                        <span class="crop-selection__line crop-selection__line--v2"></span>
+                        <span class="crop-selection__line crop-selection__line--h1"></span>
+                        <span class="crop-selection__line crop-selection__line--h2"></span>
+                    </div>
+
+                    <button type="button" class="crop-handle crop-handle--nw" data-handle="nw" aria-label="Resize top left"></button>
+                    <button type="button" class="crop-handle crop-handle--n" data-handle="n" aria-label="Resize top edge"></button>
+                    <button type="button" class="crop-handle crop-handle--ne" data-handle="ne" aria-label="Resize top right"></button>
+                    <button type="button" class="crop-handle crop-handle--w" data-handle="w" aria-label="Resize left edge"></button>
+                    <button type="button" class="crop-handle crop-handle--e" data-handle="e" aria-label="Resize right edge"></button>
+                    <button type="button" class="crop-handle crop-handle--sw" data-handle="sw" aria-label="Resize bottom left"></button>
+                    <button type="button" class="crop-handle crop-handle--s" data-handle="s" aria-label="Resize bottom edge"></button>
+                    <button type="button" class="crop-handle crop-handle--se" data-handle="se" aria-label="Resize bottom right"></button>
+                </div>
+            </div>
+
+            <footer class="crop-modal__footer">
+                <textarea
+                    class="crop-info"
+                    id="cropInfo"
+                    readonly
+                    rows="3"
+                    spellcheck="false"
+                    aria-label="Crop information"
+                >Crop: 0 × 0 px | Position: (0, 0)</textarea>
+
+                <div class="crop-actions">
+                    <button type="button" class="crop-button crop-button--reset" id="resetCrop">Reset</button>
+                    <button type="button" class="crop-button crop-button--cancel" id="cancelCrop">Cancel</button>
+                    <button type="button" class="crop-button crop-button--apply" id="applyCrop">Apply Crop</button>
+                </div>
+            </footer>
+        </section>
+    </div>
+
+    <script src="./image-crop-modal.js"></script>
+</body>
+</html>

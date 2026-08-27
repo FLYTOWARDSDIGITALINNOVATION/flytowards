@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { 
     Monitor, 
@@ -38,6 +38,24 @@ import {
 const Service = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        document.title = "Software Development Services | Fly Towards Digital Innovation";
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute("content",
+            "Fly Towards provides software development services designed around your business needs. Custom software, enterprise applications, SaaS, mobile/web apps, and maintenance.");
+
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute("content",
+            "Software Development Services, Custom Software Development, Enterprise Software, Web App Development, SaaS Development");
+
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) robots.setAttribute("content", "index, follow");
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute("href",
+            "https://flytowardsdigitalinnovation.com/service");
+
     }, []);
 
     const [openFaq, setOpenFaq] = useState(null);
@@ -259,10 +277,18 @@ const Service = () => {
     ];
 
     return (
-        <main>
-            <div className="mesh-bg"></div>
+        <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a', overflowX: 'hidden' }}>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap');
+                
+                .gradient-text {
+                    background: linear-gradient(135deg, #00f2ff 0%, #ff007a 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+             `}</style>
 
-            {/* Hero Section */}
+             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '3rem', padding: '140px 8% 80px' }}>
                 <div style={{ textAlign: 'center', width: '100%' }} data-aos="fade-up">
                     <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
@@ -895,7 +921,6 @@ const Service = () => {
                             Explore Our Services
                         </a>
                     </div>
-                    <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.2 }}></div>
                 </div>
             </section>
         </main>

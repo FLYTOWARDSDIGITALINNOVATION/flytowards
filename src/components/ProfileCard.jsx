@@ -20,6 +20,17 @@ const ProfileCard = ({ image }) => {
 }
 
 .ft-profile-card {
+<<<<<<< HEAD
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 0;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: none;
+    padding-bottom: 3.5rem;
+=======
     background: #ffffff;
     border: 1px solid #f0ece4;
     border-radius: 28px;
@@ -27,6 +38,7 @@ const ProfileCard = ({ image }) => {
     display: grid;
     grid-template-columns: 1fr 1fr;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+>>>>>>> origin/main
     animation: ftProfileFadeUp 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -56,7 +68,13 @@ const ProfileCard = ({ image }) => {
 .ft-profile-left {
     position: relative;
     min-height: 420px;
+<<<<<<< HEAD
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+=======
     background: #ffffff;
+>>>>>>> origin/main
 }
 
 .ft-profile-image {
@@ -250,6 +268,7 @@ const ProfileCard = ({ image }) => {
                         </p>
                         <div className="ft-profile-rule" aria-hidden="true" />
                         <div className="ft-profile-name">Mr. Sanjay Kumar</div>
+<<<<<<< HEAD
                         <div className="ft-profile-role">Founder &amp; CEO</div>
 
                         <div className="ft-profile-brandRow">
@@ -260,6 +279,18 @@ const ProfileCard = ({ image }) => {
                                 <span>Digital Innovation</span>
                             </div>
                         </div>
+=======
+                        <div className="ft-profile-role" style={{ margin: '0 0 6px 0' }}>Founder &amp; Director</div>
+                        <div style={{
+                            fontFamily: 'Inter, sans-serif',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.14em',
+                            fontSize: '11px',
+                            fontWeight: 700,
+                            color: '#b0a090',
+                            margin: '0 0 22px 0'
+                        }}>Fly Towards Digital Innovation</div>
+>>>>>>> origin/main
                     </div>
                 </div>
             </div>

@@ -17,10 +17,132 @@ const AdminCreateBlog = () => {
     // Manage Blogs States
     const [blogs, setBlogs] = useState([]);
     const [isFetching, setIsFetching] = useState(false);
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import {
+    ArrowRight,
+    Image as ImageIcon,
+    PenTool,
+    RefreshCw,
+    Save,
+    Trash2,
+    UploadCloud
+} from 'lucide-react';
+import { API_BASE_URL, buildApiUrl } from '../config';
+import './AdminCreateBlog.css';
+
+const DRAFT_STORAGE_KEY = 'flytowards_admin_blog_draft_v1';
+const COVER_CROP_ASPECT = 16 / 9;
+const COVER_CROP_OUTPUT_WIDTH = 1600;
+
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const sanitizeFileBaseName = (filename = 'cover-image') => {
+    const base = String(filename || 'cover-image').replace(/\.[^.]+$/, '');
+    return base
+        .toLowerCase()
+        .replace(/[^a-z0-9-_]+/g, '-')
+        .replace(/-{2,}/g, '-')
+        .replace(/^-+|-+$/g, '') || 'cover-image';
+};
+
+const buildCroppedCoverFileName = (filename = 'cover-image.jpg') => {
+    const base = sanitizeFileBaseName(filename);
+    return `${base}-cropped.jpg`;
+};
+
+const stripHtml = (html) =>
+    (html || '')
+        .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+const fileToDataUrl = (file) =>
+    new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsDataURL(file);
+    });
+
+const parseResponseBody = async (response) => {
+    const raw = await response.text();
+    if (!raw) return {};
+
+    try {
+        return JSON.parse(raw);
+    } catch {
+        return { message: raw };
+    }
+};
+
+const dataUrlToFile = (dataUrl, filename) => {
+    const [meta, base64Data] = (dataUrl || '').split(',');
+    if (!meta || !base64Data) return null;
+
+    const match = meta.match(/data:(.*?);base64/);
+    const mime = match?.[1] || 'application/octet-stream';
+
+    const binary = atob(base64Data);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new File([bytes], filename, { type: mime });
+};
+
+const AdminCreateBlog = () => {
+    // Tab State: 'create' or 'manage'
+    const [activeTab, setActiveTab] = useState('create');
+
+    // Create Blog States
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState(''); // HTML
+    const [coverImage, setCoverImage] = useState(null); // Preview URL or DataURL
+    const [coverImageDataUrl, setCoverImageDataUrl] = useState(null); // For drafts
+    const [imageFile, setImageFile] = useState(null); // Actual File to send to server
+    const [isPublishing, setIsPublishing] = useState(false);
+
+    // Manage Blogs States
+    const [blogs, setBlogs] = useState([]);
+    const [isFetching, setIsFetching] = useState(false);
+    const [editingBlogId, setEditingBlogId] = useState(null);
 
     // Global Status Message State
     const [status, setStatus] = useState({ message: '', type: '' });
 
+<<<<<<< HEAD
+=======
+    // Editor refs/state
+    const editorRef = useRef(null);
+    const inlineImageInputRef = useRef(null);
+    const coverImageInputRef = useRef(null);
+    const coverCropStageRef = useRef(null);
+    const coverCropImageRef = useRef(null);
+    const coverCropPointerRef = useRef(null);
+    const coverCropObjectUrlRef = useRef(null);
+    const didHydrateDraftRef = useRef(false);
+    const autosaveTimerRef = useRef(null);
+
+    const [, setDraftState] = useState({ status: 'idle', lastSavedAt: null });
+    const [coverCropModalOpen, setCoverCropModalOpen] = useState(false);
+    const [coverCropSource, setCoverCropSource] = useState(null);
+    const [coverCropImageSize, setCoverCropImageSize] = useState({ width: 0, height: 0 });
+    const [coverCropStageSize, setCoverCropStageSize] = useState({ width: 0, height: 0 });
+    const [coverCropOffset, setCoverCropOffset] = useState({ x: 0, y: 0 });
+    const [isApplyingCrop, setIsApplyingCrop] = useState(false);
+
+    // Image Resize & Preview States
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageControlPos, setImageControlPos] = useState(null);
+    const [isMobilePreview, setIsMobilePreview] = useState(false);
+
+    const isEditorEmpty = useMemo(() => {
+        const plain = stripHtml(content);
+        const hasImage = /<img\b/i.test(content || '');
+        return !plain && !hasImage;
+    }, [content]);
+
+>>>>>>> origin/main
     // Fetch existing blogs when switching to Manage tab
     useEffect(() => {
         if (activeTab === 'manage') {
@@ -31,10 +153,20 @@ const AdminCreateBlog = () => {
     const fetchBlogs = async () => {
         setIsFetching(true);
         try {
+<<<<<<< HEAD
             const response = await fetch(`${API_BASE_URL}/blogs`);
             if (response.ok) {
                 const data = await response.json();
                 setBlogs(data);
+=======
+            const response = await fetch(buildApiUrl('/blogs'));
+            if (response.ok) {
+                const data = await response.json();
+                const sorted = Array.isArray(data)
+                    ? [...data].sort((a, b) => new Date(b?.createdAt || 0) - new Date(a?.createdAt || 0))
+                    : [];
+                setBlogs(sorted);
+>>>>>>> origin/main
             } else {
                 console.error("Failed to fetch blogs from server");
             }
@@ -45,6 +177,7 @@ const AdminCreateBlog = () => {
         }
     };
 
+<<<<<<< HEAD
     const handleCoverImageUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -55,13 +188,432 @@ const AdminCreateBlog = () => {
 
     const handlePublish = async () => {
         if (!title || !content) {
+=======
+    // Hydrate draft once on load
+    useEffect(() => {
+        try {
+            const raw = localStorage.getItem(DRAFT_STORAGE_KEY);
+            if (!raw) {
+                didHydrateDraftRef.current = true;
+                return;
+            }
+
+            const draft = JSON.parse(raw);
+            if (draft?.title) setTitle(draft.title);
+            if (draft?.content) setContent(draft.content);
+
+            if (draft?.coverImageDataUrl) {
+                setCoverImage(draft.coverImageDataUrl);
+                setCoverImageDataUrl(draft.coverImageDataUrl);
+                const restoredFile = dataUrlToFile(draft.coverImageDataUrl, draft.coverImageFilename || 'cover-image');
+                if (restoredFile) setImageFile(restoredFile);
+            }
+
+            if (draft?.updatedAt) {
+                setDraftState({ status: 'saved', lastSavedAt: draft.updatedAt });
+            }
+        } catch (e) {
+            console.warn('Failed to load draft:', e);
+        } finally {
+            didHydrateDraftRef.current = true;
+        }
+    }, []);
+
+    // Keep editor DOM in sync when content is set programmatically (draft load/reset)
+    useEffect(() => {
+        if (!editorRef.current) return;
+        if (!didHydrateDraftRef.current) return;
+        const current = editorRef.current.innerHTML;
+        if (current !== content) editorRef.current.innerHTML = content || '';
+    }, [content]);
+
+    // improve Enter behavior in contentEditable
+    useEffect(() => {
+        const handleDocClick = (e) => {
+            const img = e.target.closest('.rte-editor img');
+            // Clear previous selections
+            document.querySelectorAll('.rte-editor img').forEach(i => i.classList.remove('is-selected'));
+
+            if (img) {
+                img.classList.add('is-selected');
+                setSelectedImage(img);
+                
+                // Position the controls relative to the image
+                const rect = img.getBoundingClientRect();
+                setImageControlPos({
+                    top: img.offsetTop + img.offsetHeight + 10,
+                    left: img.offsetLeft + (img.offsetWidth / 2)
+                });
+            } else if (!e.target.closest('.image-controls-overlay')) {
+                setSelectedImage(null);
+                setImageControlPos(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleDocClick);
+        return () => document.removeEventListener('mousedown', handleDocClick);
+    }, []);
+
+    const resizeImage = (width) => {
+        if (!selectedImage) return;
+        selectedImage.style.width = width;
+        selectedImage.style.height = 'auto';
+        setContent(editorRef.current.innerHTML);
+    };
+
+    const alignImage = (align) => {
+        if (!selectedImage) return;
+        if (align === 'center') {
+            selectedImage.style.display = 'block';
+            selectedImage.style.margin = '1.5rem auto';
+            selectedImage.style.float = 'none';
+        } else if (align === 'left') {
+            selectedImage.style.display = 'inline-block';
+            selectedImage.style.margin = '0 1.5rem 1rem 0';
+            selectedImage.style.float = 'left';
+        } else if (align === 'right') {
+            selectedImage.style.display = 'inline-block';
+            selectedImage.style.margin = '0 0 1rem 1.5rem';
+            selectedImage.style.float = 'right';
+        }
+        setContent(editorRef.current.innerHTML);
+    };
+
+    useEffect(() => {
+        try {
+            document.execCommand('defaultParagraphSeparator', false, 'p');
+        } catch {
+            // ignore
+        }
+    }, []);
+
+    const saveDraft = async ({ forceStatus = 'saved' } = {}) => {
+        setDraftState((s) => ({ ...s, status: 'saving' }));
+        const payload = {
+            title,
+            content,
+            coverImageDataUrl,
+            coverImageFilename: imageFile?.name || null,
+            updatedAt: Date.now(),
+        };
+        try {
+            localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(payload));
+            setDraftState({ status: forceStatus, lastSavedAt: payload.updatedAt });
+        } catch (e) {
+            console.warn('Draft save failed:', e);
+            setDraftState((s) => ({ ...s, status: 'error' }));
+        }
+    };
+
+    const handleDeleteDraft = () => {
+        const hasAnything = Boolean(title || content || coverImageDataUrl);
+        if (!hasAnything) return;
+
+        const ok = window.confirm('Delete this draft? This will clear the title, content, and cover image.');
+        if (!ok) return;
+
+        setTitle('');
+        setContent('');
+        setCoverImage(null);
+        setCoverImageDataUrl(null);
+        setImageFile(null);
+
+        try {
+            localStorage.removeItem(DRAFT_STORAGE_KEY);
+        } catch {
+            // ignore
+        }
+
+        setDraftState({ status: 'idle', lastSavedAt: null });
+        setStatus({ message: 'Draft deleted.', type: 'success' });
+        setTimeout(() => setStatus({ message: '', type: '' }), 3000);
+    };
+
+    // Autosave draft on changes (debounced)
+    useEffect(() => {
+        if (!didHydrateDraftRef.current) return;
+        if (!title && !content && !coverImageDataUrl) return;
+
+        setDraftState((s) => (s.status === 'saving' ? s : { ...s, status: 'saving' }));
+        if (autosaveTimerRef.current) clearTimeout(autosaveTimerRef.current);
+        autosaveTimerRef.current = setTimeout(() => {
+            saveDraft();
+        }, 700);
+
+        return () => {
+            if (autosaveTimerRef.current) clearTimeout(autosaveTimerRef.current);
+        };
+    }, [title, content, coverImageDataUrl]);
+
+    const handleCoverImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const objectUrl = URL.createObjectURL(file);
+        setCoverImage(objectUrl);
+        setImageFile(file);
+
+        // Also store as dataUrl for draft saving (if small enough)
+        const reader = new FileReader();
+        reader.onload = () => {
+            const dataUrl = reader.result;
+            setCoverImageDataUrl(dataUrl.length <= 1_800_000 ? dataUrl : null);
+        };
+        reader.readAsDataURL(file);
+
+        e.target.value = '';
+    };
+
+    const handleCoverCropApply = async (cropRect) => {
+        if (!coverCropSource?.url || !coverCropSource.file) {
+            throw new Error('No cover image selected.');
+        }
+
+        if (!cropRect || !Number.isFinite(cropRect.x) || !Number.isFinite(cropRect.y) || !Number.isFinite(cropRect.w) || !Number.isFinite(cropRect.h)) {
+            throw new Error('Invalid crop area.');
+        }
+
+        setIsApplyingCrop(true);
+        try {
+            const image = await new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => reject(new Error('Failed to load crop source image'));
+                img.src = coverCropSource.url;
+            });
+
+            const targetWidth = Math.max(1, Math.round(cropRect.w));
+            const targetHeight = Math.max(1, Math.round(cropRect.h));
+            const canvas = document.createElement('canvas');
+            canvas.width = targetWidth;
+            canvas.height = targetHeight;
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                throw new Error('Canvas not supported');
+            }
+
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, targetWidth, targetHeight);
+            ctx.drawImage(image, cropRect.x, cropRect.y, cropRect.w, cropRect.h, 0, 0, targetWidth, targetHeight);
+
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+            const croppedFile = dataUrlToFile(dataUrl, buildCroppedCoverFileName(coverCropSource.name));
+            if (!croppedFile) {
+                throw new Error('Could not build cropped file');
+            }
+
+            setCoverImage(dataUrl);
+            setImageFile(croppedFile);
+
+            const maxBytes = 1_800_000;
+            if (croppedFile.size <= maxBytes) {
+                setCoverImageDataUrl(dataUrl);
+            } else {
+                setCoverImageDataUrl(null);
+            }
+        } finally {
+            setIsApplyingCrop(false);
+        }
+    };
+
+    const closeCoverCropModal = () => {
+        setCoverCropModalOpen(false);
+        setCoverCropSource(null);
+        setCoverCropImageSize({ width: 0, height: 0 });
+        setCoverCropStageSize({ width: 0, height: 0 });
+        setCoverCropOffset({ x: 0, y: 0 });
+        setIsApplyingCrop(false);
+        coverCropPointerRef.current = null;
+    };
+
+    const resetCoverCrop = () => {
+        setCoverCropOffset({ x: 0, y: 0 });
+    };
+
+    const clampCoverCropOffset = (nextOffset, stageSize = coverCropStageSize, imageSize = coverCropImageSize) => {
+        if (!stageSize.width || !stageSize.height || !imageSize.width || !imageSize.height) {
+            return nextOffset;
+        }
+
+        const baseScale = Math.max(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
+        const displayScale = baseScale;
+        const displayWidth = imageSize.width * displayScale;
+        const displayHeight = imageSize.height * displayScale;
+        const maxOffsetX = Math.max(0, (displayWidth - stageSize.width) / 2);
+        const maxOffsetY = Math.max(0, (displayHeight - stageSize.height) / 2);
+
+        return {
+            x: clamp(nextOffset.x, -maxOffsetX, maxOffsetX),
+            y: clamp(nextOffset.y, -maxOffsetY, maxOffsetY),
+        };
+    };
+
+    const handleCoverCropPointerDown = (e) => {
+        if (!coverCropSource?.url || !coverCropImageSize.width) return;
+        e.preventDefault();
+        e.currentTarget.setPointerCapture?.(e.pointerId);
+        coverCropPointerRef.current = {
+            pointerId: e.pointerId,
+            startX: e.clientX,
+            startY: e.clientY,
+            originX: coverCropOffset.x,
+            originY: coverCropOffset.y,
+        };
+    };
+
+    const handleCoverCropPointerMove = (e) => {
+        const drag = coverCropPointerRef.current;
+        if (!drag || drag.pointerId !== e.pointerId) return;
+
+        const nextOffset = {
+            x: drag.originX + (e.clientX - drag.startX),
+            y: drag.originY + (e.clientY - drag.startY),
+        };
+
+        setCoverCropOffset(clampCoverCropOffset(nextOffset));
+    };
+
+    const handleCoverCropPointerEnd = (e) => {
+        const drag = coverCropPointerRef.current;
+        if (!drag || drag.pointerId !== e.pointerId) return;
+        coverCropPointerRef.current = null;
+        e.currentTarget.releasePointerCapture?.(e.pointerId);
+    };
+
+    const applyCoverCrop = async () => {
+        if (!coverCropSource?.url || !coverCropImageRef.current || !coverCropImageSize.width || !coverCropStageSize.width || !coverCropStageSize.height) {
+            return;
+        }
+
+        setIsApplyingCrop(true);
+        try {
+            const image = coverCropImageRef.current;
+            const stageSize = coverCropStageSize;
+            const imageSize = coverCropImageSize;
+            const baseScale = Math.max(stageSize.width / imageSize.width, stageSize.height / imageSize.height);
+            const displayScale = baseScale;
+            const displayWidth = imageSize.width * displayScale;
+            const displayHeight = imageSize.height * displayScale;
+            const offset = clampCoverCropOffset(coverCropOffset, stageSize, imageSize);
+            const left = (stageSize.width - displayWidth) / 2 + offset.x;
+            const top = (stageSize.height - displayHeight) / 2 + offset.y;
+            const sourceW = Math.max(1, Math.min(imageSize.width, stageSize.width / displayScale));
+            const sourceH = Math.max(1, Math.min(imageSize.height, stageSize.height / displayScale));
+            const sourceX = clamp((-left) / displayScale, 0, Math.max(0, imageSize.width - sourceW));
+            const sourceY = clamp((-top) / displayScale, 0, Math.max(0, imageSize.height - sourceH));
+
+            const targetWidth = Math.min(COVER_CROP_OUTPUT_WIDTH, Math.max(1200, imageSize.width));
+            const targetHeight = Math.round(targetWidth / COVER_CROP_ASPECT);
+
+            const canvas = document.createElement('canvas');
+            canvas.width = targetWidth;
+            canvas.height = targetHeight;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                throw new Error('Canvas not supported');
+            }
+
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, targetWidth, targetHeight);
+            ctx.drawImage(image, sourceX, sourceY, sourceW, sourceH, 0, 0, targetWidth, targetHeight);
+
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+            const croppedFile = dataUrlToFile(dataUrl, buildCroppedCoverFileName(coverCropSource.name));
+            if (!croppedFile) {
+                throw new Error('Could not build cropped file');
+            }
+
+            setCoverImage(dataUrl);
+            setImageFile(croppedFile);
+
+            const maxBytes = 1_800_000;
+            if (croppedFile.size <= maxBytes) {
+                setCoverImageDataUrl(dataUrl);
+            } else {
+                setCoverImageDataUrl(null);
+            }
+
+            closeCoverCropModal();
+        } catch (error) {
+            console.error('Cover crop failed:', error);
+            setStatus({ message: 'Could not crop the selected image. Please try again.', type: 'error' });
+            setTimeout(() => setStatus({ message: '', type: '' }), 4000);
+        } finally {
+            setIsApplyingCrop(false);
+        }
+    };
+
+    useEffect(() => {
+        if (!coverCropModalOpen) return undefined;
+
+        const measureStage = () => {
+            const rect = coverCropStageRef.current?.getBoundingClientRect();
+            if (rect?.width && rect?.height) {
+                setCoverCropStageSize({ width: rect.width, height: rect.height });
+            }
+        };
+
+        measureStage();
+
+        let resizeObserver = null;
+        if (typeof ResizeObserver !== 'undefined' && coverCropStageRef.current) {
+            resizeObserver = new ResizeObserver(measureStage);
+            resizeObserver.observe(coverCropStageRef.current);
+        } else {
+            window.addEventListener('resize', measureStage);
+        }
+
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                closeCoverCropModal();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            resizeObserver?.disconnect();
+            window.removeEventListener('resize', measureStage);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [coverCropModalOpen, coverCropSource?.url]);
+
+    useEffect(() => {
+        if (coverCropModalOpen || !coverCropObjectUrlRef.current) return undefined;
+
+        const objectUrl = coverCropObjectUrlRef.current;
+        coverCropObjectUrlRef.current = null;
+        const cleanupTimer = window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+
+        return () => window.clearTimeout(cleanupTimer);
+    }, [coverCropModalOpen]);
+
+    useEffect(() => {
+        if (!coverCropModalOpen || !coverCropStageSize.width || !coverCropStageSize.height || !coverCropImageSize.width || !coverCropImageSize.height) {
+            return;
+        }
+
+        setCoverCropOffset((current) => {
+            const next = clampCoverCropOffset(current, coverCropStageSize, coverCropImageSize);
+            if (next.x === current.x && next.y === current.y) return current;
+            return next;
+        });
+    }, [coverCropModalOpen, coverCropStageSize.width, coverCropStageSize.height, coverCropImageSize.width, coverCropImageSize.height]);
+
+    const handlePublish = async () => {
+        if (!title || isEditorEmpty) {
+>>>>>>> origin/main
             setStatus({ message: 'Please enter a title and content before publishing.', type: 'error' });
             setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             return;
         }
 
         setIsPublishing(true);
+<<<<<<< HEAD
         setStatus({ message: 'Publishing blog...', type: 'info' });
+=======
+        setStatus({ message: editingBlogId ? 'Updating blog...' : 'Publishing blog...', type: 'info' });
+>>>>>>> origin/main
 
         const formData = new FormData();
         formData.append('title', title);
@@ -71,17 +623,51 @@ const AdminCreateBlog = () => {
         }
 
         try {
+<<<<<<< HEAD
             const response = await fetch(`${API_BASE_URL}/blogs`, {
                 method: 'POST',
+=======
+            const url = editingBlogId ? buildApiUrl(`/blogs/${editingBlogId}`) : buildApiUrl('/blogs');
+            const method = editingBlogId ? 'PATCH' : 'POST';
+
+            const response = await fetch(url, {
+                method: method,
+>>>>>>> origin/main
                 body: formData, // Sending form data so image can be uploaded
             });
 
             if (response.ok) {
+<<<<<<< HEAD
                 setStatus({ message: 'Blog published successfully!', type: 'success' });
+=======
+                const payload = await parseResponseBody(response);
+
+                if (payload?.blog) {
+                    setBlogs((currentBlogs) => {
+                        const exists = currentBlogs.some(b => b._id === payload.blog._id);
+                        if (exists) {
+                            return currentBlogs.map(b => b._id === payload.blog._id ? payload.blog : b);
+                        }
+                        return [payload.blog, ...currentBlogs];
+                    });
+                }
+
+                const actionWord = editingBlogId ? 'updated' : 'published';
+                const publishNote = payload?.storage === 'file'
+                    ? 'saved locally because MongoDB is unavailable'
+                    : 'saved to MongoDB';
+
+                setStatus({
+                    message: `Blog ${actionWord} successfully — ${publishNote}.`,
+                    type: 'success'
+                });
+
+>>>>>>> origin/main
                 // Reset form
                 setTitle('');
                 setContent('');
                 setCoverImage(null);
+<<<<<<< HEAD
                 setImageFile(null);
                 
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
@@ -91,6 +677,37 @@ const AdminCreateBlog = () => {
         } catch (error) {
             console.error('Publish error:', error);
             setStatus({ message: 'Could not connect to server. Is it running on port 5000?', type: 'error' });
+=======
+                setCoverImageDataUrl(null);
+                setImageFile(null);
+                setEditingBlogId(null);
+
+                try {
+                    localStorage.removeItem(DRAFT_STORAGE_KEY);
+                } catch {
+                    // ignore
+                }
+                setDraftState({ status: 'idle', lastSavedAt: null });
+
+                setTimeout(() => setStatus({ message: '', type: '' }), 4000);
+                
+                if (editingBlogId) {
+                    setActiveTab('manage');
+                }
+            } else {
+                const payload = await parseResponseBody(response);
+                setStatus({
+                    message: payload.error || payload.message || `Failed to ${editingBlogId ? 'update' : 'publish'} (HTTP ${response.status}).`,
+                    type: 'error'
+                });
+            }
+        } catch (error) {
+            console.error('Publish error:', error);
+            setStatus({
+                message: `Could not connect to server (${API_BASE_URL}). Start the backend with \`cd server && npm start\`.`,
+                type: 'error'
+            });
+>>>>>>> origin/main
         } finally {
             setIsPublishing(false);
         }
@@ -105,13 +722,18 @@ const AdminCreateBlog = () => {
         setStatus({ message: 'Deleting blog post...', type: 'info' });
 
         try {
+<<<<<<< HEAD
             const response = await fetch(`${API_BASE_URL}/blogs/${id}`, {
+=======
+            const response = await fetch(buildApiUrl(`/blogs/${id}`), {
+>>>>>>> origin/main
                 method: 'DELETE',
             });
 
             if (response.ok) {
                 setStatus({ message: 'Blog post deleted successfully!', type: 'success' });
                 // Filter out the deleted blog from UI state
+<<<<<<< HEAD
                 setBlogs(blogs.filter(blog => blog._id !== id));
                 setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             } else {
@@ -120,6 +742,62 @@ const AdminCreateBlog = () => {
         } catch (error) {
             console.error('Delete error:', error);
             setStatus({ message: 'Could not connect to server to delete.', type: 'error' });
+=======
+                setBlogs((currentBlogs) => currentBlogs.filter((blog) => blog._id !== id));
+                if (editingBlogId === id) {
+                    handleCancelEdit();
+                }
+                setTimeout(() => setStatus({ message: '', type: '' }), 4000);
+            } else {
+                const payload = await parseResponseBody(response);
+                setStatus({
+                    message: payload.error || payload.message || `Failed to delete (HTTP ${response.status}).`,
+                    type: 'error'
+                });
+            }
+        } catch (error) {
+            console.error('Delete error:', error);
+            setStatus({ message: `Could not connect to server (${API_BASE_URL}).`, type: 'error' });
+        }
+    };
+
+    const handleEdit = (blog) => {
+        setEditingBlogId(blog._id);
+        setTitle(blog.title || '');
+        setContent(blog.content || '');
+        
+        if (blog.coverImage) {
+            // Check if it's a relative path from the server
+            const fullImageUrl = blog.coverImage.startsWith('http') 
+                ? blog.coverImage 
+                : `${API_BASE_URL}${blog.coverImage}`;
+            setCoverImage(fullImageUrl);
+        } else {
+            setCoverImage(null);
+        }
+        
+        setImageFile(null); // Clear any pending image file
+        setCoverImageDataUrl(null);
+        
+        setActiveTab('create');
+        
+        // Scroll to top of editor
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleCancelEdit = () => {
+        setEditingBlogId(null);
+        setTitle('');
+        setContent('');
+        setCoverImage(null);
+        setImageFile(null);
+        setCoverImageDataUrl(null);
+        
+        try {
+            localStorage.removeItem(DRAFT_STORAGE_KEY);
+        } catch {
+            // ignore
+>>>>>>> origin/main
         }
     };
 
@@ -128,10 +806,115 @@ const AdminCreateBlog = () => {
         return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
+<<<<<<< HEAD
     return (
         <section className="admin-blog-section">
             <div className="mesh-bg"></div>
             
+=======
+    const exec = (command, value = null) => {
+        if (!editorRef.current) return;
+        editorRef.current.focus();
+        try {
+            document.execCommand(command, false, value);
+        } catch (e) {
+            console.warn(`Command failed: ${command}`, e);
+        }
+        // sync state
+        const html = editorRef.current.innerHTML;
+        setContent(html === '<br>' ? '' : html);
+    };
+
+    const formatBlock = (blockTag) => {
+        if (!blockTag) return;
+        exec('formatBlock', blockTag);
+    };
+
+    const wrapSelection = (tagName, attributes = {}) => {
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0) return false;
+        const range = selection.getRangeAt(0);
+        if (range.collapsed) return false;
+
+        const wrapper = document.createElement(tagName);
+        Object.entries(attributes).forEach(([key, value]) => {
+            wrapper.setAttribute(key, value);
+        });
+        wrapper.appendChild(range.extractContents());
+        range.insertNode(wrapper);
+        range.setStartAfter(wrapper);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        return true;
+    };
+
+    const insertTextAtCaret = (text) => {
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0) return;
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        const node = document.createTextNode(text);
+        range.insertNode(node);
+        range.setStartAfter(node);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    };
+
+    const insertLink = () => {
+        if (!editorRef.current) return;
+        editorRef.current.focus();
+
+        const url = window.prompt('Enter a URL (https://...)');
+        if (!url) return;
+
+        const selection = window.getSelection();
+        const hasSelection = selection && selection.rangeCount > 0 && !selection.getRangeAt(0).collapsed;
+
+        if (hasSelection) {
+            const didWrap = wrapSelection('a', { href: url, target: '_blank', rel: 'noopener noreferrer' });
+            if (!didWrap) return;
+        } else {
+            const text = window.prompt('Link text', url) || url;
+            exec('insertHTML', `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`);
+        }
+
+        setContent(editorRef.current.innerHTML);
+    };
+
+    const insertInlineCode = () => {
+        if (!editorRef.current) return;
+        editorRef.current.focus();
+        const wrapped = wrapSelection('code', { class: 'rte-inline-code' });
+        if (!wrapped) {
+            exec('insertHTML', '<code class="rte-inline-code">code</code>');
+        }
+        setContent(editorRef.current.innerHTML);
+    };
+
+    const triggerInlineImagePick = () => {
+        inlineImageInputRef.current?.click();
+    };
+
+    const handleInlineImagePicked = async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        try {
+            const dataUrl = await fileToDataUrl(file);
+            exec('insertImage', dataUrl);
+        } catch (err) {
+            console.error('Inline image insert failed:', err);
+        } finally {
+            e.target.value = '';
+        }
+    };
+
+    return (
+        <section className="admin-blog-section">
+            <div className="mesh-bg"></div>
+
+>>>>>>> origin/main
             <div className="admin-header">
                 <span className="section-tag">Admin Panel</span>
                 <h1 className="hero-title">FlyTowards <span className="gradient-text">Blog Studio</span></h1>
@@ -140,13 +923,21 @@ const AdminCreateBlog = () => {
 
             {/* Premium Tab Navigation */}
             <div className="admin-tabs-nav">
+<<<<<<< HEAD
                 <button 
+=======
+                <button
+>>>>>>> origin/main
                     className={`tab-nav-btn ${activeTab === 'create' ? 'active' : ''}`}
                     onClick={() => setActiveTab('create')}
                 >
                     <PenTool size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} /> Create Post
                 </button>
+<<<<<<< HEAD
                 <button 
+=======
+                <button
+>>>>>>> origin/main
                     className={`tab-nav-btn ${activeTab === 'manage' ? 'active' : ''}`}
                     onClick={() => setActiveTab('manage')}
                 >
@@ -172,7 +963,11 @@ const AdminCreateBlog = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
                 }}>
                     <span>{status.message}</span>
+<<<<<<< HEAD
                     <button 
+=======
+                    <button
+>>>>>>> origin/main
                         onClick={() => setStatus({ message: '', type: '' })}
                         style={{
                             background: 'transparent',
@@ -189,6 +984,7 @@ const AdminCreateBlog = () => {
             )}
 
             {activeTab === 'create' ? (
+<<<<<<< HEAD
                 /* Create Post Editor */
                 <div className="editor-container glass-container" data-aos="fade-up">
                     {/* Editor Actions Toolbar */}
@@ -203,15 +999,37 @@ const AdminCreateBlog = () => {
                             </button>
                             <button 
                                 className="btn btn-primary publish-btn" 
+=======
+                <>
+                {/* Create Post Editor */}
+                <div className="editor-container glass-container" data-aos="fade-up">
+                    <div className="modern-toolbar">
+                        <div className="toolbar-left">
+                            <span className="draft-status-text">
+                                {editingBlogId ? 'Editing Existing Post...' : 'Drafting New Post...'}
+                            </span>
+                        </div>
+                        <div className="toolbar-right">
+                            <button className="btn btn-outline draft-btn" onClick={() => saveDraft({ forceStatus: 'saved' })}>
+                                <Save size={16} /> Save Draft
+                            </button>
+                            <button
+                                className="btn btn-primary publish-btn"
+>>>>>>> origin/main
                                 onClick={handlePublish}
                                 disabled={isPublishing}
                                 style={{ opacity: isPublishing ? 0.7 : 1 }}
                             >
+<<<<<<< HEAD
                                 {isPublishing ? 'Publishing...' : 'Publish'} <ArrowRight size={16} />
+=======
+                                {isPublishing ? (editingBlogId ? 'Updating...' : 'Publishing...') : (editingBlogId ? 'Update Post' : 'Publish')} <ArrowRight size={16} />
+>>>>>>> origin/main
                             </button>
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     {/* Main Editor Area */}
                     <div className="editor-main">
                         {/* Cover Image */}
@@ -266,6 +1084,221 @@ const AdminCreateBlog = () => {
                         </div>
                     </div>
                 </div>
+=======
+                        {/* Main Editor Area */}
+                        <div className="editor-main">
+                            {/* Cover Image */}
+                            <div className={`modern-cover-area ${coverImage ? 'has-image' : ''}`}>
+                                {coverImage ? (
+                                    <div className="modern-cover-preview">
+                                        <img src={coverImage} alt="Cover" />
+                                        <label className="btn btn-outline change-cover-float">
+                                            <ImageIcon size={16} /> Change Cover Image
+                                            <input ref={coverImageInputRef} type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
+                                        </label>
+                                    </div>
+                                ) : (
+                                    <div className="modern-cover-placeholder">
+                                        <div className="icon-glow-box">
+                                            <UploadCloud size={40} color="var(--primary)" />
+                                        </div>
+                                        <h3>Add a Cover Image</h3>
+                                        <p>Make your article stand out with a beautiful cover.</p>
+                                        <label className="btn btn-outline mt-4">
+                                            <ImageIcon size={18} /> Upload Image
+                                            <input ref={coverImageInputRef} type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
+                                        </label>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Editor Content Area */}
+                            <div className="modern-content-inputs">
+                                <textarea
+                                    className="modern-title-input"
+                                    placeholder="Enter your amazing title..."
+                                    value={title}
+                                    onChange={(e) => {
+                                        setTitle(e.target.value);
+                                        e.target.style.height = 'auto';
+                                        e.target.style.height = (e.target.scrollHeight) + 'px';
+                                    }}
+                                    rows={1}
+                                />
+
+                                <div
+                                    ref={editorRef}
+                                    className="modern-body-editor rte-editor"
+                                    contentEditable
+                                    suppressContentEditableWarning
+                                    data-placeholder="Start writing your story here..."
+                                    onInput={() => {
+                                        if (!editorRef.current) return;
+                                        const html = editorRef.current.innerHTML;
+                                        const normalizedEmpty = ['<br>', '<p><br></p>', '<div><br></div>'].includes((html || '').trim());
+                                        setContent(normalizedEmpty ? '' : html);
+                                    }}
+                                    onPaste={(e) => {
+                                        // Paste as plain text to avoid bringing external styles
+                                        e.preventDefault();
+                                        const text = e.clipboardData.getData('text/plain');
+                                        if (!editorRef.current) return;
+                                        editorRef.current.focus();
+                                        try {
+                                            const ok = document.execCommand('insertText', false, text);
+                                            if (!ok) insertTextAtCaret(text);
+                                        } catch {
+                                            insertTextAtCaret(text);
+                                        }
+                                        setContent(editorRef.current.innerHTML);
+                                    }}
+                                />
+
+                            {/* Image Controls Overlay */}
+                            {selectedImage && imageControlPos && (
+                                <div 
+                                    className="image-controls-overlay"
+                                    style={{
+                                        position: 'absolute',
+                                        top: `${imageControlPos.top}px`,
+                                        left: `${imageControlPos.left}px`,
+                                        transform: 'translateX(-50%)'
+                                    }}
+                                >
+                                    <div className="control-group-mini">
+                                        <button className="image-control-btn" onClick={() => resizeImage('25%')}>25%</button>
+                                        <button className="image-control-btn" onClick={() => resizeImage('50%')}>50%</button>
+                                        <button className="image-control-btn" onClick={() => resizeImage('75%')}>75%</button>
+                                        <button className="image-control-btn" onClick={() => resizeImage('100%')}>100%</button>
+                                    </div>
+                                    <div className="mini-divider" />
+                                    <div className="control-group-mini">
+                                        <button className="image-control-btn" onClick={() => alignImage('left')}>Left</button>
+                                        <button className="image-control-btn" onClick={() => alignImage('center')}>Center</button>
+                                        <button className="image-control-btn" onClick={() => alignImage('right')}>Right</button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+
+
+                    </div>
+
+                    {coverCropModalOpen && coverCropSource?.url && (
+                        <CoverCropModal
+                            imageSrc={coverCropSource.url}
+                            onApply={handleCoverCropApply}
+                            onCancel={closeCoverCropModal}
+                            isApplying={isApplyingCrop}
+                            onSkip={() => {
+                                if (coverCropSource?.url && coverCropSource?.file) {
+                                    setCoverImage(coverCropSource.url);
+                                    setImageFile(coverCropSource.file);
+                                    // Don't set coverImageDataUrl for original files to avoid storage limits
+                                    setCoverImageDataUrl(null); 
+                                    closeCoverCropModal();
+                                }
+                            }}
+                        />
+                    )}
+                    {false && (
+                        <div className="cover-crop-modal" role="dialog" aria-modal="true" aria-labelledby="cover-crop-title">
+                            <div className="cover-crop-backdrop" onClick={closeCoverCropModal} />
+                            <div className="cover-crop-panel glass-container">
+                                <div className="cover-crop-header">
+                                    <div>
+                                        <span className="cover-crop-kicker">Cover crop</span>
+                                        <h3 id="cover-crop-title">Adjust your image before publishing</h3>
+                                    </div>
+                                    <button type="button" className="cover-crop-close" onClick={closeCoverCropModal}>
+                                        ×
+                                    </button>
+                                </div>
+
+                                <div
+                                    ref={coverCropStageRef}
+                                    className={`cover-crop-stage ${coverCropImageSize.width ? 'is-ready' : 'is-loading'}`}
+                                    onPointerDown={handleCoverCropPointerDown}
+                                    onPointerMove={handleCoverCropPointerMove}
+                                    onPointerUp={handleCoverCropPointerEnd}
+                                    onPointerCancel={handleCoverCropPointerEnd}
+                                    style={{
+                                        aspectRatio: `${COVER_CROP_ASPECT}`,
+                                    }}
+                                >
+                                    {coverCropSource?.url ? (
+                                        <img
+                                            ref={coverCropImageRef}
+                                            src={coverCropSource.url}
+                                            alt="Crop preview"
+                                            draggable="false"
+                                            onLoad={(event) => {
+                                                const image = event.currentTarget;
+                                                setCoverCropImageSize({
+                                                    width: image.naturalWidth || 0,
+                                                    height: image.naturalHeight || 0,
+                                                });
+                                            }}
+                                            style={(() => {
+                                                const stageWidth = coverCropStageSize.width || 760;
+                                                const stageHeight = coverCropStageSize.height || Math.round(stageWidth / COVER_CROP_ASPECT);
+                                                const imageWidth = coverCropImageSize.width || stageWidth;
+                                                const imageHeight = coverCropImageSize.height || stageHeight;
+                                                const baseScale = Math.max(stageWidth / imageWidth, stageHeight / imageHeight);
+                                                const displayScale = baseScale;
+                                                const displayWidth = imageWidth * displayScale;
+                                                const displayHeight = imageHeight * displayScale;
+                                                const offset = clampCoverCropOffset(coverCropOffset, { width: stageWidth, height: stageHeight }, coverCropImageSize);
+                                                const left = (stageWidth - displayWidth) / 2 + offset.x;
+                                                const top = (stageHeight - displayHeight) / 2 + offset.y;
+
+                                                return {
+                                                    width: `${displayWidth}px`,
+                                                    height: `${displayHeight}px`,
+                                                    left: `${left}px`,
+                                                    top: `${top}px`,
+                                                };
+                                            })()}
+                                        />
+                                    ) : (
+                                        <div className="cover-crop-loading">
+                                            <RefreshCw size={20} className="animate-spin" />
+                                            Loading image...
+                                        </div>
+                                    )}
+                                    <div className="cover-crop-grid" />
+                                    <div className="cover-crop-hint">Drag to reposition the crop</div>
+                                </div>
+
+                                <div className="cover-crop-footer">
+                                    <div className="cover-crop-info">
+                                        Drag the photo to choose the crop area.
+                                    </div>
+                                    <div className="cover-crop-actions">
+                                        <button type="button" className="btn btn-outline draft-btn" onClick={resetCoverCrop}>
+                                            Reset
+                                        </button>
+                                        <button type="button" className="btn btn-outline draft-delete-btn" onClick={closeCoverCropModal}>
+                                            Cancel
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-primary publish-btn"
+                                            onClick={applyCoverCrop}
+                                            disabled={isApplyingCrop}
+                                            style={{ opacity: isApplyingCrop ? 0.75 : 1 }}
+                                        >
+                                            {isApplyingCrop ? 'Cropping...' : 'Apply Crop'} <ArrowRight size={16} />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </>
+>>>>>>> origin/main
             ) : (
                 /* Manage Posts Dashboard */
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }} data-aos="fade-up">
@@ -282,12 +1315,44 @@ const AdminCreateBlog = () => {
                                         <h3 className="manage-item-title">{blog.title}</h3>
                                         <span className="manage-item-date">Published on {formatDate(blog.createdAt)}</span>
                                     </div>
+<<<<<<< HEAD
                                     <button 
                                         className="manage-delete-btn"
                                         onClick={() => handleDelete(blog._id, blog.title)}
                                     >
                                         <Trash2 size={14} /> Delete
                                     </button>
+=======
+                                    <div className="manage-item-actions">
+                                        <button
+                                            className="manage-edit-btn"
+                                            onClick={() => handleEdit(blog)}
+                                            style={{
+                                                background: 'rgba(29, 78, 216, 0.1)',
+                                                color: '#1d4ed8',
+                                                border: '1px solid rgba(29, 78, 216, 0.2)',
+                                                padding: '6px 12px',
+                                                borderRadius: '8px',
+                                                fontSize: '0.85rem',
+                                                fontWeight: '600',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '6px',
+                                                cursor: 'pointer',
+                                                transition: 'all 0.2s ease',
+                                                marginRight: '8px'
+                                            }}
+                                        >
+                                            <PenTool size={14} /> Edit
+                                        </button>
+                                        <button
+                                            className="manage-delete-btn"
+                                            onClick={() => handleDelete(blog._id, blog.title)}
+                                        >
+                                            <Trash2 size={14} /> Delete
+                                        </button>
+                                    </div>
+>>>>>>> origin/main
                                 </div>
                             ))}
                         </div>

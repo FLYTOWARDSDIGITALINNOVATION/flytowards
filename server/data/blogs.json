@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "3b10a3cc-dca3-40fa-a1df-774f9234fbf4",
+    "title": "hi",
+    "content": "<h1>se</h1>",
+    "coverImage": "/uploads/1782160031026-IMG_20260529_111113.jpg",
+    "createdAt": "2026-06-22T20:27:11.268Z"
+  },
+  {
+    "_id": "c5d922ae-b6b3-4bf9-8f28-3ea70837dd3d",
+    "title": "bubble",
+    "content": "sort",
+    "coverImage": "/uploads/1782102102424-Bubble sort in data visualization.png",
+    "createdAt": "2026-06-22T04:21:42.452Z"
+  },
+  {
+    "_id": "9653b584-3093-4de6-85cb-7b3f22a315e6",
+    "title": "bubble",
+    "content": "diagram",
+    "coverImage": "/uploads/1782101948479-Bubble sort in data visualization.png",
+    "createdAt": "2026-06-22T04:19:08.565Z"
+  }
+]
