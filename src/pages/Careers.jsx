@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Users, Briefcase, Zap, ArrowRight, Star, Globe, Clock, ShieldCheck, Heart, Coffee, BookOpen, MessageSquare, Lightbulb, Search, CheckCircle, Smartphone, Code, Palette, Loader2 } from 'lucide-react';
+
+import { Users, Zap, ArrowRight, ShieldCheck, Lightbulb, Smartphone, Code } from 'lucide-react';
 
 const Careers = () => {
     useEffect(() => {
@@ -8,20 +8,33 @@ const Careers = () => {
         document.title = "Start Career With us & Join Our Fly Family";
 
         const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content",
-            "Start your professional journey with Fly Towards Digital Innovation. Explore current job openings and grow your career in the IT industry");
+        if (metaDescription) {
+            metaDescription.setAttribute(
+                "content",
+                "Start your professional journey with Fly Towards Digital Innovation. Explore current job openings and grow your career in the IT industry"
+            );
+        }
 
         const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content",
-            "Digital Marketing career, Software developer career");
+        if (metaKeywords) {
+            metaKeywords.setAttribute(
+                "content",
+                "Digital Marketing career, Software developer career"
+            );
+        }
 
         const robots = document.querySelector('meta[name="robots"]');
-        if (robots) robots.setAttribute("content", "index, follow");
+        if (robots) {
+            robots.setAttribute("content", "index, follow");
+        }
 
         const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/careers");
-
+        if (canonical) {
+            canonical.setAttribute(
+                "href",
+                "https://flytowardsdigitalinnovation.com/careers"
+            );
+        }
     }, []);
 
     const [activeFaq, setActiveFaq] = useState(null);
@@ -145,40 +158,6 @@ const Careers = () => {
                 .hero-image { animation: float 8s ease-in-out infinite; }
                 
                 .glass-card {
-<<<<<<< HEAD
-                    background: transparent;
-                    backdrop-filter: none;
-                    border: none;
-                    border-left: 3px solid rgba(15, 23, 42, 0.08);
-                    border-radius: 0;
-                    box-shadow: none;
-                    transition: all 0.3s ease;
-                }
-                .glass-card:hover { transform: translateX(8px); box-shadow: none; border-left-color: var(--primary); }
-                
-                .role-card {
-                    background: transparent;
-                    border: none;
-                    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-                    border-radius: 0;
-                    overflow: visible;
-                    display: flex;
-                    gap: 3rem;
-                    padding-bottom: 3.5rem;
-                    transition: all 0.4s ease;
-                    position: relative;
-                }
-                .role-card:hover {
-                    transform: translateX(8px);
-                    box-shadow: none;
-                }
-                .role-img-container {
-                    width: 320px;
-                    height: 220px;
-                    border-radius: 24px;
-                    overflow: hidden;
-                    flex-shrink: 0;
-=======
                     background: rgba(255, 255, 255, 0.7);
                     backdrop-filter: blur(15px);
                     border: 1px solid rgba(255, 255, 255, 0.8);
@@ -203,7 +182,6 @@ const Careers = () => {
                 .role-img-container {
                     height: 220px;
                     overflow: hidden;
->>>>>>> origin/main
                     position: relative;
                 }
                 .role-img {
@@ -213,23 +191,7 @@ const Careers = () => {
                     transition: transform 0.8s ease;
                 }
                 .role-card:hover .role-img {
-<<<<<<< HEAD
-                    transform: scale(1.05);
-                }
-
-                @media (max-width: 991px) {
-                    .role-card {
-                        flex-direction: column !important;
-                        gap: 2rem !important;
-                        padding-bottom: 2.5rem !important;
-                    }
-                    .role-img-container {
-                        width: 100% !important;
-                        height: 220px !important;
-                    }
-=======
                     transform: scale(1.1);
->>>>>>> origin/main
                 }
 
                 .journey-step-card:hover img { transform: scale(1.1); }
@@ -473,13 +435,8 @@ const Careers = () => {
                     </div>
                     <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2.5rem' }}>
                         {values.map((v, i) => (
-<<<<<<< HEAD
-                            <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="glass-card" style={{ padding: '2rem 1.5rem 2rem 2.5rem', textAlign: 'left' }}>
-                                <div style={{ width: '70px', height: '70px', background: 'var(--primary)', color: 'black', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 2rem 0' }}>
-=======
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="glass-card" style={{ padding: '4rem 3rem', borderRadius: '40px', textAlign: 'center', background: '#fff' }}>
                                 <div style={{ width: '70px', height: '70px', background: 'var(--primary)', color: 'black', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 2rem' }}>
->>>>>>> origin/main
                                     {v.icon}
                                 </div>
                                 <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1.2rem', color: '#1e1b4b' }}>{v.title}</h3>
@@ -499,11 +456,7 @@ const Careers = () => {
                         <p style={{ color: '#64748b', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>We aren't looking for employees. We're looking for architects of the future.</p>
                     </div>
 
-<<<<<<< HEAD
-                    <div className="roles-grid" style={{ display: 'flex', flexDirection: 'column', gap: '3.5rem' }}>
-=======
                     <div className="roles-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '3rem' }}>
->>>>>>> origin/main
                         {openPositions.map((job, idx) => (
                             <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} className="role-card">
                                 <div className="role-img-container">
@@ -518,11 +471,7 @@ const Careers = () => {
                                         {job.icon}
                                     </div>
                                 </div>
-<<<<<<< HEAD
-                                <div style={{ padding: '0.5rem 0', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-=======
                                 <div style={{ padding: '2.5rem' }}>
->>>>>>> origin/main
                                     <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '0.8rem' }}>{job.department}</span>
                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1.2rem', color: '#1e1b4b', minHeight: '60px' }}>{job.title}</h3>
 
@@ -563,11 +512,7 @@ const Careers = () => {
                     <div className="journey-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
                         {hiringSteps.map((step, i) => (
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 100} className="journey-step-card" style={{
-<<<<<<< HEAD
-                                background: 'var(--card-bg-light)', padding: '1.5rem', borderRadius: '32px', border: '1px solid #f1f5f9',
-=======
                                 background: '#f8fafc', padding: '1.5rem', borderRadius: '32px', border: '1px solid #f1f5f9',
->>>>>>> origin/main
                                 transition: 'all 0.3s'
                             }}>
                                 <div style={{
@@ -597,65 +542,6 @@ const Careers = () => {
             </section>
 
             {/* FAQ Section */}
-<<<<<<< HEAD
-            <section style={{ padding: '6rem 8%', background: '#ffffff', position: 'relative', zIndex: 1 }}>
-                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                    <div style={{ marginBottom: '3rem' }} data-aos="fade-up">
-                        <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', fontWeight: 800, color: '#1e1b4b', margin: 0 }}>
-                            Frequently Asked Questions
-                        </h2>
-                    </div>
-                    
-                    <div style={{ borderTop: '1px solid #e2e8f0' }} data-aos="fade-up">
-                        {faqs.map((faq, i) => {
-                            const isOpen = activeFaq === i;
-                            return (
-                                <div key={i} style={{ borderBottom: '1px solid #e2e8f0' }}>
-                                    <button
-                                        onClick={() => setActiveFaq(isOpen ? null : i)}
-                                        style={{
-                                            width: '100%',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '16px',
-                                            padding: '1.5rem 0',
-                                            background: 'none',
-                                            border: 'none',
-                                            textAlign: 'left',
-                                            cursor: 'pointer',
-                                            color: '#1e1b4b',
-                                            outline: 'none',
-                                            transition: 'all 0.2s ease'
-                                        }}
-                                    >
-                                        <span style={{ 
-                                            fontSize: '1.4rem', 
-                                            fontWeight: '400', 
-                                            color: '#1e1b4b',
-                                            minWidth: '20px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            flexShrink: 0
-                                        }}>
-                                            {isOpen ? '−' : '+'}
-                                        </span>
-                                        <span style={{ fontSize: '1.15rem', fontWeight: 600, color: '#1e1b4b' }}>{faq.q}</span>
-                                    </button>
-                                    <div style={{
-                                        maxHeight: isOpen ? '250px' : '0',
-                                        overflow: 'hidden',
-                                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                        opacity: isOpen ? 1 : 0,
-                                        paddingLeft: '36px',
-                                        paddingBottom: isOpen ? '1.5rem' : '0'
-                                    }}>
-                                        <p style={{ color: '#64748b', margin: 0, lineHeight: 1.7, fontSize: '1.02rem' }}>{faq.a}</p>
-                                    </div>
-                                </div>
-                            );
-                        })}
-=======
             <section style={{ padding: '120px 0', position: 'relative', zIndex: 1, background: '#fcfcfd' }}>
                 <div className="max-w-800" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
@@ -687,7 +573,6 @@ const Careers = () => {
                                 )}
                             </div>
                         ))}
->>>>>>> origin/main
                     </div>
                 </div>
             </section>

@@ -1,21 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-    ArrowRight, 
-    CheckCircle2, 
-    Database, 
-    CreditCard, 
-    Info, 
+
+import {
+    ArrowRight,
+    CheckCircle2,
+    Database,
+    CreditCard,
+    Info,
+    ShieldAlert,
+    ChevronDown,
+    Activity,
+    Settings,
+    ShoppingBag,
+    BookOpen,
+    Building,
+    Coffee,
+    Wrench,
+    Globe,
+    Smartphone,
+    Cloud,
     HelpCircle,
-    ChevronDown, 
-    ChevronUp,
+    CheckCircle,
+    Users,
+    Compass,
     Shield,
+    Landmark,
     Cpu,
     GitBranch,
-    TrendingUp,
-    CheckCircle,
-    FileQuestion,
-    Sparkles
+    TrendingUp
 } from 'lucide-react';
 
 const Products = () => {
@@ -24,543 +36,2042 @@ const Products = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        document.title = "Business Software Solutions for Everyday Business Needs | Fly Towards";
+        document.title =
+            'Business Software Solutions for Everyday Business Needs | Fly Towards';
 
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content",
-            "Fly Towards Digital Innovation provides business software solutions designed to support practical business requirements, including CRM and Billing software.");
+        const metaDescription = document.querySelector(
+            'meta[name="description"]'
+        );
 
-        const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content",
-            "Business Software, CRM Software, Billing Software, Custom Software Development, Software Development Services");
+        if (metaDescription) {
+            metaDescription.setAttribute(
+                'content',
+                'Fly Towards Digital Innovation provides business software solutions designed to support practical business requirements, including CRM, Billing and Payroll software.'
+            );
+        }
+
+        const metaKeywords = document.querySelector(
+            'meta[name="keywords"]'
+        );
+
+        if (metaKeywords) {
+            metaKeywords.setAttribute(
+                'content',
+                'Business Software, CRM Software, Billing Software, Payroll Software, Custom Software Development, Software Development Services'
+            );
+        }
 
         const robots = document.querySelector('meta[name="robots"]');
-        if (robots) robots.setAttribute("content", "index, follow");
 
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/products");
+        if (robots) {
+            robots.setAttribute('content', 'index, follow');
+        }
+
+        const canonical = document.querySelector(
+            'link[rel="canonical"]'
+        );
+
+        if (canonical) {
+            canonical.setAttribute(
+                'href',
+                'https://flytowardsdigitalinnovation.com/products'
+            );
+        }
     }, []);
 
-    const toggleFaq = (index) => {
-        setActiveFaq(activeFaq === index ? null : index);
+    const toggleFaq = (idx) => {
+        setActiveFaq(activeFaq === idx ? null : idx);
     };
+
+    const crmNeeds = [
+        'Organise customer information',
+        'Manage customer-related activities',
+        'Improve visibility of customer records',
+        'Reduce dependence on scattered information',
+        'Bring customer-related workflows into a more structured system'
+    ];
+
+    const billingNeeds = [
+        'Organise billing activities',
+        'Manage billing information',
+        'Reduce repetitive manual work',
+        'Improve visibility of billing processes',
+        'Maintain a more structured approach to business billing'
+    ];
+
+    const payrollNeeds = [
+        'Manage employee salary profiles',
+        'Automate monthly payroll runs',
+        'Track leaves, attendance, and deductions',
+        'Generate detailed payslips',
+        'Maintain compliance with salary and tax regulations'
+    ];
+
+    const selectionQuestions = [
+        'What business problem needs to be addressed?',
+        'Who will use the software?',
+        'Which processes need to be managed?',
+        'What information needs to be captured?',
+        'Are existing systems involved?',
+        'Does the software need to integrate with another application?',
+        'What functionality is essential?',
+        'Will the requirement change as the business grows?'
+    ];
+
+    const productExplains = [
+        'What it does',
+        'Who it is intended for',
+        'Which business problem it addresses',
+        'Key features',
+        'Supported workflows',
+        'Integrations, where confirmed',
+        'Deployment model, where confirmed',
+        'Support options, where confirmed',
+        'How to request a demo or enquiry'
+    ];
+
+    const readyMadeNotEnough = [
+        'A workflow designed around its own operations',
+        'Integration between multiple existing systems',
+        'A specialised business application',
+        'Custom user roles and processes',
+        'A unique customer or employee portal',
+        'Functionality that is not available in an existing product'
+    ];
 
     const faqs = [
         {
-            q: "What does custom software development include?",
-            a: "Custom software development involves designing and building software around a business's specific requirements, workflows, users and operational needs. Depending on the project, this can include business applications, enterprise software, SaaS products, web applications, mobile applications and software improvements."
+            q: 'What are business software solutions?',
+            a: 'Business software solutions are applications designed to support specific business activities, workflows or operational requirements. Examples can include CRM, billing, accounting, ERP and other business management applications.'
         },
         {
-            q: "When should a business consider custom software?",
-            a: "Custom software can be worth considering when existing products do not adequately support your workflows, when multiple systems need to be connected, when manual processes create operational challenges, or when a business needs a software product built for a specific purpose."
+            q: 'What type of business software does Fly Towards Digital Innovation provide?',
+            a: 'Fly Towards Digital Innovation provides business software solutions including CRM, billing and payroll products. Additional product categories or features can be introduced based on confirmed product capabilities.'
         },
         {
-            q: "Do you develop software for specific industries?",
-            a: "Yes. The company's SEO strategy identifies healthcare, manufacturing, retail, logistics, education, construction and hospitality as target industries. The exact software requirements are determined based on each business and project."
+            q: 'Is business software suitable for small businesses?',
+            a: 'Business software can be useful for small businesses when it addresses a genuine operational need. The suitability depends on the business size, processes, users, functionality and future requirements.'
         },
         {
-            q: "Can you develop a new software product from an idea?",
-            a: "Yes, where the project requirements are suitable for custom development. The initial discussion should establish the business objective, users, required functionality, technical requirements and expected scope before development begins."
+            q: 'What is the difference between business software and custom software?',
+            a: 'Business software can refer to applications designed to support common business activities, while custom software is developed around specific requirements. If an existing product does not adequately address a business workflow, custom development may be considered.'
         },
         {
-            q: "Can you work with an existing software system?",
-            a: "Existing software can be considered as part of a project where the requirement involves maintenance, improvement, modernisation, integration or development of additional functionality. The appropriate approach depends on the existing application's condition and technical requirements."
+            q: 'Can you build custom software if an existing product does not meet our requirements?',
+            a: 'Yes. Custom software development is part of Fly Towards Digital Innovation’s wider service portfolio. The specific scope and approach can be determined based on the business requirement.'
         }
     ];
 
-    const chooseQuestions = [
-        "What business problem needs to be addressed?",
-        "Who will use the software?",
-        "Which processes need to be managed?",
-        "What information needs to be captured?",
-        "Are existing systems involved?",
-        "Does the software need to integrate with another application?",
-        "What functionality is essential?",
-        "Will the requirement change as the business grows?"
-    ];
-
-    const readyMadeChecklist = [
-        "A workflow designed around its own operations",
-        "Integration between multiple existing systems",
-        "A specialised business application",
-        "Custom user roles and processes",
-        "A unique customer or employee portal",
-        "Functionality that is not available in an existing product"
+    const industries = [
+        {
+            name: 'Manufacturing Software',
+            path: '/industries/manufacturing/',
+            icon: <Settings size={24} color="var(--secondary)" />
+        },
+        {
+            name: 'Healthcare Software',
+            path: '/industries/healthcare/',
+            icon: <Activity size={24} color="var(--primary)" />
+        },
+        {
+            name: 'Education Software',
+            path: '/industries/education/',
+            icon: <BookOpen size={24} color="var(--primary)" />
+        },
+        {
+            name: 'Construction Software',
+            path: '/industries/construction/',
+            icon: <Building size={24} color="var(--secondary)" />
+        },
+        {
+            name: 'Retail Software',
+            path: '/industries/retail/',
+            icon: <ShoppingBag size={24} color="var(--accent)" />
+        },
+        {
+            name: 'Finance Software',
+            path: '/industries/finance/',
+            icon: <Database size={24} color="var(--primary)" />
+        },
+        {
+            name: 'Travel Software',
+            path: '/industries/travel/',
+            icon: <Compass size={24} color="var(--secondary)" />
+        },
+        {
+            name: 'Hospitality Software',
+            path: '/industries/hospitality/',
+            icon: <Coffee size={24} color="var(--accent)" />
+        },
+        {
+            name: 'Insurance Software',
+            path: '/industries/insurance/',
+            icon: <Shield size={24} color="var(--primary)" />
+        },
+        {
+            name: 'Government Software',
+            path: '/industries/government/',
+            icon: <Landmark size={24} color="var(--secondary)" />
+        }
     ];
 
     return (
-        <main style={{ position: 'relative', overflow: 'hidden' }}>
+        <main
+            style={{
+                position: 'relative',
+                overflow: 'hidden'
+            }}
+        >
             <div className="mesh-bg"></div>
 
             {/* Ambient Background Glows */}
-            <div style={{ position: 'absolute', top: '5%', right: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0,242,255,0.06) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
-            <div style={{ position: 'absolute', top: '35%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(255,0,122,0.04) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(70px)' }}></div>
-            <div style={{ position: 'absolute', bottom: '15%', right: '-5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(157,0,255,0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(50px)' }}></div>
 
-            {/* Hero Section */}
-            <section className="hero" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', paddingTop: '140px', paddingBottom: '60px' }}>
-                <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ justifyContent: 'center', display: 'inline-flex', margin: '0 auto 1.5rem' }}>
-                        Software Products Designed for Business Operations
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '5%',
+                    right: '-10%',
+                    width: '500px',
+                    height: '500px',
+                    background:
+                        'radial-gradient(circle, rgba(0,242,255,0.06) 0%, rgba(255,255,255,0) 70%)',
+                    borderRadius: '50%',
+                    zIndex: -1,
+                    filter: 'blur(60px)'
+                }}
+            />
+
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '35%',
+                    left: '-10%',
+                    width: '600px',
+                    height: '600px',
+                    background:
+                        'radial-gradient(circle, rgba(255,0,122,0.04) 0%, rgba(255,255,255,0) 70%)',
+                    borderRadius: '50%',
+                    zIndex: -1,
+                    filter: 'blur(70px)'
+                }}
+            />
+
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: '15%',
+                    right: '-5%',
+                    width: '500px',
+                    height: '500px',
+                    background:
+                        'radial-gradient(circle, rgba(157,0,255,0.05) 0%, rgba(255,255,255,0) 70%)',
+                    borderRadius: '50%',
+                    zIndex: -1,
+                    filter: 'blur(50px)'
+                }}
+            />
+
+            {/* ================= HERO ================= */}
+
+            <section
+                className="hero"
+                style={{
+                    minHeight: '60vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    paddingBottom: '40px'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        maxWidth: '900px',
+                        margin: '0 auto'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span
+                        className="section-tag"
+                        style={{
+                            justifyContent: 'center',
+                            display: 'flex',
+                            margin: '0 auto 1.5rem'
+                        }}
+                    >
+                        Ecosystem Products
                     </span>
-                    
-                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5.5vw, 4.2rem)', lineHeight: 1.1, marginBottom: '2rem', fontWeight: 800 }}>
-                        Business Software Solutions for <span className="gradient-text">Everyday Business Needs</span>
+
+                    <h1
+                        className="hero-title"
+                        style={{
+                            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                            marginBottom: '1.5rem',
+                            lineHeight: 1.1
+                        }}
+                    >
+                        Business Software Solutions{' '}
+                        <span className="gradient-text">
+                            for Everyday Business Needs
+                        </span>
                     </h1>
 
-                    <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '900px', margin: '0 auto 2.5rem' }}>
-                        Businesses need software that supports the way they actually work.
-                        Managing customer information, handling billing activities and coordinating everyday business processes can become increasingly difficult when teams rely on manual work or disconnected tools.
-                        Fly Towards Digital Innovation provides business software solutions designed to support practical business requirements.
-                        Our product portfolio currently includes CRM and billing software, while businesses with requirements that go beyond the available products can explore a custom software development approach. The available product information confirms CRM and billing software as part of the existing product offering.
+                    <p
+                        style={{
+                            fontSize: '1.25rem',
+                            color: 'var(--text-muted)',
+                            lineHeight: 1.8,
+                            marginBottom: '2rem'
+                        }}
+                    >
+                        Empower your team and streamline your processes with
+                        smart software products designed to fit your
+                        operational workflows.
                     </p>
 
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="#our-products" className="btn btn-primary" style={{ padding: '1.1rem 2.8rem' }}>
-                            Explore Our Products <ArrowRight size={18} />
+                    <div
+                        style={{
+                            display: 'flex',
+                            gap: '1.5rem',
+                            justifyContent: 'center',
+                            flexWrap: 'wrap'
+                        }}
+                    >
+                        <a
+                            href="#products"
+                            className="btn btn-primary"
+                            style={{
+                                padding: '1.1rem 2.8rem'
+                            }}
+                        >
+                            Explore Our Products
+                            <ArrowRight size={18} />
                         </a>
-                        <Link to="/contact/" className="btn btn-outline" style={{ padding: '1.1rem 2.8rem', borderColor: 'rgba(15, 23, 42, 0.2)' }}>
+
+                        <Link
+                            to="/contact/"
+                            className="btn btn-outline"
+                            style={{
+                                padding: '1.1rem 2.8rem',
+                                borderColor: 'rgba(15, 23, 42, 0.2)'
+                            }}
+                        >
                             Contact Us
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Our Business Software Products Section */}
-            <section id="our-products" style={{ padding: '6rem 8% 5rem', borderTop: '1px solid var(--border)' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4.5rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1rem' }}>Product Portfolio</span>
-                    <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800 }}>
-                        Our Business <span className="gradient-text">Software Products</span>
+            {/* ================= INTRO ================= */}
+
+            <section
+                style={{
+                    padding: '4rem 8% 2rem'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        maxWidth: '800px',
+                        margin: '0 auto 2rem'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span
+                        className="section-tag"
+                        style={{
+                            display: 'inline-flex',
+                            marginBottom: '1rem'
+                        }}
+                    >
+                        Operational Design
+                    </span>
+
+                    <h2
+                        style={{
+                            fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                            marginBottom: '1.5rem',
+                            fontWeight: 800
+                        }}
+                    >
+                        Software Products Designed{' '}
+                        <span className="gradient-text">
+                            for Business Operations
+                        </span>
                     </h2>
-                </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
-                    
-                    {/* CRM Software Section (Text Left, Explore Right) */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '5rem', alignItems: 'center' }} className="product-row">
-                        <style>{`
-                            @media (max-width: 991px) {
-                                .product-row {
-                                    grid-template-columns: 1fr !important;
-                                    gap: 3rem !important;
-                                }
-                            }
-                        `}</style>
-                        <div data-aos="fade-right">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', marginBottom: '1.8rem' }}>
-                                <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '15px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Database size={35} color="var(--primary)" />
-                                </div>
-                                <h3 style={{ margin: 0, fontSize: '2.2rem', fontWeight: 800 }}>CRM Software</h3>
-                            </div>
+                    <p
+                        style={{
+                            fontSize: '1.15rem',
+                            color: 'var(--text-muted)',
+                            lineHeight: 1.8,
+                            marginBottom: '1.5rem'
+                        }}
+                    >
+                        Businesses need software that supports the way they
+                        actually work. Managing customer information,
+                        handling billing activities and coordinating everyday
+                        business processes can become increasingly difficult
+                        when teams rely on manual work or disconnected tools.
+                    </p>
 
-                            <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-                                Customer information and related business activities can become difficult to manage when information is spread across different systems or maintained manually.
-                                A CRM product can provide a structured environment for managing customer-related information and business interactions.
-                            </p>
-
-                            <div style={{ background: '#f8fafc', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(0,0,0,0.02)' }}>
-                                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                    Suitable for businesses that need to:
-                                </h4>
-                                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                                    {[
-                                        "Organise customer information",
-                                        "Manage customer-related activities",
-                                        "Improve visibility of customer records",
-                                        "Reduce dependence on scattered information",
-                                        "Bring customer-related workflows into a more structured system"
-                                    ].map((bullet, idx) => (
-                                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '1.05rem', color: 'var(--text-dark)' }}>
-                                            <CheckCircle2 size={18} color="var(--primary)" style={{ flexShrink: 0, marginTop: '3px' }} />
-                                            <span>{bullet}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div data-aos="fade-left" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', background: 'rgba(11, 61, 145, 0.02)', padding: '3.5rem', borderRadius: '35px', border: '1px solid rgba(11, 61, 145, 0.05)' }}>
-                            {/* Product Pending Information Alert */}
-                            <div style={{ display: 'flex', gap: '12px', background: 'rgba(0, 242, 255, 0.05)', padding: '1.5rem', borderRadius: '20px', border: '1px solid rgba(0, 242, 255, 0.15)' }}>
-                                <Info size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                                <div style={{ fontSize: '0.95rem', color: 'var(--text-dark)', lineHeight: 1.6 }}>
-                                    <strong>Product features: [Information required]</strong><br />
-                                    Product-specific functionality, integrations, pricing and screenshots should be added after confirmation from the product team. For advanced configurations, explore our dedicated <Link to="/services/crm-development/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>CRM Development</Link> capabilities.
-                                </div>
-                            </div>
-
-                            <Link to="/smart-crm" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1.2rem', borderRadius: '18px' }}>
-                                Explore CRM Software <ArrowRight size={18} />
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Billing Software Section (Explore Left, Text Right) */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '5rem', alignItems: 'center' }} className="product-row">
-                        <div data-aos="fade-right" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', background: 'rgba(255, 0, 122, 0.02)', padding: '3.5rem', borderRadius: '35px', border: '1px solid rgba(255, 0, 122, 0.05)' }}>
-                            {/* Product Pending Information Alert */}
-                            <div style={{ display: 'flex', gap: '12px', background: 'rgba(255, 0, 122, 0.05)', padding: '1.5rem', borderRadius: '20px', border: '1px solid rgba(255, 0, 122, 0.12)' }}>
-                                <Info size={20} color="var(--secondary)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                                <div style={{ fontSize: '0.92rem', color: 'var(--text-dark)', lineHeight: 1.5 }}>
-                                    <strong>Product features: [Information required]</strong><br />
-                                    Do not publish specific billing, invoicing, tax, payment gateway or accounting features until the actual product capabilities are confirmed.
-                                </div>
-                            </div>
-
-                            <Link to="/fly-bill" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1.2rem', borderRadius: '18px', background: 'var(--gradient-primary)' }}>
-                                Explore Billing Software <ArrowRight size={18} />
-                            </Link>
-                        </div>
-
-                        <div data-aos="fade-left">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', marginBottom: '1.8rem' }}>
-                                <div style={{ background: 'rgba(255, 0, 122, 0.08)', padding: '15px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <CreditCard size={35} color="var(--secondary)" />
-                                </div>
-                                <h3 style={{ margin: 0, fontSize: '2.2rem', fontWeight: 800 }}>Billing Software</h3>
-                            </div>
-
-                            <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-                                Billing activities are an important part of everyday business operations.
-                                A dedicated billing product can help businesses manage billing-related activities through a structured software environment rather than relying entirely on manual processes.
-                            </p>
-
-                            <div style={{ background: '#f8fafc', padding: '2rem', borderRadius: '24px', border: '1px solid rgba(0,0,0,0.02)' }}>
-                                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                    Suitable for businesses that need to:
-                                </h4>
-                                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                                    {[
-                                        "Organise billing activities",
-                                        "Manage billing information",
-                                        "Reduce repetitive manual work",
-                                        "Improve visibility of billing processes",
-                                        "Maintain a more structured approach to business billing"
-                                    ].map((bullet, idx) => (
-                                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '1.05rem', color: 'var(--text-dark)' }}>
-                                            <CheckCircle2 size={18} color="var(--secondary)" style={{ flexShrink: 0, marginTop: '3px' }} />
-                                            <span>{bullet}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+                    <p
+                        style={{
+                            fontSize: '1.15rem',
+                            color: 'var(--text-muted)',
+                            lineHeight: 1.8
+                        }}
+                    >
+                        Fly Towards Digital Innovation provides{' '}
+                        <Link
+                            to="/services/"
+                            style={{
+                                color: 'var(--primary)',
+                                fontWeight: '600',
+                                textDecoration: 'none'
+                            }}
+                        >
+                            Software Development Services
+                        </Link>{' '}
+                        and business software solutions designed to support
+                        practical business requirements.
+                    </p>
                 </div>
             </section>
 
-            {/* How Business Software Can Support Your Operations Section */}
-            <section style={{ padding: '6rem 8% 5rem', background: 'rgba(0, 242, 255, 0.01)' }}>
-                <div style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto 4.5rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1rem' }}>Operational Efficiency</span>
-                    <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '1.5rem' }}>
-                        How Business Software Can <span className="gradient-text">Support Your Operations</span>
+            {/* ================= PRODUCTS ================= */}
+
+            <section
+                id="products"
+                style={{
+                    padding: '4rem 8%'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        marginBottom: '4rem'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span className="section-tag">
+                        Explore Portfolio
+                    </span>
+
+                    <h2
+                        style={{
+                            fontSize: 'clamp(2rem, 4vw, 3rem)',
+                            fontWeight: 800
+                        }}
+                    >
+                        Our Business{' '}
+                        <span className="gradient-text">
+                            Software Products
+                        </span>
                     </h2>
-                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-                        The right business management software should address a real operational requirement.
-                        Rather than selecting software based only on the number of features, businesses should consider how the product fits their existing processes, users and business objectives.
+                </div>
+
+                {/* PRODUCT CARDS */}
+
+                <div
+                    className="grid"
+                    style={{
+                        gap: '3rem',
+                        maxWidth: '1100px',
+                        margin: '0 auto'
+                    }}
+                >
+                    {/* Payroll */}
+
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            borderRadius: '24px',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '15px',
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(157, 0, 255, 0.05)',
+                                    padding: '12px',
+                                    borderRadius: '12px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                <Users
+                                    size={32}
+                                    color="var(--accent)"
+                                />
+                            </div>
+
+                            <h3
+                                style={{
+                                    margin: 0,
+                                    fontSize: '1.6rem',
+                                    fontWeight: 800
+                                }}
+                            >
+                                Payroll Software
+                            </h3>
+                        </div>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                marginBottom: '1.5rem',
+                                fontSize: '1.05rem',
+                                lineHeight: 1.7
+                            }}
+                        >
+                            Process employee salaries, track deductions,
+                            manage leaves, and generate payslips. Payroll
+                            Software helps businesses automate salary runs and
+                            maintain precise payroll records.
+                        </p>
+
+                        <h4
+                            style={{
+                                fontSize: '1.05rem',
+                                fontWeight: 700,
+                                marginBottom: '1rem',
+                                color: 'var(--text-dark)'
+                            }}
+                        >
+                            Suitable for businesses that need to:
+                        </h4>
+
+                        <ul
+                            style={{
+                                listStyle: 'none',
+                                padding: 0,
+                                margin: '0 0 2rem 0'
+                            }}
+                        >
+                            {payrollNeeds.map((need, idx) => (
+                                <li
+                                    key={idx}
+                                    style={{
+                                        display: 'flex',
+                                        gap: '10px',
+                                        alignItems: 'flex-start',
+                                        marginBottom: '0.75rem',
+                                        color: 'var(--text-muted)',
+                                        fontSize: '0.95rem'
+                                    }}
+                                >
+                                    <CheckCircle2
+                                        size={16}
+                                        color="var(--accent)"
+                                        style={{
+                                            flexShrink: 0,
+                                            marginTop: '3px'
+                                        }}
+                                    />
+                                    <span>{need}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link
+                            to="/products/payroll-software"
+                            className="btn btn-primary"
+                            style={{
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem 2rem',
+                                marginTop: 'auto'
+                            }}
+                        >
+                            Explore Payroll Software
+                            <ArrowRight
+                                size={18}
+                                style={{
+                                    marginLeft: '8px'
+                                }}
+                            />
+                        </Link>
+                    </div>
+
+                    {/* Billing */}
+
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            borderRadius: '24px',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '15px',
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(255, 0, 122, 0.05)',
+                                    padding: '12px',
+                                    borderRadius: '12px'
+                                }}
+                            >
+                                <CreditCard
+                                    size={32}
+                                    color="var(--secondary)"
+                                />
+                            </div>
+
+                            <h3
+                                style={{
+                                    margin: 0,
+                                    fontSize: '1.6rem',
+                                    fontWeight: 800
+                                }}
+                            >
+                                Billing Software
+                            </h3>
+                        </div>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                marginBottom: '1.5rem',
+                                fontSize: '1.05rem',
+                                lineHeight: 1.7
+                            }}
+                        >
+                            Billing activities are an important part of
+                            everyday business operations. Billing Software can
+                            help businesses manage billing-related activities
+                            through a structured software environment rather
+                            than relying entirely on manual processes.
+                        </p>
+
+                        <h4
+                            style={{
+                                fontSize: '1.05rem',
+                                fontWeight: 700,
+                                marginBottom: '1rem'
+                            }}
+                        >
+                            Suitable for businesses that need to:
+                        </h4>
+
+                        <ul
+                            style={{
+                                listStyle: 'none',
+                                padding: 0,
+                                margin: '0 0 2rem 0'
+                            }}
+                        >
+                            {billingNeeds.map((need, idx) => (
+                                <li
+                                    key={idx}
+                                    style={{
+                                        display: 'flex',
+                                        gap: '10px',
+                                        alignItems: 'flex-start',
+                                        marginBottom: '0.75rem',
+                                        color: 'var(--text-muted)',
+                                        fontSize: '0.95rem'
+                                    }}
+                                >
+                                    <CheckCircle2
+                                        size={16}
+                                        color="var(--secondary)"
+                                        style={{
+                                            flexShrink: 0,
+                                            marginTop: '3px'
+                                        }}
+                                    />
+                                    <span>{need}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link
+                            to="/products/billing-software"
+                            className="btn btn-outline"
+                            style={{
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem 2rem',
+                                border: '1px solid var(--border)',
+                                marginTop: 'auto'
+                            }}
+                        >
+                            Explore Billing Software
+                            <ArrowRight
+                                size={18}
+                                style={{
+                                    marginLeft: '8px'
+                                }}
+                            />
+                        </Link>
+                    </div>
+
+                    {/* CRM */}
+
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            borderRadius: '24px',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '15px',
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(0, 242, 255, 0.05)',
+                                    padding: '12px',
+                                    borderRadius: '12px'
+                                }}
+                            >
+                                <Database
+                                    size={32}
+                                    color="var(--primary)"
+                                />
+                            </div>
+
+                            <h3
+                                style={{
+                                    margin: 0,
+                                    fontSize: '1.6rem',
+                                    fontWeight: 800
+                                }}
+                            >
+                                CRM Software
+                            </h3>
+                        </div>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                marginBottom: '1.5rem',
+                                fontSize: '1.05rem',
+                                lineHeight: 1.7
+                            }}
+                        >
+                            Customer information and related business
+                            activities can become difficult to manage when
+                            information is spread across different systems or
+                            maintained manually. CRM Software provides a
+                            structured environment for managing
+                            customer-related information and business
+                            interactions.
+                        </p>
+
+                        <h4
+                            style={{
+                                fontSize: '1.05rem',
+                                fontWeight: 700,
+                                marginBottom: '1rem'
+                            }}
+                        >
+                            Suitable for businesses that need to:
+                        </h4>
+
+                        <ul
+                            style={{
+                                listStyle: 'none',
+                                padding: 0,
+                                margin: '0 0 2rem 0'
+                            }}
+                        >
+                            {crmNeeds.map((need, idx) => (
+                                <li
+                                    key={idx}
+                                    style={{
+                                        display: 'flex',
+                                        gap: '10px',
+                                        marginBottom: '0.75rem',
+                                        color: 'var(--text-muted)',
+                                        fontSize: '0.95rem'
+                                    }}
+                                >
+                                    <CheckCircle2
+                                        size={16}
+                                        color="var(--primary)"
+                                        style={{
+                                            flexShrink: 0,
+                                            marginTop: '3px'
+                                        }}
+                                    />
+
+                                    <span>{need}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Link
+                            to="/products/crm-software"
+                            className="btn btn-primary"
+                            style={{
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem 2rem',
+                                marginTop: 'auto'
+                            }}
+                        >
+                            Explore CRM Software
+                            <ArrowRight
+                                size={18}
+                                style={{
+                                    marginLeft: '8px'
+                                }}
+                            />
+                        </Link>
+                    </div>
+
+                    {/* Food Delivery */}
+
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            borderRadius: '24px',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '15px',
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(157, 0, 255, 0.05)',
+                                    padding: '12px',
+                                    borderRadius: '12px'
+                                }}
+                            >
+                                <ShoppingBag
+                                    size={32}
+                                    color="var(--accent)"
+                                />
+                            </div>
+
+                            <h3
+                                style={{
+                                    margin: 0,
+                                    fontSize: '1.6rem',
+                                    fontWeight: 800
+                                }}
+                            >
+                                Food Delivery Solution
+                            </h3>
+                        </div>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                marginBottom: '1.5rem',
+                                fontSize: '1.05rem',
+                                lineHeight: 1.7
+                            }}
+                        >
+                            On-demand food ordering and delivery system with
+                            real-time tracking, custom menus, and order
+                            management capabilities.
+                        </p>
+
+                        <Link
+                            to="/products/food-delivery-solution"
+                            className="btn btn-primary"
+                            style={{
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem 2rem',
+                                marginTop: 'auto'
+                            }}
+                        >
+                            Explore Food Delivery
+                            <ArrowRight
+                                size={18}
+                                style={{
+                                    marginLeft: '8px'
+                                }}
+                            />
+                        </Link>
+                    </div>
+
+                    {/* Fix Product */}
+
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            borderRadius: '24px',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '15px',
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(0, 242, 255, 0.05)',
+                                    padding: '12px',
+                                    borderRadius: '12px'
+                                }}
+                            >
+                                <Wrench
+                                    size={32}
+                                    color="var(--primary)"
+                                />
+                            </div>
+
+                            <h3
+                                style={{
+                                    margin: 0,
+                                    fontSize: '1.6rem',
+                                    fontWeight: 800
+                                }}
+                            >
+                                Fix Product
+                            </h3>
+                        </div>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                marginBottom: '1.5rem',
+                                fontSize: '1.05rem',
+                                lineHeight: 1.7
+                            }}
+                        >
+                            Troubleshoot and fix software systems, handle
+                            platform optimization, and keep applications
+                            performing at their best.
+                        </p>
+
+                        <Link
+                            to="/products/fix"
+                            className="btn btn-primary"
+                            style={{
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                padding: '1rem 2rem',
+                                marginTop: 'auto'
+                            }}
+                        >
+                            Explore Fix Product
+                            <ArrowRight
+                                size={18}
+                                style={{
+                                    marginLeft: '8px'
+                                }}
+                            />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= OPERATIONAL SUPPORT ================= */}
+
+            <section
+                style={{
+                    padding: '6rem 8%',
+                    background: 'rgba(157, 0, 255, 0.01)'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        maxWidth: '800px',
+                        margin: '0 auto 4rem'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span className="section-tag">
+                        Operational Support
+                    </span>
+
+                    <h2
+                        style={{
+                            fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                            fontWeight: 800
+                        }}
+                    >
+                        How Business Software{' '}
+                        <span className="gradient-text">
+                            Can Support Your Operations
+                        </span>
+                    </h2>
+
+                    <p
+                        style={{
+                            fontSize: '1.15rem',
+                            color: 'var(--text-muted)',
+                            marginTop: '1rem',
+                            lineHeight: 1.8
+                        }}
+                    >
+                        The right business management software should address
+                        a real operational requirement. Rather than selecting
+                        software based only on the number of features,
+                        businesses should consider how the product fits their
+                        existing processes, users and business objectives.
                     </p>
                 </div>
 
                 <div className="grid-matrix">
                     {[
                         {
-                            title: "Manage Business Information",
-                            text: "Business information becomes easier to work with when it is organised within an organised software environment. A suitable application can help teams reduce fragmented information and create a more structured way of managing business activities.",
-                            icon: <Shield size={24} color="var(--primary)" />
+                            title: 'Manage Business Information',
+                            text: 'Business information becomes easier to work with when it is organised within an appropriate software environment. A suitable application can help teams reduce fragmented information and create a more structured way of managing business activities.',
+                            icon: (
+                                <Shield
+                                    size={24}
+                                    color="var(--primary)"
+                                />
+                            )
                         },
                         {
-                            title: "Reduce Manual Work",
-                            text: "Manual processes can consume employee time and increase the possibility of inconsistent information. Business software can help move suitable activities into a more structured digital workflow. The objective should not be to automate every process. Instead, businesses should identify repetitive or time-consuming activities where software can provide practical value.",
-                            icon: <Cpu size={24} color="var(--secondary)" />
+                            title: 'Reduce Manual Work',
+                            text: 'Manual processes can consume employee time and increase the possibility of inconsistent information. Business software can help move suitable activities into a more structured digital workflow. The objective should not be to automate every process. Instead, businesses should identify repetitive or time-consuming activities where software can provide practical value.',
+                            icon: (
+                                <Cpu
+                                    size={24}
+                                    color="var(--secondary)"
+                                />
+                            )
                         },
                         {
-                            title: "Connect Business Processes",
-                            text: "Businesses often use multiple applications for different activities. When systems are disconnected, employees may need to enter or move information between different tools. Depending on the requirement, software products or integrations can help create a more connected operating environment.",
-                            icon: <GitBranch size={24} color="var(--accent)" />
+                            title: 'Connect Business Processes',
+                            text: 'Businesses often use multiple applications for different activities. When systems are disconnected, employees may need to enter or move information between different tools. Depending on the requirement, software products or integrations can help create a more connected operating environment.',
+                            icon: (
+                                <GitBranch
+                                    size={24}
+                                    color="var(--accent)"
+                                />
+                            )
                         },
                         {
-                            title: "Support Business Growth",
-                            text: "As a business grows, its software requirements can change. A system that works for a small operation may need to evolve as the number of users, customers, transactions or processes increases. Choosing software with the right fit for current requirements and future needs can help businesses avoid unnecessary disruption.",
-                            icon: <TrendingUp size={24} color="var(--primary)" />
+                            title: 'Support Business Growth',
+                            text: 'As a business grows, its software requirements can change. A system that works for a small operation may need to evolve as the number of users, customers, transactions or processes increases. Choosing software with the right fit for current requirements and future needs can help businesses avoid unnecessary disruption.',
+                            icon: (
+                                <TrendingUp
+                                    size={24}
+                                    color="var(--primary)"
+                                />
+                            )
                         }
                     ].map((item, idx) => (
-                        <div key={idx} className="grid-matrix-item" data-aos="fade-up" data-aos-delay={idx * 100} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                            <div style={{ background: 'rgba(15, 23, 42, 0.04)', width: '50px', height: '50px', borderRadius: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                        <div
+                            key={idx}
+                            className="grid-matrix-item"
+                            data-aos="fade-up"
+                            data-aos-delay={idx * 100}
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '100%'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(15, 23, 42, 0.04)',
+                                    width: '50px',
+                                    height: '50px',
+                                    borderRadius: '15px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginBottom: '1.5rem'
+                                }}
+                            >
                                 {item.icon}
                             </div>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem' }}>{item.title}</h3>
-                            <p style={{ fontSize: '0.98rem', lineHeight: 1.6, color: 'var(--text-muted)' }}>{item.text}</p>
+
+                            <h3
+                                style={{
+                                    fontSize: '1.4rem',
+                                    fontWeight: 800,
+                                    marginBottom: '1rem'
+                                }}
+                            >
+                                {item.title}
+                            </h3>
+
+                            <p
+                                style={{
+                                    fontSize: '0.98rem',
+                                    lineHeight: 1.6,
+                                    color: 'var(--text-muted)'
+                                }}
+                            >
+                                {item.text}
+                            </p>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* Choosing the Right Software & Different Requirements */}
-            <section style={{ padding: '6rem 8% 5rem' }}>
-                <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'flex-start' }}>
-                    
-                    {/* Choosing the Right Business Management Software */}
-                    <div className="card" data-aos="fade-right" style={{ padding: '1.5rem 0 1.5rem 2rem', background: 'transparent', border: 'none', borderLeft: '3px solid rgba(15, 23, 42, 0.08)', borderRadius: '0' }}>
-                        <span className="section-tag" style={{ marginBottom: '1rem' }}>Selection Guide</span>
-                        <h2 style={{ fontSize: '1.9rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                            Choosing the Right Business Management Software
+            {/* ================= CHOOSING SOFTWARE ================= */}
+
+            <section
+                style={{
+                    padding: '6rem 8%'
+                }}
+            >
+                <div
+                    className="grid-2"
+                    style={{
+                        gap: '4rem',
+                        alignItems: 'center'
+                    }}
+                >
+                    <div data-aos="fade-up">
+                        <span className="section-tag">
+                            Evaluation Criteria
+                        </span>
+
+                        <h2
+                            style={{
+                                fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                                fontWeight: 800,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Choosing the Right
+                            <br />
+                            <span className="gradient-text">
+                                Business Management Software
+                            </span>
                         </h2>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '1.8rem', fontSize: '1.05rem' }}>
-                            Choosing business management software should begin with the business requirement rather than the software name. Before selecting a product, consider:
+
+                        <p
+                            style={{
+                                fontSize: '1.15rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.8,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Choosing business management software should begin
+                            with the business requirement rather than the
+                            software name. A good product decision should
+                            balance functionality, usability, business fit
+                            and long-term requirements.
                         </p>
-                        
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.9rem', marginBottom: '2rem' }}>
-                            {chooseQuestions.map((q, idx) => (
-                                <li key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', fontSize: '0.98rem' }}>
-                                    <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '22px', height: '22px', borderRadius: '50%', background: 'rgba(0, 242, 255, 0.1)', color: 'var(--primary)', fontWeight: '700', fontSize: '0.8rem', flexShrink: 0, marginTop: '2px' }}>
-                                        ?
-                                    </span>
+
+                        <p
+                            style={{
+                                fontSize: '1.1rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.8
+                            }}
+                        >
+                            Evaluating existing environments and future
+                            expansion options via{' '}
+                            <Link
+                                to="/services/software-consulting/"
+                                style={{
+                                    color: 'var(--primary)',
+                                    fontWeight: 600,
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                Software Consulting
+                            </Link>{' '}
+                            can help organizations map requirements to viable
+                            technical solutions.
+                        </p>
+                    </div>
+
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            borderRadius: '24px',
+                            border: '1px solid var(--border)',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <h3
+                            style={{
+                                fontSize: '1.25rem',
+                                fontWeight: 800,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Before selecting a product, consider:
+                        </h3>
+
+                        <ul
+                            style={{
+                                listStyle: 'none',
+                                padding: 0
+                            }}
+                        >
+                            {selectionQuestions.map((q, idx) => (
+                                <li
+                                    key={idx}
+                                    style={{
+                                        display: 'flex',
+                                        gap: '12px',
+                                        alignItems: 'flex-start',
+                                        marginBottom: '1rem',
+                                        color: 'var(--text-dark)',
+                                        fontSize: '0.98rem'
+                                    }}
+                                >
+                                    <HelpCircle
+                                        size={18}
+                                        color="var(--primary)"
+                                        style={{
+                                            flexShrink: 0,
+                                            marginTop: '3px'
+                                        }}
+                                    />
+
                                     <span>{q}</span>
                                 </li>
                             ))}
                         </ul>
-
-                        <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1.5rem', fontStyle: 'italic', color: 'var(--text-dark)', fontWeight: '600' }}>
-                            A good product decision should balance functionality, usability, business fit and long-term requirements.
-                        </div>
                     </div>
+                </div>
+            </section>
 
-                    {/* Software for Different Business Requirements */}
-                    <div data-aos="fade-left">
-                        <span className="section-tag" style={{ marginBottom: '1rem' }}>Adaptability</span>
-                        <h2 style={{ fontSize: '2.1rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                            Software for Different Business Requirements
-                        </h2>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.5rem', fontSize: '1.05rem' }}>
-                            Different businesses can have very different software requirements.
-                            A business looking for customer management capabilities may need a CRM product.
-                            A business focused on billing operations may need billing software.
-                            Another organisation may require software that connects several departments or supports a workflow that does not fit within an existing product.
-                        </p>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.5rem', fontSize: '1.05rem' }}>
-                            This is why the Products page should not present one software product as a universal answer. Instead, each product should clearly explain:
-                        </p>
+            {/* ================= DIFFERENT REQUIREMENTS ================= */}
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', background: 'rgba(15, 23, 42, 0.03)', padding: '1.5rem', borderRadius: '20px', border: '1px solid var(--border)', marginBottom: '2rem' }}>
-                            {[
-                                "What it does",
-                                "Who it is intended for",
-                                "Which business problem it addresses",
-                                "Key features",
-                                "Supported workflows",
-                                "Integrations, where confirmed",
-                                "Deployment model, where confirmed",
-                                "Support options, where confirmed",
-                                "How to request a demo or enquiry"
-                            ].map((item, idx) => (
-                                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}>
-                                    <CheckCircle size={14} color="var(--primary)" style={{ flexShrink: 0 }} />
+            <section
+                style={{
+                    padding: '6rem 8%',
+                    background: 'rgba(0, 242, 255, 0.01)'
+                }}
+            >
+                <div
+                    className="grid-2"
+                    style={{
+                        gap: '4rem',
+                        alignItems: 'center'
+                    }}
+                >
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            borderRadius: '24px',
+                            border: '1px solid var(--border)',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <h3
+                            style={{
+                                fontSize: '1.25rem',
+                                fontWeight: 800,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Each product should clearly explain:
+                        </h3>
+
+                        <div
+                            style={{
+                                display: 'grid',
+                                gridTemplateColumns:
+                                    'repeat(auto-fit, minmax(200px, 1fr))',
+                                gap: '1rem'
+                            }}
+                        >
+                            {productExplains.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    style={{
+                                        display: 'flex',
+                                        gap: '8px',
+                                        alignItems: 'center',
+                                        color: 'var(--text-muted)',
+                                        fontSize: '0.95rem'
+                                    }}
+                                >
+                                    <CheckCircle
+                                        size={16}
+                                        color="var(--accent)"
+                                    />
                                     <span>{item}</span>
                                 </div>
                             ))}
                         </div>
+                    </div>
 
-                        {/* Industry solution path internal links */}
-                        <div style={{ background: 'linear-gradient(135deg, #0f172a 0%, #061b3b 100%)', color: '#fff', padding: '2rem', borderRadius: '25px', border: '1px solid rgba(255,255,255,0.08)' }}>
-                            <h4 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
-                                <Sparkles size={18} color="var(--primary)" /> Industry-Specific Software Solutions
-                            </h4>
-                            <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.8)', marginBottom: '1.2rem' }}>
-                                We design specialized workflows optimized for distinct vertical market demands. Learn more about our targeted offerings:
-                            </p>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 15px' }}>
-                                <Link to="/industries/healthcare/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>Healthcare Software <ArrowRight size={12} /></Link>
-                                <Link to="/industries/manufacturing/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>Manufacturing Software <ArrowRight size={12} /></Link>
-                                <Link to="/industries/retail/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>Retail Software <ArrowRight size={12} /></Link>
-                                <Link to="/industries/education/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>Education Software <ArrowRight size={12} /></Link>
-                                <Link to="/industries/construction/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>Construction Software <ArrowRight size={12} /></Link>
-                                <Link to="/industries/hospitality/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>Hospitality Software <ArrowRight size={12} /></Link>
-                            </div>
-                        </div>
+                    <div data-aos="fade-up">
+                        <span className="section-tag">
+                            Diverse Demands
+                        </span>
 
+                        <h2
+                            style={{
+                                fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                                fontWeight: 800,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Software for Different
+                            <br />
+                            <span className="gradient-text">
+                                Business Requirements
+                            </span>
+                        </h2>
+
+                        <p
+                            style={{
+                                fontSize: '1.15rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.8,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Different businesses can have very different
+                            software requirements. A business looking for
+                            customer management capabilities may need a
+                            dedicated{' '}
+                            <Link
+                                to="/services/crm-development/"
+                                style={{
+                                    color: 'var(--primary)',
+                                    fontWeight: 600,
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                CRM Development
+                            </Link>{' '}
+                            solution. A business focused on billing operations
+                            may need billing software.
+                        </p>
+
+                        <p
+                            style={{
+                                fontSize: '1.15rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.8
+                            }}
+                        >
+                            Another organisation may require software that
+                            connects several departments or supports a
+                            workflow that does not fit within an existing
+                            product, pointing to the need for{' '}
+                            <Link
+                                to="/services/business-process-automation/"
+                                style={{
+                                    color: 'var(--primary)',
+                                    fontWeight: 600,
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                Business Process Automation
+                            </Link>
+                            .
+                        </p>
                     </div>
                 </div>
             </section>
 
-            {/* Custom Software Development & Scenarios */}
-            <section style={{ padding: '6rem 8% 5rem', borderTop: '1px solid var(--border)', background: 'rgba(157, 0, 255, 0.01)' }}>
-                <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-                    
-                    {/* When a Ready-Made Product Is Not Enough */}
-                    <div data-aos="fade-right">
-                        <span className="section-tag" style={{ marginBottom: '1rem' }}>Bespoke Fit</span>
-                        <h2 style={{ fontSize: '2.1rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                            When a Ready-Made Product Is Not Enough
-                        </h2>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.8rem', fontSize: '1.05rem' }}>
-                            Sometimes an existing product can address the requirement. In other situations, the business may have workflows, integrations or functionality that require a different approach. For example, an organisation may need:
-                        </p>
-                        
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.8rem' }}>
-                            {readyMadeChecklist.map((item, idx) => (
-                                <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--secondary)', marginTop: '8px', flexShrink: 0 }}></div>
-                                    <span style={{ fontSize: '1rem', color: 'var(--text-dark)', fontWeight: 500 }}>{item}</span>
-                                </div>
-                            ))}
-                        </div>
+            {/* ================= READY MADE PRODUCT ================= */}
 
-                        <p style={{ color: 'var(--text-dark)', fontWeight: '700', fontSize: '1.05rem' }}>
-                            In these situations, a product may not be the right solution.
-                        </p>
-                    </div>
-
-                    {/* Bespoke Software Development for Specific Requirements */}
-                    <div className="card" data-aos="fade-left" style={{ padding: '1.5rem 0 1.5rem 2rem', background: 'transparent', border: 'none', borderLeft: '3px solid rgba(15, 23, 42, 0.08)', borderRadius: '0' }}>
-                        <span className="section-tag" style={{ marginBottom: '1rem' }}>Tailored Services</span>
-                        <h2 style={{ fontSize: '1.9rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                            Bespoke Software Development for Specific Requirements
-                        </h2>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.5rem', fontSize: '0.98rem' }}>
-                            When a business needs software built around its own processes, a bespoke software development service may be more appropriate.
-                        </p>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.5rem', fontSize: '0.98rem' }}>
-                            Fly Towards Digital Innovation's wider <Link to="/services/" style={{ color: 'var(--secondary)', fontWeight: '700', textDecoration: 'underline' }}>Software Development Services</Link> portfolio includes <Link to="/services/custom-software-development/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>Custom Software Development Services</Link>, <Link to="/services/enterprise-software-development/" style={{ color: 'var(--secondary)', fontWeight: '700', textDecoration: 'underline' }}>Enterprise Software Development</Link>, <Link to="/services/saas-development/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>SaaS Development</Link>, <Link to="/services/web-application-development/" style={{ color: 'var(--secondary)', fontWeight: '700', textDecoration: 'underline' }}>Web Application Development</Link>, <Link to="/services/mobile-app-development/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>Mobile App Development</Link> and <Link to="/services/software-maintenance-support/" style={{ color: 'var(--secondary)', fontWeight: '700', textDecoration: 'underline' }}>Software Maintenance</Link>.
-                        </p>
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.8rem', fontSize: '0.98rem' }}>
-                            Custom development can be considered when the requirement involves functionality or workflows that cannot be adequately addressed by an existing product. We also deliver solutions for <Link to="/services/software-consulting/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>Software Consulting</Link>, <Link to="/services/software-modernization/" style={{ color: 'var(--secondary)', fontWeight: '700', textDecoration: 'underline' }}>Software Modernization</Link>, and <Link to="/services/business-process-automation/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>Business Process Automation</Link>.
-                        </p>
-
-                        <div style={{ display: 'block', background: '#f8fafc', padding: '1.5rem', borderRadius: '18px', border: '1px solid rgba(0,0,0,0.02)' }}>
-                            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0 }}>
-                                <strong>Explore:</strong> We recommend visiting our dedicated page for <Link to="/services/custom-software-development/" style={{ color: 'var(--primary)', fontWeight: '700', textDecoration: 'underline' }}>Custom Software Development Services</Link> to see how we build software tailored to your specific goals.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            {/* Business Software and IT Software Development Section */}
-            <section style={{ padding: '5rem 8%', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
-                <div style={{ maxWidth: '850px', margin: '0 auto' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ justifyContent: 'center', display: 'inline-flex', margin: '0 auto 1rem' }}>
-                        Strategic Synthesis
+            <section
+                style={{
+                    padding: '6rem 8%'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        maxWidth: '800px',
+                        margin: '0 auto 4rem'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span className="section-tag">
+                        Bespoke vs Out-of-the-box
                     </span>
-                    <h2 style={{ fontSize: '2.1rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                        Business Software and IT Software Development
+
+                    <h2
+                        style={{
+                            fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                            fontWeight: 800
+                        }}
+                    >
+                        When a Ready-Made{' '}
+                        <span className="gradient-text">
+                            Product Is Not Enough
+                        </span>
                     </h2>
-                    <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', lineHeight: 1.8, margin: 0 }}>
-                        Business software sits at the intersection of business requirements and technical implementation.
-                        A useful solution needs to address both sides.
-                        The business needs to understand what the software should accomplish, while the technical implementation needs to support the required functionality, users, data and integrations.
-                        This is where IT software development can become relevant when an organisation needs a new application or needs to extend an existing software environment.
-                        The appropriate approach depends on the actual business requirement.
+
+                    <p
+                        style={{
+                            fontSize: '1.15rem',
+                            color: 'var(--text-muted)',
+                            marginTop: '1rem',
+                            lineHeight: 1.8
+                        }}
+                    >
+                        Sometimes an existing product can address the
+                        requirement. In other situations, the business may
+                        have workflows, integrations or functionality that
+                        require a different approach.
+                    </p>
+                </div>
+
+                <div
+                    className="card"
+                    data-aos="fade-up"
+                    style={{
+                        padding: '3rem',
+                        borderRadius: '30px',
+                        border: '1px solid var(--border)',
+                        background:
+                            'linear-gradient(to right, rgba(0,242,255,0.02), rgba(157,0,255,0.02))',
+                        maxWidth: '1000px',
+                        margin: '0 auto'
+                    }}
+                >
+                    <h3
+                        style={{
+                            fontSize: '1.3rem',
+                            fontWeight: 800,
+                            marginBottom: '2rem',
+                            textAlign: 'center'
+                        }}
+                    >
+                        For example, an organisation may need:
+                    </h3>
+
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns:
+                                'repeat(auto-fit, minmax(260px, 1fr))',
+                            gap: '2rem'
+                        }}
+                    >
+                        {readyMadeNotEnough.map((need, idx) => (
+                            <div
+                                key={idx}
+                                style={{
+                                    display: 'flex',
+                                    gap: '12px',
+                                    alignItems: 'flex-start'
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        background:
+                                            'rgba(0, 242, 255, 0.08)',
+                                        width: '8px',
+                                        height: '8px',
+                                        borderRadius: '50%',
+                                        marginTop: '8px',
+                                        flexShrink: 0
+                                    }}
+                                />
+
+                                <p
+                                    style={{
+                                        margin: 0,
+                                        color: 'var(--text-dark)',
+                                        fontWeight: 500,
+                                        fontSize: '1.05rem'
+                                    }}
+                                >
+                                    {need}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p
+                        style={{
+                            marginTop: '2.5rem',
+                            textAlign: 'center',
+                            color: 'var(--text-muted)',
+                            fontSize: '1.1rem',
+                            fontWeight: 500
+                        }}
+                    >
+                        In these situations, a product may not be the right
+                        solution.
                     </p>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section id="faq" style={{ padding: '6rem 8% 7rem', borderTop: '1px solid var(--border)', background: '#ffffff' }}>
-                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                    <div style={{ marginBottom: '3rem', textAlign: 'left' }} data-aos="fade-up">
-                        <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, color: 'var(--text-dark)', margin: 0 }}>
-                            Frequently Asked Questions
+            {/* ================= CUSTOM DEVELOPMENT ================= */}
+
+            <section
+                style={{
+                    padding: '6rem 8%',
+                    background: 'rgba(157, 0, 255, 0.01)'
+                }}
+            >
+                <div
+                    className="grid-2"
+                    style={{
+                        gap: '4rem',
+                        alignItems: 'center'
+                    }}
+                >
+                    <div data-aos="fade-up">
+                        <span className="section-tag">
+                            Custom Services
+                        </span>
+
+                        <h2
+                            style={{
+                                fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                                fontWeight: 800,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            Bespoke Software Development
+                            <br />
+                            <span className="gradient-text">
+                                for Specific Requirements
+                            </span>
                         </h2>
+
+                        <p
+                            style={{
+                                fontSize: '1.15rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.8,
+                                marginBottom: '1.5rem'
+                            }}
+                        >
+                            When a business needs software built around its
+                            own processes, a bespoke software development
+                            service may be more appropriate. Fly Towards
+                            Digital Innovation provides{' '}
+                            <Link
+                                to="/services/custom-software-development/"
+                                style={{
+                                    color: 'var(--primary)',
+                                    fontWeight: 600
+                                }}
+                            >
+                                Custom Software Development Services
+                            </Link>
+                            , Enterprise Software Development, SaaS
+                            Development, Web Application Development and
+                            Mobile App Development.
+                        </p>
+
+                        <p
+                            style={{
+                                fontSize: '1.15rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.8,
+                                marginBottom: '2rem'
+                            }}
+                        >
+                            Custom development can be considered when the
+                            requirement involves functionality or workflows
+                            that cannot be adequately addressed by an existing
+                            product.
+                        </p>
+
+                        <Link
+                            to="/services/custom-software-development/"
+                            className="btn btn-outline"
+                            style={{
+                                display: 'inline-flex',
+                                padding: '1rem 2.5rem',
+                                border: '1px solid var(--border)'
+                            }}
+                        >
+                            Explore Custom Software Development
+                            <ArrowRight
+                                size={18}
+                                style={{
+                                    marginLeft: '8px'
+                                }}
+                            />
+                        </Link>
                     </div>
 
-                    <div style={{ borderTop: '1px solid #e2e8f0' }} data-aos="fade-up">
-                        {faqs.map((faq, idx) => {
-                            const isOpen = activeFaq === idx;
-                            return (
-                                <div key={idx} style={{ borderBottom: '1px solid #e2e8f0' }}>
-                                    <button
-                                        onClick={() => toggleFaq(idx)}
+                    <div
+                        className="card"
+                        data-aos="fade-up"
+                        style={{
+                            padding: '2.5rem',
+                            borderRadius: '24px',
+                            border: '1px solid var(--border)',
+                            background: 'var(--bg-white)'
+                        }}
+                    >
+                        <span className="section-tag">
+                            IT Development
+                        </span>
+
+                        <h3
+                            style={{
+                                fontSize: '1.5rem',
+                                fontWeight: 800,
+                                marginBottom: '1.2rem'
+                            }}
+                        >
+                            Business Software & IT Development
+                        </h3>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.7,
+                                marginBottom: '1.2rem'
+                            }}
+                        >
+                            Business software sits at the intersection of
+                            business requirements and technical implementation.
+                            A useful solution needs to address both sides.
+                        </p>
+
+                        <p
+                            style={{
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.7
+                            }}
+                        >
+                            The business needs to understand what the software
+                            should accomplish, while the technical
+                            implementation needs to support the required
+                            functionality, users, data and integrations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= INDUSTRIES ================= */}
+
+            <section
+                style={{
+                    padding: '6rem 8%'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        maxWidth: '800px',
+                        margin: '0 auto 4rem'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span className="section-tag">
+                        Industry Solutions
+                    </span>
+
+                    <h2
+                        style={{
+                            fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                            fontWeight: 800
+                        }}
+                    >
+                        Industry-Specific{' '}
+                        <span className="gradient-text">
+                            Software Solutions
+                        </span>
+                    </h2>
+
+                    <p
+                        style={{
+                            fontSize: '1.15rem',
+                            color: 'var(--text-muted)',
+                            marginTop: '1rem',
+                            lineHeight: 1.8
+                        }}
+                    >
+                        We design and develop bespoke solutions tailored
+                        specifically to the standards, compliances, and
+                        workflows of various industry sectors.
+                    </p>
+                </div>
+
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns:
+                            'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: '2rem',
+                        maxWidth: '1200px',
+                        margin: '0 auto'
+                    }}
+                >
+                    {industries.map((ind, idx) => (
+                        <Link
+                            to={ind.path}
+                            key={idx}
+                            className="card"
+                            data-aos="fade-up"
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '15px',
+                                padding: '1.5rem 2rem',
+                                borderRadius: '16px',
+                                border: '1px solid var(--border)',
+                                background: 'var(--bg-white)',
+                                textDecoration: 'none',
+                                transition: 'all 0.3s ease',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    background:
+                                        'rgba(0, 242, 255, 0.05)',
+                                    padding: '10px',
+                                    borderRadius: '10px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                            >
+                                {ind.icon}
+                            </div>
+
+                            <span
+                                style={{
+                                    fontSize: '1.1rem',
+                                    fontWeight: 700,
+                                    color: 'var(--text-dark)'
+                                }}
+                            >
+                                {ind.name}
+                            </span>
+                        </Link>
+                    ))}
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+
+            <section
+                id="faq"
+                style={{
+                    padding: '6rem 8%',
+                    background: 'rgba(157, 0, 255, 0.01)'
+                }}
+            >
+                <div
+                    style={{
+                        textAlign: 'center',
+                        marginBottom: '4rem'
+                    }}
+                    data-aos="fade-up"
+                >
+                    <span
+                        className="section-tag"
+                        style={{
+                            margin: '0 auto 1.5rem'
+                        }}
+                    >
+                        FAQ
+                    </span>
+
+                    <h2
+                        style={{
+                            fontSize: 'clamp(2rem, 4vw, 3rem)'
+                        }}
+                    >
+                        Frequently Asked{' '}
+                        <span className="gradient-text">
+                            Questions
+                        </span>
+                    </h2>
+
+                    <p
+                        style={{
+                            fontSize: '1.15rem',
+                            color: 'var(--text-muted)',
+                            maxWidth: '700px',
+                            margin: '1rem auto 0'
+                        }}
+                    >
+                        Understand more about business software solutions and
+                        our delivery models.
+                    </p>
+                </div>
+
+                <div
+                    style={{
+                        maxWidth: '800px',
+                        margin: '0 auto'
+                    }}
+                    data-aos="fade-up"
+                >
+                    {faqs.map((faq, idx) => {
+                        const isOpen = activeFaq === idx;
+
+                        return (
+                            <div
+                                key={idx}
+                                style={{
+                                    borderBottom:
+                                        '1px solid var(--border)',
+                                    padding: '1.5rem 0',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => toggleFaq(idx)}
+                            >
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent:
+                                            'space-between',
+                                        alignItems: 'center',
+                                        gap: '1rem'
+                                    }}
+                                >
+                                    <h3
                                         style={{
-                                            width: '100%',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '16px',
-                                            padding: '1.5rem 0',
-                                            background: 'none',
-                                            border: 'none',
-                                            textAlign: 'left',
-                                            cursor: 'pointer',
-                                            color: 'var(--text-dark)',
-                                            outline: 'none',
-                                            transition: 'all 0.2s ease'
+                                            fontSize: '1.25rem',
+                                            fontWeight: 700,
+                                            margin: 0,
+                                            color: isOpen
+                                                ? 'var(--secondary)'
+                                                : 'var(--text-dark)',
+                                            transition:
+                                                'color 0.3s ease',
+                                            textAlign: 'left'
                                         }}
                                     >
-                                        <span style={{ 
-                                            fontSize: '1.4rem', 
-                                            fontWeight: '400', 
-                                            color: 'var(--text-dark)',
-                                            minWidth: '20px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            flexShrink: 0
-                                        }}>
-                                            {isOpen ? '−' : '+'}
-                                        </span>
-                                        <span style={{ fontSize: '1.15rem', fontWeight: 600, color: 'var(--text-dark)' }}>{faq.q}</span>
-                                    </button>
-                                    
-                                    <div style={{
-                                        maxHeight: isOpen ? '250px' : '0',
-                                        overflow: 'hidden',
-                                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                        opacity: isOpen ? 1 : 0,
-                                        paddingLeft: '36px',
-                                        paddingBottom: isOpen ? '1.5rem' : '0'
-                                    }}>
-                                        <p style={{
-                                            margin: 0,
-                                            color: 'var(--text-muted)',
-                                            fontSize: '1.02rem',
-                                            lineHeight: 1.7
-                                        }}>
-                                            {faq.a}
-                                        </p>
+                                        {faq.q}
+                                    </h3>
+
+                                    <div
+                                        style={{
+                                            transform: isOpen
+                                                ? 'rotate(180deg)'
+                                                : 'rotate(0deg)',
+                                            transition:
+                                                'transform 0.3s ease',
+                                            color: isOpen
+                                                ? 'var(--secondary)'
+                                                : 'var(--text-muted)'
+                                        }}
+                                    >
+                                        <ChevronDown size={24} />
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
+
+                                <div
+                                    style={{
+                                        maxHeight: isOpen
+                                            ? '300px'
+                                            : '0px',
+                                        overflow: 'hidden',
+                                        transition:
+                                            'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                                        opacity: isOpen ? 1 : 0
+                                    }}
+                                >
+                                    <p
+                                        style={{
+                                            color:
+                                                'var(--text-muted)',
+                                            fontSize: '1.05rem',
+                                            lineHeight: 1.7,
+                                            marginTop: '1rem',
+                                            marginBottom: '0.5rem',
+                                            textAlign: 'left'
+                                        }}
+                                    >
+                                        {faq.a}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
 
-            {/* Find the Right Software for Your Business CTA Section */}
-            <section style={{ padding: '6rem 8% 7rem', borderTop: '1px solid var(--border)', background: 'var(--bg-white)' }}>
-                <div className="cta-content" data-aos="zoom-in" style={{
-                    textAlign: 'center',
-                    background: 'linear-gradient(135deg, #0f172a 0%, #061b3b 100%)',
-                    padding: '5rem 3rem',
-                    borderRadius: '40px',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    boxShadow: '0 30px 60px rgba(15, 23, 42, 0.25)',
-                    maxWidth: '1100px',
-                    margin: '0 auto',
-                    color: '#fff'
-                }}>
-                    <span className="section-tag" style={{ justifyContent: 'center', display: 'inline-flex', margin: '0 auto 1rem' }}>
-                        Get Started
-                    </span>
-                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: 'white', marginBottom: '1.5rem' }}>
-                        Find the Right Software for Your Business
-                    </h2>
-                    <p style={{ fontSize: '1.15rem', margin: '0 auto 2.5rem', color: '#cbd5e1', maxWidth: '850px', lineHeight: 1.7 }}>
-                        Whether you are looking for business management software, evaluating a CRM or billing product, or have a requirement that needs a more tailored solution, the starting point should be the business problem you want to solve.
-                        Explore the available products to understand their purpose and capabilities.
-                        If your requirement does not fit an existing product, discuss it with the software development team to determine whether a custom solution would be appropriate.
-                    </p>
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <a href="#our-products" className="btn btn-primary" style={{ padding: '1.1rem 2.5rem' }}>
-                            Explore Our Products
-                        </a>
-                        <Link to="/contact/" className="btn btn-outline" style={{ padding: '1.1rem 2.5rem', border: '2px solid rgba(255, 255, 255, 0.2)', color: '#fff', background: 'transparent' }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#fff'; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; }}>
-                            Discuss a Custom Software Requirement
-                        </Link>
+            {/* ================= CTA ================= */}
+
+            <section
+                id="contact"
+                style={{
+                    padding: '6rem 1rem'
+                }}
+            >
+                <div
+                    className="cta-content"
+                    data-aos="zoom-in"
+                    style={{
+                        textAlign: 'center',
+                        padding: '6rem 3rem',
+                        borderRadius: '40px',
+                        border:
+                            '1px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow:
+                            '0 20px 50px rgba(0,0,0,0.15)',
+                        maxWidth: '1200px',
+                        margin: '0 auto',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        background:
+                            'url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1800) center/cover no-repeat'
+                    }}
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            background:
+                                'linear-gradient(135deg, rgba(16, 24, 40, 0.95) 0%, rgba(10, 15, 25, 0.98) 100%)',
+                            zIndex: 1
+                        }}
+                    />
+
+                    <div
+                        style={{
+                            position: 'relative',
+                            zIndex: 2,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <span
+                            className="section-tag"
+                            style={{
+                                color: 'var(--primary)',
+                                marginBottom: '1.5rem',
+                                justifyContent: 'center',
+                                marginInline: 'auto'
+                            }}
+                        >
+                            Next Steps
+                        </span>
+
+                        <h2
+                            style={{
+                                fontSize:
+                                    'clamp(2.5rem, 5vw, 4rem)',
+                                fontWeight: 800,
+                                color: '#fff',
+                                marginBottom: '1rem'
+                            }}
+                        >
+                            Find the Right Software{' '}
+                            <span className="gradient-text">
+                                for Your Business
+                            </span>
+                        </h2>
+
+                        <p
+                            style={{
+                                fontSize: '1.25rem',
+                                margin: '2rem auto 3rem',
+                                maxWidth: '800px',
+                                color: 'rgba(255,255,255,0.75)',
+                                lineHeight: 1.8
+                            }}
+                        >
+                            Whether you are looking for business management
+                            software, evaluating a CRM or billing product, or
+                            have a requirement that needs a more tailored
+                            solution, the starting point should be the business
+                            problem you want to solve.
+                        </p>
+
+                        <div
+                            style={{
+                                display: 'flex',
+                                gap: '1.5rem',
+                                justifyContent: 'center',
+                                flexWrap: 'wrap'
+                            }}
+                        >
+                            <a
+                                href="#products"
+                                className="btn btn-primary"
+                                style={{
+                                    padding: '1.2rem 3rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    boxShadow:
+                                        '0 10px 30px rgba(0, 242, 255, 0.3)'
+                                }}
+                            >
+                                Explore Our Products
+                                <ArrowRight size={20} />
+                            </a>
+
+                            <Link
+                                to="/contact/"
+                                className="btn btn-outline"
+                                style={{
+                                    padding: '1.2rem 3rem',
+                                    color: '#fff',
+                                    borderColor:
+                                        'rgba(255,255,255,0.3)',
+                                    background:
+                                        'rgba(255,255,255,0.05)'
+                                }}
+                            >
+                                Discuss a Custom Software Requirement
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
