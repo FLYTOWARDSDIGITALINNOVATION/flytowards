@@ -4,27 +4,6 @@ import { useEffect } from 'react';
 const FlyBill = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-<<<<<<< HEAD
-=======
-
-        document.title = "Fly Bill | The Best And Top Billing Software";
-
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content",
-            "Fly Bill The Billing Software Help to Business Growth and Reduce the Time for Your Business");
-
-        const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content",
-            "Invoice Software, Automated billing Software");
-
-        const robots = document.querySelector('meta[name="robots"]');
-        if (robots) robots.setAttribute("content", "index, follow");
-
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/fly-bill");
-
->>>>>>> origin/main
     }, []);
 
     const challenges = [
@@ -32,44 +11,28 @@ const FlyBill = () => {
             title: "Billing Errors",
             description: "Manual calculations cause mistakes and customer dissatisfaction.",
             icon: <FileText size={40} color="var(--secondary)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1507208356972-e567eb72acc3?q=80&w=1000&auto=format&fit=crop", // Stressed professional in a sleek environment
-=======
-            image: "Error.webp", // Stressed professional in a sleek environment
->>>>>>> origin/main
             delay: "0.1s"
         },
         {
             title: "GST Complexity",
             description: "Tax compliance becomes stressful without automation.",
             icon: <TrendingUp size={40} color="var(--primary)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop", // Beautifully lit tax/accounting documents
-=======
-            image: "GST-Complexity.webp", // Beautifully lit tax/accounting documents
->>>>>>> origin/main
             delay: "0.2s"
         },
         {
             title: "Delayed Payments",
             description: "Poor payment tracking affects cash flow.",
             icon: <Clock size={40} color="var(--accent)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?q=80&w=1000&auto=format&fit=crop", // Premium minimalist clock/time tracking
-=======
-            image: "Delayed-Payment.webp", // Premium minimalist clock/time tracking
->>>>>>> origin/main
             delay: "0.3s"
         },
         {
             title: "No Insights",
             description: "Lack of reports blocks smart business decisions.",
             icon: <Database size={40} color="var(--secondary)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1606189201503-4c92f1cbfa1f?q=80&w=1000&auto=format&fit=crop", // Elegant magnifying glass analyzing documents
-=======
-            image: "No-Insight.webp", // Elegant magnifying glass analyzing documents
->>>>>>> origin/main
             delay: "0.4s"
         }
     ];
@@ -79,41 +42,25 @@ const FlyBill = () => {
             title: "Smart GST Invoicing",
             description: "Automatic CGST, SGST & IGST calculations with branded invoices.",
             icon: <Settings size={40} color="var(--primary)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1000&auto=format&fit=crop" // Elegant tablet showing financial calculations
-=======
-            image: "Smart-GST-Invoicing.webp" // Elegant tablet showing financial calculations
->>>>>>> origin/main
         },
         {
             title: "Inventory Management",
             description: "Live stock tracking and low-stock alerts.",
             icon: <Briefcase size={40} color="var(--secondary)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1583095123989-138d6df7247a?q=80&w=1000&auto=format&fit=crop" // Beautifully organized high-end shelves
-=======
-            image: "Inventory Management.webp" // Beautifully organized high-end shelves
->>>>>>> origin/main
         },
         {
             title: "Customer & Credit",
             description: "Track customer history, dues and credit limits.",
             icon: <Users size={40} color="var(--accent)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1000&auto=format&fit=crop" // Premium retail customer transaction
-=======
-            image: "Customer & Credit.webp" // Premium retail customer transaction
->>>>>>> origin/main
         },
         {
             title: "Payment Tracking",
             description: "Monitor cash, UPI, card and bank payments.",
             icon: <Smartphone size={40} color="var(--primary)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1000&auto=format&fit=crop" // Sleek modern POS payment terminal
-=======
-            image: "payment Tracking.webp" // Sleek modern POS payment terminal
->>>>>>> origin/main
         },
         {
             title: "Reports & Analytics",
@@ -125,11 +72,7 @@ const FlyBill = () => {
             title: "Secure Cloud",
             description: "Anytime access with backups and role-based control.",
             icon: <Lock size={40} color="var(--accent)" />,
-<<<<<<< HEAD
             image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop" // Sleek professional neon server room
-=======
-            image: "Secure Cloud.webp" // Sleek professional neon server room
->>>>>>> origin/main
         }
     ];
 
@@ -148,11 +91,7 @@ const FlyBill = () => {
                     <div data-aos="fade-up">
                         <span className="section-tag">Fly Bill Ecosystem</span>
                         <h1 className="hero-title">
-<<<<<<< HEAD
                             Professional Billing <br />
-=======
-                            Fly Bill The Professional Billing <br />
->>>>>>> origin/main
                             <span className="gradient-text">Software</span>
                         </h1>
                         <h2 className="mb-4" style={{ fontSize: '1.8rem', fontWeight: 700, opacity: 0.9 }}>
@@ -165,21 +104,14 @@ const FlyBill = () => {
                             <a href="#contact" className="btn btn-primary">
                                 Request a Demo <ArrowRight size={20} />
                             </a>
-<<<<<<< HEAD
                             <a href="#pricing" className="btn btn-outline" style={{ border: '1px solid var(--border)' }}>View Pricing</a>
-=======
->>>>>>> origin/main
                         </div>
                     </div>
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
                             <img
-<<<<<<< HEAD
                                 src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
-=======
-                                src="Products.jpg.webp"
->>>>>>> origin/main
                                 alt="Fly Bill Dashboard Innovation"
                                 className="floating-img"
                                 style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
@@ -207,11 +139,7 @@ const FlyBill = () => {
                                 </div>
                             </div>
                             
-<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=300&auto=format&fit=crop" alt="Payments" style={{
-=======
-                            <img src="payment.webp" alt="Payments" style={{
->>>>>>> origin/main
                                 position: 'absolute',
                                 top: '-20px',
                                 left: '-30px',
@@ -348,11 +276,7 @@ const FlyBill = () => {
                     </div>
                     <div data-aos="fade-left" style={{ position: 'relative', padding: '2rem' }}>
                         <div style={{ position: 'relative', borderRadius: '40px', padding: '1rem', background: 'rgba(255,255,255,0.7)', border: '1px solid var(--border)', boxShadow: '0 30px 60px rgba(0,0,0,0.1)', zIndex: 2 }}>
-<<<<<<< HEAD
                             <img src="https://images.unsplash.com/photo-1620802051798-8df09e6c2718?q=80&w=1000&auto=format&fit=crop" alt="Efficient Workflow" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover' }} />
-=======
-                            <img src="/Designed for Efficiency.webp" alt="Designed for Efficiency" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover' }} />
->>>>>>> origin/main
                         </div>
                         {/* Floating elements */}
                         <div style={{ position: 'absolute', top: '5%', left: '0%', background: 'white', padding: '1.5rem', borderRadius: '25px', boxShadow: '0 15px 40px rgba(0,0,0,0.15)', animation: 'float 5s ease-in-out infinite', zIndex: 3 }}>
@@ -373,13 +297,8 @@ const FlyBill = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }} data-aos="fade-up">
                     {[
                         { title: 'Retail & Wholesale', img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop' }, // Beautiful modern neon clothing store
-<<<<<<< HEAD
                         { title: 'Medical & Pharmacy', img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop' }, // Clean pristine medical environment
                         { title: 'Restaurants & Cafes', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop' }, // Gorgeous moody fine dining
-=======
-                        { title: 'Medical & Pharmacy', img: 'pharmacy.webp' }, // Clean pristine medical environment
-                        { title: 'Restaurants & Cafes', img: 'Restaurants & Cafes.jpg' }, // Gorgeous moody fine dining
->>>>>>> origin/main
                         { title: 'Service Providers', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop' } // Sleek modern office handshake
                     ].map((industry, idx) => (
                         <div key={idx} style={{ position: 'relative', height: '200px', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }}>
@@ -409,23 +328,7 @@ const FlyBill = () => {
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(255, 255, 255, 0.9)', backdropFilter: 'blur(5px)' }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 1 }}>
-<<<<<<< HEAD
                         <span className="section-tag" style={{ background: 'white' }}>Take the Next Step</span>
-=======
-                        <span style={{
-                            display: 'inline-flex',
-                            padding: '0.5rem 1.2rem',
-                            background: 'rgba(255, 0, 122, 0.08)',
-                            border: '1px solid rgba(255, 0, 122, 0.2)',
-                            borderRadius: '50px',
-                            marginBottom: '1.5rem',
-                            fontWeight: 800,
-                            fontSize: '0.85rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '2px',
-                            color: 'var(--secondary)'
-                        }}>Take the Next Step</span>
->>>>>>> origin/main
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
                             Simplify Billing. <br /> <span className="gradient-text">Strengthen Compliance.</span>
                         </h2>
@@ -436,10 +339,7 @@ const FlyBill = () => {
                             <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem' }}>
                                 Book a Free Demo <ArrowRight size={20} />
                             </a>
-<<<<<<< HEAD
                             <a href="mailto:info@flytowards-digital.com" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Request Pricing</a>
-=======
->>>>>>> origin/main
                         </div>
                     </div>
                 </div>

@@ -2,21 +2,11 @@
   "name": "flytowards",
   "version": "1.0.0",
   "description": "Premium Digital Innovation Platform",
-<<<<<<< HEAD
   "main": "index.html",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
-=======
-  "type": "module",
-  "main": "index.html",
-  "scripts": {
-    "dev": "vite --configLoader native",
-    "backend": "npm --prefix server start",
-    "build": "vite build --configLoader native",
-    "preview": "vite preview --configLoader native"
->>>>>>> origin/main
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -32,8 +22,4 @@
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.0.0"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/main

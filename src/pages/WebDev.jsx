@@ -340,11 +340,7 @@ const WebDev = () => {
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                                 {whyChooseUs.map((item, idx) => (
-<<<<<<< HEAD
                                     <div key={idx} style={{ padding: '1.5rem 0 1.5rem 2.5rem', background: 'transparent', borderRadius: '0', border: 'none', borderLeft: '3.5px solid rgba(15, 23, 42, 0.08)', boxShadow: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(8px)'; e.currentTarget.style.borderLeftColor = 'var(--primary)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0)'; e.currentTarget.style.borderLeftColor = 'rgba(15, 23, 42, 0.08)'; }}>
-=======
-                                    <div key={idx} style={{ padding: '4.5rem', background: '#fff', borderRadius: '55px', border: '1px solid #f1f5f9', boxShadow: '0 30px 70px rgba(0,0,0,0.04)', transition: 'transform 0.4s ease' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
->>>>>>> origin/main
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '25px', marginBottom: '2rem' }}>
                                             <div style={{ width: '80px', height: '80px', background: `rgba(${item.color}, 0.1)`, borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                                                 {React.cloneElement(item.icon, { color: `rgb(${item.color})`, size: 38 })}

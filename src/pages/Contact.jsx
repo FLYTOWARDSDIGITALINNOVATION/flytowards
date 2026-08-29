@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 const Contact = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-<<<<<<< HEAD
     }, []);
 
     const [formStatus, setFormStatus] = useState(null);
@@ -20,74 +19,6 @@ const Contact = () => {
             setSelectedSubject('Digital Marketing');
             setTimeout(() => setFormStatus(null), 5000);
         }, 1500);
-=======
-
-        document.title = "Contact Fly Towards Digital Innovation";
-
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) metaDescription.setAttribute("content",
-            "Let's Talk Share Your Innovation and Idea to us, We are here to help you");
-
-        const metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) metaKeywords.setAttribute("content",
-            "Digital marketing services, Payroll Software, CRM Software, website development");
-
-        const robots = document.querySelector('meta[name="robots"]');
-        if (robots) robots.setAttribute("content", "index, follow");
-
-        const canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) canonical.setAttribute("href",
-            "https://flytowardsdigitalinnovation.com/contact");
-
-    }, []);
-
-    const [formStatus, setFormStatus] = useState(null);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        // Ensure no inputs are empty or just whitespace
-        const form = e.target;
-        const requiredElements = form.querySelectorAll('input[required], textarea[required]');
-        let hasErrors = false;
-        
-        requiredElements.forEach(el => {
-            if (!el.value.trim()) {
-                el.style.border = '2px solid red';
-                hasErrors = true;
-            } else {
-                el.style.border = '1px solid var(--border)';
-            }
-        });
-        
-        if (hasErrors) {
-            alert('Please fill out all required fields properly.');
-            return;
-        }
-
-        setFormStatus('sending');
-        
-        try {
-            const formData = new FormData(form);
-            // Using FormSubmit.co AJAX for professional in-page feedback
-            const response = await fetch("https://formsubmit.co/ajax/info@flytowardsdigitalinnovation.com", {
-                method: "POST",
-                body: formData
-            });
-
-            if (response.ok) {
-                setFormStatus('success');
-                e.target.reset();
-                setTimeout(() => setFormStatus(null), 8000);
-            } else {
-                throw new Error("Submission failed");
-            }
-        } catch (error) {
-            console.error("Submission Error:", error);
-            setFormStatus('error');
-            setTimeout(() => setFormStatus(null), 5000);
-        }
->>>>>>> origin/main
     };
 
     const whyChooseUs = [
@@ -97,11 +28,8 @@ const Contact = () => {
         { icon: <Target size={24} color="var(--primary)" />, text: "Custom Strategies" }
     ];
 
-<<<<<<< HEAD
     const subjectOptions = ['Digital Marketing', 'Web Development'];
 
-=======
->>>>>>> origin/main
     return (
         <main>
             <div className="mesh-bg"></div>
@@ -113,12 +41,8 @@ const Contact = () => {
                         <Send size={18} /> Contact Us
                     </span>
                     <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-<<<<<<< HEAD
                         Let’s Take Your Business to <br />
                         <span className="gradient-text">New Digital Heights</span>
-=======
-                        Contact Us
->>>>>>> origin/main
                     </h1>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
                         Have a project in mind? Need more customers? Or want to grow your brand online? Our team is here to support your digital journey every step of the way.
@@ -155,11 +79,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 700 }}>Email Address</h4>
-<<<<<<< HEAD
                                         <a href="mailto:flytowardsdigitalinnovation@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', textDecoration: 'none', wordBreak: 'break-all' }}>flytowardsdigitalinnovation@gmail.com</a>
-=======
-                                        <a href="mailto:info@flytowardsdigitalinnovation.com" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', textDecoration: 'none', wordBreak: 'break-all' }}>info@flytowardsdigitalinnovation.com</a>
->>>>>>> origin/main
                                     </div>
                                 </div>
 
@@ -187,15 +107,9 @@ const Contact = () => {
 
                         <div>
                             <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>Why <span className="gradient-text">Choose Us?</span></h3>
-<<<<<<< HEAD
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
                                 {whyChooseUs.map((item, idx) => (
                                     <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'var(--bg-white)', padding: '1rem', borderRadius: '10px', boxShadow: 'var(--shadow)', border: '1px solid var(--border)' }}>
-=======
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem' }}>
-                                {whyChooseUs.map((item, idx) => (
-                                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'var(--bg-white)', padding: '1rem', borderRadius: '15px', boxShadow: 'var(--shadow)', border: '1px solid var(--border)' }}>
->>>>>>> origin/main
                                         {item.icon}
                                         <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>{item.text}</span>
                                     </div>
@@ -214,34 +128,21 @@ const Contact = () => {
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>First Name</label>
-<<<<<<< HEAD
                                     <input type="text" required placeholder="First Name" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                     <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Last Name</label>
                                     <input type="text" required placeholder="Last Name" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
-=======
-                                    <input type="text" name="First Name" required placeholder="John" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
-                                </div>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                    <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Last Name</label>
-                                    <input type="text" name="Last Name" required placeholder="Doe" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
->>>>>>> origin/main
                                 </div>
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Email Address</label>
-<<<<<<< HEAD
                                 <input type="email" required placeholder="Your mail address" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
-=======
-                                <input type="email" name="Email" required placeholder="john@example.com" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
->>>>>>> origin/main
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Subject</label>
-<<<<<<< HEAD
                                 <select name="subject" required defaultValue="" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', color: 'var(--text-dark)' }}>
                                     <option value="" disabled>Select a subject</option>
                                     <option value="Digital Marketing">Digital Marketing</option>
@@ -252,41 +153,20 @@ const Contact = () => {
                                     <option value="Courses & Internship">Courses & Internship</option>
                                     <option value="Customized Software">Customized Software</option>
                                 </select>
-=======
-                                <input type="text" name="Subject" required placeholder="Project Inquiry" style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem' }} />
->>>>>>> origin/main
                             </div>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                 <label style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-dark)' }}>Your Message</label>
-<<<<<<< HEAD
                                 <textarea rows="5" required placeholder="Tell us about your project..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', resize: 'vertical' }}></textarea>
                             </div>
 
                             <button type="submit" disabled={formStatus === 'sending'} className="btn btn-primary" style={{ padding: '1.2rem', fontSize: '1.1rem', width: '100%', marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                                 {formStatus === 'sending' ? 'Sending...' : 'Submit Form'} {formStatus !== 'sending' && <Send size={20} />}
-=======
-                                <textarea name="Message" rows="5" required placeholder="Tell us about your project..." style={{ padding: '1rem', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-white)', fontSize: '1rem', resize: 'vertical' }}></textarea>
-                            </div>
-
-                            <button type="submit" disabled={formStatus === 'sending'} className="btn btn-primary" style={{ padding: '1.2rem', fontSize: '1.1rem', width: '100%', marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                                {formStatus === 'sending' ? 'Sending...' : 'Submit Form to Gmail'} {formStatus !== 'sending' && <Send size={20} />}
->>>>>>> origin/main
                             </button>
 
                             {formStatus === 'success' && (
                                 <div style={{ background: 'rgba(0, 242, 255, 0.1)', color: 'var(--primary)', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
-<<<<<<< HEAD
                                     Thank you! Your message has been sent successfully.
-=======
-                                    Thank you! Your message has been sent successfully to info@flytowardsdigitalinnovation.com.
-                                </div>
-                            )}
-
-                            {formStatus === 'error' && (
-                                <div style={{ background: 'rgba(255, 0, 0, 0.1)', color: 'red', padding: '1rem', borderRadius: '10px', textAlign: 'center', fontWeight: 600, marginTop: '1rem' }}>
-                                    Submission failed. Please try again or contact us via WhatsApp.
->>>>>>> origin/main
                                 </div>
                             )}
                         </form>
@@ -297,8 +177,4 @@ const Contact = () => {
     );
 };
 
-<<<<<<< HEAD
 export default Contact;
-=======
-export default Contact;
->>>>>>> origin/main
