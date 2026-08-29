@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from 'react';
 import { Users, Zap, ArrowRight, ShieldCheck, Lightbulb, Smartphone, Code } from 'lucide-react';
 
 const Careers = () => {
