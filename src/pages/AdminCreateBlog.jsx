@@ -1,22 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, UploadCloud, Save, Image as ImageIcon, Trash2, PenTool, RefreshCw } from 'lucide-react';
-import { API_BASE_URL } from '../config';
-import './AdminCreateBlog.css';
-
-const AdminCreateBlog = () => {
-    // Tab State: 'create' or 'manage'
-    const [activeTab, setActiveTab] = useState('create');
-    
-    // Create Blog States
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [coverImage, setCoverImage] = useState(null); // Preview URL
-    const [imageFile, setImageFile] = useState(null); // Actual File to send to server
-    const [isPublishing, setIsPublishing] = useState(false);
-    
-    // Manage Blogs States
-    const [blogs, setBlogs] = useState([]);
-    const [isFetching, setIsFetching] = useState(false);
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
     ArrowRight,
@@ -110,8 +91,6 @@ const AdminCreateBlog = () => {
     // Global Status Message State
     const [status, setStatus] = useState({ message: '', type: '' });
 
-<<<<<<< HEAD
-=======
     // Editor refs/state
     const editorRef = useRef(null);
     const inlineImageInputRef = useRef(null);
@@ -142,7 +121,6 @@ const AdminCreateBlog = () => {
         return !plain && !hasImage;
     }, [content]);
 
->>>>>>> origin/main
     // Fetch existing blogs when switching to Manage tab
     useEffect(() => {
         if (activeTab === 'manage') {
@@ -153,12 +131,6 @@ const AdminCreateBlog = () => {
     const fetchBlogs = async () => {
         setIsFetching(true);
         try {
-<<<<<<< HEAD
-            const response = await fetch(`${API_BASE_URL}/blogs`);
-            if (response.ok) {
-                const data = await response.json();
-                setBlogs(data);
-=======
             const response = await fetch(buildApiUrl('/blogs'));
             if (response.ok) {
                 const data = await response.json();
@@ -166,7 +138,6 @@ const AdminCreateBlog = () => {
                     ? [...data].sort((a, b) => new Date(b?.createdAt || 0) - new Date(a?.createdAt || 0))
                     : [];
                 setBlogs(sorted);
->>>>>>> origin/main
             } else {
                 console.error("Failed to fetch blogs from server");
             }
@@ -177,18 +148,6 @@ const AdminCreateBlog = () => {
         }
     };
 
-<<<<<<< HEAD
-    const handleCoverImageUpload = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setCoverImage(URL.createObjectURL(file));
-            setImageFile(file); // Save file for uploading
-        }
-    };
-
-    const handlePublish = async () => {
-        if (!title || !content) {
-=======
     // Hydrate draft once on load
     useEffect(() => {
         try {
@@ -602,18 +561,13 @@ const AdminCreateBlog = () => {
 
     const handlePublish = async () => {
         if (!title || isEditorEmpty) {
->>>>>>> origin/main
             setStatus({ message: 'Please enter a title and content before publishing.', type: 'error' });
             setTimeout(() => setStatus({ message: '', type: '' }), 4000);
             return;
         }
 
         setIsPublishing(true);
-<<<<<<< HEAD
-        setStatus({ message: 'Publishing blog...', type: 'info' });
-=======
         setStatus({ message: editingBlogId ? 'Updating blog...' : 'Publishing blog...', type: 'info' });
->>>>>>> origin/main
 
         const formData = new FormData();
         formData.append('title', title);
@@ -623,23 +577,15 @@ const AdminCreateBlog = () => {
         }
 
         try {
-<<<<<<< HEAD
-            const response = await fetch(`${API_BASE_URL}/blogs`, {
-                method: 'POST',
-=======
             const url = editingBlogId ? buildApiUrl(`/blogs/${editingBlogId}`) : buildApiUrl('/blogs');
             const method = editingBlogId ? 'PATCH' : 'POST';
 
             const response = await fetch(url, {
                 method: method,
->>>>>>> origin/main
                 body: formData, // Sending form data so image can be uploaded
             });
 
             if (response.ok) {
-<<<<<<< HEAD
-                setStatus({ message: 'Blog published successfully!', type: 'success' });
-=======
                 const payload = await parseResponseBody(response);
 
                 if (payload?.blog) {
@@ -658,26 +604,14 @@ const AdminCreateBlog = () => {
                     : 'saved to MongoDB';
 
                 setStatus({
-                    message: `Blog ${actionWord} successfully — ${publishNote}.`,
+                    message: `Blog ${actionWord} successfully ÔÇö ${publishNote}.`,
                     type: 'success'
                 });
 
->>>>>>> origin/main
                 // Reset form
                 setTitle('');
                 setContent('');
                 setCoverImage(null);
-<<<<<<< HEAD
-                setImageFile(null);
-                
-                setTimeout(() => setStatus({ message: '', type: '' }), 4000);
-            } else {
-                setStatus({ message: 'Failed to publish. Check server logs.', type: 'error' });
-            }
-        } catch (error) {
-            console.error('Publish error:', error);
-            setStatus({ message: 'Could not connect to server. Is it running on port 5000?', type: 'error' });
-=======
                 setCoverImageDataUrl(null);
                 setImageFile(null);
                 setEditingBlogId(null);
@@ -707,7 +641,6 @@ const AdminCreateBlog = () => {
                 message: `Could not connect to server (${API_BASE_URL}). Start the backend with \`cd server && npm start\`.`,
                 type: 'error'
             });
->>>>>>> origin/main
         } finally {
             setIsPublishing(false);
         }
@@ -722,27 +655,13 @@ const AdminCreateBlog = () => {
         setStatus({ message: 'Deleting blog post...', type: 'info' });
 
         try {
-<<<<<<< HEAD
-            const response = await fetch(`${API_BASE_URL}/blogs/${id}`, {
-=======
             const response = await fetch(buildApiUrl(`/blogs/${id}`), {
->>>>>>> origin/main
                 method: 'DELETE',
             });
 
             if (response.ok) {
                 setStatus({ message: 'Blog post deleted successfully!', type: 'success' });
                 // Filter out the deleted blog from UI state
-<<<<<<< HEAD
-                setBlogs(blogs.filter(blog => blog._id !== id));
-                setTimeout(() => setStatus({ message: '', type: '' }), 4000);
-            } else {
-                setStatus({ message: 'Failed to delete. Check server logs.', type: 'error' });
-            }
-        } catch (error) {
-            console.error('Delete error:', error);
-            setStatus({ message: 'Could not connect to server to delete.', type: 'error' });
-=======
                 setBlogs((currentBlogs) => currentBlogs.filter((blog) => blog._id !== id));
                 if (editingBlogId === id) {
                     handleCancelEdit();
@@ -797,7 +716,6 @@ const AdminCreateBlog = () => {
             localStorage.removeItem(DRAFT_STORAGE_KEY);
         } catch {
             // ignore
->>>>>>> origin/main
         }
     };
 
@@ -806,12 +724,6 @@ const AdminCreateBlog = () => {
         return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
-<<<<<<< HEAD
-    return (
-        <section className="admin-blog-section">
-            <div className="mesh-bg"></div>
-            
-=======
     const exec = (command, value = null) => {
         if (!editorRef.current) return;
         editorRef.current.focus();
@@ -914,7 +826,6 @@ const AdminCreateBlog = () => {
         <section className="admin-blog-section">
             <div className="mesh-bg"></div>
 
->>>>>>> origin/main
             <div className="admin-header">
                 <span className="section-tag">Admin Panel</span>
                 <h1 className="hero-title">FlyTowards <span className="gradient-text">Blog Studio</span></h1>
@@ -923,21 +834,13 @@ const AdminCreateBlog = () => {
 
             {/* Premium Tab Navigation */}
             <div className="admin-tabs-nav">
-<<<<<<< HEAD
-                <button 
-=======
                 <button
->>>>>>> origin/main
                     className={`tab-nav-btn ${activeTab === 'create' ? 'active' : ''}`}
                     onClick={() => setActiveTab('create')}
                 >
                     <PenTool size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} /> Create Post
                 </button>
-<<<<<<< HEAD
-                <button 
-=======
                 <button
->>>>>>> origin/main
                     className={`tab-nav-btn ${activeTab === 'manage' ? 'active' : ''}`}
                     onClick={() => setActiveTab('manage')}
                 >
@@ -963,11 +866,7 @@ const AdminCreateBlog = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
                 }}>
                     <span>{status.message}</span>
-<<<<<<< HEAD
-                    <button 
-=======
                     <button
->>>>>>> origin/main
                         onClick={() => setStatus({ message: '', type: '' })}
                         style={{
                             background: 'transparent',
@@ -978,28 +877,12 @@ const AdminCreateBlog = () => {
                             fontWeight: '700'
                         }}
                     >
-                        ×
+                        ├ù
                     </button>
                 </div>
             )}
 
             {activeTab === 'create' ? (
-<<<<<<< HEAD
-                /* Create Post Editor */
-                <div className="editor-container glass-container" data-aos="fade-up">
-                    {/* Editor Actions Toolbar */}
-                    <div className="modern-toolbar">
-                        <div className="toolbar-left">
-                            <span className="draft-status-text">Drafting New Post...</span>
-                        </div>
-
-                        <div className="toolbar-right">
-                            <button className="btn btn-outline draft-btn">
-                                <Save size={16} /> Save Draft
-                            </button>
-                            <button 
-                                className="btn btn-primary publish-btn" 
-=======
                 <>
                 {/* Create Post Editor */}
                 <div className="editor-container glass-container" data-aos="fade-up">
@@ -1015,76 +898,15 @@ const AdminCreateBlog = () => {
                             </button>
                             <button
                                 className="btn btn-primary publish-btn"
->>>>>>> origin/main
                                 onClick={handlePublish}
                                 disabled={isPublishing}
                                 style={{ opacity: isPublishing ? 0.7 : 1 }}
                             >
-<<<<<<< HEAD
-                                {isPublishing ? 'Publishing...' : 'Publish'} <ArrowRight size={16} />
-=======
                                 {isPublishing ? (editingBlogId ? 'Updating...' : 'Publishing...') : (editingBlogId ? 'Update Post' : 'Publish')} <ArrowRight size={16} />
->>>>>>> origin/main
                             </button>
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                    {/* Main Editor Area */}
-                    <div className="editor-main">
-                        {/* Cover Image */}
-                        <div className={`modern-cover-area ${coverImage ? 'has-image' : ''}`}>
-                            {coverImage ? (
-                                <div className="modern-cover-preview">
-                                    <img src={coverImage} alt="Cover" />
-                                    <label className="btn btn-outline change-cover-float">
-                                        <ImageIcon size={16} /> Change Cover Image
-                                        <input type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
-                                    </label>
-                                </div>
-                            ) : (
-                                <div className="modern-cover-placeholder">
-                                    <div className="icon-glow-box">
-                                        <UploadCloud size={40} color="var(--primary)" />
-                                    </div>
-                                    <h3>Add a Cover Image</h3>
-                                    <p>Make your article stand out with a beautiful cover.</p>
-                                    <label className="btn btn-outline mt-4">
-                                        <ImageIcon size={18} /> Upload Image
-                                        <input type="file" accept="image/*" onChange={handleCoverImageUpload} hidden />
-                                    </label>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Editor Content Area */}
-                        <div className="modern-content-inputs">
-                            <textarea 
-                                className="modern-title-input" 
-                                placeholder="Enter your amazing title..."
-                                value={title}
-                                onChange={(e) => {
-                                    setTitle(e.target.value);
-                                    e.target.style.height = 'auto';
-                                    e.target.style.height = (e.target.scrollHeight) + 'px';
-                                }}
-                                rows={1}
-                            />
-                            
-                            <textarea 
-                                className="modern-body-input" 
-                                placeholder="Start writing your story here..."
-                                value={content}
-                                onChange={(e) => {
-                                    setContent(e.target.value);
-                                    e.target.style.height = 'auto';
-                                    e.target.style.height = (e.target.scrollHeight) + 'px';
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-=======
                         {/* Main Editor Area */}
                         <div className="editor-main">
                             {/* Cover Image */}
@@ -1213,7 +1035,7 @@ const AdminCreateBlog = () => {
                                         <h3 id="cover-crop-title">Adjust your image before publishing</h3>
                                     </div>
                                     <button type="button" className="cover-crop-close" onClick={closeCoverCropModal}>
-                                        ×
+                                        ├ù
                                     </button>
                                 </div>
 
@@ -1298,7 +1120,6 @@ const AdminCreateBlog = () => {
                         </div>
                     )}
                 </>
->>>>>>> origin/main
             ) : (
                 /* Manage Posts Dashboard */
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }} data-aos="fade-up">
@@ -1315,14 +1136,6 @@ const AdminCreateBlog = () => {
                                         <h3 className="manage-item-title">{blog.title}</h3>
                                         <span className="manage-item-date">Published on {formatDate(blog.createdAt)}</span>
                                     </div>
-<<<<<<< HEAD
-                                    <button 
-                                        className="manage-delete-btn"
-                                        onClick={() => handleDelete(blog._id, blog.title)}
-                                    >
-                                        <Trash2 size={14} /> Delete
-                                    </button>
-=======
                                     <div className="manage-item-actions">
                                         <button
                                             className="manage-edit-btn"
@@ -1352,7 +1165,6 @@ const AdminCreateBlog = () => {
                                             <Trash2 size={14} /> Delete
                                         </button>
                                     </div>
->>>>>>> origin/main
                                 </div>
                             ))}
                         </div>
