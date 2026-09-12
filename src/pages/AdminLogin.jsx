@@ -11,7 +11,7 @@ const AdminLogin = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
-        
+
         if (email === 'flytowardsdigitalinnovation@gmail.com' && password === 'admin123') {
             navigate('/admin/create-blog');
         } else {
@@ -34,7 +34,7 @@ const AdminLogin = () => {
             backgroundAttachment: 'fixed',
             position: 'relative'
         }}>
-            
+
             {/* Login Card - Glassmorphism */}
             <div style={{
                 background: 'rgba(20, 20, 25, 0.55)', /* More transparent to let the background shine through */
@@ -51,7 +51,7 @@ const AdminLogin = () => {
                 transform: 'translateY(0)',
                 animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
             }}>
-                
+
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                     <div style={{
@@ -67,6 +67,7 @@ const AdminLogin = () => {
                     }}>
                         <ShieldAlert size={32} color="#fff" strokeWidth={1.5} />
                     </div>
+
                     <h2 style={{
                         fontSize: '2.2rem',
                         fontWeight: '800',
@@ -77,7 +78,11 @@ const AdminLogin = () => {
                     }}>
                         Admin Center
                     </h2>
-                    <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem' }}>
+
+                    <p style={{
+                        color: 'rgba(255,255,255,0.8)',
+                        fontSize: '0.95rem'
+                    }}>
                         Restricted access. Please authenticate.
                     </p>
                 </div>
@@ -104,19 +109,33 @@ const AdminLogin = () => {
                 )}
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    
-                    <div className="input-group" style={{ position: 'relative' }}>
-                        <div style={{
-                            position: 'absolute',
-                            left: '20px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            color: 'rgba(255,255,255,0.6)',
-                            transition: 'color 0.3s ease'
-                        }} className="icon">
+                <form
+                    onSubmit={handleSubmit}
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1.5rem'
+                    }}
+                >
+
+                    <div
+                        className="input-group"
+                        style={{ position: 'relative' }}
+                    >
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: '20px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                color: 'rgba(255,255,255,0.6)',
+                                transition: 'color 0.3s ease'
+                            }}
+                            className="icon"
+                        >
                             <Mail size={20} />
                         </div>
+
                         <input
                             type="email"
                             placeholder="Email Address"
@@ -139,17 +158,24 @@ const AdminLogin = () => {
                         />
                     </div>
 
-                    <div className="input-group" style={{ position: 'relative' }}>
-                        <div style={{
-                            position: 'absolute',
-                            left: '20px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            color: 'rgba(255,255,255,0.6)',
-                            transition: 'color 0.3s ease'
-                        }} className="icon">
+                    <div
+                        className="input-group"
+                        style={{ position: 'relative' }}
+                    >
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: '20px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                color: 'rgba(255,255,255,0.6)',
+                                transition: 'color 0.3s ease'
+                            }}
+                            className="icon"
+                        >
                             <Lock size={20} />
                         </div>
+
                         <input
                             type="password"
                             placeholder="Password"
@@ -208,252 +234,58 @@ const AdminLogin = () => {
                     background: rgba(255, 255, 255, 0.12) !important;
                     box-shadow: 0 0 0 4px rgba(30, 80, 255, 0.2) !important;
                 }
+
                 .input-group:focus-within .icon {
                     color: #ff1e96 !important;
                 }
+
                 .luxury-btn:hover {
                     transform: translateY(-4px);
                     box-shadow: 0 15px 35px rgba(255, 30, 150, 0.6) !important;
                     filter: brightness(1.2);
                 }
-                
+
                 @keyframes fadeUp {
-                    from { opacity: 0; transform: translateY(40px); }
-                    to { opacity: 1; transform: translateY(0); }
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
                 }
+
                 @keyframes shake {
-                    0%, 100% { transform: translateX(0); }
-                    25% { transform: translateX(-5px); }
-                    75% { transform: translateX(5px); }
+                    0%, 100% {
+                        transform: translateX(0);
+                    }
+
+                    25% {
+                        transform: translateX(-5px);
+                    }
+
+                    75% {
+                        transform: translateX(5px);
+                    }
                 }
-                
+
                 /* Webkit Autofill override for dark inputs */
                 input:-webkit-autofill,
-                input:-webkit-autofill:hover, 
-                input:-webkit-autofill:focus, 
-                input:-webkit-autofill:active{
+                input:-webkit-autofill:hover,
+                input:-webkit-autofill:focus,
+                input:-webkit-autofill:active {
                     -webkit-box-shadow: 0 0 0 30px rgba(30, 30, 35, 0.9) inset !important;
                     -webkit-text-fill-color: white !important;
                     transition: background-color 5000s ease-in-out 0s;
                 }
+
                 ::placeholder {
                     color: rgba(255,255,255,0.5) !important;
                 }
             `}</style>
         </div>
-import { useState, useEffect } from 'react';
-import { ShieldCheck, Lock, Mail, ArrowRight, Eye, EyeOff } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-
-const AdminLogin = () => {
-    const navigate = useNavigate();
-    const [showPassword, setShowPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [formData, setFormData] = useState({ email: "", password: "" });
-
-    const [error, setError] = useState(false);
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-        setError(false);
-        setIsLoading(true);
-
-        const ADMIN_EMAIL = "info@flytowardsdigitalinnovation.com";
-        const ADMIN_PASS = "admin123";
-
-        // Simulating authentication
-        setTimeout(() => {
-            if (formData.email === ADMIN_EMAIL && formData.password === ADMIN_PASS) {
-                setIsLoading(false);
-                navigate('/admin/create-blog');
-            } else {
-                setIsLoading(false);
-                setError(true);
-                alert("❌ Access Denied: Invalid Administrative Credentials.");
-            }
-        }, 1200);
-    };
-
-    return (
-        <main style={{
-            minHeight: '100vh',
-            background: 'url(admin-bg.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontFamily: "'Outfit', sans-serif",
-            position: 'relative',
-            overflow: 'hidden',
-            padding: '2rem'
-        }}>
-            <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(135deg, rgba(2, 6, 23, 0.9) 0%, rgba(2, 6, 23, 0.75) 100%)',
-                zIndex: 1
-            }}></div>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-
-                .login-card {
-                    background: rgba(15, 23, 42, 0.6);
-                    backdrop-filter: blur(25px);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 40px;
-                    width: 100%;
-                    max-width: 500px;
-                    padding: 4rem 3rem;
-                    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-                    position: relative;
-                    z-index: 2;
-                    text-align: center;
-                }
-
-                .input-group {
-                    position: relative;
-                    margin-bottom: 2rem;
-                    text-align: left;
-                }
-
-                .login-input {
-                    breadth: 100%;
-                    width: 100%;
-                    background: rgba(255, 255, 255, 0.05);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    padding: 1.2rem 1.2rem 1.2rem 3.5rem;
-                    border-radius: 18px;
-                    color: white;
-                    font-size: 1rem;
-                    transition: all 0.3s;
-                }
-
-                .login-input:focus {
-                    outline: none;
-                    background: rgba(255, 255, 255, 0.08);
-                    border-color: #6366f1;
-                    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
-                }
-
-                .login-btn {
-                    width: 100%;
-                    padding: 1.3rem;
-                    background: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
-                    border: none;
-                    border-radius: 18px;
-                    color: white;
-                    font-weight: 800;
-                    font-size: 1.1rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 12px;
-                    cursor: pointer;
-                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-                    margin-top: 2rem;
-                }
-
-                .login-btn:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.6);
-                }
-
-                .login-btn:disabled {
-                    opacity: 0.7;
-                    cursor: not-allowed;
-                    transform: none;
-                }
-
-                @keyframes pulse-glow {
-                    0%, 100% { opacity: 0.3; transform: scale(1); }
-                    50% { opacity: 0.6; transform: scale(1.1); }
-                }
-
-                .glow-orb {
-                    position: absolute;
-                    width: 600px;
-                    height: 600px;
-                    border-radius: 50%;
-                    filter: blur(120px);
-                    z-index: 1;
-                    animation: pulse-glow 10s infinite;
-                }
-            `}</style>
-
-            {/* Background Aesthetics */}
-            <div className="glow-orb" style={{ top: '-10%', right: '-10%', background: 'rgba(99, 102, 241, 0.2)' }}></div>
-            <div className="glow-orb" style={{ bottom: '-10%', left: '-10%', background: 'rgba(217, 70, 239, 0.15)' }}></div>
-
-            <div className="login-card" data-aos="zoom-in">
-                <div style={{
-                    width: '70px',
-                    height: '70px',
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(217, 70, 239, 0.1))',
-                    borderRadius: '22px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 2.5rem',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}>
-                    <ShieldCheck size={35} color="#6366f1" />
-                </div>
-
-                <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'white', marginBottom: '0.8rem', letterSpacing: '-0.03em' }}>
-                    Admin Center
-                </h1>
-                <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginBottom: '3.5rem' }}>
-                    Restricted access. Please authenticate.
-                </p>
-
-                <form onSubmit={handleLogin}>
-                    <div className="input-group">
-                        <Mail size={20} style={{ position: 'absolute', left: '1.2rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
-                        <input
-                            required
-                            type="email"
-                            className="login-input"
-                            placeholder="Email Address"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        />
-                    </div>
-
-                    <div className="input-group">
-                        <Lock size={20} style={{ position: 'absolute', left: '1.2rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
-                        <input
-                            required
-                            type={showPassword ? "text" : "password"}
-                            className="login-input"
-                            placeholder="Password"
-                            value={formData.password}
-                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                        />
-                        <div
-                            style={{ position: 'absolute', right: '1.2rem', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', color: '#64748b' }}
-                            onClick={() => setShowPassword(!showPassword)}
-                        >
-                            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                        </div>
-                    </div>
-
-                    <button type="submit" className="login-btn" disabled={isLoading}>
-                        {isLoading ? "Authenticating..." : "Authenticate"}
-                        {!isLoading && <ArrowRight size={20} />}
-                    </button>
-                </form>
-
-                <p style={{ color: '#475569', fontSize: '0.9rem', marginTop: '3rem' }}>
-                    © 2026 Fly Towards Digital Innovation. All rights reserved.
-                </p>
-            </div>
-        </main>
     );
 };
 
