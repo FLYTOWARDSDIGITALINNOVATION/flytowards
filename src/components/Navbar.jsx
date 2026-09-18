@@ -43,10 +43,6 @@ const Navbar = () => {
                 />
             </Link>
 
-            {/* Mobile Menu Icon */}
-            <div className="menu-icon" onClick={toggleMenu} aria-label="Toggle Navigation">
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </div>
 
             {/* Navigation Menu */}
             <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
@@ -383,10 +379,16 @@ const Navbar = () => {
                 </li>
             </ul>
 
-            {/* Desktop Enquire Button */}
-<Link to="/contact" className="nav-enquire-btn desktop-enquire">
-    Enquire Now
-</Link>
+            {/* Header Right Actions: Enquire/Explore Button (Left) + Navbar Menu Icon (Right Corner) */}
+            <div className="nav-header-actions">
+                <Link to="/contact" className="nav-enquire-btn desktop-enquire" onClick={closeMenu}>
+                    Enquire Now
+                </Link>
+
+                <div className="menu-icon" onClick={toggleMenu} aria-label="Toggle Navigation">
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                </div>
+            </div>
         </nav>
     );
 };
