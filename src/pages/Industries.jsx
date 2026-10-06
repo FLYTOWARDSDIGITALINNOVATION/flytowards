@@ -1309,7 +1309,7 @@ const Industries = () => {
                                     style={{
                                         fontSize: "3rem",
                                         fontWeight: 900,
-                                        color: "#1d4ed8",
+                                        color: "#EAB308",
                                         marginBottom: "0.5rem",
                                     }}
                                 >

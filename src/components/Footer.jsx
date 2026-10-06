@@ -12,8 +12,8 @@ const Footer = () => {
         <footer
             style={{
                 background: '#0a0a0a',
-                paddingTop: '4rem',
-                paddingBottom: '2rem',
+                paddingTop: '2.5rem',
+                paddingBottom: '1.5rem',
                 borderTop: '1px solid var(--border)'
             }}
         >
@@ -29,31 +29,45 @@ const Footer = () => {
                 <div style={{ gridColumn: 'span 1' }}>
                     <Link
                         to="/"
-                        className="logo"
+                        className="logo footer-logo"
                         style={{
-                            marginBottom: '1.5rem',
+                            marginBottom: '1rem',
                             display: 'block',
                             textDecoration: 'none'
                         }}
                     >
-                        <img
-                            src="/logo.webp"
-                            alt="Fly Towards Logo"
+                        <div
                             style={{
-                                height: '100px',
-                                width: '100px',
+                                width: '90px',
+                                height: '90px',
                                 borderRadius: '50%',
-                                objectFit: 'cover'
+                                background: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                boxShadow: '0 0 20px rgba(255, 255, 255, 0.2)',
+                                border: '2px solid var(--primary)',
+                                overflow: 'hidden'
                             }}
-                        />
+                        >
+                            <img
+                                src="/logo.webp"
+                                alt="Fly Towards Logo"
+                                style={{
+                                    height: '75px',
+                                    width: '75px',
+                                    objectFit: 'contain'
+                                }}
+                            />
+                        </div>
                     </Link>
 
                     <p
                         style={{
                             color: 'var(--text-muted)',
-                            fontSize: '0.95rem',
-                            lineHeight: 1.8,
-                            marginBottom: '2rem'
+                            fontSize: '0.9rem',
+                            lineHeight: 1.6,
+                            marginBottom: '1.25rem'
                         }}
                     >
                         Empowering your growth with our digital expertise.
@@ -62,6 +76,7 @@ const Footer = () => {
                     </p>
 
                     <div
+                        className="footer-address-box"
                         style={{
                             display: 'flex',
                             alignItems: 'flex-start',
@@ -91,10 +106,10 @@ const Footer = () => {
                 <div>
                     <h4
                         style={{
-                            marginBottom: '1.5rem',
+                            marginBottom: '1rem',
                             fontWeight: 800,
                             color: 'white',
-                            fontSize: '1.2rem'
+                            fontSize: '1.1rem'
                         }}
                     >
                         Quick Links
@@ -107,7 +122,7 @@ const Footer = () => {
                             margin: 0,
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '0.8rem'
+                            gap: '0.45rem'
                         }}
                     >
                         <li>
@@ -164,10 +179,10 @@ const Footer = () => {
                 <div>
                     <h4
                         style={{
-                            marginBottom: '1.5rem',
+                            marginBottom: '1rem',
                             fontWeight: 800,
                             color: 'white',
-                            fontSize: '1.2rem'
+                            fontSize: '1.1rem'
                         }}
                     >
                         Products
@@ -180,7 +195,7 @@ const Footer = () => {
                             margin: 0,
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '0.8rem'
+                            gap: '0.45rem'
                         }}
                     >
                         <li>
@@ -246,13 +261,75 @@ const Footer = () => {
                             </Link>
                         </li>
                     </ul>
+                </div>
 
-                    {/* Social Media */}
-                    <div
+                {/* Column 4: Services */}
+                <div>
+                    <h4
                         style={{
-                            marginTop: '2rem',
+                            marginBottom: '1rem',
+                            fontWeight: 800,
+                            color: 'white',
+                            fontSize: '1.1rem'
+                        }}
+                    >
+                        Services
+                    </h4>
+
+                    <ul
+                        style={{
+                            listStyle: 'none',
+                            padding: 0,
+                            margin: 0,
                             display: 'flex',
-                            gap: '1rem'
+                            flexDirection: 'column',
+                            gap: '0.45rem'
+                        }}
+                    >
+                        <li>
+                            <Link
+                                to="/services/web-development"
+                                className="footer-link"
+                            >
+                                Web Development
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link
+                                to="/services/whatsapp-api"
+                                className="footer-link"
+                            >
+                                WhatsApp Marketing API
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link
+                                to="/services/digital-marketing"
+                                className="footer-link"
+                            >
+                                Digital Marketing
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link
+                                to="/services"
+                                className="footer-link"
+                            >
+                                All Services
+                            </Link>
+                        </li>
+                    </ul>
+
+                    {/* Social Media placed cleanly below Services */}
+                    <div
+                        className="footer-social-box"
+                        style={{
+                            marginTop: '1.25rem',
+                            display: 'flex',
+                            gap: '0.75rem'
                         }}
                     >
                         <a
@@ -297,78 +374,17 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
-
-                {/* Column 4: Services */}
-                <div>
-                    <h4
-                        style={{
-                            marginBottom: '1.5rem',
-                            fontWeight: 800,
-                            color: 'white',
-                            fontSize: '1.2rem'
-                        }}
-                    >
-                        Services
-                    </h4>
-
-                    <ul
-                        style={{
-                            listStyle: 'none',
-                            padding: 0,
-                            margin: 0,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '0.8rem'
-                        }}
-                    >
-                        <li>
-                            <Link
-                                to="/services/web-development"
-                                className="footer-link"
-                            >
-                                Web Development
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link
-                                to="/services/whatsapp-api"
-                                className="footer-link"
-                            >
-                                WhatsApp Marketing API
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link
-                                to="/services/digital-marketing"
-                                className="footer-link"
-                            >
-                                Digital Marketing
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link
-                                to="/services"
-                                className="footer-link"
-                            >
-                                All Services
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
             </div>
 
             {/* Copyright */}
             <div
                 style={{
-                    marginTop: '4rem',
-                    padding: '2rem 2rem 0',
+                    marginTop: '2rem',
+                    padding: '1.25rem 2rem 0',
                     borderTop: '1px solid rgba(255,255,255,0.05)',
                     textAlign: 'center',
                     color: 'var(--text-muted)',
-                    fontSize: '0.9rem'
+                    fontSize: '0.85rem'
                 }}
             >
                 Copyright &copy; 2025 flytowardsdigitalinnovation.com |
@@ -405,6 +421,24 @@ const Footer = () => {
                 .social-icon:hover {
                     background: var(--primary);
                     transform: translateY(-3px);
+                }
+
+                @media (max-width: 768px) {
+                    .footer-logo {
+                        display: flex !important;
+                        justify-content: center !important;
+                    }
+
+                    .footer-address-box {
+                        justify-content: center !important;
+                        align-items: center !important;
+                        text-align: center !important;
+                    }
+
+                    .footer-social-box {
+                        justify-content: center !important;
+                        margin-top: 1.5rem !important;
+                    }
                 }
             `}</style>
         </footer>
