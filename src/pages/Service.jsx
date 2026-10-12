@@ -301,11 +301,11 @@ const Service = () => {
     return (
         <main style={{ 
             position: 'relative', 
-            overflowX: 'hidden', 
-            background: '#E5E7EB', 
+            overflow: 'hidden', 
+            background: '#ffffff', 
             minHeight: '100vh', 
             fontFamily: "'Outfit', sans-serif", 
-            color: '#1F2937', 
+            color: '#0f172a', 
             width: '100%', 
             maxWidth: '100%',
             margin: 0,
@@ -314,6 +314,14 @@ const Service = () => {
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap');
                 
+                body, html, #root, .app {
+                    background-color: #ffffff !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    overflow-x: hidden !important;
+                }
                 .svc-yellow-glow {
                     box-shadow: 0 10px 30px rgba(250, 204, 21, 0.25);
                 }
@@ -326,21 +334,38 @@ const Service = () => {
                 }
              `}</style>
 
-             {/* Hero Section - Solid Yellow Full Bleed Banner */}
-            <section className="full-bleed-yellow" style={{ width: '100%', padding: '140px 5% 80px', background: '#FACC15' }}>
+            {/* Ambient Background Lights (Exact match with Home page) */}
+            <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+            </div>
+
+            <div style={{ position: 'relative', zIndex: 1, width: '100%', margin: 0, padding: 0 }}>
+
+            {/* Hero Section */}
+            <section className="hero" style={{ width: '100%', padding: '140px 5% 80px', background: 'transparent' }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
                     <div style={{ textAlign: 'center', width: '100%', marginBottom: '3rem' }} data-aos="fade-up">
-                        <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15', display: 'inline-flex', alignItems: 'center', gap: '8px', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-                            <Zap size={18} color="#FACC15" /> Our Services
+                        <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
+                            <Zap size={18} color="#EAB308" /> Our Services
                         </span>
-                        <h1 className="hero-title" style={{ fontSize: 'clamp(2.8rem, 6vw, 4.2rem)', marginBottom: '1.25rem', lineHeight: 1.15, textAlign: 'center', color: '#1F2937', fontWeight: 900 }}>
-                            Software Development Services for Business Needs
+                        <h1 className="hero-title" style={{ 
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: 'clamp(2.4rem, 5.5vw, 3.8rem)', 
+                            marginBottom: '1.25rem', 
+                            lineHeight: 1.2, 
+                            textAlign: 'center', 
+                            color: '#1e1b4b', 
+                            fontWeight: 800,
+                            letterSpacing: '-0.03em' 
+                        }}>
+                            Software Development Services for <span className="gradient-text" style={{ display: 'inline-block' }}>Business Needs</span>
                         </h1>
                     </div>
 
                     <div className="grid-2" style={{ width: '100%', alignItems: 'center', gap: '3rem' }}>
                         <div data-aos="fade-right">
-                            <p style={{ color: '#374151', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '650px', fontWeight: 500 }}>
+                            <p style={{ color: '#1F2937', fontSize: '1.18rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '650px', fontWeight: 500 }}>
                                 Software requirements are rarely the same from one business to another. Some organisations need a new application to replace manual processes. Others need to connect existing systems, modernize an older application, launch a SaaS product or maintain software that has become important to daily operations.
                             </p>
                             
@@ -348,14 +373,14 @@ const Service = () => {
                                 <a href="#services-list" className="btn btn-primary" style={{ background: '#1F2937', color: '#FACC15', fontWeight: 800, padding: '1.1rem 2.25rem' }}>
                                     Explore Services <ArrowRight size={20} color="#FACC15" />
                                 </a>
-                                <Link to="/contact/" className="btn btn-outline" style={{ border: '2px solid #1F2937', color: '#1F2937', fontWeight: 800, padding: '1.1rem 2.25rem', background: 'rgba(31, 41, 55, 0.05)' }}>
+                                <Link to="/contact/" className="btn btn-outline" style={{ border: '2px solid #1F2937', color: '#1F2937', fontWeight: 800, padding: '1.1rem 2.25rem' }}>
                                     Discuss Your Requirement
                                 </Link>
                             </div>
                         </div>
 
                         <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s' }}>
-                            <div style={{ padding: '0.75rem', border: '2px solid #1F2937', borderRadius: '32px', background: '#FFFFFF', boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}>
+                            <div style={{ padding: '0.75rem', border: '1px solid #E2E8F0', borderRadius: '32px', background: '#FFFFFF', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
                                 <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop&q=60" alt="Software Development Services" style={{ borderRadius: '24px', width: '100%', maxWidth: '650px', display: 'block' }} />
                             </div>
                         </div>
@@ -363,14 +388,25 @@ const Service = () => {
                 </div>
             </section>
 
+            {/* Clean Horizontal Divider Line */}
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
+
             {/* Intro Section - Clean Open 2-Column Split Feature Statement */}
-            <section style={{ padding: '80px 8%', background: '#E5E7EB', borderBottom: '1px solid #D1D5DB' }}>
+            <section style={{ padding: '80px 8%', background: 'transparent' }}>
                 <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }} data-aos="fade-up">
-                    <div style={{ borderLeft: '4px solid #1F2937', paddingLeft: '2rem' }}>
-                        <span style={{ fontSize: '0.85rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '2px', color: '#1F2937', display: 'inline-block', marginBottom: '0.75rem', background: '#FACC15', padding: '4px 12px', borderRadius: '20px' }}>
+                    <div style={{ borderLeft: '4px solid #FACC15', paddingLeft: '2rem' }}>
+                        <span style={{ fontSize: '0.85rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '2px', color: '#1F2937', display: 'inline-block', marginBottom: '0.75rem', background: '#FEF9C3', padding: '4px 12px', borderRadius: '20px' }}>
                             Our Strategic Focus
                         </span>
-                        <h3 style={{ fontSize: '2rem', color: '#1F2937', fontWeight: 900, lineHeight: 1.3, margin: 0 }}>
+                        <h3 style={{ 
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: '2rem', 
+                            color: '#1e1b4b', 
+                            fontWeight: 800, 
+                            lineHeight: 1.3, 
+                            margin: 0,
+                            letterSpacing: '-0.03em' 
+                        }}>
                             Tailored Software Development Built Around Your Business Needs
                         </h3>
                     </div>
@@ -386,10 +422,19 @@ const Service = () => {
             </section>
 
             {/* Services List Section */}
-            <section id="services-list" style={{ padding: '6rem 8%', background: '#E5E7EB' }}>
+            <section id="services-list" style={{ padding: '6rem 8%', background: 'transparent' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag">Core Offerings</span>
-                    <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>Our Software Development Services</h2>
+                    <h2 style={{ 
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                        marginBottom: '1.25rem', 
+                        color: '#1e1b4b', 
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em' 
+                    }}>
+                        Our Software Development <span className="gradient-text" style={{ display: 'inline-block' }}>Services</span>
+                    </h2>
                     <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '750px', margin: '0 auto', fontWeight: 500 }}>
                         Our software development and services portfolio covers different stages of a software product's lifecycle, from initial development to ongoing maintenance and improvement.
                     </p>
@@ -405,14 +450,20 @@ const Service = () => {
                                 flexDirection: 'column',
                                 padding: '2rem 1.5rem',
                                 borderLeft: '3px solid #1F2937',
-                                background: 'transparent',
+                                background: '#FFFFFF',
+                                borderRadius: '0 20px 20px 0',
+                                border: '1px solid #E2E8F0',
+                                borderLeftWidth: '4px',
+                                borderLeftColor: '#FACC15',
+                                boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.04)',
                                 position: 'relative',
                                 transition: 'all 0.3s ease-in-out',
                                 cursor: 'pointer'
                             }}
                             onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateX(10px)';
-                                e.currentTarget.style.borderLeftColor = '#FACC15';
+                                e.currentTarget.style.transform = 'translateX(8px)';
+                                e.currentTarget.style.borderLeftColor = '#1F2937';
+                                e.currentTarget.style.boxShadow = '0 15px 35px -5px rgba(0, 0, 0, 0.08)';
                                 const iconBox = e.currentTarget.querySelector('.svc-core-icon');
                                 if (iconBox) {
                                     iconBox.style.transform = 'scale(1.15) rotate(6deg)';
@@ -422,12 +473,13 @@ const Service = () => {
                             }}
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'none';
-                                e.currentTarget.style.borderLeftColor = '#1F2937';
+                                e.currentTarget.style.borderLeftColor = '#FACC15';
+                                e.currentTarget.style.boxShadow = '0 10px 30px -5px rgba(0, 0, 0, 0.04)';
                                 const iconBox = e.currentTarget.querySelector('.svc-core-icon');
                                 if (iconBox) {
                                     iconBox.style.transform = 'none';
                                     iconBox.style.background = '#FEF9C3';
-                                    iconBox.style.color = '#D97706';
+                                    iconBox.style.color = '#EAB308';
                                 }
                             }}
                         >
@@ -461,7 +513,7 @@ const Service = () => {
                                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
                                         {service.bullets.map((b, bIdx) => (
                                             <li key={bIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: '#374151', fontWeight: 600 }}>
-                                                <span style={{ color: '#D97706', fontWeight: 900 }}>•</span> {b}
+                                                <span style={{ color: '#EAB308', fontWeight: 900 }}>•</span> {b}
                                             </li>
                                         ))}
                                     </ul>
@@ -478,20 +530,27 @@ const Service = () => {
                                 fontSize: '0.95rem',
                                 marginTop: 'auto'
                             }}>
-                                Explore Service <ArrowRight size={16} color="#D97706" />
+                                Explore Service <ArrowRight size={16} color="#EAB308" />
                             </Link>
                         </div>
                     ))}
                 </div>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '4rem auto 0' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '4rem auto 0' }} />
 
                 {/* Specialized Services Sub-Section */}
                 <div style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>Specialized Expertise</span>
-                    <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                        Specialized Software Development Services
+                    <h2 style={{ 
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                        marginBottom: '1.25rem', 
+                        color: '#1e1b4b', 
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em' 
+                    }}>
+                        Specialized Software Development <span className="gradient-text" style={{ display: 'inline-block' }}>Services</span>
                     </h2>
                     <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '750px', margin: '0 auto', fontWeight: 500 }}>
                         Different software requirements call for different approaches. Alongside our core development services, our portfolio includes specialised services for particular business and technical needs.
@@ -510,7 +569,7 @@ const Service = () => {
                                 padding: '1.5rem 2rem',
                                 borderRadius: '16px',
                                 background: '#FFFFFF',
-                                border: '1px solid #D1D5DB',
+                                border: '1px solid #E2E8F0',
                                 borderLeft: '5px solid #1F2937',
                                 transition: 'all 0.35s ease-in-out',
                                 cursor: 'pointer',
@@ -584,14 +643,21 @@ const Service = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
             {/* Industry Solutions Section */}
-            <section style={{ padding: '6rem 8%', background: '#E5E7EB' }}>
+            <section style={{ padding: '6rem 8%', background: 'transparent' }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>Industry Solutions</span>
-                    <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                        Software Solutions for Different Business Needs
+                    <h2 style={{ 
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                        marginBottom: '1.25rem', 
+                        color: '#1e1b4b', 
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em' 
+                    }}>
+                        Software Solutions for <span className="gradient-text" style={{ display: 'inline-block' }}>Different Business Needs</span>
                     </h2>
                     <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '800px', margin: '0 auto', fontWeight: 500 }}>
                         Software requirements can vary significantly between industries and organisations.
@@ -668,14 +734,21 @@ const Service = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
             {/* Our Process Section - Clean Borderless Stepper Flow on Metallic Silver */}
-            <section style={{ padding: '6rem 8%', background: '#E5E7EB' }}>
+            <section style={{ padding: '6rem 8%', background: 'transparent' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>How We Work</span>
-                    <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                        How We Approach Software Development
+                    <h2 style={{ 
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                        marginBottom: '1.25rem', 
+                        color: '#1e1b4b', 
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em' 
+                    }}>
+                        How We Approach <span className="gradient-text" style={{ display: 'inline-block' }}>Software Development</span>
                     </h2>
                     <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '750px', margin: '0 auto', fontWeight: 500 }}>
                         We follow a systematic, business-centric methodology to ensure that we deliver software that solves real problems.
@@ -696,7 +769,7 @@ const Service = () => {
                                     flexDirection: 'column',
                                     position: 'relative',
                                     paddingLeft: '1rem',
-                                    borderLeft: '2px dashed #9CA3AF',
+                                    borderLeft: '2px dashed #CBD5E1',
                                     transition: 'all 0.3s ease-in-out',
                                     cursor: 'pointer'
                                 }}
@@ -712,7 +785,7 @@ const Service = () => {
                                 }}
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.transform = 'none';
-                                    e.currentTarget.style.borderLeft = '2px dashed #9CA3AF';
+                                    e.currentTarget.style.borderLeft = '2px dashed #CBD5E1';
                                     const circle = e.currentTarget.querySelector('.proc-step-circle');
                                     if (circle) {
                                         circle.style.background = '#FACC15';
@@ -739,7 +812,7 @@ const Service = () => {
                                     }}>
                                         0{idx + 1}
                                     </div>
-                                    <span style={{ color: '#D97706', display: 'flex' }}>
+                                    <span style={{ color: '#EAB308', display: 'flex' }}>
                                         {process.icon}
                                     </span>
                                 </div>
@@ -758,14 +831,21 @@ const Service = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
             {/* Decision Guide Section */}
-            <section style={{ padding: '6rem 8%', background: '#E5E7EB' }}>
+            <section style={{ padding: '6rem 8%', background: 'transparent' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>Decision Guide</span>
-                    <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                        Choose the Right Software Service
+                    <h2 style={{ 
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                        marginBottom: '1.25rem', 
+                        color: '#1e1b4b', 
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em' 
+                    }}>
+                        Choose the Right <span className="gradient-text" style={{ display: 'inline-block' }}>Software Service</span>
                     </h2>
                     <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '750px', margin: '0 auto', fontWeight: 500 }}>
                         Not every software project needs the same development approach. Use this quick guide to find what matches your needs.
@@ -807,14 +887,15 @@ const Service = () => {
                     ].map((item, idx) => (
                         <div key={idx} style={{
                             background: '#FFFFFF',
-                            border: '1px solid #D1D5DB',
+                            border: '1px solid #E2E8F0',
                             padding: '2rem 1.75rem',
                             borderRadius: '20px',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'space-between',
                             transition: 'all 0.35s ease',
-                            position: 'relative'
+                            position: 'relative',
+                            boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.04)'
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = 'translateY(-6px)';
@@ -823,8 +904,8 @@ const Service = () => {
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.transform = 'none';
-                            e.currentTarget.style.borderColor = '#D1D5DB';
-                            e.currentTarget.style.boxShadow = 'none';
+                            e.currentTarget.style.borderColor = '#E2E8F0';
+                            e.currentTarget.style.boxShadow = '0 10px 30px -5px rgba(0, 0, 0, 0.04)';
                         }}
                         >
                             <div>
@@ -858,7 +939,7 @@ const Service = () => {
                                 textDecoration: 'none',
                                 fontSize: '0.9rem'
                             }}>
-                                Learn More <ArrowRight size={16} color="#D97706" />
+                                Learn More <ArrowRight size={16} color="#EAB308" />
                             </Link>
                         </div>
                     ))}
@@ -866,14 +947,21 @@ const Service = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
             {/* FAQ Section - 2-Column Card Grid */}
-            <section style={{ padding: '6rem 8%', background: '#E5E7EB' }}>
+            <section style={{ padding: '6rem 8%', background: 'transparent' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>Got Questions?</span>
-                    <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                        Frequently Asked Questions
+                    <h2 style={{ 
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                        marginBottom: '1.25rem', 
+                        color: '#1e1b4b', 
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em' 
+                    }}>
+                        Frequently Asked <span className="gradient-text" style={{ display: 'inline-block' }}>Questions</span>
                     </h2>
                 </div>
 
@@ -883,7 +971,7 @@ const Service = () => {
                         return (
                             <div key={idx} style={{
                                 padding: '1.25rem 0',
-                                borderBottom: '1px solid #D1D5DB',
+                                borderBottom: '1px solid #E2E8F0',
                                 cursor: 'pointer',
                                 transition: 'all 0.3s ease'
                             }}
@@ -896,7 +984,7 @@ const Service = () => {
                                             height: '36px',
                                             borderRadius: '50%',
                                             background: isOpen ? '#1F2937' : '#FEF9C3',
-                                            color: isOpen ? '#FACC15' : '#D97706',
+                                            color: isOpen ? '#FACC15' : '#EAB308',
                                             fontWeight: 900,
                                             fontSize: '0.85rem',
                                             display: 'flex',
@@ -1015,6 +1103,7 @@ const Service = () => {
                     </div>
                 </div>
             </section>
+            </div>
         </main>
     );
 };

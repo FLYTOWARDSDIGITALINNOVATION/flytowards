@@ -221,8 +221,11 @@ const About = () => {
     return (
         <main style={{ 
             position: 'relative', 
-            overflowX: 'hidden',
-            background: '#E5E7EB',
+            overflow: 'hidden',
+            background: '#ffffff',
+            minHeight: '100vh',
+            fontFamily: "'Outfit', sans-serif",
+            color: '#0f172a',
             width: '100%',
             maxWidth: '100%',
             margin: 0,
@@ -230,7 +233,7 @@ const About = () => {
         }}>
             <style>{`
                 body, html, #root, .app {
-                    background-color: #E5E7EB !important;
+                    background-color: #ffffff !important;
                     margin: 0 !important;
                     padding: 0 !important;
                     width: 100% !important;
@@ -252,17 +255,31 @@ const About = () => {
                     box-sizing: border-box !important;
                 }
             `}</style>
+
+            {/* Ambient Background Lights (Exact match with Home page) */}
+            <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+            </div>
+
             <div style={{ position: 'relative', zIndex: 1, width: '100%', margin: 0, padding: 0 }}>
-                {/* Hero Section - Soft Yellow top glow blending smoothly into Metallic Silver */}
-            <section className="hero" style={{ width: '100%', minHeight: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '140px 0 80px', background: 'radial-gradient(ellipse at 50% 0%, rgba(250, 204, 21, 0.35) 0%, rgba(253, 224, 71, 0.15) 40%, rgba(229, 231, 235, 0.9) 65%, #E5E7EB 85%)' }}>
+                {/* Hero Section */}
+            <section className="hero" style={{ width: '100%', minHeight: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '140px 0 80px', background: '#ffffff', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem', width: '100%' }} data-aos="fade-up">
                         <span className="section-tag" style={{ display: 'inline-block', margin: '0 auto 1.5rem' }}>About Fly Towards Digital Innovation</span>
-                        <h1 style={{ fontSize: 'clamp(2rem, 3.8vw, 3.2rem)', lineHeight: 1.25, fontWeight: 800, maxWidth: '1200px', margin: '0 auto', letterSpacing: '-0.02em', color: '#1F2937' }}>
+                        <h1 style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
+                            lineHeight: 1.25,
+                            fontWeight: 800,
+                            maxWidth: '1200px',
+                            margin: '0 auto',
+                            letterSpacing: '-0.03em',
+                            color: '#1e1b4b'
+                        }}>
                             A Software Development Company Focused on <br />
-                            <span style={{
-                                color: '#FACC15',
-                                WebkitTextStroke: '1.5px #1F2937',
+                            <span className="gradient-text" style={{
                                 display: 'inline-block',
                                 marginTop: '0.25rem',
                                 fontWeight: 900
@@ -305,10 +322,10 @@ const About = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#f1f5f9', margin: '0 auto' }} />
 
-            {/* Who We Are - Metallic Silver background full 100% width */}
-            <section id="who-we-are" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* Who We Are - Clean White background */}
+            <section id="who-we-are" style={{ width: '100%', padding: '6rem 0', background: '#ffffff' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', alignItems: 'center' }} data-aos="fade-up">
                         <div style={{ flex: '1 1 500px' }}>
@@ -442,13 +459,13 @@ const About = () => {
                 </div>
             </section>
 
-            {/* What We Do - Metallic Silver section */}
-            <section id="capabilities" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* What We Do - Capabilities section */}
+            <section id="capabilities" style={{ width: '100%', padding: '6rem 0', background: '#f8fafc' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag">What We Do</span>
-                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem' }}>Our Core Capabilities</h2>
-                        <p style={{ fontSize: '1.2rem', color: '#1E293B', maxWidth: '800px', margin: '0 auto', lineHeight: 1.8, fontWeight: 500 }}>
+                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1e1b4b' }}>Our Core Capabilities</h2>
+                        <p style={{ fontSize: '1.2rem', color: '#64748b', maxWidth: '800px', margin: '0 auto', lineHeight: 1.8, fontWeight: 500 }}>
                             As a custom software development company, we provide software capabilities across different business requirements and stages of digital development.
                         </p>
                     </div>
@@ -463,7 +480,7 @@ const About = () => {
                                 position: 'relative', 
                                 overflow: 'hidden', 
                                 background: '#FFFFFF', 
-                                border: '1px solid #E5E7EB', 
+                                border: '1px solid #f1f5f9', 
                                 boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
                                 transition: 'all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
                                 cursor: 'pointer'
@@ -477,7 +494,7 @@ const About = () => {
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.transform = 'scale(1) translateY(0)';
                                     e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.03)';
-                                    e.currentTarget.style.borderColor = '#E5E7EB';
+                                    e.currentTarget.style.borderColor = '#f1f5f9';
                                     e.currentTarget.style.zIndex = '1';
                                 }}
                             >
@@ -503,14 +520,14 @@ const About = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#f1f5f9', margin: '0 auto' }} />
 
-            {/* Our Approach - Metallic Silver Background */}
-            <section id="approach" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* Our Approach - Clean White Background */}
+            <section id="approach" style={{ width: '100%', padding: '6rem 0', background: '#ffffff' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag">01 — 05 Steps</span>
-                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1F2937' }}>Our Approach to Software Development</h2>
+                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1e1b4b' }}>Our Approach to Software Development</h2>
                         <p style={{ fontSize: '1.2rem', color: '#1E293B', maxWidth: '850px', margin: '0 auto 0.75rem', lineHeight: 1.8, fontWeight: 500 }}>
                             We believe good software development starts with understanding.
                         </p>
@@ -662,13 +679,13 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Starts with the Problem - Metallic Silver section */}
-            <section id="problem-first" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* Starts with the Problem section */}
+            <section id="problem-first" style={{ width: '100%', padding: '6rem 0', background: '#ffffff' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div className="grid-2">
                         <div data-aos="fade-up">
                             <span className="section-tag">Starts with the Problem</span>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '2rem', lineHeight: 1.2, color: '#1F2937' }}>
+                            <h2 style={{ fontSize: '2.8rem', marginBottom: '2rem', lineHeight: 1.2, color: '#1e1b4b' }}>
                                 A Custom Software Development Agency That <span className="gradient-text">Starts With the Problem</span>
                             </h2>
                             <p style={{ fontSize: '1.15rem', color: '#1E293B', marginBottom: '1.5rem', lineHeight: 1.8, fontWeight: 500 }}>
@@ -680,13 +697,13 @@ const About = () => {
                             <p style={{ fontSize: '1.15rem', color: '#1E293B', marginBottom: '1.5rem', lineHeight: 1.8, fontWeight: 500 }}>
                                 The software requirement is different in each situation. As a custom software development agency, our role is to understand that context and help translate it into a practical software direction.
                             </p>
-                            <p style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1F2937', marginTop: '2rem' }}>
+                            <p style={{ fontSize: '1.15rem', fontWeight: 800, color: '#1e1b4b', marginTop: '2rem' }}>
                                 The answers help shape a more meaningful development process.
                             </p>
                         </div>
 
                         <div data-aos="fade-left" style={{ padding: '0.5rem 0' }}>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '2rem', color: '#1F2937', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '2rem', color: '#1e1b4b', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <span style={{ width: '8px', height: '24px', background: '#FACC15', borderRadius: '4px', display: 'inline-block' }}></span>
                                 This means asking:
                             </h3>
@@ -699,7 +716,7 @@ const About = () => {
                                         padding: '1.1rem 1.4rem',
                                         background: '#FFFFFF',
                                         borderRadius: '16px',
-                                        border: '1px solid #D1D5DB',
+                                        border: '1px solid #f1f5f9',
                                         borderLeft: '5px solid #FACC15',
                                         boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
                                         transition: 'all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -707,7 +724,7 @@ const About = () => {
                                     }}
                                     onMouseEnter={(e) => {
                                         e.currentTarget.style.transform = 'translateX(10px) scale(1.01)';
-                                        e.currentTarget.style.borderLeftColor = '#1F2937';
+                                        e.currentTarget.style.borderLeftColor = '#1e1b4b';
                                         e.currentTarget.style.boxShadow = '0 10px 25px rgba(250, 204, 21, 0.25)';
                                         const checkBadge = e.currentTarget.querySelector('.q-check-badge');
                                         if (checkBadge) checkBadge.style.transform = 'scale(1.2) rotate(10deg)';
@@ -745,14 +762,14 @@ const About = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#f1f5f9', margin: '0 auto' }} />
 
-            {/* Built for Different Industries - Metallic Silver section */}
-            <section id="industries" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* Built for Different Industries section */}
+            <section id="industries" style={{ width: '100%', padding: '6rem 0', background: '#f8fafc' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag">Industries We Support</span>
-                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1F2937' }}>Built Around the Needs of Different Industries</h2>
+                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1e1b4b' }}>Built Around the Needs of Different Industries</h2>
                         <p style={{ fontSize: '1.2rem', color: '#1E293B', maxWidth: '850px', margin: '0 auto 0.75rem', lineHeight: 1.8, fontWeight: 500 }}>
                             Businesses in different industries operate differently. Their workflows, users, processes and technology requirements are not interchangeable.
                         </p>
@@ -925,16 +942,16 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Our Commitment to Clients - Non-Box Horizontal Interconnected Node Chain Concept */}
-            <section id="commitments" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* Our Commitment to Clients */}
+            <section id="commitments" style={{ width: '100%', padding: '6rem 0', background: '#ffffff' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag">Our Commitment</span>
-                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>Our Commitment to Clients</h2>
-                        <p style={{ fontSize: '1.2rem', color: '#1E293B', maxWidth: '850px', margin: '0 auto 0.5rem', lineHeight: 1.8, fontWeight: 500 }}>
+                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1e1b4b', fontWeight: 900 }}>Our Commitment to Clients</h2>
+                        <p style={{ fontSize: '1.2rem', color: '#64748b', maxWidth: '850px', margin: '0 auto 0.5rem', lineHeight: 1.8, fontWeight: 500 }}>
                             We aim to make software development easier to understand and more closely connected to business objectives.
                         </p>
-                        <p style={{ fontSize: '1.1rem', color: '#1F2937', fontWeight: 700, margin: 0 }}>
+                        <p style={{ fontSize: '1.1rem', color: '#1e1b4b', fontWeight: 700, margin: 0 }}>
                             That means focusing on:
                         </p>
                     </div>
@@ -991,7 +1008,7 @@ const About = () => {
                                     {/* Top Ring / Indicator */}
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                         <span style={{ fontSize: '0.75rem', fontWeight: 900, color: 'rgba(255,255,255,0.4)', letterSpacing: '1px' }}>
-                                            0{idx + 1}
+                                             0{idx + 1}
                                         </span>
                                         <div className="commit-node-dot" style={{
                                             width: '10px',
@@ -1027,19 +1044,19 @@ const About = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#f1f5f9', margin: '0 auto' }} />
 
-            {/* Looking for the Best Software Development Company for Your Requirement? - Metallic Silver Seamless Section */}
-            <section id="best-company" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* Looking for the Best Software Development Company for Your Requirement? */}
+            <section id="best-company" style={{ width: '100%', padding: '6rem 0', background: '#f8fafc' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div className="grid-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
                         {/* Left Column: Heading & Subtitle */}
                         <div data-aos="fade-right">
                             <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15', marginBottom: '1.25rem', display: 'inline-block' }}>Find The Right Partner</span>
-                            <h2 style={{ fontSize: 'clamp(2.2rem, 3.5vw, 2.8rem)', marginBottom: '1.5rem', color: '#1F2937', fontWeight: 900, lineHeight: 1.25 }}>
+                            <h2 style={{ fontSize: 'clamp(2.2rem, 3.5vw, 2.8rem)', marginBottom: '1.5rem', color: '#1e1b4b', fontWeight: 900, lineHeight: 1.25 }}>
                                 Looking for the Best Software Development Company for Your Requirement?
                             </h2>
-                            <p style={{ fontSize: '1.15rem', color: '#1E293B', lineHeight: 1.8, fontWeight: 500, marginBottom: '2rem' }}>
+                            <p style={{ fontSize: '1.15rem', color: '#64748b', lineHeight: 1.8, fontWeight: 500, marginBottom: '2rem' }}>
                                 There is no single software development company that is the right choice for every business. The right partner depends on your requirements, business goals, existing systems, users, project scope and future plans.
                             </p>
                             <Link to="/contact" className="btn btn-primary" style={{ padding: '1.1rem 2.5rem', fontSize: '1.1rem', fontWeight: 800, background: '#1F2937', color: '#FACC15', boxShadow: '0 10px 25px rgba(31, 41, 55, 0.25)' }}>
@@ -1047,7 +1064,7 @@ const About = () => {
                             </Link>
                         </div>
 
-                        {/* Right Column: Stacked Interactive Focus Rows with Slide & Accent Line Animations */}
+                        {/* Right Column: Stacked Interactive Focus Rows */}
                         <div data-aos="fade-left" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                             {[
                                 {
@@ -1070,7 +1087,7 @@ const About = () => {
                                     padding: '1.5rem 1.75rem',
                                     background: '#FFFFFF',
                                     borderRadius: '20px',
-                                    border: '1px solid #D1D5DB',
+                                    border: '1px solid #f1f5f9',
                                     boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
                                     position: 'relative',
                                     overflow: 'hidden',
@@ -1079,7 +1096,7 @@ const About = () => {
                                 }}
                                 onMouseEnter={(e) => {
                                     e.currentTarget.style.transform = 'translateX(12px)';
-                                    e.currentTarget.style.borderColor = '#1F2937';
+                                    e.currentTarget.style.borderColor = '#1e1b4b';
                                     e.currentTarget.style.boxShadow = '0 12px 30px rgba(31, 41, 55, 0.15)';
                                     const numBadge = e.currentTarget.querySelector('.partner-step-num');
                                     if (numBadge) {
@@ -1092,7 +1109,7 @@ const About = () => {
                                 }}
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.transform = 'none';
-                                    e.currentTarget.style.borderColor = '#D1D5DB';
+                                    e.currentTarget.style.borderColor = '#f1f5f9';
                                     e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.03)';
                                     const numBadge = e.currentTarget.querySelector('.partner-step-num');
                                     if (numBadge) {
@@ -1145,15 +1162,15 @@ const About = () => {
             </section>
 
             {/* Clean Horizontal Divider Line */}
-            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+            <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#f1f5f9', margin: '0 auto' }} />
 
-            {/* FAQ Section - 2-Column Floating Card Grid with Dynamic Glow & Q-Badge Accents */}
-            <section id="faq" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+            {/* FAQ Section */}
+            <section id="faq" style={{ width: '100%', padding: '6rem 0', background: '#ffffff' }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>Got Questions?</span>
-                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1rem', color: '#1F2937', fontWeight: 900 }}>
-                            Frequently Asked <span style={{ color: '#D97706' }}>Questions</span>
+                        <h2 style={{ fontSize: '2.8rem', marginBottom: '1rem', color: '#1e1b4b', fontWeight: 900 }}>
+                            Frequently Asked <span className="gradient-text">Questions</span>
                         </h2>
                         <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '700px', margin: '0 auto', fontWeight: 500 }}>
                             Clear answers to common questions about custom software development and our process.

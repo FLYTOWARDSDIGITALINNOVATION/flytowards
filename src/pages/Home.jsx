@@ -115,21 +115,21 @@ const Home = () => {
     ];
 
     return (
-        <main style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="mesh-bg"></div>
-
-            {/* Ambient Background Lights (Same as About page) */}
-            <div style={{ position: 'absolute', top: '5%', left: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(250,204,21,0.12) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(50px)', pointerEvents: 'none' }}></div>
-            <div style={{ position: 'absolute', top: '35%', right: '-10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(253,224,71,0.10) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)', pointerEvents: 'none' }}></div>
-            <div style={{ position: 'absolute', top: '65%', left: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(234,179,8,0.10) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)', pointerEvents: 'none' }}></div>
+        <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
+            {/* Ambient Background Lights (Exact match with Careers page) */}
+            <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+            </div>
 
             {/* Section 1 — Hero */}
             <section style={{
                 padding: '9rem 5% 6rem',
-                background: 'url(/hero-laptop-yellow-bg.png) center center / cover no-repeat',
+                background: '#ffffff',
                 width: '100%',
                 maxWidth: '100%',
                 position: 'relative',
+                zIndex: 1,
                 overflow: 'hidden',
                 minHeight: '85vh',
                 display: 'flex',
@@ -144,17 +144,16 @@ const Home = () => {
                         </div>
 
                         <h1 style={{
+                            fontFamily: "'Outfit', sans-serif",
                             fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
                             fontWeight: 800,
                             lineHeight: 1.2,
-                            color: 'var(--text-dark)',
+                            color: '#1e1b4b',
                             marginBottom: '1.5rem',
-                            letterSpacing: '-0.02em'
+                            letterSpacing: '-0.03em'
                         }}>
-                            <RouterLink to="/services/custom-software-development" style={{ color: 'inherit', textDecoration: 'none' }}>Custom Software Development</RouterLink>{' '}
-                            <span style={{
-                                color: '#FACC15',
-                                textShadow: '-1px 1px 0 #1F2937, 1px 1px 0 #1F2937, 1px -1px 0 #1F2937, -1px -1px 0 #1F2937, 0 4px 15px rgba(250, 204, 21, 0.4)',
+                            <RouterLink to="/services/custom-software-development" style={{ color: '#1e1b4b', textDecoration: 'none' }}>Custom Software Development</RouterLink>{' '}
+                            <span className="gradient-text" style={{
                                 fontWeight: 900
                             }}>
                                 Services for Growing Businesses
@@ -200,34 +199,31 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Content Sections Wrapper with Clean 3D Silver-Yellow Stage Background & Glass Effect */}
+            {/* Content Sections Wrapper with Clean Careers-Style White Background */}
             <div style={{
                 position: 'relative',
-                background: 'url(/body-silver-yellow-bg.png) center center / cover no-repeat fixed',
+                background: '#ffffff',
                 width: '100%',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                zIndex: 1
             }}>
-                {/* Subtle Frosted Glass Overlay */}
-                <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'rgba(255, 255, 255, 0.15)',
-                    backdropFilter: 'blur(5px)',
-                    WebkitBackdropFilter: 'blur(5px)',
-                    zIndex: 0,
-                    pointerEvents: 'none'
-                }}></div>
-
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     {/* Section 2 — Business Problems */}
                     <section id="problems" style={{ padding: '5rem 5% 4rem', width: '100%', maxWidth: '100%' }}>
-                <div style={{ textAlign: 'center', maxWidth: '1000px', margin: '0 auto 3.5rem' }} data-aos="fade-up">
+                <div style={{ textAlign: 'center', maxWidth: '1100px', margin: '0 auto 3.5rem' }} data-aos="fade-up">
                     <span className="section-tag-featured" style={{ marginBottom: '1.25rem' }}>
                         Software Built Around Your Business
                     </span>
 
-                    <h2 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', lineHeight: 1.25, fontWeight: 800, color: 'var(--text-dark)' }}>
-                        Why businesses outgrow spreadsheets,<br className="desktop-only-br" /> disconnected tools and outdated systems
+                    <h2 style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(1.85rem, 3vw, 2.75rem)',
+                        lineHeight: 1.3,
+                        fontWeight: 800,
+                        color: '#1e1b4b',
+                        letterSpacing: '-0.03em'
+                    }}>
+                        Why businesses outgrow spreadsheets,<br className="desktop-only-br" /> disconnected tools and <span className="gradient-text" style={{ display: 'inline-block' }}>outdated systems</span>
                     </h2>
                 </div>
 
@@ -237,8 +233,8 @@ const Home = () => {
                     }}>
                         <div className="grid-2" style={{ gap: '3.5rem', alignItems: 'center' }}>
                             <div>
-                                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '1.25rem', lineHeight: 1.3 }}>
-                                    Generic software forces you to adapt. <span style={{ color: '#EAB308' }}>Custom software adapts to you.</span>
+                                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.25rem', lineHeight: 1.3 }}>
+                                    Generic software forces you to adapt. Custom software adapts to you.
                                 </h3>
 
                                 <p style={{ fontSize: '1.08rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
@@ -267,7 +263,7 @@ const Home = () => {
                             </div>
 
                             <div>
-                                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '1.5rem' }}>
+                                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.5rem' }}>
                                     We help businesses turn operational requirements into software solutions that support:
                                 </h3>
 
@@ -322,8 +318,16 @@ const Home = () => {
                             Software Services
                         </span>
 
-                        <h2 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', lineHeight: 1.25, fontWeight: 800, color: 'var(--text-dark)', marginBottom: '1.25rem' }}>
-                            Software Development Services for Different Business Needs
+                        <h2 style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: 'clamp(1.85rem, 3vw, 2.75rem)',
+                            lineHeight: 1.3,
+                            fontWeight: 800,
+                            color: '#1e1b4b',
+                            letterSpacing: '-0.03em',
+                            marginBottom: '1.25rem'
+                        }}>
+                            Software Development Services for<br className="desktop-only-br" /> <span className="gradient-text">Different Business Needs</span>
                         </h2>
 
                         <p style={{ maxWidth: '850px', margin: '0 auto', fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
@@ -425,7 +429,14 @@ const Home = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Value Proposition</span>
 
-                    <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', marginBottom: '1.5rem' }}>
+                    <h2 style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
+                        fontWeight: 800,
+                        color: '#1e1b4b',
+                        letterSpacing: '-0.03em',
+                        marginBottom: '1.5rem'
+                    }}>
                         Why Businesses <span className="gradient-text">Choose Custom Software</span>
                     </h2>
 
@@ -505,7 +516,14 @@ const Home = () => {
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Target Industries</span>
 
-                        <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', marginBottom: '1.5rem' }}>
+                        <h2 style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
+                            fontWeight: 800,
+                            color: '#1e1b4b',
+                            letterSpacing: '-0.03em',
+                            marginBottom: '1.5rem'
+                        }}>
                             Built for Industries With <span className="gradient-text">Real Operational Challenges</span>
                         </h2>
 
@@ -597,7 +615,14 @@ const Home = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Our Process</span>
 
-                    <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', marginBottom: '1.5rem' }}>
+                    <h2 style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
+                        fontWeight: 800,
+                        color: '#1e1b4b',
+                        letterSpacing: '-0.03em',
+                        marginBottom: '1.5rem'
+                    }}>
                         From Business Requirement <span className="gradient-text">to Working Software</span>
                     </h2>
 
@@ -694,7 +719,14 @@ const Home = () => {
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                         <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Business Impact</span>
 
-                        <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', marginBottom: '1.5rem' }}>
+                        <h2 style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
+                            fontWeight: 800,
+                            color: '#1e1b4b',
+                            letterSpacing: '-0.03em',
+                            marginBottom: '1.5rem'
+                        }}>
                             Software That Supports <span className="gradient-text">Better Business Operations</span>
                         </h2>
 
@@ -822,7 +854,14 @@ const Home = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                     <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Why Choose Us</span>
 
-                    <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', marginBottom: '1.5rem' }}>
+                    <h2 style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
+                        fontWeight: 800,
+                        color: '#1e1b4b',
+                        letterSpacing: '-0.03em',
+                        marginBottom: '1.5rem'
+                    }}>
                         Why Work With <span className="gradient-text">Fly Towards Digital Innovation?</span>
                     </h2>
 
@@ -969,11 +1008,13 @@ const Home = () => {
                             </span>
 
                             <h2 style={{
+                                fontFamily: "'Outfit', sans-serif",
                                 fontSize: 'clamp(2.2rem, 3.8vw, 3rem)',
                                 marginBottom: '1.5rem',
                                 lineHeight: 1.25,
                                 fontWeight: 800,
-                                color: 'var(--text-dark)'
+                                color: '#1e1b4b',
+                                letterSpacing: '-0.03em'
                             }}>
                                 Looking for a <span className="gradient-text">Custom Software Development Agency?</span>
                             </h2>
@@ -1095,8 +1136,15 @@ const Home = () => {
             <section id="resources-hub" style={{ padding: '5rem 5%', background: 'transparent' }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', textAlign: 'center' }}>
                     <span className="section-tag" style={{ marginBottom: '1rem', display: 'inline-block' }}>Resources & Case Studies</span>
-                    <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '1rem' }}>
-                        Explore Our <RouterLink to="/blog" style={{ color: '#EAB308', textDecoration: 'none' }}>Case Studies</RouterLink> & Insights
+                    <h3 style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)',
+                        fontWeight: 800,
+                        color: '#1e1b4b',
+                        letterSpacing: '-0.03em',
+                        marginBottom: '1rem'
+                    }}>
+                        Explore Our <RouterLink to="/blog" className="gradient-text" style={{ textDecoration: 'none' }}>Case Studies</RouterLink> & Insights
                     </h3>
                     <p style={{ fontSize: '1.08rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
                         Learn how we help organizations solve complex technical challenges. Read our latest <RouterLink to="/blog" style={{ color: '#EAB308', fontWeight: 700, textDecoration: 'none' }}>Case Studies</RouterLink> and explore expert articles on our <RouterLink to="/blog" style={{ color: '#EAB308', fontWeight: 700, textDecoration: 'none' }}>Software Development Blog</RouterLink>. Ready to discuss your business requirements? Get in touch with our team via <RouterLink to="/contact" style={{ color: '#EAB308', fontWeight: 700, textDecoration: 'none' }}>Contact</RouterLink>.
@@ -1120,7 +1168,14 @@ const Home = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>FAQ</span>
 
-                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                    <h2 style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
+                        fontWeight: 800,
+                        color: '#1e1b4b',
+                        letterSpacing: '-0.03em',
+                        marginBottom: '1rem'
+                    }}>
                         Frequently Asked <span className="gradient-text">Questions</span>
                     </h2>
 
@@ -1157,10 +1212,11 @@ const Home = () => {
                                     gap: '1rem'
                                 }}>
                                     <h3 style={{
+                                        fontFamily: "'Outfit', sans-serif",
                                         fontSize: '1.25rem',
                                         fontWeight: 800,
                                         margin: 0,
-                                        color: isOpen ? '#B45309' : '#1F2937',
+                                        color: '#1e1b4b',
                                         transition: 'color 0.3s ease',
                                         textAlign: 'left'
                                     }}>
@@ -1170,7 +1226,7 @@ const Home = () => {
                                     <div style={{
                                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                                         transition: 'transform 0.3s ease',
-                                        color: isOpen ? '#B45309' : '#6B7280'
+                                        color: isOpen ? '#1e1b4b' : '#64748b'
                                     }}>
                                         <ChevronDown size={24} />
                                     </div>
@@ -1183,7 +1239,7 @@ const Home = () => {
                                     opacity: isOpen ? 1 : 0
                                 }}>
                                     <p style={{
-                                        color: 'var(--text-muted)',
+                                        color: '#64748b',
                                         fontSize: '1.05rem',
                                         lineHeight: 1.7,
                                         marginTop: '1rem',
@@ -1248,13 +1304,16 @@ const Home = () => {
                         </span>
 
                         <h2 style={{
+                            fontFamily: "'Outfit', sans-serif",
                             fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
                             fontWeight: 800,
-                            color: 'var(--text-dark)',
+                            color: '#1e1b4b',
                             marginBottom: '1.75rem',
+                            letterSpacing: '-0.03em',
                             lineHeight: 1.2
                         }}>
-                            Let's Discuss What Your Business <span className="gradient-text">Needs to Build</span>
+                            Let's Discuss What Your Business <span className="gradient-text">Needs</span><br className="desktop-only-br" />
+                            <span className="gradient-text">to Build</span>
                         </h2>
 
                         <div style={{

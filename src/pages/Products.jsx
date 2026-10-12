@@ -206,28 +206,69 @@ const Products = () => {
     ];
 
     return (
-        <div style={{ width: '100%', overflow: 'hidden', background: '#E5E7EB' }}>
+        <main style={{ 
+            position: 'relative', 
+            overflow: 'hidden',
+            background: '#ffffff',
+            minHeight: '100vh',
+            fontFamily: "'Outfit', sans-serif",
+            color: '#0f172a',
+            width: '100%',
+            maxWidth: '100%',
+            margin: 0,
+            padding: 0
+        }}>
             <style>{`
-                body {
+                body, html, #root, .app {
+                    background-color: #ffffff !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    overflow-x: hidden !important;
+                }
+                .full-bleed-yellow {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                    background-color: #FACC15 !important;
+                    box-sizing: border-box !important;
+                }
+                .full-bleed-dark {
+                    width: 100% !important;
+                    max-width: 100% !important;
                     margin: 0 !important;
                     background-color: #111827 !important;
                     box-sizing: border-box !important;
                 }
             `}</style>
 
+            {/* Ambient Background Lights (Exact match with Home page) */}
+            <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+            </div>
+
             <div style={{ position: 'relative', zIndex: 1, width: '100%', margin: 0, padding: 0 }}>
                 
                 {/* ================= HERO SECTION ================= */}
-                <section className="hero" style={{ width: '100%', minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '140px 0 80px', background: 'radial-gradient(ellipse at 50% 0%, rgba(250, 204, 21, 0.35) 0%, rgba(253, 224, 71, 0.15) 40%, rgba(229, 231, 235, 0.9) 65%, #E5E7EB 85%)' }}>
+                <section className="hero" style={{ width: '100%', minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '140px 0 80px', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
                         <div style={{ textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }} data-aos="fade-up">
                             <span className="section-tag" style={{ display: 'inline-block', margin: '0 auto 1.5rem' }}>Ecosystem Products</span>
                             
-                            <h1 style={{ fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', lineHeight: 1.25, fontWeight: 800, maxWidth: '1200px', margin: '0 auto 1.5rem', letterSpacing: '-0.02em', color: '#1F2937' }}>
+                            <h1 style={{ 
+                                fontFamily: "'Outfit', sans-serif",
+                                fontSize: 'clamp(2.2rem, 3.8vw, 3.2rem)', 
+                                lineHeight: 1.25, 
+                                fontWeight: 800, 
+                                maxWidth: '1200px', 
+                                margin: '0 auto 1.5rem', 
+                                letterSpacing: '-0.03em', 
+                                color: '#1e1b4b' 
+                            }}>
                                 Business Software Solutions <br />
-                                <span style={{
-                                    color: '#FACC15',
-                                    WebkitTextStroke: '1.5px #1F2937',
+                                <span className="gradient-text" style={{
                                     display: 'inline-block',
                                     marginTop: '0.25rem',
                                     fontWeight: 900
@@ -254,15 +295,22 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= INTRO: SOFTWARE PRODUCTS DESIGNED FOR OPERATIONS ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto' }} data-aos="fade-up">
                             <span className="section-tag" style={{ display: 'inline-block', marginBottom: '1.25rem' }}>Operational Design</span>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1F2937', fontWeight: 900 }}>
-                                Software Products Designed <span style={{ color: '#D97706' }}>for Business Operations</span>
+                            <h2 style={{ 
+                                fontFamily: "'Outfit', sans-serif",
+                                fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                                marginBottom: '1.5rem', 
+                                color: '#1e1b4b', 
+                                fontWeight: 800,
+                                letterSpacing: '-0.03em' 
+                            }}>
+                                Software Products Designed <span className="gradient-text" style={{ display: 'inline-block' }}>for Business Operations</span>
                             </h2>
                             <p style={{ fontSize: '1.18rem', color: '#1E293B', lineHeight: 1.8, marginBottom: '1.5rem', fontWeight: 500 }}>
                                 Businesses need software that supports the way they actually work. Managing customer information, handling billing activities and coordinating everyday business processes can become increasingly difficult when teams rely on manual work or disconnected tools.
@@ -275,7 +323,7 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= PRODUCTS CARDS SECTION - 2-Tier Architectural Layout ================= */}
                 <section id="products" className="full-bleed-yellow" style={{ padding: '6rem 5%' }}>
@@ -597,10 +645,10 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= HOW BUSINESS SOFTWARE CAN SUPPORT YOUR OPERATIONS ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB', position: 'relative', overflow: 'hidden' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent', position: 'relative', overflow: 'hidden' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%', position: 'relative', zIndex: 2 }}>
                         <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto 4.5rem' }} data-aos="fade-up">
                             <span className="section-tag" style={{ background: 'rgba(31, 41, 55, 0.08)', color: '#1F2937', borderColor: 'rgba(31, 41, 55, 0.2)' }}>
@@ -658,7 +706,7 @@ const Products = () => {
                                         position: 'relative',
                                         background: '#FFFFFF',
                                         borderRadius: '24px',
-                                        border: '1px solid #CBD5E1',
+                                        border: '1px solid #E2E8F0',
                                         boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
                                         overflow: 'hidden',
                                         display: 'flex',
@@ -673,7 +721,7 @@ const Products = () => {
                                     }}
                                     onMouseLeave={(e) => {
                                         e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                        e.currentTarget.style.borderColor = '#CBD5E1';
+                                        e.currentTarget.style.borderColor = '#E2E8F0';
                                         e.currentTarget.style.boxShadow = '0 10px 30px -5px rgba(0, 0, 0, 0.05)';
                                     }}
                                 >
@@ -735,10 +783,10 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= CHOOSING THE RIGHT BUSINESS MANAGEMENT SOFTWARE ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div className="grid-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
                             <div data-aos="fade-right">
@@ -754,16 +802,16 @@ const Products = () => {
                                 </p>
                             </div>
 
-                            <div data-aos="fade-left" style={{ padding: '2.25rem', background: '#FFFFFF', borderRadius: '24px', border: '1px solid #D1D5DB', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
+                            <div data-aos="fade-left" style={{ padding: '2.25rem', background: '#FFFFFF', borderRadius: '24px', border: '1px solid #E2E8F0', boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.05)' }}>
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: '#1F2937', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                     <span style={{ width: '8px', height: '24px', background: '#FACC15', borderRadius: '4px', display: 'inline-block' }}></span>
                                     Before selecting a product, consider:
                                 </h3>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                                     {selectionQuestions.map((q, idx) => (
-                                        <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'center', padding: '0.75rem 1rem', background: '#F9FAFB', borderRadius: '12px', border: '1px solid #E5E7EB' }}>
+                                        <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'center', padding: '0.75rem 1rem', background: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
                                             <div style={{ width: '28px', height: '28px', minWidth: '28px', borderRadius: '8px', background: '#FEF9C3', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #FDE047' }}>
-                                                <HelpCircle size={16} color="#D97706" />
+                                                <HelpCircle size={16} color="#EAB308" />
                                             </div>
                                             <span style={{ fontSize: '0.98rem', fontWeight: 700, color: '#1F2937' }}>{q}</span>
                                         </div>
@@ -775,21 +823,21 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= SOFTWARE FOR DIFFERENT BUSINESS REQUIREMENTS ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div className="grid-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
-                            <div data-aos="fade-right" style={{ padding: '2.25rem', background: '#FFFFFF', borderRadius: '24px', border: '1px solid #D1D5DB', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
+                            <div data-aos="fade-right" style={{ padding: '2.25rem', background: '#FFFFFF', borderRadius: '24px', border: '1px solid #E2E8F0', boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.05)' }}>
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: '#1F2937', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                     <span style={{ width: '8px', height: '24px', background: '#FACC15', borderRadius: '4px', display: 'inline-block' }}></span>
                                     Each product should clearly explain:
                                 </h3>
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.85rem' }}>
                                     {productExplains.map((item, idx) => (
-                                        <div key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'center', padding: '0.7rem 0.9rem', background: '#F9FAFB', borderRadius: '12px', border: '1px solid #E5E7EB' }}>
-                                            <CheckCircle size={16} color="#D97706" style={{ flexShrink: 0 }} />
+                                        <div key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'center', padding: '0.7rem 0.9rem', background: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+                                            <CheckCircle size={16} color="#EAB308" style={{ flexShrink: 0 }} />
                                             <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1F2937' }}>{item}</span>
                                         </div>
                                     ))}
@@ -798,8 +846,16 @@ const Products = () => {
 
                             <div data-aos="fade-left">
                                 <span className="section-tag">Diverse Demands</span>
-                                <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1F2937', fontWeight: 900, lineHeight: 1.25 }}>
-                                    Software for Different Business Requirements
+                                <h2 style={{ 
+                                    fontFamily: "'Outfit', sans-serif",
+                                    fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                                    marginBottom: '1.5rem', 
+                                    color: '#1e1b4b', 
+                                    fontWeight: 800, 
+                                    lineHeight: 1.25,
+                                    letterSpacing: '-0.03em' 
+                                }}>
+                                    Software for Different <span className="gradient-text" style={{ display: 'inline-block' }}>Business Requirements</span>
                                 </h2>
                                 <p style={{ fontSize: '1.15rem', color: '#1E293B', lineHeight: 1.8, fontWeight: 500, marginBottom: '1.25rem' }}>
                                     Different businesses can have very different software requirements. A business looking for customer management capabilities may need a dedicated <Link to="/services/crm-development/" style={{ color: '#1F2937', fontWeight: 800, textDecoration: 'underline' }}>CRM Development</Link> solution. A business focused on billing operations may need billing software.
@@ -813,28 +869,35 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= WHEN A READY-MADE PRODUCT IS NOT ENOUGH ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto 4rem' }} data-aos="fade-up">
                             <span className="section-tag">Bespoke vs Out-of-the-box</span>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                                When a Ready-Made Product Is Not Enough
+                            <h2 style={{ 
+                                fontFamily: "'Outfit', sans-serif",
+                                fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                                marginBottom: '1.25rem', 
+                                color: '#1e1b4b', 
+                                fontWeight: 800,
+                                letterSpacing: '-0.03em' 
+                            }}>
+                                When a Ready-Made Product Is <span className="gradient-text" style={{ display: 'inline-block' }}>Not Enough</span>
                             </h2>
                             <p style={{ fontSize: '1.15rem', color: '#1E293B', lineHeight: 1.8, fontWeight: 500, margin: 0 }}>
                                 Sometimes an existing product can address the requirement. In other situations, the business may have workflows, integrations or functionality that require a different approach.
                             </p>
                         </div>
 
-                        <div style={{ padding: '3rem 2.5rem', background: '#FFFFFF', borderRadius: '28px', border: '1px solid #D1D5DB', boxShadow: '0 4px 15px rgba(0,0,0,0.03)', maxWidth: '1100px', margin: '0 auto' }} data-aos="fade-up">
+                        <div style={{ padding: '3rem 2.5rem', background: '#FFFFFF', borderRadius: '28px', border: '1px solid #E2E8F0', boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.05)', maxWidth: '1100px', margin: '0 auto' }} data-aos="fade-up">
                             <h3 style={{ fontSize: '1.3rem', fontWeight: 900, color: '#1F2937', marginBottom: '2rem', textAlign: 'center' }}>
                                 For example, an organisation may need:
                             </h3>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
                                 {readyMadeNotEnough.map((need, idx) => (
-                                    <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'center', padding: '1rem 1.25rem', background: '#F9FAFB', borderRadius: '16px', border: '1px solid #E5E7EB' }}>
+                                    <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'center', padding: '1rem 1.25rem', background: '#F8FAFC', borderRadius: '16px', border: '1px solid #E2E8F0' }}>
                                         <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FACC15', flexShrink: 0 }}></div>
                                         <p style={{ margin: 0, color: '#1F2937', fontWeight: 700, fontSize: '0.98rem' }}>{need}</p>
                                     </div>
@@ -848,16 +911,24 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= BESPOKE SOFTWARE DEVELOPMENT & IT DEVELOPMENT ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div className="grid-2" style={{ alignItems: 'center', gap: '3.5rem' }}>
                             <div data-aos="fade-right">
                                 <span className="section-tag">Custom Services</span>
-                                <h2 style={{ fontSize: '2.8rem', marginBottom: '1.5rem', color: '#1F2937', fontWeight: 900, lineHeight: 1.25 }}>
-                                    Bespoke Software Development for Specific Requirements
+                                <h2 style={{ 
+                                    fontFamily: "'Outfit', sans-serif",
+                                    fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                                    marginBottom: '1.5rem', 
+                                    color: '#1e1b4b', 
+                                    fontWeight: 800, 
+                                    lineHeight: 1.25,
+                                    letterSpacing: '-0.03em' 
+                                }}>
+                                    Bespoke Software Development for <span className="gradient-text" style={{ display: 'inline-block' }}>Specific Requirements</span>
                                 </h2>
                                 <p style={{ fontSize: '1.15rem', color: '#1E293B', lineHeight: 1.8, fontWeight: 500, marginBottom: '1.25rem' }}>
                                     When a business needs software built around its own processes, a bespoke software development service may be more appropriate. Fly Towards Digital Innovation provides <Link to="/services/custom-software-development/" style={{ color: '#1F2937', fontWeight: 800, textDecoration: 'underline' }}>Custom Software Development Services</Link>, Enterprise Software Development, SaaS Development, Web Application Development and Mobile App Development.
@@ -887,15 +958,22 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= INDUSTRY SOLUTIONS SECTION ================= */}
-                <section style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto 4rem' }} data-aos="fade-up">
                             <span className="section-tag">Industry Solutions</span>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1.25rem', color: '#1F2937', fontWeight: 900 }}>
-                                Industry-Specific Software Solutions
+                            <h2 style={{ 
+                                fontFamily: "'Outfit', sans-serif",
+                                fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                                marginBottom: '1.25rem', 
+                                color: '#1e1b4b', 
+                                fontWeight: 800,
+                                letterSpacing: '-0.03em' 
+                            }}>
+                                Industry-Specific <span className="gradient-text" style={{ display: 'inline-block' }}>Software Solutions</span>
                             </h2>
                             <p style={{ fontSize: '1.15rem', color: '#1E293B', lineHeight: 1.8, fontWeight: 500, margin: 0 }}>
                                 We design and develop bespoke solutions tailored specifically to the standards, compliances, and workflows of various industry sectors.
@@ -946,15 +1024,22 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= FAQ SECTION ================= */}
-                <section id="faq" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section id="faq" style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
                             <span className="section-tag" style={{ background: '#1F2937', color: '#FACC15' }}>Got Questions?</span>
-                            <h2 style={{ fontSize: '2.8rem', marginBottom: '1rem', color: '#1F2937', fontWeight: 900 }}>
-                                Frequently Asked <span style={{ color: '#D97706' }}>Questions</span>
+                            <h2 style={{ 
+                                fontFamily: "'Outfit', sans-serif",
+                                fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', 
+                                marginBottom: '1rem', 
+                                color: '#1e1b4b', 
+                                fontWeight: 800,
+                                letterSpacing: '-0.03em' 
+                            }}>
+                                Frequently Asked <span className="gradient-text" style={{ display: 'inline-block' }}>Questions</span>
                             </h2>
                             <p style={{ fontSize: '1.15rem', color: '#374151', maxWidth: '700px', margin: '0 auto', fontWeight: 500 }}>
                                 Clear answers to common questions about business software solutions and our delivery models.
@@ -969,7 +1054,7 @@ const Products = () => {
                                         background: isOpen ? '#FFFFFF' : 'rgba(255, 255, 255, 0.85)',
                                         borderRadius: '20px',
                                         padding: '1.5rem 1.75rem',
-                                        border: isOpen ? '2px solid #1F2937' : '1px solid #D1D5DB',
+                                        border: isOpen ? '2px solid #1F2937' : '1px solid #E2E8F0',
                                         boxShadow: isOpen ? '0 12px 30px rgba(31, 41, 55, 0.15)' : '0 4px 15px rgba(0, 0, 0, 0.03)',
                                         cursor: 'pointer',
                                         transition: 'all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -986,7 +1071,7 @@ const Products = () => {
                                     onMouseLeave={(e) => {
                                         if (!isOpen) {
                                             e.currentTarget.style.transform = 'none';
-                                            e.currentTarget.style.borderColor = '#D1D5DB';
+                                            e.currentTarget.style.borderColor = '#E2E8F0';
                                             e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.03)';
                                         }
                                     }}
@@ -1012,10 +1097,10 @@ const Products = () => {
                 </section>
 
                 {/* Clean Horizontal Divider Line */}
-                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#D1D5DB', margin: '0 auto' }} />
+                <div style={{ width: '90%', maxWidth: '1280px', height: '1px', background: '#E2E8F0', margin: '0 auto' }} />
 
                 {/* ================= FINAL CTA SECTION ================= */}
-                <section id="contact" style={{ width: '100%', padding: '6rem 0', background: '#E5E7EB' }}>
+                <section id="contact" style={{ width: '100%', padding: '6rem 0', background: 'transparent' }}>
                     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                         <div style={{
                             background: '#111827',
@@ -1048,7 +1133,7 @@ const Products = () => {
                 </section>
 
             </div>
-        </div>
+        </main>
     );
 };
 

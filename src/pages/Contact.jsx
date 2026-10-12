@@ -22,10 +22,10 @@ const Contact = () => {
     };
 
     const whyChooseUs = [
-        { icon: <Zap size={24} color="var(--primary)" />, text: "Fast Response" },
-        { icon: <Shield size={24} color="var(--secondary)" />, text: "Affordable Services" },
-        { icon: <Users size={24} color="var(--accent)" />, text: "Expert Digital Marketing Team" },
-        { icon: <Target size={24} color="var(--primary)" />, text: "Custom Strategies" }
+        { icon: <Zap size={22} color="#CA8A04" strokeWidth={2.2} />, text: "Fast Response" },
+        { icon: <Shield size={22} color="#CA8A04" strokeWidth={2.2} />, text: "Affordable Services" },
+        { icon: <Users size={22} color="#CA8A04" strokeWidth={2.2} />, text: "Expert Digital Marketing Team" },
+        { icon: <Target size={22} color="#CA8A04" strokeWidth={2.2} />, text: "Custom Strategies" }
     ];
 
     const subjectOptions = ['Digital Marketing', 'Web Development'];
@@ -37,7 +37,7 @@ const Contact = () => {
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', paddingTop: '140px', paddingBottom: '3rem' }}>
                 <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ justifyContent: 'center', display: 'flex', gap: '8px' }}>
+                    <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         <Send size={18} /> Contact Us
                     </span>
                     <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
@@ -63,59 +63,59 @@ const Contact = () => {
                             </p>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', padding: '1.5rem', borderRadius: '15px', border: '1px solid var(--border)' }}>
-                                    <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '1rem', borderRadius: '12px' }}>
-                                        <Phone size={24} color="var(--primary)" />
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: '#FFFFFF', padding: '1.5rem', borderRadius: '20px', border: '1px solid #E2E8F0', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.04)' }}>
+                                    <div style={{ background: '#1F2937', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 8px 18px rgba(31, 41, 55, 0.15)' }}>
+                                        <Phone size={24} color="#FACC15" strokeWidth={2.2} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 700 }}>Phone / WhatsApp</h4>
-                                        <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', textDecoration: 'none' }}>+91 90809 99823</a>
+                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 800, color: '#1e1b4b' }}>Phone / WhatsApp</h4>
+                                        <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" style={{ color: '#4B5563', fontSize: '1.05rem', textDecoration: 'none', fontWeight: 600 }}>+91 90809 99823</a>
                                     </div>
                                 </div>
 
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', padding: '1.5rem', borderRadius: '15px', border: '1px solid var(--border)' }}>
-                                    <div style={{ background: 'rgba(255, 0, 122, 0.1)', padding: '1rem', borderRadius: '12px' }}>
-                                        <Mail size={24} color="var(--secondary)" />
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: '#FFFFFF', padding: '1.5rem', borderRadius: '20px', border: '1px solid #E2E8F0', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.04)' }}>
+                                    <div style={{ background: '#1F2937', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 8px 18px rgba(31, 41, 55, 0.15)' }}>
+                                        <Mail size={24} color="#FACC15" strokeWidth={2.2} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 700 }}>Email Address</h4>
-                                        <a href="mailto:flytowardsdigitalinnovation@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', textDecoration: 'none', wordBreak: 'break-all' }}>flytowardsdigitalinnovation@gmail.com</a>
+                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 800, color: '#1e1b4b' }}>Email Address</h4>
+                                        <a href="mailto:flytowardsdigitalinnovation@gmail.com" style={{ color: '#4B5563', fontSize: '1.05rem', textDecoration: 'none', wordBreak: 'break-all', fontWeight: 600 }}>flytowardsdigitalinnovation@gmail.com</a>
                                     </div>
                                 </div>
 
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', padding: '1.5rem', borderRadius: '15px', border: '1px solid var(--border)' }}>
-                                    <div style={{ background: 'rgba(157, 0, 255, 0.1)', padding: '1rem', borderRadius: '12px' }}>
-                                        <Clock size={24} color="var(--accent)" />
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: '#FFFFFF', padding: '1.5rem', borderRadius: '20px', border: '1px solid #E2E8F0', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.04)' }}>
+                                    <div style={{ background: '#1F2937', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 8px 18px rgba(31, 41, 55, 0.15)' }}>
+                                        <Clock size={24} color="#FACC15" strokeWidth={2.2} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 700 }}>Working Hours</h4>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', margin: 0 }}>Mon–Sat | 9:00 AM – 7:00 PM</p>
+                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 800, color: '#1e1b4b' }}>Working Hours</h4>
+                                        <p style={{ color: '#4B5563', fontSize: '1.05rem', margin: 0, fontWeight: 600 }}>Mon–Sat | 9:00 AM – 7:00 PM</p>
                                     </div>
                                 </div>
 
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', padding: '1.5rem', borderRadius: '15px', border: '1px solid var(--border)' }}>
-                                    <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '1rem', borderRadius: '12px' }}>
-                                        <MapPin size={24} color="var(--primary)" />
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.2rem', background: '#FFFFFF', padding: '1.5rem', borderRadius: '20px', border: '1px solid #E2E8F0', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.04)' }}>
+                                    <div style={{ background: '#1F2937', width: '56px', height: '56px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 8px 18px rgba(31, 41, 55, 0.15)' }}>
+                                        <MapPin size={24} color="#FACC15" strokeWidth={2.2} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 700 }}>Office Address</h4>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', margin: 0, lineHeight: 1.6 }}>Fly Towards Digital Innovation,<br />vadaku Ratha veethi sankarankovil,<br />Tenkasi, Tamil Nadu - 627756</p>
+                                        <h4 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', fontWeight: 800, color: '#1e1b4b' }}>Office Address</h4>
+                                        <p style={{ color: '#4B5563', fontSize: '1.05rem', margin: 0, lineHeight: 1.6, fontWeight: 600 }}>Fly Towards Digital Innovation,<br />vadaku Ratha veethi sankarankovil,<br />Tenkasi, Tamil Nadu - 627756</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div>
-                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>Why <span className="gradient-text">Choose Us?</span></h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                            <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 800, color: '#1e1b4b' }}>Why <span className="gradient-text">Choose Us?</span></h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }}>
                                 {whyChooseUs.map((item, idx) => (
-                                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'var(--bg-white)', padding: '1rem', borderRadius: '10px', boxShadow: 'var(--shadow)', border: '1px solid var(--border)' }}>
-                                        {item.icon}
-                                        <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>{item.text}</span>
+                                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#FFFFFF', padding: '1.25rem 1.4rem', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)', border: '1px solid #E2E8F0', minHeight: '80px' }}>
+                                        <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: '#FEF9C3', border: '1px solid rgba(250, 204, 21, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                            {item.icon}
+                                        </div>
+                                        <span style={{ fontWeight: 700, fontSize: '0.98rem', color: '#1F2937', lineHeight: 1.35 }}>{item.text}</span>
                                     </div>
                                 ))}
                             </div>
-                        </div>
                     </div>
 
                     {/* Right Column - Contact Form */}

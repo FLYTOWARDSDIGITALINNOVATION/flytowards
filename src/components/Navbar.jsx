@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronDown, Menu, X, Search, ArrowRight, CornerDownLeft, TrendingUp, Video, Camera, Package, ShoppingBag, Layers, Factory, HeartPulse, Building2 } from 'lucide-react';
 
@@ -44,6 +44,7 @@ const Navbar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [openDropdown, setOpenDropdown] = useState(null);
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
@@ -51,17 +52,38 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsOpen((prev) => !prev);
         setActiveDropdown(null);
+        setOpenDropdown(null);
     };
 
     const closeMenu = () => {
         setIsOpen(false);
         setActiveDropdown(null);
+        setOpenDropdown(null);
+        if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
     };
+
+    useEffect(() => {
+        closeMenu();
+    }, [location.pathname]);
 
     const toggleDropdown = (name, e) => {
         if (window.innerWidth <= 968) {
             e.preventDefault();
             setActiveDropdown((prev) => (prev === name ? null : name));
+        }
+    };
+
+    const handleMouseEnter = (name) => {
+        if (window.innerWidth > 968) {
+            setActiveDropdown(name);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (window.innerWidth > 968) {
+            setActiveDropdown(null);
         }
     };
 
@@ -120,13 +142,18 @@ const Navbar = () => {
                 {/* Products */}
                 <li
                     className={`dropdown dropdown--mega ${
-                        activeDropdown === 'products' ? 'mobile-active' : ''
+                        activeDropdown === 'products' ? 'is-open mobile-active' : ''
                     }`}
+                    onMouseEnter={() => handleMouseEnter('products')}
+                    onMouseLeave={handleMouseLeave}
                 >
                     <Link
                         to="/products"
                         className={isActive('/products')}
-                        onClick={(e) => toggleDropdown('products', e)}
+                        onClick={(e) => {
+                            closeMenu();
+                            toggleDropdown('products', e);
+                        }}
                     >
                         Products
                         <ChevronDown
@@ -189,13 +216,18 @@ const Navbar = () => {
                 {/* Service */}
                 <li
                     className={`dropdown dropdown--mega ${
-                        activeDropdown === 'services' ? 'mobile-active' : ''
+                        activeDropdown === 'services' ? 'is-open mobile-active' : ''
                     }`}
+                    onMouseEnter={() => handleMouseEnter('services')}
+                    onMouseLeave={handleMouseLeave}
                 >
                     <Link
                         to="/services"
                         className={isActive('/services')}
-                        onClick={(e) => toggleDropdown('services', e)}
+                        onClick={(e) => {
+                            closeMenu();
+                            toggleDropdown('services', e);
+                        }}
                     >
                         Service
                         <ChevronDown
@@ -268,13 +300,18 @@ const Navbar = () => {
                 {/* Industries */}
                 <li
                     className={`dropdown dropdown--mega ${
-                        activeDropdown === 'industries' ? 'mobile-active' : ''
+                        activeDropdown === 'industries' ? 'is-open mobile-active' : ''
                     }`}
+                    onMouseEnter={() => handleMouseEnter('industries')}
+                    onMouseLeave={handleMouseLeave}
                 >
                     <Link
                         to="/industries"
                         className={isActive('/industries')}
-                        onClick={(e) => toggleDropdown('industries', e)}
+                        onClick={(e) => {
+                            closeMenu();
+                            toggleDropdown('industries', e);
+                        }}
                     >
                         Industries
                         <ChevronDown

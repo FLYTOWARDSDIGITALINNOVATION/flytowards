@@ -578,49 +578,93 @@ const Careers = () => {
             </section>
 
             {/* Final CTA */}
-            <section style={{ padding: '0 2rem 160px' }}>
-                <div data-aos="zoom-in" className="gradient-portal" style={{
+            <section style={{ padding: '0 2rem 140px', position: 'relative' }}>
+                <div data-aos="zoom-in" style={{
                     margin: '0 auto',
-                    padding: '12rem 4rem',
-                    borderRadius: '100px',
+                    maxWidth: '1200px',
+                    padding: '80px 2rem',
                     textAlign: 'center',
-                    boxShadow: '0 80px 150px rgba(15, 23, 42, 0.4)',
-                    background: 'linear-gradient(225deg, #0f172a 0%, #1e1b4b 100%)'
+                    position: 'relative'
                 }}>
-                    <style>{`
-                        @keyframes pulse-glow {
-                            0%, 100% { opacity: 0.5; transform: scale(1); }
-                            50% { opacity: 0.8; transform: scale(1.1); }
-                        }
-                        .glow-overlay {
-                            position: absolute;
-                            inset: 0;
-                            background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
-                            mix-blend-mode: overlay;
-                            animation: pulse-glow 10s infinite;
-                        }
-                    `}</style>
-                    <div className="glow-overlay"></div>
+                    {/* Subtle Golden/Indigo Glow Aura */}
+                    <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '600px',
+                        height: '400px',
+                        background: 'radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, rgba(129, 140, 248, 0.06) 50%, transparent 70%)',
+                        filter: 'blur(60px)',
+                        pointerEvents: 'none',
+                        zIndex: 0
+                    }} />
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <div style={{
-                            display: 'inline-block', padding: '1rem 2.5rem', borderRadius: '50px',
-                            background: 'rgba(0, 242, 255, 0.1)', backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(0, 242, 255, 0.2)', marginBottom: '3.5rem',
-                            color: 'var(--primary)', fontWeight: 800, fontSize: '1rem', textTransform: 'uppercase',
-                            letterSpacing: '0.3em'
-                        }}>
+                        <span
+                            className="section-tag"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginBottom: '2rem',
+                                background: '#FEF9C3',
+                                border: '1px solid rgba(250, 204, 21, 0.5)',
+                                color: '#1F2937',
+                                padding: '0.45rem 1.4rem',
+                                borderRadius: '99px',
+                                fontSize: '0.85rem',
+                                fontWeight: 800,
+                                letterSpacing: '1.5px',
+                                textTransform: 'uppercase'
+                            }}
+                        >
                             The Future Starts Now
-                        </div>
-                        <h2 style={{ fontSize: 'clamp(4rem, 8vw, 6.5rem)', fontWeight: 800, color: '#fff', marginBottom: '3rem', letterSpacing: '-0.05em', lineHeight: 0.9 }}>
-                            Join the <br /><span style={{ color: 'var(--primary)' }}>Revolution.</span>
+                        </span>
+
+                        <h2 style={{
+                            fontSize: 'clamp(2.8rem, 6vw, 4.8rem)',
+                            fontWeight: 900,
+                            color: '#1e1b4b',
+                            marginBottom: '2rem',
+                            letterSpacing: '-0.04em',
+                            lineHeight: 1.15
+                        }}>
+                            Join the <br /><span className="gradient-text">Revolution.</span>
                         </h2>
-                        <p style={{ fontSize: '1.6rem', color: '#cbd5e1', maxWidth: '700px', margin: '0 auto 5rem', lineHeight: 1.6, opacity: 0.9 }}>
+
+                        <p style={{
+                            fontSize: '1.25rem',
+                            color: '#64748b',
+                            maxWidth: '700px',
+                            margin: '0 auto 3.5rem',
+                            lineHeight: 1.7,
+                            fontWeight: 500
+                        }}>
                             We aren't creating jobs. We're assembling a tribe of visionaries to redefine what's possible.
                         </p>
+
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-                            <button className="btn-glow" onClick={() => handleApplyClick("General Application")}>
-                                Send Your CV <ArrowRight size={28} />
+                            <button
+                                className="btn btn-primary"
+                                onClick={() => handleApplyClick("General Application")}
+                                style={{
+                                    padding: '1.25rem 3.5rem',
+                                    borderRadius: '50px',
+                                    fontWeight: 900,
+                                    fontSize: '1.15rem',
+                                    background: '#FACC15',
+                                    color: '#1F2937',
+                                    border: 'none',
+                                    boxShadow: '0 15px 35px rgba(250, 204, 21, 0.35)',
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '12px',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease'
+                                }}
+                            >
+                                Send Your CV <ArrowRight size={22} color="#1F2937" />
                             </button>
                         </div>
                     </div>

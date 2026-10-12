@@ -248,12 +248,7 @@ const Industries = () => {
                 }
 
                 .gradient-text-industry {
-                    background:
-                        linear-gradient(
-                            135deg,
-                            #00f2ff 0%,
-                            #ff007a 100%
-                        );
+                    background: linear-gradient(135deg, #FACC15 0%, #EAB308 50%, #CA8A04 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
@@ -379,7 +374,7 @@ const Industries = () => {
                         width: "700px",
                         height: "700px",
                         background:
-                            "radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 68%)",
+                            "radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, transparent 68%)",
                         filter: "blur(120px)",
                     }}
                 />
@@ -392,7 +387,7 @@ const Industries = () => {
                         width: "850px",
                         height: "850px",
                         background:
-                            "radial-gradient(circle, rgba(255, 0, 122, 0.04) 0%, transparent 70%)",
+                            "radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, transparent 70%)",
                         filter: "blur(130px)",
                     }}
                 />
@@ -435,13 +430,13 @@ const Industries = () => {
                                     style={{
                                         width: "40px",
                                         height: "2.5px",
-                                        background: "var(--primary)",
+                                        background: "#EAB308",
                                     }}
                                 />
 
                                 <span
                                     style={{
-                                        color: "var(--primary)",
+                                        color: "#CA8A04",
                                         fontWeight: 800,
                                         fontSize: "0.85rem",
                                         textTransform: "uppercase",
@@ -459,6 +454,7 @@ const Industries = () => {
                                     lineHeight: 1,
                                     marginBottom: "2.5rem",
                                     letterSpacing: "-0.04em",
+                                    color: "#1e1b4b"
                                 }}
                             >
                                 Industries We{" "}
@@ -497,8 +493,10 @@ const Industries = () => {
                                         borderRadius: "50px",
                                         fontWeight: 800,
                                         fontSize: "1.05rem",
+                                        background: "#FACC15",
+                                        color: "#1F2937",
                                         boxShadow:
-                                            "0 15px 35px rgba(0, 242, 255, 0.2)",
+                                            "0 15px 35px rgba(250, 204, 21, 0.3)",
                                         textDecoration: "none",
                                     }}
                                 >
@@ -520,8 +518,8 @@ const Industries = () => {
                                         borderRadius: "50px",
                                         fontWeight: 800,
                                         fontSize: "1.05rem",
-                                        borderColor: "#e2e8f0",
-                                        color: "#1e293b",
+                                        borderColor: "#1F2937",
+                                        color: "#1F2937",
                                         textDecoration: "none",
                                     }}
                                 >
@@ -550,7 +548,7 @@ const Industries = () => {
                                         padding: "2px",
                                         borderRadius: "45px",
                                         background:
-                                            "linear-gradient(225deg, #00f2ff, #ff007a)",
+                                            "linear-gradient(225deg, #FACC15, #EAB308)",
                                         opacity: 0.8,
                                         zIndex: 0,
                                     }}
@@ -614,13 +612,13 @@ const Industries = () => {
                                                     width: "8px",
                                                     height: "8px",
                                                     borderRadius: "50%",
-                                                    background: "#00f2ff",
+                                                    background: "#EAB308",
                                                 }}
                                             />
 
                                             <span
                                                 style={{
-                                                    color: "#00f2ff",
+                                                    color: "#EAB308",
                                                     fontWeight: 800,
                                                     fontSize: "0.75rem",
                                                     textTransform: "uppercase",
@@ -672,8 +670,9 @@ const Industries = () => {
                         <span
                             className="section-tag"
                             style={{
+                                display: "inline-flex",
+                                alignItems: "center",
                                 justifyContent: "center",
-                                display: "flex",
                             }}
                         >
                             Industries We Power
@@ -1139,11 +1138,11 @@ const Industries = () => {
                                         height: "48px",
                                         borderRadius: "15px",
                                         background:
-                                            "rgba(0, 242, 255, 0.08)",
+                                            "#FEF9C3",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        color: "#00aebe",
+                                        color: "#CA8A04",
                                         flexShrink: 0,
                                     }}
                                 >
@@ -1185,7 +1184,7 @@ const Industries = () => {
                                     gap: "1.5rem",
                                     alignItems: "flex-start",
                                     marginBottom: "2rem",
-                                }}
+                                 }}
                             >
                                 <div
                                     style={{
@@ -1193,11 +1192,11 @@ const Industries = () => {
                                         height: "48px",
                                         borderRadius: "15px",
                                         background:
-                                            "rgba(255, 0, 122, 0.08)",
+                                            "rgba(31, 41, 55, 0.08)",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        color: "#ff007a",
+                                        color: "#1e1b4b",
                                         flexShrink: 0,
                                     }}
                                 >
@@ -1451,41 +1450,26 @@ const Industries = () => {
                         className="cta-section"
                         data-aos="zoom-in"
                         style={{
-                            padding: "100px 50px",
-                            borderRadius: "70px",
+                            padding: "80px 40px",
                             textAlign: "center",
-                            background:
-                                "linear-gradient(225deg, #090b10 0%, #1e1b4b 100%)",
+                            background: "transparent",
                             position: "relative",
-                            overflow: "hidden",
-                            boxShadow:
-                                "0 50px 100px rgba(15, 23, 42, 0.25)",
                         }}
                     >
-                        {/* Background Glow */}
+                        {/* Background Subtle Accent Aura */}
                         <div
                             style={{
                                 position: "absolute",
-                                top: "-150px",
-                                left: "-150px",
-                                width: "400px",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                width: "600px",
                                 height: "400px",
                                 background:
-                                    "radial-gradient(circle, rgba(0, 242, 255, 0.18), transparent 70%)",
-                                filter: "blur(50px)",
-                            }}
-                        />
-
-                        <div
-                            style={{
-                                position: "absolute",
-                                bottom: "-150px",
-                                right: "-100px",
-                                width: "450px",
-                                height: "450px",
-                                background:
-                                    "radial-gradient(circle, rgba(255, 0, 122, 0.16), transparent 70%)",
+                                    "radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, rgba(129, 140, 248, 0.06) 50%, transparent 70%)",
                                 filter: "blur(60px)",
+                                pointerEvents: "none",
+                                zIndex: 0,
                             }}
                         />
 
@@ -1500,7 +1484,15 @@ const Industries = () => {
                                 style={{
                                     display: "inline-flex",
                                     marginBottom: "1.5rem",
-                                    color: "#00f2ff",
+                                    background: "#FEF9C3",
+                                    border: "1px solid rgba(250, 204, 21, 0.5)",
+                                    color: "#1F2937",
+                                    padding: "0.45rem 1.25rem",
+                                    borderRadius: "99px",
+                                    fontSize: "0.85rem",
+                                    fontWeight: 800,
+                                    letterSpacing: "1.5px",
+                                    textTransform: "uppercase",
                                 }}
                             >
                                 Get Started
@@ -1509,12 +1501,12 @@ const Industries = () => {
                             <h2
                                 style={{
                                     fontSize:
-                                        "clamp(2.5rem, 6vw, 4.5rem)",
+                                        "clamp(2.5rem, 6vw, 4.2rem)",
                                     fontWeight: 900,
-                                    color: "white",
-                                    marginBottom: "2.5rem",
+                                    color: "#1e1b4b",
+                                    marginBottom: "2rem",
                                     letterSpacing: "-0.04em",
-                                    lineHeight: 1.1,
+                                    lineHeight: 1.15,
                                 }}
                             >
                                 Scale Your Industry Operations{" "}
@@ -1525,11 +1517,12 @@ const Industries = () => {
 
                             <p
                                 style={{
-                                    fontSize: "1.4rem",
-                                    color: "#cbd5e1",
+                                    fontSize: "1.25rem",
+                                    color: "#64748b",
                                     maxWidth: "800px",
-                                    margin: "0 auto 4.5rem",
-                                    lineHeight: 1.6,
+                                    margin: "0 auto 3.5rem",
+                                    lineHeight: 1.7,
+                                    fontWeight: 500,
                                 }}
                             >
                                 Schedule a custom demo built with dummy
@@ -1542,7 +1535,7 @@ const Industries = () => {
                                 style={{
                                     display: "flex",
                                     justifyContent: "center",
-                                    gap: "2rem",
+                                    gap: "1.5rem",
                                     flexWrap: "wrap",
                                 }}
                             >
@@ -1550,20 +1543,23 @@ const Industries = () => {
                                     to="/contact"
                                     className="btn btn-primary cta-button"
                                     style={{
-                                        padding: "1.4rem 4rem",
+                                        padding: "1.25rem 3.5rem",
                                         borderRadius: "50px",
                                         fontWeight: 900,
-                                        fontSize: "1.15rem",
+                                        fontSize: "1.1rem",
+                                        background: "#FACC15",
+                                        color: "#1F2937",
+                                        boxShadow: "0 15px 35px rgba(250, 204, 21, 0.35)",
                                         textDecoration: "none",
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: "10px",
                                     }}
                                 >
                                     Request a Demo{" "}
                                     <ArrowRight
                                         size={20}
-                                        style={{
-                                            marginLeft: "8px",
-                                            verticalAlign: "middle",
-                                        }}
+                                        color="#1F2937"
                                     />
                                 </RouterLink>
 
@@ -1573,11 +1569,15 @@ const Industries = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-whatsapp cta-button"
                                     style={{
-                                        padding: "1.4rem 4rem",
+                                        padding: "1.25rem 3.5rem",
                                         borderRadius: "50px",
                                         fontWeight: 900,
-                                        fontSize: "1.15rem",
+                                        fontSize: "1.1rem",
                                         textDecoration: "none",
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        borderColor: "#25D366",
+                                        color: "#25D366",
                                     }}
                                 >
                                     WhatsApp Consultation

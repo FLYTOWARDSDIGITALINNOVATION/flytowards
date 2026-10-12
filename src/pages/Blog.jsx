@@ -147,7 +147,7 @@ const Blog = () => {
 
             <div className="container">
                 <div className="blog-header" data-aos="fade-up">
-                    <span className="section-tag" style={{ justifyContent: 'center', display: 'flex', gap: '8px' }}>
+                    <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         <Share2 size={18} /> Official Journal
                     </span>
                     <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.2 }}>

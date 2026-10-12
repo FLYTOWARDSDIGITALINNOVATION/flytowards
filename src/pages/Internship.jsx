@@ -104,7 +104,7 @@ const Internship = () => {
                     title: 'Data Mining & BI',
                     desc: 'Translate raw data into powerful business insights.',
                     image:
-                        'https://images.unsplash.com/photo-1551288049-bebda436639a?q=80&w=800&auto=format&fit=crop',
+                        'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop',
                     icon: <Search size={20} />,
                     detail: 'Business Intelligence'
                 },
@@ -182,45 +182,44 @@ const Internship = () => {
 
                 .hero-visual {
                     position: relative;
-                    padding: 220px 2rem 160px;
-                    background: #020617;
-                    color: white;
+                    padding: 200px 2rem 100px;
+                    background: transparent;
+                    color: #1e1b4b;
                     overflow: hidden;
                     text-align: center;
                 }
 
                 .hero-bg-img {
-                    position: absolute;
-                    inset: 0;
-                    background-image: url('https://images.unsplash.com/photo-1517245318772-19816dc82548?q=80&w=2070&auto=format&fit=crop');
-                    background-size: cover;
-                    background-position: center;
-                    opacity: 0.15;
-                    filter: grayscale(100%);
+                    display: none;
                 }
 
                 .glass-overlay {
                     position: absolute;
-                    inset: 0;
+                    top: 10%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 700px;
+                    height: 500px;
                     background: radial-gradient(
                         circle at center,
-                        rgba(0, 242, 255, 0.1) 0%,
+                        rgba(250, 204, 21, 0.12) 0%,
+                        rgba(129, 140, 248, 0.06) 50%,
                         transparent 70%
                     );
                     pointer-events: none;
+                    filter: blur(60px);
                 }
 
                 .gradient-text {
                     background: linear-gradient(
-                        90deg,
-                        #ffffff,
-                        #00f2ff,
-                        #ffffff
+                        135deg,
+                        #FACC15 0%,
+                        #EAB308 50%,
+                        #CA8A04 100%
                     );
-                    background-size: 200% auto;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
-                    animation: gradientMove 4s linear infinite;
+                    background-clip: text;
                 }
 
                 @keyframes gradientMove {
@@ -496,24 +495,25 @@ const Internship = () => {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '10px',
-                            background: 'rgba(255,255,255,0.07)',
+                            background: '#FEF9C3',
                             padding: '10px 25px',
                             borderRadius: '50px',
-                            backdropFilter: 'blur(10px)',
-                            marginBottom: '3rem',
-                            border: '1px solid rgba(255,255,255,0.15)'
+                            marginBottom: '2.5rem',
+                            border: '1px solid rgba(250, 204, 21, 0.5)',
+                            color: '#1F2937'
                         }}
                     >
                         <Rocket
                             size={18}
-                            color="#00f2ff"
+                            color="#CA8A04"
                         />
 
                         <span
                             style={{
-                                fontSize: '0.9rem',
-                                fontWeight: 700,
-                                letterSpacing: '0.12em'
+                                fontSize: '0.85rem',
+                                fontWeight: 800,
+                                letterSpacing: '0.12em',
+                                textTransform: 'uppercase'
                             }}
                         >
                             INDUSTRIAL INTERNSHIP ENROLLMENT OPEN
@@ -523,10 +523,11 @@ const Internship = () => {
                     <h1
                         style={{
                             fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
-                            fontWeight: 800,
-                            lineHeight: 0.9,
+                            fontWeight: 900,
+                            lineHeight: 1.05,
                             letterSpacing: '-0.04em',
-                            marginBottom: '2.5rem'
+                            marginBottom: '2rem',
+                            color: '#1e1b4b'
                         }}
                     >
                         Elevate Your
@@ -535,8 +536,6 @@ const Internship = () => {
                         <span
                             className="gradient-text"
                             style={{
-                                textShadow:
-                                    '0 0 30px rgba(0, 242, 255, 0.3)',
                                 display: 'inline-block'
                             }}
                         >
@@ -546,11 +545,12 @@ const Internship = () => {
 
                     <p
                         style={{
-                            fontSize: '1.4rem',
-                            color: '#94a3b8',
+                            fontSize: '1.25rem',
+                            color: '#64748b',
                             maxWidth: '650px',
-                            margin: '0 auto 4rem',
-                            lineHeight: 1.6
+                            margin: '0 auto 3.5rem',
+                            lineHeight: 1.7,
+                            fontWeight: 500
                         }}
                     >
                         A curated selection of industrial internships
@@ -572,13 +572,11 @@ const Internship = () => {
                             <div
                                 key={i}
                                 style={{
-                                    padding:
-                                        '1.5rem 2.5rem',
-                                    background:
-                                        'rgba(255,255,255,0.05)',
+                                    padding: '1.5rem 2.5rem',
+                                    background: '#ffffff',
                                     borderRadius: '24px',
-                                    border:
-                                        '1px solid rgba(255,255,255,0.1)',
+                                    border: '1px solid #e2e8f0',
+                                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.04)',
                                     flex: '1',
                                     minWidth: '220px',
                                     textAlign: 'center'
@@ -588,11 +586,10 @@ const Internship = () => {
                                     style={{
                                         fontSize: '0.8rem',
                                         color: '#64748b',
-                                        textTransform:
-                                            'uppercase',
-                                        marginBottom:
-                                            '0.5rem',
-                                        fontWeight: 800
+                                        textTransform: 'uppercase',
+                                        marginBottom: '0.5rem',
+                                        fontWeight: 800,
+                                        letterSpacing: '0.05em'
                                     }}
                                 >
                                     {s.label}
@@ -600,8 +597,9 @@ const Internship = () => {
 
                                 <div
                                     style={{
-                                        fontSize: '1.2rem',
-                                        fontWeight: 700
+                                        fontSize: '1.25rem',
+                                        fontWeight: 800,
+                                        color: '#1e1b4b'
                                     }}
                                 >
                                     {s.value}
