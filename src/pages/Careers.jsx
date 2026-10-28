@@ -398,7 +398,7 @@ const Careers = () => {
                     <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', alignItems: 'center', gap: '4rem' }}>
                         <div data-aos="fade-right" className="hero-content-box">
                             <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '1.5rem' }}>Careers at Fly Towards</span>
-                            <h1 className="hero-title" style={{ fontSize: 'clamp(3.5rem, 8vw, 6rem)', fontWeight: 800, lineHeight: 0.9, marginBottom: '2.5rem', letterSpacing: '-0.03em', color: '#1e1b4b' }}>
+                            <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: '1.5rem', letterSpacing: '-0.03em', color: '#1e1b4b' }}>
                                 The Future <br /> Needs Your <br />
                                 <span className="gradient-text">Boldness.</span>
                             </h1>

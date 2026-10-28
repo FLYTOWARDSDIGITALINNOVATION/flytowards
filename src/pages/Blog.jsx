@@ -150,7 +150,7 @@ const Blog = () => {
                     <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         <Share2 size={18} /> Official Journal
                     </span>
-                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.2 }}>
+                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', lineHeight: 1.2 }}>
                         Digital Insights & <span className="gradient-text">Innovation</span>
                     </h1>
                     <p className="blog-subtitle">

@@ -32,6 +32,7 @@ const SEARCH_ITEMS = [
     { title: 'Industries Overview', path: '/industries', category: 'Industry' },
     { title: 'Manufacturing Industry', path: '/industries/manufacturing', category: 'Industry' },
     { title: 'Healthcare Industry', path: '/industries/healthcare', category: 'Industry' },
+    { title: 'Logistics Industry', path: '/industries/logistics', category: 'Industry' },
     { title: 'Careers & Openings', path: '/careers', category: 'Page' },
     { title: 'Internship Programs', path: '/internship', category: 'Page' },
     { title: 'Blog & Articles', path: '/blog', category: 'Page' },
@@ -339,6 +340,7 @@ const Navbar = () => {
                                     <li onClick={closeMenu}><Link to="/industries/manufacturing">Manufacturing</Link></li>
                                     <li onClick={closeMenu}><Link to="/industries/construction">Construction</Link></li>
                                     <li onClick={closeMenu}><Link to="/industries/healthcare">Healthcare</Link></li>
+                                    <li onClick={closeMenu}><Link to="/industries/logistics">Logistics</Link></li>
                                 </ul>
                             </div>
 

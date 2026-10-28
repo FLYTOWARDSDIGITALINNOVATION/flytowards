@@ -40,7 +40,7 @@ const Contact = () => {
                     <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         <Send size={18} /> Contact Us
                     </span>
-                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
                         Let’s Take Your Business to <br />
                         <span className="gradient-text">New Digital Heights</span>
                     </h1>

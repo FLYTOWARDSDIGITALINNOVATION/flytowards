@@ -1,9 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { ArrowRight, CheckCircle2, Server, ShieldCheck, Zap, ChevronRight } from "lucide-react";
+import {
+    ArrowRight,
+    CheckCircle2,
+    Server,
+    ShieldCheck,
+    Zap,
+    ChevronRight,
+    ChevronDown,
+    ChevronUp,
+    Briefcase,
+    UserCheck,
+    HeartHandshake,
+    Database,
+    Workflow,
+    Link2,
+    BarChart3,
+    Sparkles,
+    Layers,
+    Cpu,
+    Globe,
+    Smartphone,
+    Laptop,
+    MessageSquareText,
+    Sliders,
+    Clock,
+    Target,
+    HelpCircle,
+    TrendingUp,
+    Check
+} from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 
 const Industries = () => {
     const [expandedCard, setExpandedCard] = useState(null);
+    const [activeFaq, setActiveFaq] = useState(null);
+
+    const toggleFaq = (index) => {
+        setActiveFaq(activeFaq === index ? null : index);
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -393,13 +427,320 @@ const Industries = () => {
                 />
             </div>
 
-            {/* ================= HERO ================= */}
+                        {/* ================= INDUSTRY SPECIFIC SOFTWARE SOLUTIONS HERO ================= */}
+            <section
+                className="industry-solutions-hero"
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    paddingTop: "170px",
+                    paddingBottom: "70px",
+                }}
+            >
+                <div
+                    className="section-inner"
+                    style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}
+                >
+                    <div
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))",
+                            alignItems: "center",
+                            gap: "3rem",
+                        }}
+                    >
+                    <div data-aos="fade-up">
+                        <div
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "10px",
+                                padding: "8px 18px",
+                                borderRadius: "50px",
+                                background: "rgba(250, 204, 21, 0.15)",
+                                border: "1px solid rgba(250, 204, 21, 0.35)",
+                                color: "#B45309",
+                                fontSize: "0.85rem",
+                                fontWeight: 700,
+                                letterSpacing: "1px",
+                                textTransform: "uppercase",
+                                marginBottom: "1.75rem",
+                            }}
+                        >
+                            <Sparkles size={16} color="#EAB308" />
+                            Tailored Business Solutions
+                        </div>
+
+                        <h1
+                            style={{
+                                fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)",
+                                fontWeight: 800,
+                                lineHeight: 1.2,
+                                color: "#1e1b4b",
+                                letterSpacing: "-0.02em",
+                                marginBottom: "1.75rem",
+                                maxWidth: "1050px",
+                            }}
+                        >
+                            Industry Specific Software Solutions for{" "}
+                            <span className="gradient-text-industry">
+                                Modern Businesses
+                            </span>
+                        </h1>
+
+                    </div>
+                    <div data-aos="fade-left" style={{ display: "flex", justifyContent: "center" }}>
+                        <img
+                            src="/images.jpg"
+                            alt="Industry-specific software solutions"
+                            style={{
+                                display: "block",
+                                width: "100%",
+                                maxWidth: "480px",
+                                height: "auto",
+                                borderRadius: "24px",
+                                objectFit: "cover",
+                                boxShadow: "0 24px 60px rgba(30, 27, 75, 0.16)",
+                            }}
+                        />
+                    </div>
+                    </div>
+                    <div data-aos="fade-up" style={{ marginTop: "2rem" }}>
+                        <div
+                            style={{
+                                maxWidth: "900px",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "1.25rem",
+                                marginBottom: "2.75rem",
+                            }}
+                        >
+                            <p style={{ fontSize: "1.25rem", color: "#374151", lineHeight: 1.8, fontWeight: 500, margin: 0 }}>
+                                Every industry has its own workflows, operational challenges, users and business requirements.
+                            </p>
+                            <p style={{ fontSize: "1.15rem", color: "#4B5563", lineHeight: 1.8, margin: 0 }}>
+                                Fly Towards Digital Innovation develops industry specific software solutions designed around the way businesses operate. From healthcare and manufacturing to retail, logistics, education, construction and hospitality, we help businesses explore software solutions that align with their processes and digital requirements.
+                            </p>
+                            <p style={{ fontSize: "1.1rem", color: "#55657e", lineHeight: 1.8, margin: 0 }}>
+                                Whether you need to replace manual workflows, modernise an existing system, connect applications or build a new business application, our approach starts with understanding the industry and the business problem behind the software requirement.
+                            </p>
+                        </div>
+                        <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", alignItems: "center" }}>
+                            <RouterLink to="/contact" className="btn btn-primary" style={{ padding: "1.15rem 2.5rem", borderRadius: "50px", fontWeight: 700, fontSize: "1.05rem", display: "inline-flex", alignItems: "center", gap: "10px", textDecoration: "none", boxShadow: "0 10px 25px rgba(250, 204, 21, 0.35)" }}>
+                                <span>Discuss Your Industry Requirement</span>
+                                <ArrowRight size={18} />
+                            </RouterLink>
+                            <a href="#explore-sectors" className="btn btn-outline" style={{ padding: "1.15rem 2.5rem", borderRadius: "50px", fontWeight: 700, fontSize: "1.05rem", borderColor: "#1F2937", color: "#1F2937", display: "inline-flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+                                <span>Explore Our Solutions</span>
+                                <ChevronRight size={18} />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= SOFTWARE BUILT AROUND HOW YOUR INDUSTRY WORKS ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "80px 0 90px",
+                    background: "linear-gradient(180deg, rgba(248, 250, 252, 0.75) 0%, rgba(255, 255, 255, 0.95) 100%)",
+                    borderTop: "1px solid rgba(229, 231, 235, 0.8)",
+                    borderBottom: "1px solid rgba(229, 231, 235, 0.8)",
+                }}
+            >
+                <div
+                    className="section-inner"
+                    style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}
+                >
+                    <div data-aos="fade-up" style={{ maxWidth: "850px", marginBottom: "3rem" }}>
+                        <h2
+                            style={{
+                                fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
+                                fontWeight: 800,
+                                color: "#1e1b4b",
+                                letterSpacing: "-0.02em",
+                                marginBottom: "1rem",
+                            }}
+                        >
+                            Software Built Around How Your Industry Works
+                        </h2>
+                        <p
+                            style={{
+                                fontSize: "1.2rem",
+                                color: "#374151",
+                                lineHeight: 1.7,
+                                marginBottom: "0.75rem",
+                            }}
+                        >
+                            A software application that works well for one business may not be suitable for another.
+                        </p>
+                        <p
+                            style={{
+                                fontSize: "1.05rem",
+                                color: "#6B7280",
+                                fontWeight: 600,
+                                margin: 0,
+                            }}
+                        >
+                            Industry workflows can differ significantly in areas such as:
+                        </p>
+                    </div>
+
+                    {/* 9 Workflow Areas Grid */}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                            gap: "1.25rem",
+                            marginBottom: "3rem",
+                        }}
+                    >
+                        {[
+                            { title: "Business processes", icon: Briefcase },
+                            { title: "User roles", icon: UserCheck },
+                            { title: "Customer interactions", icon: HeartHandshake },
+                            { title: "Information management", icon: Database },
+                            { title: "Operational workflows", icon: Workflow },
+                            { title: "Approval processes", icon: CheckCircle2 },
+                            { title: "Reporting requirements", icon: BarChart3 },
+                            { title: "Application integrations", icon: Link2 },
+                            { title: "Automation needs", icon: Zap },
+                        ].map((item, idx) => {
+                            const IconComponent = item.icon;
+                            return (
+                                <div
+                                    key={idx}
+                                    style={{
+                                        background: "#FFFFFF",
+                                        borderRadius: "18px",
+                                        padding: "1.5rem",
+                                        border: "1px solid #E5E7EB",
+                                        boxShadow: "0 4px 18px rgba(0, 0, 0, 0.03)",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "1rem",
+                                        transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = "translateY(-4px)";
+                                        e.currentTarget.style.boxShadow = "0 12px 25px rgba(250, 204, 21, 0.18)";
+                                        e.currentTarget.style.borderColor = "#FACC15";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = "translateY(0)";
+                                        e.currentTarget.style.boxShadow = "0 4px 18px rgba(0, 0, 0, 0.03)";
+                                        e.currentTarget.style.borderColor = "#E5E7EB";
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            width: "48px",
+                                            height: "48px",
+                                            borderRadius: "12px",
+                                            background: "rgba(250, 204, 21, 0.15)",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            color: "#B45309",
+                                            flexShrink: 0,
+                                        }}
+                                    >
+                                        <IconComponent size={22} color="#CA8A04" />
+                                    </div>
+                                    <span
+                                        style={{
+                                            fontSize: "1.1rem",
+                                            fontWeight: 700,
+                                            color: "#1e1b4b",
+                                        }}
+                                    >
+                                        {item.title}
+                                    </span>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Requirement-led approach callout */}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        style={{
+                            background: "#FFFFFF",
+                            borderRadius: "24px",
+                            padding: "clamp(2rem, 3.5vw, 2.75rem)",
+                            border: "1px solid #E5E7EB",
+                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.04)",
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "1.25rem",
+                            borderLeft: "6px solid #FACC15",
+                        }}
+                    >
+                        <h3
+                            style={{
+                                fontSize: "1.35rem",
+                                fontWeight: 800,
+                                color: "#1e1b4b",
+                                margin: 0,
+                            }}
+                        >
+                            That is why we take a requirement-led approach to software development.
+                        </h3>
+                        <p
+                            style={{
+                                fontSize: "1.1rem",
+                                color: "#4B5563",
+                                lineHeight: 1.8,
+                                margin: 0,
+                            }}
+                        >
+                            Rather than beginning with a generic feature list, we look at what the business needs the software to accomplish and how users will interact with it.
+                        </p>
+                        <p
+                            style={{
+                                fontSize: "1.05rem",
+                                color: "#55657e",
+                                lineHeight: 1.8,
+                                margin: 0,
+                            }}
+                        >
+                            The result can be a more focused approach to developing software around the business environment in which it will operate.
+                        </p>
+                        <div style={{ marginTop: "0.5rem" }}>
+                            <RouterLink
+                                to="/contact"
+                                className="btn btn-primary"
+                                style={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: "10px",
+                                    padding: "1rem 2.2rem",
+                                    borderRadius: "50px",
+                                    fontWeight: 700,
+                                    textDecoration: "none",
+                                    boxShadow: "0 10px 25px rgba(250, 204, 21, 0.35)",
+                                }}
+                            >
+                                <span>Tell Us About Your Business</span>
+                                <ArrowRight size={18} />
+                            </RouterLink>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{/* ================= HERO ================= */}
             <section
                 className="industries-hero-container"
                 style={{
                     position: "relative",
                     zIndex: 1,
-                    paddingTop: "190px",
+                    paddingTop: "80px",
                     paddingBottom: "110px",
                 }}
             >
@@ -449,11 +790,11 @@ const Industries = () => {
 
                             <h1
                                 style={{
-                                    fontSize: "clamp(3rem, 7vw, 5.5rem)",
-                                    fontWeight: 900,
-                                    lineHeight: 1,
-                                    marginBottom: "2.5rem",
-                                    letterSpacing: "-0.04em",
+                                    fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
+                                    fontWeight: 800,
+                                    lineHeight: 1.2,
+                                    marginBottom: "1.5rem",
+                                    letterSpacing: "-0.03em",
                                     color: "#1e1b4b"
                                 }}
                             >
@@ -1587,7 +1928,753 @@ const Industries = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        
+            {/* ================= 1. VERTICAL SOFTWARE DEVELOPMENT ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)",
+                    borderTop: "1px solid #E2E8F0",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", alignItems: "center", gap: "3rem", marginBottom: "2rem" }}>
+                    <div data-aos="fade-up">
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                            <Sparkles size={16} color="#EAB308" />
+                            Industry-Focused Engineering
+                        </div>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", lineHeight: 1.2, marginBottom: "1.25rem" }}>
+                            Vertical Software Development for{" "}
+                            <span className="gradient-text-industry">Industry-Specific Requirements</span>
+                        </h2>
+                    </div>
+                    <div data-aos="fade-left" style={{ display: "flex", justifyContent: "center" }}>
+                        <img src="/images (1).jpg" alt="Vertical software development for industry-specific requirements" style={{ display: "block", width: "100%", maxWidth: "480px", height: "auto", borderRadius: "24px", objectFit: "cover", boxShadow: "0 24px 60px rgba(30, 27, 75, 0.16)" }} />
+                    </div>
+                    </div>
+                    <div data-aos="fade-up" style={{ maxWidth: "900px", marginBottom: "3.5rem" }}>
+                        <p style={{ fontSize: "1.2rem", color: "#374151", lineHeight: 1.8, marginBottom: "1rem" }}>
+                            Vertical software development focuses on creating software for the requirements of a particular industry or business domain.
+                        </p>
+                        <p style={{ fontSize: "1.1rem", color: "#64748b", lineHeight: 1.8, margin: 0 }}>
+                            Instead of treating every project as a generic software implementation, this approach considers the environment in which the application will be used.
+                        </p>
+                    </div>
+
+                    <div style={{ marginBottom: "2rem" }}>
+                        <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1e1b4b", display: "flex", alignItems: "center", gap: "10px" }}>
+                            <Workflow size={22} color="#EAB308" />
+                            That means looking at:
+                        </h3>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                            gap: "1.5rem",
+                            marginBottom: "3rem",
+                        }}
+                    >
+                        {[
+                            { title: "Industry Workflow", desc: "How does work move through the organisation?", icon: Workflow },
+                            { title: "Business Users", desc: "Who uses the software, and what does each user need to accomplish?", icon: UserCheck },
+                            { title: "Operational Requirements", desc: "What processes need to be supported, simplified or automated?", icon: Sliders },
+                            { title: "Existing Technology", desc: "Which applications or systems already form part of the workflow?", icon: Cpu },
+                            { title: "Data Requirements", desc: "What information needs to be captured, managed, accessed or reported?", icon: Database },
+                            { title: "Future Requirements", desc: "How might the software need to evolve as the organisation changes?", icon: TrendingUp },
+                        ].map((item, idx) => {
+                            const IconComponent = item.icon;
+                            return (
+                                <div
+                                    key={idx}
+                                    style={{
+                                        background: "#FFFFFF",
+                                        borderRadius: "20px",
+                                        padding: "1.75rem",
+                                        border: "1px solid #E2E8F0",
+                                        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04)",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "0.85rem",
+                                        transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = "translateY(-5px)";
+                                        e.currentTarget.style.boxShadow = "0 14px 30px rgba(250, 204, 21, 0.18)";
+                                        e.currentTarget.style.borderColor = "#FACC15";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = "translateY(0)";
+                                        e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.04)";
+                                        e.currentTarget.style.borderColor = "#E2E8F0";
+                                    }}
+                                >
+                                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(250, 204, 21, 0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#B45309" }}>
+                                        <IconComponent size={22} color="#CA8A04" />
+                                    </div>
+                                    <h4 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#1e1b4b", margin: 0 }}>
+                                        {item.title}
+                                    </h4>
+                                    <p style={{ fontSize: "1rem", color: "#64748b", lineHeight: 1.6, margin: 0 }}>
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div style={{ background: "linear-gradient(135deg, rgba(254, 249, 195, 0.45) 0%, #FFFFFF 100%)", borderLeft: "5px solid #FACC15", borderRadius: "14px", padding: "1.5rem 2rem", boxShadow: "0 4px 15px rgba(0, 0, 0, 0.03)" }}>
+                        <p style={{ fontSize: "1.1rem", color: "#374151", margin: 0, fontWeight: 500, lineHeight: 1.7 }}>
+                            This provides a foundation for developing software that is relevant to the business context rather than simply delivering a collection of standard features.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 2. CUSTOM INDUSTRY SOFTWARE ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "#0F172A",
+                    color: "#FFFFFF",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", alignItems: "center", gap: "3rem", marginBottom: "2rem" }}>
+                    <div data-aos="fade-up">
+                        <span style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
+                            Bespoke System Architecture
+                        </span>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.2, marginBottom: "1.25rem" }}>
+                            Custom Industry Software for Businesses With{" "}
+                            <span style={{ color: "#FACC15" }}>Unique Requirements</span>
+                        </h2>
+                    </div>
+                    <div data-aos="fade-left" style={{ display: "flex", justifyContent: "center" }}>
+                        <img src="/images (2).jpg" alt="Custom industry software for businesses with unique requirements" style={{ display: "block", width: "100%", maxWidth: "480px", height: "auto", borderRadius: "24px", objectFit: "cover", boxShadow: "0 24px 60px rgba(0, 0, 0, 0.3)" }} />
+                    </div>
+                    </div>
+                    <div data-aos="fade-up" style={{ maxWidth: "900px", marginBottom: "3.5rem" }}>
+                        <p style={{ fontSize: "1.2rem", color: "#94A3B8", lineHeight: 1.8, marginBottom: "1rem" }}>
+                            Off-the-shelf software can be useful when its functionality closely matches the business requirement.
+                        </p>
+                        <p style={{ fontSize: "1.15rem", color: "#E2E8F0", lineHeight: 1.8, margin: 0 }}>
+                            But some organisations have processes that are too specific for a standard product.
+                        </p>
+                    </div>
+
+                    <div style={{ marginBottom: "2rem" }}>
+                        <h3 style={{ fontSize: "1.25rem", fontWeight: 600, color: "#FACC15" }}>
+                            Custom industry software can be considered when a business needs software designed around:
+                        </h3>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                            gap: "1.25rem",
+                            marginBottom: "3.5rem",
+                        }}
+                    >
+                        {[
+                            "Specialised workflows",
+                            "Industry-specific processes",
+                            "Unique business rules",
+                            "Multiple user roles",
+                            "Existing applications",
+                            "Specific data requirements",
+                            "Business automation",
+                            "Customer-facing experiences",
+                            "Internal operational requirements",
+                        ].map((point, idx) => (
+                            <div
+                                key={idx}
+                                style={{
+                                    background: "rgba(30, 41, 59, 0.7)",
+                                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                                    borderRadius: "16px",
+                                    padding: "1.25rem 1.5rem",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    backdropFilter: "blur(10px)",
+                                }}
+                            >
+                                <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "rgba(250, 204, 21, 0.2)", display: "flex", alignItems: "center", justifyContent: "center", color: "#FACC15", flexShrink: 0 }}>
+                                    <Check size={16} />
+                                </div>
+                                <span style={{ fontSize: "1.05rem", fontWeight: 600, color: "#F1F5F9" }}>
+                                    {point}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div
+                        style={{
+                            background: "linear-gradient(135deg, rgba(250, 204, 21, 0.15) 0%, rgba(253, 224, 71, 0.05) 100%)",
+                            border: "1px solid rgba(250, 204, 21, 0.3)",
+                            borderRadius: "20px",
+                            padding: "2rem",
+                            textAlign: "center",
+                            maxWidth: "750px",
+                            margin: "0 auto",
+                        }}
+                    >
+                        <p style={{ fontSize: "1.35rem", fontWeight: 800, color: "#FFFFFF", margin: "0 0 0.5rem" }}>
+                            The purpose is not to make software complex.
+                        </p>
+                        <p style={{ fontSize: "1.35rem", fontWeight: 800, color: "#FACC15", margin: 0 }}>
+                            The purpose is to make the software relevant.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 3. WHAT CAN WE BUILD FOR YOUR INDUSTRY ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "#FFFFFF",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+                    <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 4rem" }}>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                            <Cpu size={16} color="#EAB308" />
+                            Comprehensive Digital Capabilities
+                        </div>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
+                            What Can We Build for Your Industry?
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "#64748b", margin: 0 }}>
+                            Industry-specific software can take many forms depending on the business requirement.
+                        </p>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                            gap: "1.5rem",
+                        }}
+                    >
+                        {[
+                            { title: "Business Applications", desc: "Purpose-built applications for internal business processes and operations.", icon: Briefcase },
+                            { title: "Enterprise Software", desc: "Applications supporting larger or more complex organisational workflows.", icon: Server },
+                            { title: "SaaS Platforms", desc: "Digital software products designed for online users and SaaS business models.", icon: Globe },
+                            { title: "Web Applications", desc: "Browser-based applications for customers, employees, partners or internal teams.", icon: Laptop },
+                            { title: "Mobile Applications", desc: "Mobile experiences supporting specific business processes or user requirements.", icon: Smartphone },
+                            { title: "Workflow Applications", desc: "Software designed to digitise and manage specific business workflows.", icon: Workflow },
+                            { title: "Business Dashboards", desc: "Applications that bring relevant business information into more accessible interfaces.", icon: BarChart3 },
+                            { title: "Integrated Software Systems", desc: "Solutions designed to help connect applications and information across business processes.", icon: Link2 },
+                            { title: "Software Modernisation", desc: "Improvements to existing applications where the business needs to update or extend its software environment.", icon: Sparkles },
+                        ].map((card, idx) => {
+                            const IconComponent = card.icon;
+                            return (
+                                <div
+                                    key={idx}
+                                    style={{
+                                        background: "#F8FAFC",
+                                        borderRadius: "20px",
+                                        padding: "2rem",
+                                        border: "1px solid #E2E8F0",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "1rem",
+                                        transition: "all 0.3s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = "translateY(-6px)";
+                                        e.currentTarget.style.background = "#FFFFFF";
+                                        e.currentTarget.style.boxShadow = "0 16px 35px rgba(250, 204, 21, 0.2)";
+                                        e.currentTarget.style.borderColor = "#FACC15";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = "translateY(0)";
+                                        e.currentTarget.style.background = "#F8FAFC";
+                                        e.currentTarget.style.boxShadow = "none";
+                                        e.currentTarget.style.borderColor = "#E2E8F0";
+                                    }}
+                                >
+                                    <div style={{ width: "52px", height: "52px", borderRadius: "14px", background: "rgba(250, 204, 21, 0.18)", display: "flex", alignItems: "center", justifyContent: "center", color: "#B45309" }}>
+                                        <IconComponent size={24} color="#CA8A04" />
+                                    </div>
+                                    <h4 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1e1b4b", margin: 0 }}>
+                                        {card.title}
+                                    </h4>
+                                    <p style={{ fontSize: "1rem", color: "#64748b", lineHeight: 1.6, margin: 0 }}>
+                                        {card.desc}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 4. FROM INDUSTRY CHALLENGE TO SOFTWARE SOLUTION ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)",
+                    borderTop: "1px solid #E2E8F0",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+                    <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 4rem" }}>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                            <Target size={16} color="#EAB308" />
+                            Proven Delivery Framework
+                        </div>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
+                            From Industry Challenge to Software Solution
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "#64748b", margin: 0 }}>
+                            The development process begins with the business requirement.
+                        </p>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                            gap: "1.75rem",
+                            marginBottom: "3rem",
+                        }}
+                    >
+                        {[
+                            { num: "01", title: "Understand Your Industry Context", desc: "We look at the business environment, processes, users and current technology." },
+                            { num: "02", title: "Identify the Software Requirement", desc: "We determine what the software needs to accomplish and where the current process creates challenges." },
+                            { num: "03", title: "Define the Solution", desc: "The requirements are translated into a clearer software scope and solution direction." },
+                            { num: "04", title: "Design the Experience", desc: "The application's structure and user experience are planned around the intended users and workflows." },
+                            { num: "05", title: "Develop the Software", desc: "The solution is developed according to the agreed requirements and technical direction." },
+                            { num: "06", title: "Improve as Requirements Evolve", desc: "Software can continue to be maintained, enhanced and extended as business requirements change." },
+                        ].map((step, idx) => (
+                            <div
+                                key={idx}
+                                style={{
+                                    background: "#FFFFFF",
+                                    borderRadius: "20px",
+                                    padding: "2rem",
+                                    border: "1px solid #E2E8F0",
+                                    boxShadow: "0 4px 18px rgba(0, 0, 0, 0.03)",
+                                    position: "relative",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "1rem",
+                                }}
+                            >
+                                <span style={{ fontSize: "2rem", fontWeight: 900, color: "#FACC15", lineHeight: 1 }}>
+                                    {step.num}
+                                </span>
+                                <h4 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#1e1b4b", margin: 0 }}>
+                                    {step.title}
+                                </h4>
+                                <p style={{ fontSize: "1rem", color: "#64748b", lineHeight: 1.6, margin: 0 }}>
+                                    {step.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div style={{ background: "#FFFFFF", borderLeft: "5px solid #FACC15", borderRadius: "14px", padding: "1.5rem 2rem", boxShadow: "0 4px 15px rgba(0, 0, 0, 0.03)", border: "1px solid #E2E8F0", borderLeftWidth: "5px", borderLeftColor: "#FACC15" }}>
+                        <p style={{ fontSize: "1.1rem", color: "#374151", margin: 0, fontWeight: 500, lineHeight: 1.7 }}>
+                            This approach keeps the software connected to the industry and business problem it was designed to address.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 5. WHY CHOOSE FLY TOWARDS ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "#0F172A",
+                    color: "#FFFFFF",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+                    <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto 4rem" }}>
+                        <span style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
+                            Why Partner With Us
+                        </span>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
+                            Why Choose Fly Towards Digital Innovation?
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "#94A3B8", margin: "0 0 1rem" }}>
+                            Industry-specific development requires an understanding of both technology and business requirements.
+                        </p>
+                        <p style={{ fontSize: "1.05rem", color: "#FACC15", fontWeight: 600, margin: 0 }}>
+                            Fly Towards Digital Innovation&apos;s software development approach is built around:
+                        </p>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                            gap: "1.5rem",
+                        }}
+                    >
+                        {[
+                            { title: "Business-Focused Requirements", desc: "We begin by understanding what the software needs to accomplish for the business.", icon: Briefcase },
+                            { title: "Technical Expertise", desc: "Software solutions are developed with attention to the technical requirements of the project.", icon: Cpu },
+                            { title: "Experienced Developers", desc: "Our development capabilities support different software requirements and business use cases.", icon: UserCheck },
+                            { title: "End-to-End Development", desc: "We support the software development journey from requirements through development and future improvements.", icon: Layers },
+                            { title: "Flexible Engagement", desc: "Projects can require different levels of development support. Engagement can be considered according to the project's needs.", icon: Clock },
+                        ].map((item, idx) => {
+                            const IconComponent = item.icon;
+                            return (
+                                <div
+                                    key={idx}
+                                    style={{
+                                        background: "rgba(30, 41, 59, 0.7)",
+                                        borderRadius: "20px",
+                                        padding: "2rem",
+                                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "1rem",
+                                    }}
+                                >
+                                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(250, 204, 21, 0.18)", display: "flex", alignItems: "center", justifyContent: "center", color: "#FACC15" }}>
+                                        <IconComponent size={22} />
+                                    </div>
+                                    <h4 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#FFFFFF", margin: 0 }}>
+                                        {item.title}
+                                    </h4>
+                                    <p style={{ fontSize: "1rem", color: "#94A3B8", lineHeight: 1.6, margin: 0 }}>
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 6. NOT SURE WHICH SOLUTION YOU NEED ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "#FFFFFF",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+                    <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 4rem" }}>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                            <HelpCircle size={16} color="#EAB308" />
+                            Problem-Solving Consultation
+                        </div>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
+                            Not Sure Which Industry Software Solution You Need?
+                        </h2>
+                        <p style={{ fontSize: "1.2rem", color: "#64748b", margin: 0 }}>
+                            You may know the problem without knowing the technical solution.
+                        </p>
+                    </div>
+
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+                            gap: "1.5rem",
+                            marginBottom: "3.5rem",
+                        }}
+                    >
+                        {[
+                            { quote: "“Our team still relies on manual processes.”", answer: "We can explore whether a digital workflow or custom application could support the process." },
+                            { quote: "“Our current software does not match our workflow.”", answer: "We can explore the requirements for a more tailored application." },
+                            { quote: "“Our systems are disconnected.”", answer: "We can look at the requirement for connected workflows or application integration." },
+                            { quote: "“We need an application for our customers.”", answer: "We can explore web or mobile application requirements." },
+                            { quote: "“We have an existing application that needs improvement.”", answer: "Software maintenance, enhancement or modernisation may be appropriate depending on the system." },
+                            { quote: "“We have an idea for a software product.”", answer: "The requirement can be explored as a custom application or SaaS development project." },
+                        ].map((card, idx) => (
+                            <div
+                                key={idx}
+                                style={{
+                                    background: "#F8FAFC",
+                                    borderRadius: "20px",
+                                    padding: "2rem",
+                                    border: "1px solid #E2E8F0",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    gap: "0.85rem",
+                                }}
+                            >
+                                <span style={{ fontSize: "1.15rem", fontWeight: 800, color: "#1e1b4b", fontStyle: "italic" }}>
+                                    {card.quote}
+                                </span>
+                                <p style={{ fontSize: "1rem", color: "#4B5563", lineHeight: 1.6, margin: 0 }}>
+                                    {card.answer}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div
+                        style={{
+                            background: "linear-gradient(135deg, rgba(254, 249, 195, 0.5) 0%, #FFFFFF 100%)",
+                            border: "1px solid rgba(250, 204, 21, 0.4)",
+                            borderRadius: "24px",
+                            padding: "clamp(2rem, 3.5vw, 3rem)",
+                            display: "flex",
+                            flexWrap: "wrap",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: "1.5rem",
+                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
+                        }}
+                    >
+                        <div style={{ maxWidth: "680px" }}>
+                            <h3 style={{ fontSize: "1.35rem", fontWeight: 800, color: "#1e1b4b", margin: "0 0 0.5rem" }}>
+                                You do not need to define the entire technical solution before starting the conversation.
+                            </h3>
+                            <p style={{ fontSize: "1.05rem", color: "#4B5563", margin: 0 }}>
+                                Share your everyday operational challenges with us, and we will help you map out the software path forward.
+                            </p>
+                        </div>
+                        <RouterLink
+                            to="/contact"
+                            className="btn btn-primary"
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "10px",
+                                padding: "1.1rem 2.4rem",
+                                borderRadius: "50px",
+                                fontWeight: 700,
+                                fontSize: "1.05rem",
+                                textDecoration: "none",
+                                boxShadow: "0 10px 25px rgba(250, 204, 21, 0.35)",
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            <span>Discuss Your Requirement</span>
+                            <ArrowRight size={18} />
+                        </RouterLink>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 7. FREQUENTLY ASKED QUESTIONS ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "100px 0",
+                    background: "#F8FAFC",
+                    borderTop: "1px solid #E2E8F0",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "950px", margin: "0 auto" }}>
+                    <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                            <HelpCircle size={16} color="#EAB308" />
+                            Knowledge Base
+                        </div>
+                        <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
+                            Frequently Asked Questions
+                        </h2>
+                    </div>
+
+                    <div data-aos="fade-up" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                        {[
+                            {
+                                q: "What are industry specific software solutions?",
+                                a: "Industry specific software solutions are applications designed around the workflows, users, processes and requirements of a particular industry or business environment.",
+                            },
+                            {
+                                q: "What is software solutions by industry?",
+                                a: "Software solutions by industry means developing or selecting software based on the specific requirements of an industry rather than assuming that the same solution will work equally well across every business.",
+                            },
+                            {
+                                q: "What is vertical software development?",
+                                a: "Vertical software development focuses on software designed for a particular industry, business domain or specialised use case. It considers the processes and requirements associated with that specific environment.",
+                            },
+                            {
+                                q: "What is custom industry software?",
+                                a: "Custom industry software is software developed around specialised business or industry requirements. It can be used when standard software does not adequately support a company's workflows or operational needs.",
+                            },
+                            {
+                                q: "Which industries do you provide software solutions for?",
+                                a: "Our industry focus includes healthcare, manufacturing, retail, logistics, education, construction and hospitality.",
+                            },
+                            {
+                                q: "Can you build software specifically for our industry?",
+                                a: "Yes. Software projects can be developed around specific business and industry requirements. The appropriate solution depends on the processes, users, functionality and technical requirements involved.",
+                            },
+                            {
+                                q: "Do industry-specific solutions have to be completely custom?",
+                                a: "Not necessarily. The right approach depends on the requirement. A business may need custom development, integration, enhancement of an existing system, or another combination of software capabilities.",
+                            },
+                            {
+                                q: "Can you modernise software we already use?",
+                                a: "Existing applications can be considered for maintenance, enhancement or modernisation depending on their technical condition and the business requirements.",
+                            },
+                            {
+                                q: "Can you integrate industry software with existing systems?",
+                                a: "Application integration can be considered where the project requires existing systems or applications to work together. The appropriate approach depends on the technologies and systems involved.",
+                            },
+                            {
+                                q: "How do I know which software solution is right for my business?",
+                                a: "Start with the business problem rather than the technology. Explain your current process, the challenge you are facing, who uses the system and what you want to achieve. From there, the software requirements can be explored.",
+                            },
+                        ].map((faq, idx) => {
+                            const isOpen = activeFaq === idx;
+                            return (
+                                <div
+                                    key={idx}
+                                    style={{
+                                        background: "#FFFFFF",
+                                        borderRadius: "16px",
+                                        border: isOpen ? "1px solid #FACC15" : "1px solid #E2E8F0",
+                                        overflow: "hidden",
+                                        boxShadow: isOpen ? "0 8px 25px rgba(250, 204, 21, 0.15)" : "0 2px 10px rgba(0, 0, 0, 0.02)",
+                                        transition: "all 0.3s ease",
+                                    }}
+                                >
+                                    <div
+                                        onClick={() => toggleFaq(idx)}
+                                        style={{
+                                            padding: "1.4rem 1.8rem",
+                                            display: "flex",
+                                            justifyContent: "space-between",
+                                            alignItems: "center",
+                                            cursor: "pointer",
+                                            gap: "1rem",
+                                        }}
+                                    >
+                                        <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: isOpen ? "#1e1b4b" : "#334155", margin: 0 }}>
+                                            {faq.q}
+                                        </h3>
+                                        <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: isOpen ? "#FACC15" : "#F1F5F9", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "background 0.3s ease" }}>
+                                            {isOpen ? <ChevronUp size={18} color="#1e1b4b" /> : <ChevronDown size={18} color="#64748b" />}
+                                        </div>
+                                    </div>
+                                    {isOpen && (
+                                        <div style={{ padding: "0 1.8rem 1.5rem", borderTop: "1px solid #F1F5F9" }}>
+                                            <p style={{ fontSize: "1.05rem", color: "#4B5563", lineHeight: 1.7, margin: "1rem 0 0" }}>
+                                                {faq.a}
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= 8. BUILD SOFTWARE AROUND YOUR INDUSTRY (CLOSING CTA) ================= */}
+            <section
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                    padding: "110px 0",
+                    background: "linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%)",
+                    color: "#FFFFFF",
+                }}
+            >
+                <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1100px", margin: "0 auto", textAlign: "center" }}>
+                    <div data-aos="fade-up">
+                        <span style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
+                            Start Your Transformation
+                        </span>
+                        <h2 style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.04em", lineHeight: 1.15, marginBottom: "1.5rem" }}>
+                            Build Software Around{" "}
+                            <span style={{ color: "#FACC15" }}>Your Industry</span>
+                        </h2>
+                        <div style={{ maxWidth: "820px", margin: "0 auto 2.5rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
+                            <p style={{ fontSize: "1.25rem", color: "#E2E8F0", lineHeight: 1.7, margin: 0, fontWeight: 500 }}>
+                                Your industry has its own processes, users and operational requirements.
+                            </p>
+                            <p style={{ fontSize: "1.15rem", color: "#94A3B8", lineHeight: 1.7, margin: 0 }}>
+                                Your software should be designed with those realities in mind.
+                            </p>
+                            <p style={{ fontSize: "1.1rem", color: "#CBD5E1", lineHeight: 1.7, margin: 0 }}>
+                                Whether you need a new business application, a customer-facing platform, a mobile application, an industry-specific workflow solution or improvements to an existing system, Fly Towards Digital Innovation can help you explore the appropriate software development approach.
+                            </p>
+                        </div>
+
+                        <p style={{ fontSize: "1.2rem", fontWeight: 700, color: "#FACC15", marginBottom: "2.5rem" }}>
+                            Tell us what your business needs to solve, improve or build.
+                        </p>
+
+                        <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", alignItems: "center" }}>
+                            <RouterLink
+                                to="/contact"
+                                className="btn btn-primary"
+                                style={{
+                                    padding: "1.2rem 3rem",
+                                    borderRadius: "50px",
+                                    fontWeight: 800,
+                                    fontSize: "1.05rem",
+                                    background: "#FACC15",
+                                    color: "#1F2937",
+                                    boxShadow: "0 15px 35px rgba(250, 204, 21, 0.4)",
+                                    textDecoration: "none",
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: "10px",
+                                }}
+                            >
+                                <span>Discuss Your Industry Requirement</span>
+                                <ArrowRight size={18} />
+                            </RouterLink>
+
+                            <RouterLink
+                                to="/contact"
+                                className="btn btn-outline"
+                                style={{
+                                    padding: "1.2rem 3rem",
+                                    borderRadius: "50px",
+                                    fontWeight: 800,
+                                    fontSize: "1.05rem",
+                                    borderColor: "#FFFFFF",
+                                    color: "#FFFFFF",
+                                    textDecoration: "none",
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: "10px",
+                                }}
+                            >
+                                <span>Contact Our Team</span>
+                                <ChevronRight size={18} />
+                            </RouterLink>
+                        </div>
+                    </div>
+                </div>
+            </section>
+</main>
     );
 };
 

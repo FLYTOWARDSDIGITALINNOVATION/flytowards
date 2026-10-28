@@ -522,11 +522,11 @@ const Internship = () => {
 
                     <h1
                         style={{
-                            fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
-                            fontWeight: 900,
-                            lineHeight: 1.05,
+                            fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
+                            fontWeight: 800,
+                            lineHeight: 1.2,
                             letterSpacing: '-0.04em',
-                            marginBottom: '2rem',
+                            marginBottom: '1.5rem',
                             color: '#1e1b4b'
                         }}
                     >

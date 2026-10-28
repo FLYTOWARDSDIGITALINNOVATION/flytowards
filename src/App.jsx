@@ -80,6 +80,7 @@ const Travel = React.lazy(() => import('./pages/Travel'));
 const Hospitality = React.lazy(() => import('./pages/Hospitality'));
 const Insurance = React.lazy(() => import('./pages/Insurance'));
 const Government = React.lazy(() => import('./pages/Government'));
+const Logistics = React.lazy(() => import('./pages/Logistics'));
 
 // Dynamic Canonical URL
 const DynamicCanonical = () => {
@@ -519,8 +520,12 @@ function App() {
 
                         {/* Additional SEO Industry Routes */}
                         <Route
+                            path="/industries/logistics"
+                            element={<Logistics />}
+                        />
+                        <Route
                             path="/industries/logistics/"
-                            element={<Industries />}
+                            element={<Logistics />}
                         />
 
                         {/* Careers */}
