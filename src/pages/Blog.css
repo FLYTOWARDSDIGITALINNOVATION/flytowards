@@ -1,5 +1,147 @@
 /* Flytowards Dynamic Blog Page Styles */
 
+.blog-hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+}
+
+.blog-hero-copy {
+    min-width: 0;
+}
+
+.featured-articles-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.technology-insights-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto 2rem;
+}
+
+.software-news-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.7fr);
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.leaders-section-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.7fr);
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.featured-articles-image {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 12px 28px rgba(31, 41, 55, 0.1);
+}
+
+.trends-intro-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.65fr);
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.trends-section-image {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 17px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.blog-hero-gallery {
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+    box-shadow: 0 18px 42px rgba(31, 41, 55, 0.1);
+}
+
+.blog-hero-gallery-featured {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 34vw, 460px);
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+@media (max-width: 900px) {
+    .blog-hero-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .blog-hero-copy h1 {
+        text-align: center !important;
+    }
+
+    .blog-hero-gallery {
+        width: min(100%, 620px);
+        margin: 0 auto;
+    }
+
+    .featured-articles-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .technology-insights-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .software-news-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .leaders-section-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .featured-articles-image {
+        width: min(100%, 620px);
+        margin: 0 auto;
+    }
+
+    .trends-intro-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .trends-section-image {
+        width: min(100%, 620px);
+        margin: 0 auto 1rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .blog-hero-gallery-featured {
+        height: 260px;
+    }
+}
+
 .blog-page-container {
     padding-top: 160px;
     padding-bottom: 120px;

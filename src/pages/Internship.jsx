@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
     Users,
     Briefcase,
@@ -155,7 +156,10 @@ const Internship = () => {
     ];
 
     return (
-        <main
+        <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             style={{
                 background: '#ffffff',
                 minHeight: '100vh',
@@ -479,7 +483,12 @@ const Internship = () => {
                 HERO SECTION
             ========================= */}
 
-            <section className="hero-visual">
+            <motion.section
+                className="hero-visual"
+                initial="hidden"
+                animate="visible"
+                variants={{ visible: { transition: { staggerChildren: 0.12, delayChildren: 0.08 } } }}
+            >
                 <div className="hero-bg-img"></div>
                 <div className="glass-overlay"></div>
 
@@ -490,7 +499,9 @@ const Internship = () => {
                         zIndex: 5
                     }}
                 >
-                    <div
+                    <motion.div
+                        variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+                        transition={{ duration: 0.45 }}
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
@@ -518,9 +529,11 @@ const Internship = () => {
                         >
                             INDUSTRIAL INTERNSHIP ENROLLMENT OPEN
                         </span>
-                    </div>
+                    </motion.div>
 
-                    <h1
+                    <motion.h1
+                        variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}
+                        transition={{ duration: 0.55 }}
                         style={{
                             fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
                             fontWeight: 800,
@@ -541,9 +554,11 @@ const Internship = () => {
                         >
                             Future Self.
                         </span>
-                    </h1>
+                    </motion.h1>
 
-                    <p
+                    <motion.p
+                        variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+                        transition={{ duration: 0.5 }}
                         style={{
                             fontSize: '1.25rem',
                             color: '#64748b',
@@ -556,9 +571,11 @@ const Internship = () => {
                         A curated selection of industrial internships
                         designed to transform ambitious minds into
                         world-class engineers and strategists.
-                    </p>
+                    </motion.p>
 
-                    <div
+                    <motion.div
+                        variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
+                        transition={{ duration: 0.5 }}
                         style={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -606,9 +623,9 @@ const Internship = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* =========================
                 PROGRAMS / APPLICATION
@@ -1251,7 +1268,7 @@ const Internship = () => {
                     )}
                 </div>
             </section>
-        </main>
+        </motion.main>
     );
 };
 

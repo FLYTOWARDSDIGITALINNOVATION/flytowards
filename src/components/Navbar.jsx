@@ -35,6 +35,7 @@ const SEARCH_ITEMS = [
     { title: 'Logistics Industry', path: '/industries/logistics', category: 'Industry' },
     { title: 'Careers & Openings', path: '/careers', category: 'Page' },
     { title: 'Internship Programs', path: '/internship', category: 'Page' },
+    { title: 'Case Studies', path: '/case-studies', category: 'Page' },
     { title: 'Blog & Articles', path: '/blog', category: 'Page' },
     { title: 'Contact Us', path: '/contact', category: 'Page' },
 ];
@@ -392,6 +393,16 @@ const Navbar = () => {
                         className={isActive('/internship')}
                     >
                         Internship
+                    </Link>
+                </li>
+
+                {/* Case Studies */}
+                <li onClick={closeMenu}>
+                    <Link
+                        to="/case-studies"
+                        className={isActive('/case-studies')}
+                    >
+                        Case Studies
                     </Link>
                 </li>
 

@@ -14,6 +14,7 @@ const Service = React.lazy(() => import('./pages/Service'));
 const WebDev = React.lazy(() => import('./pages/WebDev'));
 const WhatsAppAPI = React.lazy(() => import('./pages/WhatsAppAPI'));
 const Blog = React.lazy(() => import('./pages/Blog'));
+const CaseStudies = React.lazy(() => import('./pages/CaseStudies'));
 const Products = React.lazy(() => import('./pages/Products'));
 const Industries = React.lazy(() => import('./pages/Industries'));
 const DigitalMarketing = React.lazy(() => import('./pages/DigitalMarketing'));
@@ -24,6 +25,8 @@ const FlyPayroll = React.lazy(() => import('./pages/FlyPayroll'));
 const SmartCRM = React.lazy(() => import('./pages/SmartCRM'));
 
 const Contact = React.lazy(() => import('./pages/Contact'));
+const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
+const TermsAndConditions = React.lazy(() => import('./pages/TermsAndConditions'));
 const Gallery = React.lazy(() => import('./pages/Gallery'));
 const Careers = React.lazy(() => import('./pages/Careers'));
 const Internship = React.lazy(() => import('./pages/Internship'));
@@ -346,6 +349,16 @@ function App() {
                             element={<Blog />}
                         />
 
+                        {/* Case Studies */}
+                        <Route
+                            path="/case-studies"
+                            element={<CaseStudies />}
+                        />
+                        <Route
+                            path="/case-studies/"
+                            element={<CaseStudies />}
+                        />
+
                         {/* Products */}
                         <Route
                             path="/products"
@@ -556,6 +569,9 @@ function App() {
                             path="/contact/"
                             element={<Contact />}
                         />
+
+                        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
                         {/* Admin */}
                         <Route

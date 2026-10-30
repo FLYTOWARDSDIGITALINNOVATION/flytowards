@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, Share2, Calendar, Clock, RefreshCw, PenTool } from 'lucide-react';
-import { API_BASE_URL, IMAGE_BASE_URL } from '../config';
+import { motion } from 'framer-motion';
+import { ArrowLeft, ArrowRight, Calendar, Clock } from 'lucide-react';
 import './Blog.css';
 
 const Blog = () => {
-    const [blogs, setBlogs] = useState([]);
     const [selectedBlog, setSelectedBlog] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
 
     // Static Strategic Guide Blog Post (to ensure the page is already pre-populated beautifully)
     const staticArticle = {
@@ -62,53 +60,24 @@ const Blog = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        fetchBlogs();
     }, []);
 
-    const fetchBlogs = async () => {
-        setIsLoading(true);
-        try {
-            const response = await fetch(`${API_BASE_URL}/blogs`);
-            if (response.ok) {
-                const data = await response.json();
-                // Merge dynamic blogs from MongoDB with the static strategic guide
-                setBlogs([staticArticle, ...data]);
-            } else {
-                setBlogs([staticArticle]);
-            }
-        } catch (error) {
-            console.error("Failed to fetch blogs from server:", error);
-            // Fallback to static article if server is offline
-            setBlogs([staticArticle]);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    };
-
-    const getImageUrl = (coverImage) => {
-        if (!coverImage) return 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop';
-        if (coverImage.startsWith('/uploads')) {
-            return `${IMAGE_BASE_URL}${coverImage}`;
-        }
-        return coverImage;
-    };
+    const formatDate = (dateString) => new Date(dateString).toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
 
     if (selectedBlog) {
         return (
-            <main className="blog-page-container">
+            <main className="blog-page-container" style={{ paddingTop: '100px' }}>
                 <div className="mesh-bg"></div>
                 <div className="reader-container">
-                    <button className="back-btn" onClick={() => { setSelectedBlog(null); window.scrollTo(0,0); }}>
+                    <button className="back-btn" onClick={() => { setSelectedBlog(null); window.scrollTo(0, 0); }}>
                         <ArrowLeft size={16} /> Back to Blogs
                     </button>
-                    
                     <div className="reader-header">
-                        <span className="blog-tag">{selectedBlog.category || 'Article'}</span>
+                        <span className="blog-tag">{selectedBlog.category}</span>
                         <h1 className="reader-title">{selectedBlog.title}</h1>
                         <div className="blog-meta">
                             <Calendar size={14} /> <span>{formatDate(selectedBlog.createdAt)}</span>
@@ -116,111 +85,54 @@ const Blog = () => {
                             <Clock size={14} /> <span>5 min read</span>
                         </div>
                     </div>
-
                     <div className="reader-cover-box">
-                        <img src={getImageUrl(selectedBlog.coverImage)} alt={selectedBlog.title} />
+                        <img src={selectedBlog.coverImage} alt={selectedBlog.title} />
                     </div>
-
-                    <div className="reader-body">
-                        {selectedBlog.isStatic ? (
-                            // Render static guide's HTML structure safely
-                            <div dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
-                        ) : (
-                            // Render dynamic blog paragraphs beautifully
-                            selectedBlog.content.split('\n').map((para, i) => (
-                                para.trim() ? <p key={i}>{para}</p> : null
-                            ))
-                        )}
-                    </div>
+                    <div className="reader-body" dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
                 </div>
             </main>
         );
     }
 
-    // Identify Featured post (first item) and standard posts (the rest)
-    const featuredPost = blogs[0];
-    const standardPosts = blogs.slice(1);
-
     return (
-        <main className="blog-page-container">
+        <main className="blog-page-container" style={{ paddingTop: '100px' }}>
             <div className="mesh-bg"></div>
-
-            <div className="container">
-                <div className="blog-header" data-aos="fade-up">
-                    <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                        <Share2 size={18} /> Official Journal
-                    </span>
-                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', lineHeight: 1.2 }}>
-                        Digital Insights & <span className="gradient-text">Innovation</span>
-                    </h1>
-                    <p className="blog-subtitle">
-                        Expert strategies, technology updates, and guides on growing your brand in today's modern digital economy.
-                    </p>
-                </div>
-
-                {isLoading ? (
-                    <div className="loading-box">
-                        <RefreshCw className="animate-spin" size={40} style={{ margin: '0 auto 1rem', animation: 'spin 2s linear infinite' }} />
-                        <p>Loading latest articles...</p>
+            <section id="blog-articles" className="container" style={{ maxWidth: '1450px', margin: '0 auto', padding: '1.5rem 1rem 0' }}>
+                <h1 id="latest-articles-heading" style={{ textAlign: 'center', fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.2, color: '#1F2937', margin: '0 auto 2rem', fontWeight: 800 }}>
+                    Latest Articles
+                </h1>
+                <motion.article
+                    className="featured-blog-card"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => { setSelectedBlog(staticArticle); window.scrollTo(0, 0); }}
+                    onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            setSelectedBlog(staticArticle);
+                            window.scrollTo(0, 0);
+                        }
+                    }}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ maxWidth: '1250px', margin: '0 auto 4rem' }}
+                >
+                    <div className="featured-img-box">
+                        <img src={staticArticle.coverImage} alt="Business analytics dashboard on a laptop" />
                     </div>
-                ) : (
-                    <>
-                        {/* Featured Post Card */}
-                        {featuredPost && (
-                            <div className="featured-blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(featuredPost); window.scrollTo(0,0); }}>
-                                <div className="featured-img-box">
-                                    <img src={getImageUrl(featuredPost.coverImage)} alt={featuredPost.title} />
-                                </div>
-                                <div className="featured-content">
-                                    <div className="blog-meta">
-                                        <span className="blog-tag">{featuredPost.category || 'Featured'}</span>
-                                        <Calendar size={14} /> <span>{formatDate(featuredPost.createdAt)}</span>
-                                    </div>
-                                    <h2 className="hero-title" style={{ fontSize: '1.8rem', marginBottom: '1rem', color: 'var(--text-dark)' }}>
-                                        {featuredPost.title}
-                                    </h2>
-                                    <p className="blog-card-excerpt">
-                                        {featuredPost.desc || (featuredPost.content.substring(0, 180) + '...')}
-                                    </p>
-                                    <span className="read-more-link">
-                                        Read Article <ArrowRight size={16} />
-                                    </span>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Other Articles Grid */}
-                        {standardPosts.length > 0 ? (
-                            <div className="blogs-grid">
-                                {standardPosts.map((blog) => (
-                                    <div key={blog._id} className="blog-card" data-aos="fade-up" onClick={() => { setSelectedBlog(blog); window.scrollTo(0,0); }}>
-                                        <div className="blog-card-img">
-                                            <img src={getImageUrl(blog.coverImage)} alt={blog.title} />
-                                        </div>
-                                        <div className="blog-card-content">
-                                            <div className="blog-meta">
-                                                <span className="blog-tag">{blog.category || 'Insights'}</span>
-                                                <Calendar size={14} /> <span>{formatDate(blog.createdAt)}</span>
-                                            </div>
-                                            <h3 className="blog-card-title">{blog.title}</h3>
-                                            <p className="blog-card-excerpt">
-                                                {blog.content.substring(0, 120)}...
-                                            </p>
-                                            <span className="read-more-link">
-                                                Read Article <ArrowRight size={14} />
-                                            </span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        ) : (
-                            <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
-                                <p>Stay tuned! More digital strategy articles are coming soon.</p>
-                            </div>
-                        )}
-                    </>
-                )}
-            </div>
+                    <div className="featured-content">
+                        <div className="blog-meta">
+                            <span className="blog-tag">{staticArticle.category}</span>
+                            <Calendar size={14} />
+                            <span>{formatDate(staticArticle.createdAt)}</span>
+                        </div>
+                        <h2 className="blog-card-title">{staticArticle.title}</h2>
+                        <p className="blog-card-excerpt">{staticArticle.desc}</p>
+                        <span className="read-more-link">Read full article <ArrowRight size={18} /></span>
+                    </div>
+                </motion.article>
+            </section>
         </main>
     );
 };
