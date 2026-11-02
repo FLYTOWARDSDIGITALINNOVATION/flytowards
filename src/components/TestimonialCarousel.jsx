@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+HEAD
 import React, { useState } from 'react';
-=======
 import { useEffect, useState } from 'react';
->>>>>>> origin/main
+origin/main
 import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 
 const DEFAULT_TESTIMONIALS = [
@@ -373,7 +372,6 @@ function StarRating({ rating }) {
 };
 
 export default TestimonialCarousel;
-=======
     return (
         <div className="ft-testimonial-carousel__stars" aria-label={`Rating ${safeRating} out of 5`}>
             <div className="ft-testimonial-carousel__starsTrack" aria-hidden="true">

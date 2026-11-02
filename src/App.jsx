@@ -521,13 +521,23 @@ function App() {
                             element={<Hospitality />}
                         />
 
-                        <Route
+                                                <Route
                             path="/industries/insurance"
                             element={<Insurance />}
                         />
 
                         <Route
+                            path="/industries/insurance/"
+                            element={<Insurance />}
+                        />
+
+                        <Route
                             path="/industries/government"
+                            element={<Government />}
+                        />
+
+                        <Route
+                            path="/industries/government/"
                             element={<Government />}
                         />
 

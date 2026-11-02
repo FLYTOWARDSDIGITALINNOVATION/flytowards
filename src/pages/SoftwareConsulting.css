@@ -1,0 +1,546 @@
+.consult-page {
+  --consult-ink: #1e1b4b;
+  --consult-text: #263244;
+  --consult-muted: #64748b;
+  --consult-yellow: #facc15;
+  --consult-gold: #eab308;
+  --consult-soft: #fafafa;
+  --consult-line: #e2e8f0;
+  overflow: hidden;
+  background: #fff;
+  color: var(--consult-text);
+}
+
+.consult-page * { box-sizing: border-box; }
+.consult-container { width: min(1200px, 90%); margin: 0 auto; }
+.consult-section { position: relative; padding: 86px 0; }
+.consult-section h1, .consult-section h2, .consult-section h3, .consult-section p { margin-top: 0; }
+.consult-section h2 {
+  margin-bottom: 18px;
+  color: var(--consult-ink);
+  font-size: clamp(2rem, 3.3vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1.15;
+}
+.consult-section h2 span, .consult-hero h1 .consult-gold {
+  background: linear-gradient(90deg, #facc15, #eab308 52%, #ca8a04 78%, #facc15);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: consult-gold-shimmer 6s linear infinite;
+}
+.consult-section p { margin-bottom: 13px; color: var(--consult-muted); font-size: .98rem; line-height: 1.76; }
+.consult-soft { border-block: 1px solid #f0f1f2; background: var(--consult-soft); }
+.consult-heading { max-width: 780px; margin: 0 auto 43px; text-align: center; }
+.consult-heading p { margin-bottom: 0; }
+
+/* Hero heading and calls to action */
+.consult-hero { padding: 140px 0 80px; background: #fff; }
+.consult-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(35px, 5vw, 65px);
+}
+.consult-hero h1 {
+  margin: 0 0 20px;
+  color: var(--consult-ink);
+  font-size: clamp(2.65rem, 4.8vw, 4.1rem);
+  font-weight: 850;
+  letter-spacing: -.055em;
+  line-height: 1.12;
+}
+.consult-hero h1 .consult-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(17px);
+  animation: consult-word-in .7s cubic-bezier(.2, .8, .2, 1) forwards;
+  animation-delay: calc(var(--word) * .11s);
+}
+.consult-hero h1 .consult-word:not(.consult-gold) { color: var(--consult-ink); }
+.consult-hero h2 {
+  min-height: 2.8em;
+  margin: 0 0 14px;
+  color: var(--consult-ink);
+  font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+  font-weight: 720;
+  line-height: 1.45;
+}
+.consult-typing::after {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 5px;
+  background: var(--consult-gold);
+  content: '';
+  vertical-align: -.1em;
+  animation: consult-cursor-blink .85s steps(2) infinite;
+}
+.consult-hero-copy > p { max-width: 565px; }
+.consult-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.consult-btn {
+  position: relative;
+  display: inline-flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  padding: 0 19px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 720;
+  text-decoration: none !important;
+  transition: transform .3s, box-shadow .3s, background .3s;
+}
+.consult-btn::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, #ffffffa8 50%, transparent 75%);
+  content: '';
+  pointer-events: none;
+  transform: translateX(-125%);
+  transition: transform .7s;
+}
+.consult-btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 13px 28px #1e1b4b24; }
+.consult-btn:hover::after { transform: translateX(125%); }
+.consult-btn-primary { background: var(--consult-yellow); color: var(--consult-ink) !important; box-shadow: 0 8px 24px #facc1545; }
+.consult-btn-primary:hover { background: #fde047; box-shadow: 0 13px 30px #facc1566; }
+.consult-btn-secondary { border-color: #cbd5e1; background: #fff; color: var(--consult-ink) !important; }
+.consult-btn-secondary:hover { border-color: var(--consult-yellow); background: #fef9c3; }
+.consult-btn-light { background: #fff; color: var(--consult-ink) !important; box-shadow: 0 12px 25px #0003; }
+
+/* Animated ERP dashboard mockup */
+.consult-dashboard-wrap {
+  position: relative;
+  display: grid;
+  min-height: 405px;
+  place-items: center;
+  perspective: 1100px;
+}
+.consult-dashboard-orbit {
+  position: absolute;
+  width: min(410px, 91%);
+  aspect-ratio: 1;
+  border: 1px solid #eab3084a;
+  border-radius: 50%;
+  animation: consult-orbit-turn 34s linear infinite;
+}
+.consult-orbit-two { width: min(325px, 76%); border-style: dashed; opacity: .6; animation-direction: reverse; }
+.consult-dashboard-tilt { perspective:1050px; }
+.consult-dashboard-tilt .consult-dashboard { transform:rotateY(var(--tilt-y,0deg)) rotateX(var(--tilt-x,0deg)); transition:transform .16s ease-out,box-shadow .35s; will-change:transform; }
+.consult-dashboard {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 490px);
+  padding: 19px;
+  border: 1px solid #e2e8f0;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 27px 60px #0f172a1c;
+  color: var(--consult-ink);
+  animation: consult-dashboard-float 6s ease-in-out infinite;
+  transition: box-shadow .35s;
+}
+.consult-dashboard:hover { box-shadow: 0 35px 75px #0f172a2a; animation-play-state: paused; }
+.consult-dashboard-window-bar { display: flex; gap: 6px; margin-bottom: 16px; }
+.consult-dashboard-window-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d7dce3; }
+.consult-dashboard-window-bar i:first-child { background: #ff6b6b; }
+.consult-dashboard-window-bar i:nth-child(2) { background: var(--consult-yellow); }
+.consult-dashboard-window-bar i:last-child { background: #3ddc97; }
+.consult-app-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-bottom: 13px; }
+.consult-app-module {
+  display: flex;
+  min-height: 69px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 11px;
+  background: #f1f5f9;
+  color: var(--consult-ink);
+  font-size: .61rem;
+  font-weight: 720;
+  text-align: center;
+  animation: consult-module-pulse 5s infinite;
+  animation-delay: calc(var(--module) * 1s);
+  transition: transform .25s, box-shadow .25s;
+}
+.consult-app-module svg { width: 19px; height: 19px; }
+.consult-app-module:hover { transform: translateY(-5px); box-shadow: 0 8px 18px #38bdf870; }
+.consult-chart {
+  display: flex;
+  height: 117px;
+  align-items: flex-end;
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid var(--consult-line);
+  border-radius: 14px;
+  background: #f8fafc;
+}
+.consult-chart span {
+  height: var(--bar-height);
+  flex: 1;
+  transform-origin: bottom;
+  animation: consult-chart-grow 2.5s ease-in-out infinite alternate;
+  animation-delay: calc(var(--bar-index) * .13s);
+  background: linear-gradient(#0284c7, #0369a1);
+  border-radius: 5px 5px 0 0;
+}
+.consult-chart span:nth-child(even) { background: linear-gradient(#38bdf8, #0ea5e9); }
+.consult-dashboard-rows { display: grid; gap: 7px; margin-top: 12px; }
+.consult-dashboard-rows i { height: 8px; border-radius: 5px; background: linear-gradient(90deg, #e2e8f0 25%, #fef9c3 50%, #e2e8f0 75%); background-size: 200% 100%; animation: consult-row-shimmer 2.2s linear infinite; }
+
+/* Overview, service cards and benefit list */
+.consult-overview-grid, .consult-benefits-grid, .consult-location-grid, .consult-why-grid, .consult-challenge-grid, .consult-faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 88px);
+}
+.consult-highlight-list, .consult-reason-list { border-top: 1px solid var(--consult-line); }
+.consult-highlight, .consult-reason {
+  display: grid;
+  grid-template-columns: 45px 1fr 18px;
+  align-items: center;
+  gap: 13px;
+  padding: 16px 2px;
+  border-bottom: 1px solid var(--consult-line);
+  transition: padding .28s, background .28s;
+}
+.consult-highlight:hover, .consult-reason:hover { padding-left: 10px; background: linear-gradient(90deg, #fff9e7, transparent 78%); }
+.consult-icon { display: grid; width: 43px; height: 43px; place-items: center; border-radius: 11px; background: #fef9c3; color: #ca8a04; transition: transform .3s, box-shadow .3s; }
+.consult-highlight:hover .consult-icon { transform: rotate(-8deg) scale(1.08); box-shadow: 0 8px 18px #facc1550; }
+.consult-highlight h3, .consult-benefit h3, .consult-reason h3 { margin: 0 0 4px; color: var(--consult-ink); font-size: .93rem; }
+.consult-highlight p, .consult-benefit p, .consult-reason p { margin: 0; font-size: .82rem; line-height: 1.55; }
+.consult-highlight > svg:last-child, .consult-reason > svg { color: #a9b1bc; transition: transform .25s, color .25s; }
+.consult-highlight:hover > svg:last-child, .consult-reason:hover > svg { transform: translateX(4px); color: #ca8a04; }
+.consult-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.consult-service {
+  position: relative;
+  min-height: 230px;
+  overflow: hidden;
+  padding: 23px;
+  border: 1px solid var(--consult-line);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 12px 28px #0f172a08;
+  transition: transform .38s cubic-bezier(.2, .75, .25, 1), box-shadow .38s, border-color .3s;
+}
+.consult-service::before { position: absolute; top: 0; left: 0; width: 0; height: 4px; background: linear-gradient(90deg, var(--consult-yellow), var(--consult-gold)); content: ''; transition: width .45s; }
+.consult-service::after { position: absolute; inset: 0; background: linear-gradient(112deg, transparent 24%, #ffffffbd 49%, transparent 72%); content: ''; pointer-events: none; transform: translateX(-130%); transition: transform .75s; }
+.consult-service:hover { transform: translateY(-8px) scale(1.015); border-color: #e8d77c; box-shadow: 0 24px 48px #1e1b4b18; }
+.consult-service:hover::before { width: 100%; }
+.consult-service:hover::after { transform: translateX(130%); }
+.consult-service-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.consult-service-top small { color: #aab1ba; font-size: .68rem; letter-spacing: .08em; }
+.consult-service h3 { margin: 0 0 8px; color: var(--consult-ink); font-size: 1rem; line-height: 1.4; }
+.consult-service p { margin: 0; font-size: .84rem; line-height: 1.6; }
+.consult-service-link { position: absolute; top: 26px; right: 21px; display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: #fef9c3; color: #8e6d00; opacity: 0; transform: translateX(-5px); transition: .24s; }
+.consult-service:hover .consult-service-link { opacity: 1; transform: translateX(0); }
+.consult-benefits-grid { grid-template-columns: .9fr 1.1fr; }
+.consult-hub-wrap { display: grid; min-height: 400px; place-items: center; }
+.consult-department-hub { width: min(100%, 450px); overflow: visible; filter: drop-shadow(0 18px 28px #0f172a12); }
+.consult-department-hub line { stroke: #eab308; stroke-width: 2; stroke-dasharray: 6 7; animation: consult-line-dash 1.2s linear infinite; opacity: .8; }
+.consult-department-node { fill: #fff; stroke: #facc15; stroke-width: 2.5; transition: fill .3s, r .3s, stroke-width .3s; }
+.consult-department-hub g:hover .consult-department-node { fill: #fef9c3; r: 38px; stroke-width: 4; }
+.consult-department-hub text { fill: var(--consult-ink); font: 700 11px system-ui, sans-serif; text-anchor: middle; }
+.consult-center-node { fill: var(--consult-ink); }
+.consult-center-label { fill: var(--consult-yellow) !important; font-size: 20px !important; font-weight: 800 !important; }
+.consult-data-dot { fill: var(--consult-gold); filter: drop-shadow(0 0 4px #eab30880); }
+.consult-hub-pulse { fill: none; stroke: var(--consult-yellow); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: consult-hub-ring 2.7s ease-out infinite; }
+.consult-benefit-list { margin-top: 20px; border-top: 1px solid var(--consult-line); }
+.consult-benefit { display: grid; grid-template-columns: 36px 1fr 20px; align-items: start; gap: 10px; padding: 12px 1px; border-bottom: 1px solid var(--consult-line); transition: padding .25s, background .25s; }
+.consult-benefit:hover { padding-left: 9px; background: linear-gradient(90deg, #fff9e7, transparent 80%); }
+.consult-benefit > span { color: #ca8a04; font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
+.consult-benefit > svg { color: #ca8a04; transition: transform .25s; }
+.consult-benefit:hover > svg { transform: rotate(-8deg) scale(1.1); }
+
+/* Industries and animated development timeline */
+.consult-industry-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--consult-line); border-left: 1px solid var(--consult-line); }
+.consult-industry { position: relative; min-height: 205px; overflow: hidden; padding: 21px; border-right: 1px solid var(--consult-line); border-bottom: 1px solid var(--consult-line); transition: transform .3s, background .3s, box-shadow .3s; }
+.consult-industry:hover { z-index: 1; transform: translateY(-5px); background: #fff; box-shadow: 0 17px 35px #0f172a12; }
+.consult-industry .consult-icon { width: 39px; height: 39px; margin-bottom: 12px; }
+.consult-industry > small { position: absolute; top: 31px; right: 19px; color: #adb4bd; font-size: .66rem; }
+.consult-industry h3 { margin: 0 0 6px; color: var(--consult-ink); font-size: .93rem; }
+.consult-industry p { margin: 0; font-size: .79rem; line-height: 1.55; }
+.consult-industry > svg:last-child { position: absolute; right: 18px; bottom: 16px; color: #b28d00; opacity: 0; transition: opacity .2s, transform .2s; }
+.consult-industry:hover > svg:last-child { opacity: 1; transform: translateX(4px); }
+.consult-timeline { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 25px; }
+.consult-timeline::before, .consult-timeline::after { position: absolute; top: 26px; left: 8%; height: 3px; border-radius: 3px; content: ''; }
+.consult-timeline::before { right: 8%; background: var(--consult-line); }
+.consult-timeline::after { width: 0; background: linear-gradient(90deg, var(--consult-yellow), var(--consult-gold)); transition: width 2.1s ease; }
+.consult-timeline-active::after { width: 84%; }
+.consult-step { position: relative; padding: 0 22px 22px 0; transition: transform .3s; }
+.consult-step:nth-child(n + 4) { padding-top: 18px; border-top: 1px solid var(--consult-line); }
+.consult-step:hover { transform: translateY(-5px); }
+.consult-step-number { position: relative; z-index: 1; display: grid; width: 52px; height: 52px; place-items: center; border: 3px solid var(--consult-line); border-radius: 50%; background: #fff; box-shadow: 0 0 0 7px #fff; color: var(--consult-ink); font-weight: 800; transition: .4s; }
+.consult-timeline-active .consult-step-number { border-color: var(--consult-ink); background: var(--consult-ink); box-shadow: 0 7px 18px #facc1550; color: var(--consult-yellow); transform: scale(1.08); transition-delay: calc(var(--item) * .18s); }
+.consult-step h3 { margin: 15px 0 7px; color: var(--consult-ink); font-size: .96rem; line-height: 1.4; }
+.consult-step p { margin: 0; font-size: .82rem; line-height: 1.6; }
+
+/* Location, differentiators, challenges and FAQ */
+.consult-location { border-block: 1px solid #f0f1f2; background: #fafafa; }
+.consult-location-grid { grid-template-columns: 1fr .95fr; }
+.consult-location-art { min-width: 0; }
+.consult-location-art .consult-dashboard-wrap { min-height: 345px; }
+.consult-location-art .consult-dashboard { transform: rotate(-2deg) scale(.92); }
+.consult-location-art .consult-dashboard-orbit { width: min(330px, 88%); }
+.consult-location-art .consult-orbit-two { width: min(270px, 72%); }
+.consult-why-grid { grid-template-columns: .85fr 1.15fr; }
+.consult-reason { grid-template-columns: 38px 1fr 18px; padding: 20px 2px; }
+.consult-reason > span { color: #ca8a04; font-size: .74rem; font-weight: 800; letter-spacing: .08em; }
+.consult-reason h3 { font-size: .93rem; }
+.consult-reason p { font-size: .82rem; }
+.consult-challenge-grid { grid-template-columns: .85fr 1.15fr; }
+.consult-challenge-content ul { margin: 0; padding: 0; border-top: 1px solid var(--consult-line); list-style: none; }
+.consult-challenge-content li { display: grid; grid-template-columns: 27px 1fr; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--consult-line); color: #4d5867; font-size: .85rem; line-height: 1.5; transition: transform .23s, color .23s; }
+.consult-challenge-content li:hover { color: var(--consult-ink); transform: translateX(5px); }
+.consult-challenge-content li span { display: grid; width: 23px; height: 23px; place-items: center; border: 1px solid #e8d78f; border-radius: 50%; background: #fef9c3; color: #9a7700; }
+.consult-challenge-content > p { margin: 17px 0 0; padding: 14px 16px; border-left: 2px solid var(--consult-gold); background: #fafafa; font-size: .84rem; line-height: 1.6; }
+.consult-faq-grid { grid-template-columns: .75fr 1.25fr; align-items: start; }
+.consult-faq-list { border-top: 1px solid var(--consult-line); }
+.consult-faq { border-bottom: 1px solid var(--consult-line); transition: background .25s; }
+.consult-faq:hover { background: #fffdf4; }
+.consult-faq h3 { margin: 0; }
+.consult-faq button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 14px; padding: 17px 2px; border: 0; background: transparent; color: var(--consult-ink); cursor: pointer; font: inherit; font-size: .91rem; font-weight: 700; text-align: left; }
+.consult-faq button svg { flex: none; color: #a98400; transition: transform .25s; }
+.consult-faq.is-open button svg { transform: rotate(180deg); }
+.consult-faq-answer p { margin: 0; padding: 0 25px 17px 2px; font-size: .86rem; line-height: 1.7; }
+.consult-faq-answer[hidden] { display: none; }
+
+/* Final banner */
+.consult-final-section { padding: 25px 0 95px; }
+.consult-final { position: relative; display: grid; min-height: 420px; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 15px; overflow: hidden; padding: 48px; border-radius: 27px; isolation: isolate; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 58%, #172554 100%); box-shadow: 0 25px 60px #1e1b4b26; color: #fff; }
+.consult-final-copy { position: relative; z-index: 2; }
+.consult-final h2 { color: #fff; font-size: clamp(2rem, 3.3vw, 2.8rem); }
+.consult-final p { color: #d5d7e5; font-size: .87rem; line-height: 1.62; margin-bottom: 8px; }
+.consult-final-art { position: relative; z-index: 1; transform: scale(.9); }
+.consult-final-art .consult-hub-wrap { min-height: 350px; }
+.consult-final-art .consult-department-hub line { stroke: #facc15a6; }
+.consult-final-art .consult-department-node { fill: #fff; }
+.consult-final-art .consult-final-ring { position: absolute; }
+.consult-final-ring { position: absolute; z-index: -1; width: 510px; height: 510px; border: 1px solid #facc1540; border-radius: 50%; pointer-events: none; }
+.consult-final-ring-one { top: -270px; right: -100px; animation: consult-banner-ring 6s ease-out infinite; }
+.consult-final-ring-two { right: 30%; bottom: -420px; animation: consult-banner-ring 6s 2s ease-out infinite; }
+
+/* Scroll reveal and reusable motion */
+.consult-reveal { opacity: 0; transform: translate3d(0, 26px, 0); transition: opacity .78s cubic-bezier(.2, .7, .2, 1), transform .78s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--item, 0) * 65ms); }
+.consult-reveal.consult-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+.consult-delay { transition-delay: .16s; }
+@keyframes consult-word-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes consult-cursor-blink { 50% { opacity: 0; } }
+@keyframes consult-gold-shimmer { to { background-position: -200% center; } }
+@keyframes consult-orbit-turn { to { rotate: 360deg; } }
+@keyframes consult-dashboard-float { 50% { translate: 0 -10px; } }
+@keyframes consult-module-pulse { 0%, 20%, 100% { background: #f1f5f9; box-shadow: none; } 8% { background: var(--consult-yellow); box-shadow: 0 8px 18px #facc1570; } }
+@keyframes consult-chart-grow { from { transform: scaleY(.28); } to { transform: scaleY(1); } }
+@keyframes consult-row-shimmer { to { background-position: -200% 0; } }
+@keyframes consult-line-dash { to { stroke-dashoffset: -26; } }
+@keyframes consult-hub-ring { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(1.9); } }
+@keyframes consult-banner-ring { from { opacity: .7; transform: scale(.45); } to { opacity: 0; transform: scale(1.6); } }
+
+@media (max-width: 1000px) {
+  .consult-container { width: 91%; }
+  .consult-hero-grid { grid-template-columns: 1fr; gap: 20px; }
+  .consult-hero-copy { max-width: 760px; }
+  .consult-dashboard-wrap { min-height: 360px; }
+  .consult-overview-grid, .consult-benefits-grid, .consult-location-grid, .consult-why-grid, .consult-challenge-grid, .consult-faq-grid { gap: 40px; }
+  .consult-location-art { display: none; }
+  .consult-final { padding: 37px; grid-template-columns: 1fr .8fr; }
+  .consult-final-art { transform: scale(.76); }
+}
+@media (max-width: 700px) {
+  .consult-section { padding: 67px 0; }
+  .consult-container { width: 90%; }
+  .consult-hero { padding: 108px 0 45px; }
+  .consult-hero h1 { font-size: clamp(2.45rem, 10vw, 3.55rem); }
+  .consult-hero h2 { min-height: 3.2em; font-size: 1.05rem; }
+  .consult-section p { font-size: .91rem; }
+  .consult-dashboard-wrap { min-height: 320px; margin-inline: -12px; }
+  .consult-dashboard-orbit { width: min(330px, 94%); }
+  .consult-orbit-two { width: min(275px, 78%); }
+  .consult-dashboard { padding: 14px; }
+  .consult-app-grid { gap: 5px; }
+  .consult-app-module { min-height: 61px; font-size: .53rem; }
+  .consult-app-module svg { width: 17px; height: 17px; }
+  .consult-chart { height: 94px; gap: 6px; }
+  .consult-overview-grid, .consult-benefits-grid, .consult-location-grid, .consult-why-grid, .consult-challenge-grid, .consult-faq-grid { grid-template-columns: 1fr; gap: 28px; }
+  .consult-hub-wrap { min-height: 320px; }
+  .consult-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .consult-service { min-height: 218px; padding: 18px; }
+  .consult-service h3 { font-size: .94rem; }
+  .consult-service p { font-size: .79rem; }
+  .consult-industry-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .consult-industry { min-height: 205px; padding: 16px; }
+  .consult-industry h3 { font-size: .88rem; }
+  .consult-industry p { font-size: .76rem; }
+  .consult-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 17px; row-gap: 4px; }
+  .consult-timeline::before, .consult-timeline::after { display: none; }
+  .consult-step, .consult-step:nth-child(n + 4) { padding: 0 0 22px; border: 0; }
+  .consult-step-number { width: 47px; height: 47px; }
+  .consult-step h3 { font-size: .9rem; }
+  .consult-step p { font-size: .78rem; }
+  .consult-location-art { display: block; }
+  .consult-location-art .consult-dashboard-wrap { min-height: 300px; }
+  .consult-location-art .consult-dashboard { transform: none; }
+  .consult-final-section { padding-top: 20px; padding-bottom: 65px; }
+  .consult-final { grid-template-columns: 1fr; padding: 32px 24px; }
+  .consult-final-art { display: none; }
+  .consult-final h2 { font-size: 2.2rem; }
+  .consult-btn { min-height: 46px; padding-inline: 13px; font-size: .82rem; }
+}
+@media (max-width: 430px) {
+  .consult-container { width: 91%; }
+  .consult-service-grid { grid-template-columns: 1fr; }
+  .consult-service { min-height: 0; padding: 20px; }
+  .consult-service p { font-size: .84rem; }
+  .consult-industry { min-height: 218px; padding: 13px; }
+  .consult-industry h3 { font-size: .82rem; }
+  .consult-industry p { font-size: .73rem; }
+  .consult-industry > small { top: 25px; right: 12px; }
+  .consult-dashboard-wrap { min-height: 290px; }
+  .consult-dashboard { padding: 11px; }
+  .consult-app-module { min-height: 56px; font-size: .47rem; }
+  .consult-app-module svg { width: 15px; height: 15px; }
+  .consult-chart { height: 82px; gap: 4px; padding: 7px; }
+  .consult-timeline { column-gap: 12px; }
+  .consult-final { padding: 28px 19px; }
+  .consult-final h2 { font-size: 1.9rem; }
+  .consult-final .consult-actions { align-items: stretch; flex-direction: column; }
+  .consult-final .consult-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consult-page *, .consult-page *::before, .consult-page *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .consult-reveal { opacity: 1; transform: none; }
+  .consult-hero h1 .consult-word { opacity: 1; transform: none; animation: none; }
+  .consult-typing::after { display: none; }
+  .consult-dashboard-tilt .consult-dashboard { transform:none; }
+}
+
+/* Full-page interactions matched to the reference motion */
+.consult-service-top .consult-icon{transition:transform .6s cubic-bezier(.2,.8,.2,1),background .3s,color .3s}
+.consult-service:hover .consult-service-top .consult-icon{background:var(--consult-yellow);color:var(--consult-ink);transform:rotateY(360deg)}
+.consult-industry-tabs{display:grid;grid-template-columns:minmax(250px,.78fr) minmax(0,1.22fr);align-items:center;gap:34px;margin-top:34px}
+.consult-industry-buttons{display:flex;flex-direction:column;gap:10px}
+.consult-industry-buttons button{font-family:inherit;font-size:.94rem;font-weight:700;display:flex;align-items:center;gap:12px;width:100%;padding:13px 18px;border:2px solid var(--consult-line);border-radius:999px;background:#fff;color:var(--consult-ink);cursor:pointer;text-align:left;transition:transform .3s,border-color .3s,background .3s,box-shadow .3s}
+.consult-industry-buttons button:hover{border-color:var(--consult-yellow);background:#fef9c3}
+.consult-industry-buttons button[aria-selected=true]{transform:translateX(9px);border-color:var(--consult-yellow);background:var(--consult-yellow);box-shadow:0 8px 24px #facc1550}
+.consult-industry-buttons button svg{flex:none}
+.consult-industry-panel{display:flex;min-height:205px;align-items:center;gap:24px;padding:34px;border:1.5px solid #f0d975;border-radius:25px;background:linear-gradient(135deg,#fef9c3,#fff 88%);box-shadow:0 18px 40px #0f172a0e;animation:consult-panel-in .45s cubic-bezier(.2,.8,.2,1)}
+.consult-industry-panel-icon{display:grid;width:78px;height:78px;flex:none;place-items:center;border-radius:22px;background:var(--consult-ink);color:var(--consult-yellow);animation:consult-icon-bob 3s ease-in-out infinite}
+.consult-industry-panel h3{margin:0 0 8px;color:var(--consult-ink);font-size:1.45rem}
+.consult-industry-panel p{margin:0;font-size:.97rem;line-height:1.68}
+.consult-timeline{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;row-gap:0}
+.consult-step,.consult-step:nth-child(n+4){padding:59px 3px 10px 0;border:0}
+.consult-step-number{position:absolute;top:0;left:0}
+.consult-timeline::before,.consult-timeline::after{top:25px;left:25px;right:25px;height:3px}
+.consult-timeline::after{width:0;transition:width 2.2s ease}
+.consult-timeline-active::after{width:calc(100% - 50px)}
+.consult-timeline-active .consult-step-number{animation:consult-step-light .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--item)*.3s)}
+.consult-step h3{font-size:.92rem;line-height:1.35}
+.consult-step p{font-size:.78rem;line-height:1.55}
+.consult-challenge-content li span svg{stroke-dasharray:24;stroke-dashoffset:24}
+.consult-challenge-content.consult-visible li span svg{animation:consult-check-draw .5s forwards;animation-delay:calc(var(--i,0)*.1s)}
+.consult-challenge-content li:nth-child(1){--i:0}.consult-challenge-content li:nth-child(2){--i:1}.consult-challenge-content li:nth-child(3){--i:2}.consult-challenge-content li:nth-child(4){--i:3}.consult-challenge-content li:nth-child(5){--i:4}.consult-challenge-content li:nth-child(6){--i:5}.consult-challenge-content li:nth-child(7){--i:6}
+.consult-faq button{position:relative;padding-right:49px}
+.consult-faq button svg{display:none}
+.consult-faq button::after{position:absolute;top:50%;right:1px;display:grid;width:31px;height:31px;place-items:center;transform:translateY(-50%);border-radius:50%;background:#fef9c3;color:var(--consult-ink);content:'+';font-size:1.35rem;font-weight:500;transition:transform .3s,background .3s}
+.consult-faq.is-open button::after{transform:translateY(-50%) rotate(45deg);background:var(--consult-yellow)}
+.consult-final{display:block;min-height:0;padding:68px 40px;border-radius:28px;background:linear-gradient(135deg,#0284c7 0%,#0369a1 50%,#0f172a 100%);box-shadow:0 27px 58px #0284c733;text-align:center}
+.consult-final-copy{max-width:790px;margin:0 auto}
+.consult-final h2{max-width:760px;margin:0 auto 17px;color:#fff;font-size:clamp(2.15rem,4vw,3.2rem);font-weight:900}
+.consult-final h2 span{background:linear-gradient(90deg,#facc15,#eab308 55%,#facc15);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.consult-final p{max-width:660px;margin:0 auto 9px;color:#e0f2fe;font-size:1rem;line-height:1.7}
+.consult-final .consult-actions{justify-content:center;margin-top:26px}
+.consult-final-ring{top:50%;left:50%;width:540px;height:540px;margin:-270px 0 0 -270px;border:2px solid #facc1545;animation:consult-banner-ring 6s ease-out infinite}
+.consult-final-ring-two{animation-delay:2s}
+.consult-final .consult-btn-primary{background:#fff;color:#0f172a!important}
+.consult-final .consult-btn-primary:hover{background:#fef9c3}
+.consult-final .consult-btn-light{border:1px solid #ffffff66;background:#ffffff1f;color:#fff!important;backdrop-filter:blur(8px);box-shadow:none}
+.consult-final .consult-btn-light:hover{background:#ffffff35}
+@keyframes consult-panel-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes consult-icon-bob{50%{transform:translateY(-8px)}}
+@keyframes consult-step-light{0%{transform:scale(.78)}65%{transform:scale(1.15)}100%{transform:scale(1.08)}}
+@keyframes consult-check-draw{to{stroke-dashoffset:0}}
+@media(max-width:1000px){
+ .consult-timeline{grid-template-columns:1fr;gap:0;padding-left:0}
+ .consult-timeline::before,.consult-timeline::after{top:25px;bottom:25px;left:25px;right:auto;width:3px;height:auto}
+ .consult-timeline::after{height:0;transition:height 2.2s ease}
+ .consult-timeline-active::after{width:3px;height:calc(100% - 50px)}
+ .consult-step,.consult-step:nth-child(n+4){min-height:80px;padding:0 0 25px 70px;border:0}
+ .consult-step-number{top:0;left:0}
+ .consult-step h3{margin-top:0;font-size:.98rem}
+ .consult-step p{max-width:590px;font-size:.85rem}
+ .consult-industry-tabs{grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:23px}
+}
+@media(max-width:700px){
+ .consult-timeline{grid-template-columns:1fr}
+ .consult-industry-tabs{grid-template-columns:1fr;gap:17px}
+ .consult-industry-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .consult-industry-buttons button{justify-content:flex-start;padding:11px 12px;font-size:.78rem}
+ .consult-industry-buttons button[aria-selected=true]{transform:translateY(-2px)}
+ .consult-industry-buttons button svg{width:17px;height:17px}
+ .consult-industry-panel{min-height:175px;gap:17px;padding:22px;border-radius:19px}
+ .consult-industry-panel-icon{width:60px;height:60px;border-radius:17px}
+ .consult-industry-panel h3{font-size:1.2rem}
+ .consult-industry-panel p{font-size:.86rem}
+ .consult-final{padding:45px 25px;border-radius:23px}
+ .consult-final p{font-size:.91rem}
+}
+@media(max-width:430px){
+ .consult-industry-buttons{grid-template-columns:1fr 1fr}
+ .consult-industry-buttons button{gap:7px;padding:10px 9px;font-size:.7rem}
+ .consult-industry-panel{align-items:flex-start;flex-direction:column}
+ .consult-final{padding:38px 19px}
+ .consult-final h2{font-size:1.95rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .consult-timeline::after{width:calc(100% - 50px);height:auto;transition:none}
+ .consult-industry-panel,.consult-industry-panel-icon{animation:none}
+ .consult-challenge-content li span svg{stroke-dashoffset:0}
+ .consult-final-ring{animation:none}
+}
+@media(max-width:1000px) and (prefers-reduced-motion:reduce){.consult-timeline::after{width:3px;height:calc(100% - 50px)}}
+
+/* Software consulting motion: roadmap routes draw through each planning milestone */
+.consult-board-wrap{position:relative;display:grid;min-height:430px;place-items:center;isolation:isolate}
+.consult-board-orbit{position:absolute;width:min(430px,94%);aspect-ratio:1;border:1px solid #eab30842;border-radius:50%;animation:consult-orbit-breathe 7s ease-in-out infinite}
+.consult-board-orbit-two{width:min(340px,75%);border-style:dashed;animation-delay:-3.5s;animation-direction:alternate}
+.consult-planning-board{position:relative;z-index:1;width:min(100%,510px);padding:20px;border:1px solid #d9dee8;border-radius:20px;background:linear-gradient(145deg,#fff,#f8fafc);box-shadow:0 28px 70px #1e1b4b1c;animation:consult-board-enter 1s cubic-bezier(.18,.8,.2,1) both}
+.consult-board-top{display:flex;align-items:center;gap:7px;padding-bottom:17px;border-bottom:1px solid #e2e8f0;color:var(--consult-ink);font-size:.78rem}
+.consult-board-top span{width:8px;height:8px;border-radius:50%;background:#f87171}.consult-board-top span:nth-child(2){background:#facc15}.consult-board-top span:nth-child(3){background:#4ade80}.consult-board-top strong{margin-left:auto;font-size:.72rem;font-weight:700}
+.consult-board-stages{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:25px}
+.consult-board-path{position:absolute;top:107px;left:13%;right:13%;height:2px;background:#e2e8f0}
+.consult-board-path::after{position:absolute;inset:0;width:0;background:linear-gradient(90deg,#eab308,#4338ca);content:'';animation:consult-route-draw 3.2s .5s ease-in-out infinite alternate}
+.consult-board-stage{position:relative;z-index:1;display:flex;min-height:140px;flex-direction:column;align-items:center;gap:10px;text-align:center;animation:consult-stage-rise .65s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--stage)*.17s)}
+.consult-stage-icon{display:grid;width:44px;height:44px;place-items:center;border:1px solid #e2e8f0;border-radius:14px;background:#fff;color:#3730a3;box-shadow:0 7px 18px #1e1b4b12;transition:transform .3s,background .3s,color .3s}
+.consult-board-stage:hover .consult-stage-icon{transform:translateY(-6px) rotate(-5deg);background:#facc15;color:#1e1b4b}
+.consult-board-stage strong{max-width:100px;color:var(--consult-ink);font-size:.68rem;line-height:1.35}
+.consult-board-stage small{color:#a1a8b5;font-size:.6rem;letter-spacing:.08em}
+.consult-board-note{display:flex;align-items:center;gap:11px;margin-top:8px;padding:12px;border:1px solid #e8ebf0;border-radius:12px;background:#fff}
+.consult-note-mark{display:grid;width:32px;height:32px;place-items:center;border-radius:9px;background:#fef9c3;color:#a07800}
+.consult-board-note strong{display:block;margin-bottom:6px;color:var(--consult-ink);font-size:.68rem}
+.consult-board-note i{display:inline-block;width:90px;height:4px;margin-right:6px;border-radius:5px;background:#e8edf3}.consult-board-note i:last-child{width:52px;background:#fef9c3}
+.consult-roadmap-visual{width:min(100%,540px);overflow:visible;filter:drop-shadow(0 20px 24px #1e1b4b10)}
+.consult-roadmap-track{fill:none;stroke:#eab308;stroke-width:4;stroke-linecap:round;stroke-dasharray:9 11;animation:consult-track-draw 1.4s linear infinite}
+.consult-roadmap-node{fill:#fff;stroke:#3730a3;stroke-width:3;transform-box:fill-box;transform-origin:center;animation:consult-node-pop .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--milestone)*.25s)}
+.consult-roadmap-halo{fill:#facc1518;stroke:#facc1550;transform-box:fill-box;transform-origin:center;animation:consult-halo-pulse 2.4s ease-out infinite;animation-delay:calc(var(--milestone)*.45s)}
+.consult-roadmap-visual text{fill:var(--consult-ink);font:700 14px system-ui,sans-serif;text-anchor:middle}
+.consult-location{background:linear-gradient(120deg,#fafafa,#fffbeb 58%,#f8fafc)}
+.consult-final{background:linear-gradient(135deg,#0284c7 0%,#0369a1 50%,#0f172a 100%);box-shadow:0 27px 58px #0284c733}
+@keyframes consult-orbit-breathe{0%,100%{transform:scale(.96) rotate(-8deg);opacity:.45}50%{transform:scale(1.04) rotate(8deg);opacity:1}}
+@keyframes consult-board-enter{from{opacity:0;transform:translateY(24px) rotateX(8deg);filter:blur(6px)}to{opacity:1;transform:translateY(0) rotateX(0);filter:blur(0)}}
+@keyframes consult-route-draw{0%{width:0}65%,100%{width:100%}}
+@keyframes consult-stage-rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes consult-track-draw{to{stroke-dashoffset:-40}}
+@keyframes consult-node-pop{from{opacity:0;transform:scale(.45)}to{opacity:1;transform:scale(1)}}
+@keyframes consult-halo-pulse{0%{opacity:.8;transform:scale(.7)}100%{opacity:0;transform:scale(1.8)}}
+@media(max-width:700px){.consult-board-wrap{min-height:360px}.consult-planning-board{padding:14px}.consult-board-stages{gap:4px}.consult-board-stage{min-height:128px}.consult-stage-icon{width:39px;height:39px}.consult-board-stage strong{font-size:.61rem}.consult-board-path{top:99px}.consult-roadmap-visual text{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.consult-board-orbit,.consult-planning-board,.consult-board-path::after,.consult-board-stage,.consult-roadmap-track,.consult-roadmap-node,.consult-roadmap-halo{animation:none!important}.consult-board-path::after{width:100%}}
+
+
