@@ -103,17 +103,6 @@ const Careers = () => {
             tags: ["Flutter", "Swift", "Android"],
             salary: "Competitive",
             featured: true
-        },
-        {
-            title: "Digital Marketing Strategist",
-            department: "Marketing",
-            location: "Hybrid / Tenkasi",
-            type: "Full-Time",
-            image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop",
-            icon: <Zap size={20} color="#f59e0b" />,
-            tags: ["SEO", "Meta Ads", "Strategy"],
-            salary: "Competitive",
-            featured: false
         }
     ];
 
@@ -147,9 +136,20 @@ const Careers = () => {
     ];
 
     return (
-        <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a' }}>
+        <main className="careers-page" style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a' }}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+                .careers-page .topic-pill,
+                .careers-page .section-tag {
+                    padding: 6px 14px !important;
+                    font-size: 0.75rem !important;
+                    letter-spacing: 0.1em !important;
+                    color: #1e1b4b !important;
+                    background: #fff7cc !important;
+                    border: 1px solid #facc15 !important;
+                    border-radius: 999px !important;
+                }
                 
                 @keyframes float {
                     0%, 100% { transform: translateY(0) rotate(1deg); }
@@ -397,7 +397,7 @@ const Careers = () => {
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', alignItems: 'center', gap: '4rem' }}>
                         <div data-aos="fade-right" className="hero-content-box">
-                            <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '1.5rem' }}>Careers at Fly Towards</span>
+                            <span className="topic-pill topic-pill--navy topic-pill--compact" style={{ marginBottom: '1.5rem' }}>Careers at Fly Towards</span>
                             <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: '1.5rem', letterSpacing: '-0.03em', color: '#1e1b4b' }}>
                                 The Future <br /> Needs Your <br />
                                 <span className="gradient-text">Boldness.</span>
@@ -451,7 +451,7 @@ const Careers = () => {
             <section id="openings" className="section-padding" style={{ padding: '120px 0', background: '#f8fafc', color: '#0f172a', position: 'relative', zIndex: 1 }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-                        <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Opportunities</span>
+                        <span className="topic-pill topic-pill--compact" style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Opportunities</span>
                         <h2 className="section-title" style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '1rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Join the <span className="gradient-text">Tribe</span></h2>
                         <p style={{ color: '#64748b', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>We aren't looking for employees. We're looking for architects of the future.</p>
                     </div>
@@ -505,7 +505,7 @@ const Careers = () => {
             <section id="journey" className="section-padding" style={{ padding: '120px 0', position: 'relative', zIndex: 1, background: '#fff' }}>
                 <div className="max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Steps to join</span>
+                        <span className="topic-pill topic-pill--compact" style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Steps to join</span>
                         <h2 className="section-title" style={{ fontSize: '3.5rem', fontWeight: 800, marginTop: '1rem', color: '#1e1b4b' }}>Your Journey <span style={{ color: 'var(--primary)' }}>Starts Here.</span></h2>
                     </div>
 
@@ -602,7 +602,7 @@ const Careers = () => {
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
                         <span
-                            className="section-tag"
+                            className="section-tag topic-pill--compact"
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',

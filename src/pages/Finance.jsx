@@ -22,12 +22,31 @@ export default function Finance() {
 
     return (
         <main className="finance-page">
+            <style>{`
+                .finance-page .finance-kicker {
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    padding: 6px 14px !important;
+                    border: 1px solid #facc15 !important;
+                    border-radius: 999px !important;
+                    background: #fff7cc !important;
+                    color: #1e1b4b !important;
+                    font-size: 0.75rem !important;
+                    font-weight: 800 !important;
+                    letter-spacing: 0.1em !important;
+                    text-transform: uppercase !important;
+                }
+                .finance-page .finance-kicker svg {
+                    color: #eab308 !important;
+                }
+            `}</style>
             <div className="mesh-bg" />
             <section className="finance-hero">
                 <motion.div className="finance-hero-copy" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: .12 } } }}>
                     <motion.span className="finance-kicker" variants={riseIn} transition={{ duration: .55 }}><Landmark size={16}/> Budgeting &amp; Financial Management</motion.span>
-                    <motion.h1 variants={riseIn} transition={{ duration: .65 }}>Budgeting Software Solutions for Businesses in Tamil Nadu</motion.h1>
-                    <motion.h2 variants={riseIn} transition={{ duration: .6 }}>Connect Business Budgets, Expenses and Financial Reporting</motion.h2>
+                    <motion.h1 variants={riseIn} transition={{ duration: .65 }}>Budgeting Software <span>Solutions for Businesses in Tamil Nadu</span></motion.h1>
+                    <motion.h2 variants={riseIn} transition={{ duration: .6 }}>Connect <span>Business Budgets, Expenses</span> and Financial Reporting</motion.h2>
                     <motion.p variants={riseIn} transition={{ duration: .6 }}>Businesses need organized financial information to plan budgets, monitor expenses, review cash flow and understand how actual spending compares with planned allocations.</motion.p>
                     <motion.p variants={riseIn} transition={{ duration: .6 }}>When these activities depend on disconnected spreadsheets, manual approvals or separate accounting applications, financial planning and reporting can become difficult.</motion.p>
                     <motion.p variants={riseIn} transition={{ duration: .6 }}>FlyTowards provides finance software development solutions for businesses and organizations across Tamil Nadu, with a focus on South Tamil Nadu. We help organizations plan custom budgeting software, expense management applications, financial analysis dashboards and connected financial management workflows.</motion.p>

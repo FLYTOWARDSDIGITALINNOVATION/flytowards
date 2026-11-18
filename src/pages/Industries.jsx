@@ -24,7 +24,6 @@ import {
     MessageSquareText,
     Sliders,
     Clock,
-    Target,
     HelpCircle,
     TrendingUp,
     Check
@@ -208,6 +207,7 @@ const Industries = () => {
 
     return (
         <main
+            className="industries-page"
             style={{
                 background: "#ffffff",
                 minHeight: "100vh",
@@ -219,6 +219,20 @@ const Industries = () => {
             {/* Google Fonts + Custom Styles */}
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+                .industries-page .topic-pill,
+                .industries-page .section-tag,
+                .industries-page .industry-badge {
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    padding: 6px 14px !important;
+                    font-size: 0.75rem !important;
+                    letter-spacing: 0.1em !important;
+                    color: #1e1b4b !important;
+                    background: #fff7cc !important;
+                    border: 1px solid #facc15 !important;
+                    border-radius: 999px !important;
+                }
 
                 * {
                     box-sizing: border-box;
@@ -338,6 +352,10 @@ const Industries = () => {
                 }
 
                 @media (max-width: 968px) {
+                    .industry-intro-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+
                     .industries-hero-container {
                         padding-top: 130px !important;
                         padding-bottom: 70px !important;
@@ -353,6 +371,14 @@ const Industries = () => {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+                    }
+
+                    .industries-hero-title {
+                        width: 100%;
+                        max-width: 900px !important;
+                        font-size: clamp(2rem, 5vw, 2.8rem) !important;
+                        line-height: 1.12 !important;
+                        text-wrap: pretty;
                     }
 
                     .industries-grid {
@@ -442,38 +468,23 @@ const Industries = () => {
                     style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}
                 >
                     <div
+                        className="industry-intro-grid"
                         style={{
                             display: "grid",
-                            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))",
+                            gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 0.8fr)",
                             alignItems: "center",
                             gap: "3rem",
                         }}
                     >
                     <div data-aos="fade-up">
-                        <div
-                            style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                gap: "10px",
-                                padding: "8px 18px",
-                                borderRadius: "50px",
-                                background: "rgba(250, 204, 21, 0.15)",
-                                border: "1px solid rgba(250, 204, 21, 0.35)",
-                                color: "#B45309",
-                                fontSize: "0.85rem",
-                                fontWeight: 700,
-                                letterSpacing: "1px",
-                                textTransform: "uppercase",
-                                marginBottom: "1.75rem",
-                            }}
-                        >
-                            <Sparkles size={16} color="#EAB308" />
+                        <div className="topic-pill topic-pill--navy" style={{ marginBottom: "1.75rem" }}>
                             Tailored Business Solutions
                         </div>
 
                         <h1
+                            className="industries-hero-title"
                             style={{
-                                fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)",
+                                fontSize: "clamp(2rem, 3.5vw, 3rem)",
                                 fontWeight: 800,
                                 lineHeight: 1.2,
                                 color: "#1e1b4b",
@@ -759,31 +770,8 @@ const Industries = () => {
                     >
                         {/* Hero Content */}
                         <div data-aos="fade-right">
-                            <div
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "15px",
-                                    marginBottom: "2rem",
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        width: "40px",
-                                        height: "2.5px",
-                                        background: "#EAB308",
-                                    }}
-                                />
-
-                                <span
-                                    style={{
-                                        color: "#CA8A04",
-                                        fontWeight: 800,
-                                        fontSize: "0.85rem",
-                                        textTransform: "uppercase",
-                                        letterSpacing: "0.35em",
-                                    }}
-                                >
+                                <div style={{ marginBottom: "2rem" }}>
+                                <span className="topic-pill topic-pill--navy">
                                     Tailored Business Solutions
                                 </span>
                             </div>
@@ -1942,7 +1930,7 @@ const Industries = () => {
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", alignItems: "center", gap: "3rem", marginBottom: "2rem" }}>
                     <div data-aos="fade-up">
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                        <div className="topic-pill" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
                             <Sparkles size={16} color="#EAB308" />
                             Industry-Focused Engineering
                         </div>
@@ -2050,7 +2038,7 @@ const Industries = () => {
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", alignItems: "center", gap: "3rem", marginBottom: "2rem" }}>
                     <div data-aos="fade-up">
-                        <span style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
+                        <span className="topic-pill" style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
                             Bespoke System Architecture
                         </span>
                         <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.2, marginBottom: "1.25rem" }}>
@@ -2153,7 +2141,7 @@ const Industries = () => {
             >
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
                     <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 4rem" }}>
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                        <div className="topic-pill" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
                             <Cpu size={16} color="#EAB308" />
                             Comprehensive Digital Capabilities
                         </div>
@@ -2240,8 +2228,7 @@ const Industries = () => {
             >
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
                     <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 4rem" }}>
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
-                            <Target size={16} color="#EAB308" />
+                        <div className="topic-pill topic-pill--navy" style={{ marginBottom: "1.25rem" }}>
                             Proven Delivery Framework
                         </div>
                         <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
@@ -2317,7 +2304,7 @@ const Industries = () => {
             >
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
                     <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto 4rem" }}>
-                        <span style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
+                        <span className="topic-pill" style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
                             Why Partner With Us
                         </span>
                         <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
@@ -2388,7 +2375,7 @@ const Industries = () => {
             >
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1200px", margin: "0 auto" }}>
                     <div data-aos="fade-up" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 4rem" }}>
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                        <div className="topic-pill" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
                             <HelpCircle size={16} color="#EAB308" />
                             Problem-Solving Consultation
                         </div>
@@ -2497,12 +2484,12 @@ const Industries = () => {
             >
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "950px", margin: "0 auto" }}>
                     <div data-aos="fade-up" style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-                        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
+                        <div className="industry-badge" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "50px", background: "rgba(250, 204, 21, 0.15)", border: "1px solid rgba(250, 204, 21, 0.35)", color: "#B45309", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "1.25rem" }}>
                             <HelpCircle size={16} color="#EAB308" />
                             Knowledge Base
                         </div>
                         <h2 style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)", fontWeight: 800, color: "#1e1b4b", letterSpacing: "-0.03em", marginBottom: "1rem" }}>
-                            Frequently Asked Questions
+                            <span style={{ color: "#facc15" }}>Frequently Asked</span> Questions
                         </h2>
                     </div>
 
@@ -2606,7 +2593,7 @@ const Industries = () => {
             >
                 <div className="section-inner" style={{ padding: "0 2rem", maxWidth: "1100px", margin: "0 auto", textAlign: "center" }}>
                     <div data-aos="fade-up">
-                        <span style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
+                        <span className="topic-pill" style={{ display: "inline-block", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", color: "#FACC15", fontWeight: 700, marginBottom: "1rem" }}>
                             Start Your Transformation
                         </span>
                         <h2 style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.04em", lineHeight: 1.15, marginBottom: "1.5rem" }}>

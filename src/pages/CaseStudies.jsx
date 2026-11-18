@@ -193,7 +193,7 @@ const CaseStudies = () => (
                 <div className="featured-custom-case-study-intro">
                     <div>
                         <span className="case-studies-eyebrow">Featured Case Study</span>
-                        <h2 id="featured-case-studies-heading">Featured Software Development Case Studies</h2>
+                        <h2 id="featured-case-studies-heading">Featured Software Development <span className="case-heading-accent">Case Studies</span></h2>
                         <h3>Custom Software Built Around a Business Requirement</h3>
                         <p className="featured-case-study-lead">
                             When standard software cannot adequately support a business process, a custom solution can provide a more tailored approach.
@@ -262,7 +262,7 @@ const CaseStudies = () => (
             >
                 <div className="digital-transformation-case-study-intro">
                     <span className="case-studies-eyebrow">Digital Transformation</span>
-                    <h2 id="digital-transformation-case-study-heading">Digital Transformation Case Studies</h2>
+                    <h2 id="digital-transformation-case-study-heading">Digital Transformation <span className="case-heading-accent">Case Studies</span></h2>
                     <h3>Modernising Business Processes Through Technology</h3>
                     <p className="digital-transformation-lead">Digital transformation is about more than introducing new technology.</p>
                     <p>
@@ -323,7 +323,7 @@ const CaseStudies = () => (
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className="industry-case-studies-intro">
-                    <h2 id="industry-case-studies-heading">Software Solutions Across Industries</h2>
+                    <h2 id="industry-case-studies-heading">Software Solutions <span className="case-heading-accent">Across Industries</span></h2>
                     <p>Different industries have different processes, users and operational requirements.</p>
                     <p>Our portfolio can be organised around the industries and business environments represented by our projects.</p>
                 </div>
@@ -371,7 +371,7 @@ const CaseStudies = () => (
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className="case-study-principles-heading">
-                    <h2 id="case-study-principles-heading">What Our Case Studies Show</h2>
+                    <h2 id="case-study-principles-heading">What Our <span className="case-heading-accent">Case Studies Show</span></h2>
                 </div>
                 <motion.div
                     className="case-study-principles-grid"
@@ -426,7 +426,7 @@ const CaseStudies = () => (
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className="solution-type-projects-heading">
-                    <h2 id="solution-type-projects-heading">Explore Our Projects by Solution Type</h2>
+                    <h2 id="solution-type-projects-heading">Explore Our Projects <span className="case-heading-accent">by Solution Type</span></h2>
                     <p>Looking for a particular type of software project?</p>
                 </div>
                 <motion.div
@@ -469,7 +469,7 @@ const CaseStudies = () => (
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className="case-study-process-heading">
-                    <h2 id="case-study-process-heading">How We Approach Software Projects</h2>
+                    <h2 id="case-study-process-heading">How We Approach <span className="case-heading-accent">Software Projects</span></h2>
                     <p>From Business Requirement to Working Software</p>
                     <p>Every project is different, but a clear development approach helps connect the business objective with the software solution.</p>
                 </div>
@@ -561,7 +561,7 @@ const CaseStudies = () => (
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className="custom-case-study-guide-copy">
-                    <h2 id="custom-case-study-guide-heading">Looking for a Custom Software Case Study?</h2>
+                    <h2 id="custom-case-study-guide-heading">Looking for a Custom Software <span className="case-heading-accent">Case Study?</span></h2>
                     <p>If you are considering custom software, it can be useful to look at projects with similar requirements.</p>
                     <h3>You may be dealing with:</h3>
                 </div>
@@ -614,7 +614,7 @@ const CaseStudies = () => (
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-                <h2 id="case-studies-faq-heading">Frequently Asked Questions</h2>
+                <h2 id="case-studies-faq-heading"><span className="case-heading-accent">Frequently Asked</span> Questions</h2>
                 <motion.div
                     className="case-studies-faq-list"
                     initial="hidden"

@@ -100,6 +100,60 @@ const Footer = () => {
                             Tamil Nadu 627756
                         </span>
                     </div>
+                    <p
+                        style={{
+                            color: 'var(--text-muted)',
+                            fontSize: '0.8rem',
+                            margin: '0.5rem 0 0 30px',
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
+                        <Link
+                            to="/locations/tamilnadu/"
+                            style={{
+                                color: 'var(--color-primary)',
+                                textDecoration: 'none',
+                                fontWeight: 600,
+                                transition: 'opacity 0.2s'
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
+                            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                        >
+                            Tamil Nadu
+                        </Link>
+                        {' | '}
+                        <Link
+                            to="/locations/chennai/"
+                            style={{
+                                color: 'var(--color-primary)',
+                                textDecoration: 'none',
+                                fontWeight: 600,
+                                transition: 'opacity 0.2s'
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
+                            onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                        >
+                            Chennai
+                        </Link>
+                        {' | '}
+            <Link
+                to="/locations/sankarankovil/"
+                style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600, transition: 'opacity 0.2s' }}
+                onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
+                onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+            >
+                Sankarankovil
+            </Link>
+            {' | '}
+            <Link
+                to="/locations/tirunelveli/"
+                style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600, transition: 'opacity 0.2s' }}
+                onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
+                onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+            >
+                Tirunelveli
+            </Link>
+                    </p>
                 </div>
 
                 {/* Column 2: Quick Links */}
@@ -301,15 +355,6 @@ const Footer = () => {
                                 className="footer-link"
                             >
                                 WhatsApp Marketing API
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link
-                                to="/services/digital-marketing"
-                                className="footer-link"
-                            >
-                                Digital Marketing
                             </Link>
                         </li>
 

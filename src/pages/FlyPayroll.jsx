@@ -1,385 +1,78 @@
-import { ArrowRight, CheckCircle2, Shield, MapPin, Camera, Smartphone, ScanFace, Building, Settings, RefreshCcw, Lock, FileCheck } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, CheckCircle2, Users, FileText, TrendingUp, Calculator, ClipboardCheck, ShieldCheck, Database, Settings2, Clock3, Building2, Store, GraduationCap, HeartPulse, Hotel, Briefcase, Plug, ChevronDown, HelpCircle, Workflow } from 'lucide-react';
 
-const FlyPayroll = () => {
+const highlights = ['Employee and salary record management', 'Structured monthly payroll processing', 'Payslip and reporting workflows', 'Configurable payroll rules and user access'];
+const overview = [[Users, 'Employee Payroll Records', 'Maintain employee information and relevant salary details.'], [Calculator, 'Salary Processing', 'Organize earnings, deductions and payroll calculations.'], [FileText, 'Payslip Management', 'Prepare structured employee salary statements.'], [TrendingUp, 'Payroll Reporting', 'Review payroll summaries and employee-wise salary information.']];
+const challenges = [['Manual Salary Calculations', 'Spreadsheet calculations can increase administrative effort and input errors.'], ['Attendance & Leave Adjustments', 'Separate attendance, leave and loss-of-pay records can complicate payroll.'], ['Different Salary Structures', 'Different earnings, allowances and deductions need careful handling.'], ['Payroll Record Management', 'Employee salary histories can be difficult to organize across files.'], ['Statutory Deduction Requirements', 'Applicable PF, ESI, professional tax and income-tax requirements need configuration and qualified review.'], ['Payslip & Reporting Delays', 'Manual preparation can extend monthly salary administration.']];
+const features = [['Employee Management', 'Maintain employee profiles, departments, employment details and payroll records.', 'Profiles · IDs · departments · salary details'], ['Salary Structure Management', 'Define salary components according to organizational requirements.', 'Basic salary · allowances · deductions · effective dates'], ['Monthly Payroll Processing', 'Calculate payroll using configured salary information and approved monthly inputs.', 'Earnings · deductions · attendance adjustments'], ['Attendance & Leave Adjustments', 'Use verified attendance and leave details to support salary calculations.', 'Payable days · loss of pay · leave adjustments'], ['Payslip Generation', 'Prepare statements showing relevant earnings, deductions and net salary.', 'Monthly payslips · salary breakdowns · statements'], ['Payroll Reports & Records', 'Organize payroll information for authorized management review.', 'Payroll summaries · employee reports · salary history']];
+const steps = [['Maintain Employee Details', 'Record employee details, salary structures and payroll settings.'], ['Collect Monthly Inputs', 'Enter or import approved attendance, leave, incentives and adjustments.'], ['Calculate Earnings', 'Determine salary components and additional earnings using configured rules.'], ['Apply Deductions', 'Calculate deductions using approved settings and applicable requirements.'], ['Review & Approve', 'Check calculations, resolve discrepancies and authorize the payroll period.'], ['Generate Payroll Records', 'Prepare payslips, summaries and payment information as supported.']];
+const benefits = [['Reduce Repetitive Payroll Work', 'A structured application may reduce repeated calculations and data entry.'], ['Improve Calculation Consistency', 'Configured rules can help apply approved calculations consistently.'], ['Organize Payroll Information', 'Keep salary details, payroll periods and relevant records organized.'], ['Simplify Monthly Reviews', 'Help authorized administrators check calculations and identify discrepancies.'], ['Support Business Growth', 'Plan around changing employee numbers and payroll requirements.']];
+const industries = [[Store, 'Retail & Trading', 'Shop employees, sales staff, supervisors and administrative teams.'], [Building2, 'Manufacturing', 'Production employees, office staff and workforce categories.'], [GraduationCap, 'Educational Institutions', 'Teachers, administrative employees and institutional staff.'], [HeartPulse, 'Healthcare Organizations', 'Clinical, administrative and support staff.'], [Hotel, 'Hospitality Businesses', 'Front-office, housekeeping, kitchen and administrative employees.'], [Briefcase, 'Professional Services', 'Salary records, payroll calculations and reporting for office teams.']];
+const comparisons = [['Employee salary records', 'Separate files', 'Structured employee profiles'], ['Salary calculations', 'Formulas and manual updates', 'Configured calculation rules'], ['Attendance adjustments', 'Entered and checked manually', 'Structured monthly inputs'], ['Payslip preparation', 'Repeated document preparation', 'Template-based generation'], ['Monthly reports', 'Manual spreadsheet consolidation', 'Structured payroll reports'], ['Payroll review', 'Individual file verification', 'Defined review workflow'], ['Historical information', 'Multiple monthly files', 'Payroll-period records']];
+const faqs = [['What is payroll software?', 'It helps businesses organize employee salary records, calculate earnings and deductions, prepare payslips and maintain payroll information. Features vary by product.'], ['What is the best payroll software for a small business?', 'The right choice depends on workforce size, salary structures, statutory requirements, usability, reporting, integrations and budget.'], ['How does payroll processing software work?', 'It uses employee salary information and approved monthly inputs to calculate earnings, apply configured deductions and prepare records for review.'], ['Can payroll software calculate PF, ESI and professional tax?', 'Some systems support configurable calculations. Availability and accuracy depend on product support, employer eligibility, applicable rules and maintained settings.'], ['Is payroll software suitable for businesses with fewer than 50 employees?', 'It can help small teams when salary structures, attendance adjustments, deductions or reporting make manual payroll difficult.'], ['Can payroll software integrate with Tally?', 'Some systems exchange data with compatible Tally products. Confirm compatibility for the specific versions and requirements.'], ['What is the difference between payroll software and HRMS software?', 'Payroll focuses on salary, deductions, payslips and payroll records. HRMS covers wider HR activities; some HRMS platforms include payroll.'], ['How much does payroll software cost in Tamil Nadu?', 'Pricing varies by product, employee count, features, deployment, integrations, customization and support. Request a quotation based on requirements.']];
+
+const Heading = ({ eyebrow, title, text }) => <header className="pay-heading"><span className="pay-tag">{eyebrow}</span><h2>{title}</h2>{text && <p>{text}</p>}</header>;
+
+export default function FlyPayroll() {
+    const [openFaq, setOpenFaq] = useState(null);
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Payroll Software for Small Businesses in Tamil Nadu | FlyTowards';
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute('content', 'Explore FlyTowards payroll software planning for employee records, salary processing, payslips and payroll reporting. Capabilities are subject to confirmation.');
     }, []);
 
-    const goals = [
-        "Allow attendance only when employees are physically present at the correct location",
-        "Prevent fake attendance such as photo, video replay, proxy, or fake GPS",
-        "Automatically sync attendance data with payroll"
-    ];
+    return <main className="pay-page">
+        <style>{`
+            .pay-page{--ink:#182235;--muted:#657185;--line:#e6eaf0;--gold:#facc15;background:#fff;color:var(--ink);font-family:'Outfit',sans-serif;overflow:hidden}.pay-page *{box-sizing:border-box}.pay-wrap{width:min(1180px,90%);margin:auto}.pay-section{padding:78px 0}.pay-soft{background:#f7f8fa}
+            .pay-heading{text-align:center;max-width:850px;margin:0 auto 34px}.pay-heading h2{font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin:14px 0;font-weight:850;letter-spacing:-.03em;color:#1e1b4b}.pay-heading h2 span{color:#facc15}.pay-heading p{color:var(--muted);line-height:1.7;margin:0}.pay-tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #facc15;background:#fff7cc;color:#1e1b4b;border-radius:99px;padding:6px 14px;font-weight:800;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+            .pay-hero{min-height:650px;padding:140px 0 75px;display:flex;align-items:center;background:radial-gradient(ellipse at 80% 28%,#fff4c4,transparent 34%),radial-gradient(ellipse at 4% 75%,#e9fbfc,transparent 34%)}.pay-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}.pay-page h1{font-size:clamp(2.7rem,5.7vw,4.8rem);line-height:1.03;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#1e1b4b}.pay-page h1 em{display:block;color:#facc15;font-style:normal}.pay-lead{font-size:1.08rem;line-height:1.7;color:#586579}.pay-actions{display:flex;gap:11px;flex-wrap:wrap;margin:24px 0}.pay-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 19px;border-radius:99px;text-decoration:none;font-weight:800;transition:transform .2s,box-shadow .2s}.pay-btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px #17203324}.pay-primary{background:#facc15;color:#1e1b4b}.pay-primary svg{color:#1e1b4b}.pay-secondary{border:1px solid #cbd2dc;background:white;color:#273449}.pay-highlights{display:grid;grid-template-columns:1fr 1fr;gap:8px}.pay-highlight{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--line);border-radius:12px;font-size:.85rem;font-weight:650;background:#ffffffcf}.pay-highlight svg{color:#9a7900;flex:none}.pay-note{font-size:.8rem;color:#798397;line-height:1.5;margin-top:12px}
+            .pay-dashboard{position:relative;padding:17px;border-radius:25px;background:linear-gradient(145deg,#243148,#111827);box-shadow:0 25px 65px #11182735}.pay-dash-top{display:flex;justify-content:space-between;color:white;padding:4px 4px 14px;font-weight:750}.pay-dash-body{background:#f8fafc;border-radius:17px;padding:18px}.pay-statrow{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.pay-stat{background:white;border:1px solid var(--line);border-radius:12px;padding:12px}.pay-stat strong{display:block;margin-top:5px}.pay-dash-list{margin-top:12px;background:white;padding:12px;border-radius:12px}.pay-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef0f3;font-size:.8rem}.pay-row:last-child{border:0}.pay-badge{position:absolute;right:-9px;bottom:20px;background:white;border-radius:12px;padding:11px;box-shadow:0 10px 28px #11182724;font-size:.72rem;font-weight:750}
+            .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pay-two{grid-template-columns:repeat(2,1fr)}.pay-card{background:white;border:1px solid var(--line);border-radius:18px;padding:21px;box-shadow:0 5px 20px #17203309;transition:transform .25s,box-shadow .25s}.pay-card:hover{transform:translateY(-5px);box-shadow:0 15px 30px #17203318}.pay-card h3{font-size:1.05rem;margin:0 0 8px}.pay-card p{color:var(--muted);font-size:.91rem;line-height:1.6;margin:0}.pay-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#fff5be;color:#927000;margin-bottom:13px}.pay-number{font-size:.75rem;color:#967600;font-weight:900;letter-spacing:.1em;margin-bottom:9px}.pay-chip{display:inline-block;background:#f1f3f6;color:#616d7f;border-radius:7px;padding:5px 7px;font-size:.7rem;margin:8px 3px 0 0}.pay-warning{display:flex;gap:9px;align-items:flex-start;padding:13px 15px;margin-top:17px;border:1px solid #f1df8d;border-radius:13px;background:#fffbea;color:#675623;font-size:.85rem;line-height:1.55}.pay-warning svg{flex:none;color:#a98500}
+            .pay-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.pay-step{background:white;border:1px solid var(--line);border-radius:15px;padding:14px}.pay-step b{display:grid;place-items:center;width:31px;height:31px;border-radius:50%;background:#1c2638;color:#facc15;margin-bottom:10px}.pay-step h3{font-size:.88rem;margin:0 0 6px}.pay-step p{font-size:.78rem;color:var(--muted);line-height:1.5;margin:0}.pay-flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:19px;font-size:.76rem;font-weight:750}.pay-flow span{border:1px solid var(--line);padding:7px 10px;border-radius:99px;background:white}
+            .pay-benefits{display:grid;grid-template-columns:.8fr 1.2fr;gap:38px;align-items:center}.pay-visual{background:linear-gradient(145deg,#243148,#111827);border-radius:22px;padding:23px;color:white}.pay-visual-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #ffffff25;color:#e5e7eb}.pay-visual-row b{color:#facc15}.pay-benefit{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.pay-benefit:last-child{border:0}.pay-benefit i{display:grid;place-items:center;width:33px;height:33px;border-radius:10px;background:#fff5be;color:#927000}.pay-benefit h3{font-size:.96rem;margin:0 0 4px}.pay-benefit p{font-size:.86rem;line-height:1.5;color:var(--muted);margin:0}
+            .pay-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}.pay-table{width:100%;min-width:620px;border-collapse:collapse}.pay-table th,.pay-table td{text-align:left;padding:13px 15px;border-bottom:1px solid #edf0f3}.pay-table th{background:#1c2638;color:white}.pay-table td{font-size:.86rem;color:#566174}.pay-table td:last-child{font-weight:700;color:#29364a}.pay-table tr:last-child td{border:0}.pay-callout{background:#1c2638;color:white;padding:22px;border-radius:17px;margin-top:17px}.pay-callout p{color:#d4d9e2;line-height:1.6;margin:8px 0 0}
+            .pay-security{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pay-security-item{display:grid;grid-template-columns:36px 1fr;gap:10px;border:1px solid var(--line);border-radius:15px;padding:17px}.pay-security-item i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#fff5be;color:#806600;font-weight:900;font-style:normal}.pay-security-item h3{font-size:.94rem;margin:0 0 5px}.pay-security-item p{font-size:.84rem;color:var(--muted);line-height:1.5;margin:0}
+            .pay-faq{max-width:900px;margin:auto;display:grid;gap:9px}.pay-faq-item{border:1px solid var(--line);border-radius:13px;overflow:hidden}.pay-faq button{border:0;background:white;width:100%;padding:15px 17px;text-align:left;display:flex;justify-content:space-between;gap:10px;font:inherit;font-weight:750;color:#29364a;cursor:pointer}.pay-faq button svg{flex:none;transition:transform .2s}.pay-answer{padding:0 17px 16px;color:var(--muted);line-height:1.6;font-size:.9rem}.pay-final{padding:45px 24px;text-align:center;color:white;background:radial-gradient(ellipse at 90% 0,#39465a,#1f2937 64%);border-radius:25px}.pay-final h2{font-size:clamp(2rem,4vw,3rem);margin:15px auto;max-width:820px;color:#facc15}.pay-final p{max-width:790px;color:#d2d8e1;line-height:1.65;margin:0 auto}
+            .pay-reveal{animation:payRise .7s cubic-bezier(.2,.75,.25,1) both}.pay-delay{animation-delay:.15s}.pay-float{animation:payFloat 6s ease-in-out infinite}@keyframes payRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}@keyframes payFloat{50%{transform:translateY(-9px)}}
+            @media(max-width:900px){.pay-hero-grid,.pay-benefits{grid-template-columns:1fr}.pay-dashboard{max-width:620px;margin:auto}.pay-grid{grid-template-columns:repeat(2,1fr)}.pay-steps{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){.pay-section{padding:58px 0}.pay-wrap{width:calc(100% - 30px)}.pay-hero{padding:120px 0 55px}.pay-page h1{font-size:clamp(2.5rem,13vw,3.7rem)}.pay-grid,.pay-two,.pay-highlights,.pay-steps,.pay-security{grid-template-columns:1fr}.pay-actions .pay-btn{width:100%}.pay-badge{right:3px;bottom:3px}}@media(prefers-reduced-motion:reduce){.pay-reveal,.pay-float{animation:none!important}.pay-card,.pay-btn,.pay-faq button svg{transition:none!important}}
+        `}</style>
 
-    const workforceCategories = [
-        {
-            title: "Office-Based Employees",
-            icon: <Building size={35} color="var(--primary)" />,
-            image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop",
-            features: [
-                { title: "Fixed Office Location", desc: "Employees work from a predefined office location with a configured geo-fence." },
-                { title: "Location-Based Attendance", desc: "Attendance can be marked only when physically present inside the office boundary." }
-            ],
-            delay: "0.1s"
-        },
-        {
-            title: "Field-Based Employees",
-            icon: <MapPin size={35} color="var(--secondary)" />,
-            image: "https://images.unsplash.com/photo-1541888087-b95764d26f74?q=80&w=800&auto=format&fit=crop",
-            features: [
-                { title: "Client / Site Based Work", desc: "Employees work at customer or project locations assigned by the admin." },
-                { title: "Dynamic Location Assignment", desc: "Locations can change daily or per task based on business needs." }
-            ],
-            delay: "0.2s"
-        },
-        {
-            title: "Hybrid Workforce",
-            icon: <Smartphone size={35} color="var(--accent)" />,
-            image: "https://images.unsplash.com/photo-1587560699334-bea5353f0ce5?q=80&w=800&auto=format&fit=crop",
-            features: [
-                { title: "Office + Field Work", desc: "Employees can operate from office or field depending on assigned duties." },
-                { title: "Flexible Attendance Rules", desc: "The system adapts attendance validation based on the assigned work type." },
-                { title: "Admin Location Config", desc: "Office geo-fence, client sites, and task-based field assignments." }
-            ],
-            delay: "0.3s"
-        }
-    ];
+        <section className="pay-hero"><div className="pay-wrap pay-hero-grid"><div className="pay-reveal">
+            <span className="pay-tag"><Settings2 size={16}/> Payroll management · Tamil Nadu</span>
+            <h1>Payroll Software for Small Businesses <em>in Tamil Nadu</em></h1>
+            <p className="pay-lead">Simplify salary processing, employee records and monthly payroll management with a workflow planned around your organization.</p>
+            <p className="pay-lead">Explore how payroll processing software could support salary administration when spreadsheets become time-consuming and difficult to review.</p>
+            <div className="pay-actions"><a href="#contact" className="pay-btn pay-primary">Request a Payroll Software Demo <ArrowRight size={17}/></a><a href="#contact" className="pay-btn pay-secondary">Discuss Your Payroll Requirements</a></div>
+            <div className="pay-highlights">{highlights.map(x=><div className="pay-highlight" key={x}><CheckCircle2 size={17}/>{x}</div>)}</div>
+            <p className="pay-note">FlyTowards Payroll Software is proposed. Capabilities, availability and demo arrangements require confirmation.</p>
+        </div><div className="pay-dashboard pay-reveal pay-delay pay-float" aria-label="Illustrative payroll dashboard preview">
+            <div className="pay-dash-top"><span>Payroll overview</span><span style={{color:'#facc15'}}>Illustrative</span></div><div className="pay-dash-body"><small>MONTHLY PAYROLL SUMMARY</small><h2>Salary records</h2><div className="pay-statrow"><div className="pay-stat">Payroll period<strong>Monthly</strong></div><div className="pay-stat">Review status<strong>Pending review</strong></div></div><div className="pay-dash-list">SAMPLE WORKFLOW{['Employee details|Organize','Salary inputs|Review','Payroll records|Prepare'].map(x=><div className="pay-row" key={x}>{x.split('|')[0]}<b>{x.split('|')[1]}</b></div>)}</div></div><div className="pay-badge"><ClipboardCheck size={14}/> Concept preview · not live product UI</div>
+        </div></div></section>
 
-    const workflows = [
-        {
-            title: "Office Workflow",
-            steps: [
-                "Reach authorized Office Location",
-                "GPS & Geo-Fence Validation",
-                "Live Camera Activation",
-                "Liveness Detection (blink, head movement)",
-                "Face Verification & Attendance Recorded"
-            ],
-            icon: <CheckCircle2 color="var(--primary)" />
-        },
-        {
-            title: "Field Workflow",
-            steps: [
-                "Admin assigns Site or Client Location",
-                "Travel to assigned Site Location",
-                "GPS & Geo-Fence Validation",
-                "Live Face & Liveness Detection Check",
-                "Attendance Recorded with Site Details"
-            ],
-            icon: <ScanFace color="var(--secondary)" />
-        }
-    ];
+        <section className="pay-section"><div className="pay-wrap"><Heading eyebrow="Product overview" title={<>What Is Payroll Software and How <span>Does It Work?</span></>} text="Payroll software organizes employee salary information, calculates pay, applies relevant deductions, prepares payroll records and supports salary administration."/><p style={{textAlign:'center',maxWidth:850,margin:'-15px auto 28px',color:'#657185',lineHeight:1.7}}>Small businesses may collect attendance, check salary structures, calculate earnings and deductions, and prepare payments. A suitable system organizes these steps so authorized users can review records.</p><div className="pay-grid pay-two">{overview.map(([Icon,title,text])=><article className="pay-card" key={title}><div className="pay-icon"><Icon size={21}/></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-    const controls = [
-        {
-            title: "Security Enforcement",
-            icon: <Lock size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
-            desc: "GPS validation, geo fencing, device restrictions, and controlled camera access ensure attendance data cannot be manipulated or misused."
-        },
-        {
-            title: "Live Presence & Anti-Spoof",
-            icon: <Camera size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
-            desc: "Prevents photo, video replay, proxy attendance, and other impersonation attempts using real-time camera sessions and liveness detection."
-        },
-        {
-            title: "Automated Payroll Flow",
-            icon: <RefreshCcw size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=800&auto=format&fit=crop",
-            desc: "Check-in/out times, late entries, and overtime rules automatically flow to payroll processing without manual entry."
-        },
-        {
-            title: "Compliance & Audit",
-            icon: <FileCheck size={24} color="white" />,
-            image: "https://images.unsplash.com/photo-1450101499163-c8848c66cb85?q=80&w=800&auto=format&fit=crop",
-            desc: "Detailed audit logs provide full traceability for compliance checks, internal audits, and management reviews."
-        }
-    ];
+        <section className="pay-section pay-soft"><div className="pay-wrap"><Heading eyebrow="Everyday operations" title={<>Common Payroll Challenges <span>Faced by Small Businesses</span></>} text="Payroll tasks become harder when records, calculations and monthly inputs are spread across different places."/><div className="pay-grid">{challenges.map(([title,text],i)=><article className="pay-card" key={title}><div className="pay-number">CHALLENGE 0{i+1}</div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-    return (
-        <main style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="mesh-bg"></div>
+        <section className="pay-section"><div className="pay-wrap"><Heading eyebrow="Proposed capabilities" title="Key Features Planned for FlyTowards Payroll Software" text="These proposed capabilities require confirmation for availability, configuration and implementation scope."/><div className="pay-grid">{features.map(([title,text,tags],i)=><article className="pay-card" key={title}><div className="pay-number">0{i+1} · PLANNED</div><h3>{title}</h3><p>{text}</p>{tags.split(' · ').map(tag=><span className="pay-chip" key={tag}>{tag}</span>)}</article>)}</div><div className="pay-warning"><HelpCircle size={18}/>Feature examples describe planning scope only. Confirm product support before relying on any capability.</div></div></section>
 
-            {/* Aesthetic Background Orbs */}
-            <div style={{ position: 'absolute', top: '10%', right: '-5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0,242,255,0.08) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
-            <div style={{ position: 'absolute', top: '40%', left: '-10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(255,0,122,0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(70px)' }}></div>
-            <div style={{ position: 'absolute', top: '75%', right: '10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(157,0,255,0.06) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
+        <section className="pay-section pay-soft"><div className="pay-wrap"><Heading eyebrow="Illustrative workflow" title="How Does Payroll Processing Software Simplify Monthly Salary Management?" text="Payroll software can organize the steps involved in preparing, reviewing and finalizing salary information."/><div className="pay-steps">{steps.map(([title,text],i)=><article className="pay-step" key={title}><b>{String(i+1).padStart(2,'0')}</b><h3>{title}</h3><p>{text}</p></article>)}</div><div className="pay-flow">{['Employee records','Attendance & salary inputs','Payroll calculation','Deduction review','Approval','Payslips & reports'].map(x=><span key={x}>{x}</span>)}</div><div className="pay-warning"><HelpCircle size={18}/>Illustrative workflow, not a verified demonstration of an existing FlyTowards product.</div></div></section>
 
-            {/* Hero Section */}
-            <section className="hero" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
-                <div className="grid-2">
-                    <div data-aos="fade-up">
-                        <div style={{ display: 'inline-flex', padding: '0.5rem 1.2rem', background: 'rgba(0, 242, 255, 0.1)', border: '1px solid rgba(0, 242, 255, 0.2)', borderRadius: '50px', marginBottom: '2rem', alignItems: 'center', gap: '10px' }}>
-                             <Settings size={18} color="var(--primary)" /> <span style={{ fontWeight: 700, color: 'var(--primary)' }}>FlyRoll Ecosystem</span>
-                        </div>
-                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-                            Fully Automated <br />
-                            <span className="gradient-text" style={{ textShadow: '0 0 40px rgba(255,0,122,0.3)' }}>Attendance & Payroll</span>
-                        </h1>
-                        <h2 className="mb-4" style={{ fontSize: '1.3rem', fontWeight: 500, color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '600px' }}>
-                            Office + Field Attendance Solution using GPS, Geo-fencing, Face Recognition and Liveness Detection without any biometric or IoT devices.
-                        </h2>
+        <section className="pay-section"><div className="pay-wrap pay-benefits"><div className="pay-visual"><span className="pay-tag">Organized process</span><h3>Monthly payroll review</h3>{['Employee salary information|Organized','Approved monthly inputs|Collected','Payroll records|Reviewed','Information access|Authorized users'].map(x=><div className="pay-visual-row" key={x}><span>{x.split('|')[0]}</span><b>{x.split('|')[1]}</b></div>)}<p className="pay-note" style={{color:'#c5ccd7'}}>Illustrative process; product functionality may differ.</p></div><div><Heading eyebrow="Business benefits" title="Benefits of Payroll Software for Small Businesses" text="A suitable workflow can reduce administration and make salary information easier to review."/>{benefits.map(([title,text],i)=><div className="pay-benefit" key={title}><i>{[<Clock3 size={16}/>,<CheckCircle2 size={16}/>,<Database size={16}/>,<ClipboardCheck size={16}/>,<TrendingUp size={16}/>][i]}</i><div><h3>{title}</h3><p>{text}</p></div></div>)}</div></div></section>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '3rem' }}>
-                            {goals.map((goal, idx) => (
-                                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '1rem 1.5rem', background: 'rgba(255,255,255,0.8)', border: '1px solid var(--border)', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', backdropFilter: 'blur(10px)' }}>
-                                    <div style={{ background: 'var(--gradient-primary)', padding: '5px', borderRadius: '50%', display: 'flex' }}>
-                                        <CheckCircle2 size={16} color="white" />
-                                    </div>
-                                    <span style={{ fontWeight: 600, color: 'var(--text-dark)', fontSize: '0.95rem' }}>{goal}</span>
-                                </div>
-                            ))}
-                        </div>
+        <section className="pay-section pay-soft"><div className="pay-wrap"><Heading eyebrow="Regional requirements" title="Payroll Software for Businesses Across Tamil Nadu" text="Payroll requirements vary by industry, workforce structure and organizational policies."/><div className="pay-grid">{industries.map(([Icon,title,text])=><article className="pay-card" key={title}><div className="pay-icon"><Icon size={21}/></div><h3>{title}</h3><p>{text}</p></article>)}</div><p className="pay-note" style={{textAlign:'center'}}><b>Regional focus:</b> Tirunelveli, Tenkasi, Sankarankovil, Madurai, Thoothukudi, Kanyakumari and other Tamil Nadu markets.</p></div></section>
 
-                        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                            <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                                Go to FlyRoll App <ArrowRight size={20} />
-                            </a>
-                            <a href="#contact" className="btn btn-outline" style={{ border: '1px solid var(--border)' }}>Request a Demo</a>
-                        </div>
-                    </div>
+        <section className="pay-section"><div className="pay-wrap"><Heading eyebrow="Compare approaches" title="Payroll Software vs Excel-Based Payroll Management" text="The right approach depends on workforce size, salary complexity and monthly review effort."/><div className="pay-table-wrap"><table className="pay-table"><thead><tr><th>Payroll activity</th><th>Manual payroll</th><th>Payroll software</th></tr></thead><tbody>{comparisons.map(([a,b,c])=><tr key={a}><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}</tbody></table></div><div className="pay-callout"><h3>Which Is Better for Small Businesses?</h3><p>Spreadsheets may suit simple payroll and small workforces. Software may help when salary structures, employee numbers, deductions or reporting make manual processing difficult.</p></div></div></section>
 
-                    <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
-                        <div className="glass-container" style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2 }}>
-                            <img
-                                src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=800&auto=format&fit=crop"
-                                alt="FlyRoll Dashboard Analytics"
-                                className="floating-img"
-                                style={{ borderRadius: '30px', width: '100%', maxWidth: '650px', display: 'block' }}
-                            />
+        <section className="pay-section pay-soft"><div className="pay-wrap"><Heading eyebrow="Integration considerations" title="Tally Payroll Software vs Custom Payroll Software" text="Businesses may compare payroll functionality in an accounting system with a dedicated payroll application."/><div className="pay-grid pay-two"><article className="pay-card"><div className="pay-icon"><Plug size={20}/></div><h3>When might custom payroll be considered?</h3><p>Tally payroll may suit organizations using a compatible product. Custom payroll may suit specific approvals, salary structures, reports or system connections.</p><ul style={{color:'#657185',lineHeight:1.8}}><li>Workflows need additional configuration.</li><li>Departments use distinct salary components.</li><li>Employee-specific reports are needed.</li><li>Accounting, attendance or HR integrations need review.</li></ul></article><article className="pay-card"><div className="pay-icon"><Workflow size={20}/></div><h3>Can payroll software integrate with Tally?</h3><p>Integration depends on product version, interfaces, data formats and authorized access. Assess feasibility for the specific setup.</p><div className="pay-warning"><HelpCircle size={18}/>Do not assume direct Tally integration before technical feasibility is confirmed.</div><a href="#contact" className="pay-btn pay-secondary" style={{marginTop:16}}>Discuss Integration <ArrowRight size={16}/></a></article></div></div></section>
 
-                            <div style={{
-                                position: 'absolute',
-                                bottom: '-20px',
-                                right: '-30px',
-                                background: 'white',
-                                padding: '1.5rem',
-                                borderRadius: '20px',
-                                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '1rem',
-                                animation: 'float 6s ease-in-out infinite'
-                            }}>
-                                <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '1rem', borderRadius: '50%' }}>
-                                    <ScanFace color="var(--primary)" size={24} />
-                                </div>
-                                <div>
-                                    <p style={{ fontWeight: 800, fontSize: '1.2rem', margin: 0, color: '#1e293b' }}>Face Verify</p>
-                                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0 }}>Liveness Checked</p>
-                                </div>
-                            </div>
+        <section className="pay-section"><div className="pay-wrap"><Heading eyebrow="Plan with care" title="Important Considerations When Choosing Payroll Processing Software" text="Payroll systems handle sensitive employee information and calculations affecting salary payments and statutory obligations."/><div className="pay-security">{[['Payroll data security','Consider role-based access, authentication, data protection, backups and audit records.'],['Statutory payroll requirements','PF, ESI, professional tax and tax withholding depend on eligibility, circumstances, applicable law and payroll period.'],['Salary calculation accuracy','Test approved structures, deductions, attendance inputs and representative scenarios.'],['Implementation and data migration','Review employee data, salary structures, records, reporting needs and user responsibilities.']].map(([title,text],i)=><article className="pay-security-item" key={title}><i>0{i+1}</i><div><h3>{title}</h3><p>{text}</p></div></article>)}</div><div className="pay-warning"><ShieldCheck size={18}/>Payroll software does not independently guarantee legal compliance. Qualified professionals must verify calculations, filings and rule updates.</div></div></section>
 
-                            <img src="https://images.unsplash.com/photo-1510511459019-5d058cf283d5?q=80&w=300&auto=format&fit=crop" alt="Mobile Scan" style={{
-                                position: 'absolute',
-                                top: '-20px',
-                                left: '-30px',
-                                width: '140px',
-                                height: '140px',
-                                objectFit: 'cover',
-                                borderRadius: '20px',
-                                boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-                                border: '4px solid white',
-                                animation: 'float 8s ease-in-out infinite reverse'
-                            }} />
+        <section className="pay-section pay-soft"><div className="pay-wrap"><Heading eyebrow="Planning with FlyTowards" title="Why Consider FlyTowards for Payroll Software in Tamil Nadu?" text="Payroll planning requires understanding the application and the business processes it needs to support."/><div className="pay-grid pay-two">{[['Business Requirement Assessment','Understand workforce, payroll policies, records and salary administration needs.'],['Configurable Payroll Planning','Identify salary components, employee categories and calculation requirements.'],['User-Friendly Workflow Design','Plan for authorized HR teams, payroll administrators, accountants and managers.'],['Integration & Implementation Assessment','Review accounting, attendance and HR applications before defining deployment.']].map(([title,text],i)=><article className="pay-card" key={title}><div className="pay-number">0{i+1}</div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-                            <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15 }}></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <section className="pay-section"><div className="pay-wrap"><Heading eyebrow="FAQ" title="Frequently Asked Questions About Payroll Software"/><div className="pay-faq">{faqs.map(([q,a],i)=><div className="pay-faq-item" key={q}><button aria-expanded={openFaq===i} onClick={()=>setOpenFaq(openFaq===i?null:i)}><span>{q}</span><ChevronDown size={18} style={{transform:openFaq===i?'rotate(180deg)':'none'}}/></button>{openFaq===i&&<div className="pay-answer">{a}</div>}</div>)}</div></div></section>
 
-            {/* Workforce Categories Section */}
-            <section id="categories" style={{ background: 'rgba(255, 0, 122, 0.01)' }}>
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">Adaptability</span>
-                    <h2 className="responsive-h2">Workforce <span className="gradient-text">Categories</span></h2>
-                    <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
-                        Designed to manage diverse work environments seamlessly.
-                    </p>
-                </div>
-
-                <div className="grid">
-                    {workforceCategories.map((cat, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" style={{ transitionDelay: cat.delay, padding: '2rem' }}>
-                            <div style={{ height: '200px', borderRadius: '20px', overflow: 'hidden', marginBottom: '2rem', position: 'relative' }}>
-                                <img src={cat.image} alt={cat.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="hover-zoom" />
-                                <div style={{ position: 'absolute', top: '15px', right: '15px', background: 'white', padding: '0.8rem', borderRadius: '50%', boxShadow: '0 5px 15px rgba(0,0,0,0.1)' }}>{cat.icon}</div>
-                            </div>
-                            <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem' }}>{cat.title}</h3>
-
-                            {cat.features.map((feature, fIdx) => (
-                                <div key={fIdx} style={{ marginBottom: '1.5rem' }}>
-                                    <h4 style={{ fontSize: '1.1rem', color: 'var(--text-dark)', marginBottom: '0.5rem' }}>{feature.title}</h4>
-                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>{feature.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Elegant Parallax Statistics */}
-            <section style={{ 
-                background: 'linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop) center/cover fixed',
-                padding: '7rem 2rem',
-                textAlign: 'center',
-                boxShadow: 'inset 0 0 100px rgba(0,0,0,0.5)'
-            }}>
-                <div data-aos="zoom-in" style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem' }}>
-                    <div>
-                        <h2 style={{ fontSize: '4.5rem', color: 'var(--primary)', marginBottom: '0.5rem', fontWeight: 800, textShadow: '0 0 30px rgba(0, 242, 255, 0.4)' }}>100%</h2>
-                        <p style={{ color: 'white', fontSize: '1.2rem', fontWeight: 600, letterSpacing: '1px' }}>Face Liveness</p>
-                    </div>
-                    <div>
-                        <h2 style={{ fontSize: '4.5rem', color: 'var(--secondary)', marginBottom: '0.5rem', fontWeight: 800, textShadow: '0 0 30px rgba(255, 0, 122, 0.4)' }}>Zero</h2>
-                        <p style={{ color: 'white', fontSize: '1.2rem', fontWeight: 600, letterSpacing: '1px' }}>Hardware Required</p>
-                    </div>
-                    <div>
-                        <h2 style={{ fontSize: '4.5rem', color: 'var(--accent)', marginBottom: '0.5rem', fontWeight: 800, textShadow: '0 0 30px rgba(157, 0, 255, 0.4)' }}>&lt; 2s</h2>
-                        <p style={{ color: 'white', fontSize: '1.2rem', fontWeight: 600, letterSpacing: '1px' }}>Instant Check-in</p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Attendance Workflows */}
-            <section id="workflows">
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">Step-by-Step</span>
-                    <h2 className="responsive-h2">Attendance <span className="gradient-text">Workflows</span></h2>
-                </div>
-
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '4rem', alignItems: 'center' }}>
-                    <div data-aos="fade-right" style={{ position: 'relative' }}>
-                        <div style={{ position: 'relative', borderRadius: '40px', padding: '1rem', background: 'rgba(255, 255, 255, 0.7)', border: '1px solid var(--border)', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
-                            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', borderRadius: '30px', objectFit: 'cover' }} alt="Workflow Automation" />
-                        </div>
-                        <div className="glow-aura" style={{ background: 'var(--gradient-primary)', opacity: 0.15 }}></div>
-                    </div>
-
-                    <div data-aos="fade-left" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        {workflows.map((workflow, idx) => (
-                            <div key={idx} className="card" style={{ background: 'var(--bg-white)', position: 'relative', padding: '2rem' }}>
-                                <h3 className="responsive-h3" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '15px', fontSize: '1.5rem' }}>
-                                    {workflow.icon} {workflow.title}
-                                </h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                    {workflow.steps.map((step, sIdx) => (
-                                        <div key={sIdx} className="workflow-card" style={{ padding: '0.8rem 1rem' }}>
-                                            <div className="workflow-number" style={{ width: '25px', height: '25px', fontSize: '0.9rem' }}>
-                                                {sIdx + 1}
-                                            </div>
-                                            <span style={{ fontWeight: 600, color: 'var(--text-dark)', fontSize: '0.95rem' }}>{step}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Security & Compliance Section */}
-            <section style={{ background: 'rgba(0, 242, 255, 0.01)' }}>
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">Enterprise Grade</span>
-                    <h2 className="responsive-h2">Security, Compliance <span className="gradient-text">& Controls</span></h2>
-                </div>
-
-                <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', padding: '0 1rem' }}>
-                    {controls.map((control, idx) => (
-                        <div key={idx} className="card" data-aos="fade-up" style={{ padding: '0', overflow: 'hidden', borderRadius: '40px' }}>
-                            <div style={{ height: '220px', position: 'relative' }}>
-                                <img src={control.image} alt={control.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" />
-                                <div style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--gradient-primary)', padding: '0.8rem', borderRadius: '50%', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
-                                    {control.icon}
-                                </div>
-                            </div>
-                            <div style={{ padding: '2.5rem' }}>
-                                <h3 className="responsive-h3" style={{ marginBottom: '1rem', fontSize: '1.6rem' }}>{control.title}</h3>
-                                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>{control.desc}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Impact Gallery */}
-            <section style={{ padding: '6rem 0' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                    <span className="section-tag">Impact at Scale</span>
-                    <h2 className="responsive-h2">Experience the <span className="gradient-text">Difference</span></h2>
-                </div>
-
-                <div className="grid-2 max-w-1200" style={{ margin: '0 auto', gap: '2rem', padding: '0 1rem' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <div data-aos="zoom-in" data-aos-delay="100" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Collaborative Teamwork" />
-                            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
-                                <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Empowered Teams</h3>
-                            </div>
-                        </div>
-                        <div data-aos="zoom-in" data-aos-delay="200" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Analytics Team" />
-                            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
-                                <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Data-Driven Insights</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <div data-aos="zoom-in" data-aos-delay="300" style={{ height: '250px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1570126618953-d437176e8c79?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Global Office" />
-                            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
-                                <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Enterprise Scale</h3>
-                            </div>
-                        </div>
-                        <div data-aos="zoom-in" data-aos-delay="400" style={{ height: '350px', borderRadius: '40px', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1000&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} className="hover-zoom" alt="Happy Workforce" />
-                            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)' }}>
-                                <h3 style={{ color: 'white', margin: 0, fontSize: '1.6rem', fontWeight: 800 }}>Happy Workforce</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Final CTA */}
-            <section id="contact" style={{ padding: '4rem 1rem' }}>
-                <div className="cta-content" data-aos="zoom-in" style={{
-                    textAlign: 'center',
-                    padding: '8rem 3rem',
-                    borderRadius: '40px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    boxShadow: '0 20px 50px rgba(0,0,0,0.2)',
-                    maxWidth: '1200px',
-                    margin: '0 auto',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    background: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000) center/cover no-repeat'
-                }}>
-                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(8, 15, 30, 0.9) 0%, rgba(10, 15, 25, 0.95) 100%)', zIndex: 1 }}></div>
-
-                    <div style={{ position: 'relative', zIndex: 2 }}>
-                        <span className="section-tag" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Upgrade Your Operations</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>
-                            Achieve a <span style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: '0 0 30px rgba(0, 242, 255, 0.3)' }}>Future-Ready</span> <br /> Attendance System.
-                        </h2>
-                        <p style={{ fontSize: '1.3rem', margin: '2rem auto 3rem', color: 'rgba(255,255,255,0.8)', maxWidth: '600px' }}>
-                            No biometric device needed. Just intelligent technology powering your workforce.
-                        </p>
-                        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a href="https://flyroll.flytowardsdigitalinnovation.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 30px rgba(0, 242, 255, 0.3)' }}>
-                                Go to FlyRoll App <ArrowRight size={20} />
-                            </a>
-                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '1.2rem 3rem', color: 'white', borderColor: 'rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.05)' }}>Book a Free Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    );
-};
-
-export default FlyPayroll;
+        <section id="contact" className="pay-section" style={{paddingTop:0}}><div className="pay-wrap"><div className="pay-final"><span className="pay-tag">Payroll management · Tamil Nadu</span><h2>Simplify Payroll Management for Your Business</h2><p>Organized payroll can reduce administration and improve access to salary information. Discuss employee records, salary processing, payslip workflows and reporting needs with FlyTowards.</p><div className="pay-actions" style={{justifyContent:'center'}}><Link to="/contact" className="pay-btn pay-primary">Request a Payroll Software Demo <ArrowRight size={17}/></Link><Link to="/contact" className="pay-btn pay-secondary">Get a Payroll Software Consultation</Link></div><p className="pay-note" style={{color:'#c5ccd7'}}>Confirm availability, supported features and demo arrangements with our team.</p></div></div></section>
+    </main>;
+}

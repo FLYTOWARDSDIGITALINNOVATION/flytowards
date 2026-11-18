@@ -219,7 +219,7 @@ const About = () => {
     ];
 
     return (
-        <main style={{ 
+        <main className="about-page" style={{ 
             position: 'relative', 
             overflow: 'hidden',
             background: '#ffffff',
@@ -254,6 +254,23 @@ const About = () => {
                     background-color: #111827 !important;
                     box-sizing: border-box !important;
                 }
+                .about-page .section-tag {
+                    display: inline-block !important;
+                    padding: 6px 14px !important;
+                    font-size: 0.75rem !important;
+                    letter-spacing: 0.1em !important;
+                    color: #1e1b4b !important;
+                    background: #fff7cc !important;
+                    border: 1px solid #facc15 !important;
+                    border-radius: 999px !important;
+                }
+                .about-page p {
+                    color: #4B5563 !important;
+                }
+                .about-page #why-us .grid p,
+                .about-page #commitments .grid p {
+                    color: #D1D5DB !important;
+                }
             `}</style>
 
             {/* Ambient Background Lights (Exact match with Home page) */}
@@ -267,7 +284,7 @@ const About = () => {
             <section className="hero" style={{ width: '100%', minHeight: '85vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '140px 0 80px', background: '#ffffff', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%', width: '100%' }}>
                     <div style={{ textAlign: 'center', marginBottom: '4rem', width: '100%' }} data-aos="fade-up">
-                        <span className="section-tag" style={{ display: 'inline-block', margin: '0 auto 1.5rem' }}>About Fly Towards Digital Innovation</span>
+                        <span className="section-tag about-hero-badge" style={{ display: 'inline-block', margin: '0 auto 1.5rem' }}>About Fly Towards Digital Innovation</span>
                         <h1 style={{
                             fontFamily: "'Outfit', sans-serif",
                             fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
@@ -291,13 +308,13 @@ const About = () => {
 
                     <div className="grid-2" style={{ width: '100%', alignItems: 'center' }}>
                         <div data-aos="fade-up" style={{ transitionDelay: '0.1s' }}>
-                            <p style={{ fontSize: '1.15rem', color: '#1E293B', marginBottom: '1.5rem', lineHeight: 1.8, fontWeight: 500 }}>
+                            <p style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '1.5rem', lineHeight: 1.75, fontWeight: 400 }}>
                                 Technology should make business easier to operate, not add another layer of complexity. Fly Towards Digital Innovation is a software development company focused on helping businesses turn their technology requirements into practical software solutions. We work with organisations that need software built around their processes, users, operational requirements and growth plans.
                             </p>
-                            <p style={{ fontSize: '1.15rem', color: '#1E293B', marginBottom: '1.5rem', lineHeight: 1.8, fontWeight: 500 }}>
+                            <p style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '1.5rem', lineHeight: 1.75, fontWeight: 400 }}>
                                 From custom business applications and enterprise software to SaaS platforms, web applications, mobile apps and digital transformation initiatives, we approach every project with the business requirement at the centre.
                             </p>
-                            <p style={{ fontSize: '1.15rem', color: '#1E293B', marginBottom: '2.5rem', lineHeight: 1.8, fontWeight: 500 }}>
+                            <p style={{ fontSize: '1.1rem', color: '#4b5563', marginBottom: '2.5rem', lineHeight: 1.75, fontWeight: 400 }}>
                                 Our focus is simple: understand the problem, define the right solution and build software that supports the way your business needs to work.
                             </p>
                             <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
@@ -329,7 +346,7 @@ const About = () => {
                 <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 5%' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', alignItems: 'center' }} data-aos="fade-up">
                         <div style={{ flex: '1 1 500px' }}>
-                            <span className="section-tag">Who We Are</span>
+                            <span className="section-tag about-hero-badge">Who We Are</span>
                             <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', lineHeight: 1.2 }}>
                                 Empowering Organizations Through <span className="gradient-text">Context-First Software</span>
                             </h2>
@@ -986,12 +1003,12 @@ const About = () => {
                                 }}
                                 onMouseEnter={(e) => {
                                     e.currentTarget.style.transform = 'translateY(-12px) rotate(-1deg)';
-                                    e.currentTarget.style.borderLeftColor = '#38BDF8';
+                                e.currentTarget.style.borderLeftColor = '#FACC15';
                                     e.currentTarget.style.boxShadow = '0 20px 45px rgba(0, 0, 0, 0.3), 0 0 20px rgba(250, 204, 21, 0.2)';
                                     const dot = e.currentTarget.querySelector('.commit-node-dot');
                                     if (dot) {
                                         dot.style.transform = 'scale(1.4) rotate(45deg)';
-                                        dot.style.background = '#38BDF8';
+                                        dot.style.background = '#FACC15';
                                     }
                                 }}
                                 onMouseLeave={(e) => {

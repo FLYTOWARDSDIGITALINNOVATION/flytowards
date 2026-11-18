@@ -139,11 +139,11 @@ const Healthcare = () => {
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,480px),1fr))', gap: 'clamp(3rem,5vw,5rem)', alignItems: 'center' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                        <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '50px', background: 'rgba(250,204,21,0.18)', color: '#B45309', border: '1px solid rgba(250,204,21,0.45)', fontSize: '0.875rem', fontWeight: 600, width: 'fit-content' }}>
-                            <HeartPulse size={16} color="#CA8A04" /><span>Healthcare &amp; HealthTech Solutions</span>
+                        <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', width: 'fit-content' }}>
+                            <HeartPulse size={16} color="#EAB308" /><span>HEALTHCARE &amp; HEALTHTECH SOLUTIONS</span>
                         </motion.div>
-                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="gradient-text" style={{ fontSize: 'clamp(2rem,4vw,3.4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
-                            Electronic Health Records Software Solutions in Tamil Nadu
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(2rem,4vw,3.4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, color: '#1e1b4b' }}>
+                            Electronic Health Records Software <span style={{ color: '#facc15' }}>Solutions in Tamil Nadu</span>
                         </motion.h2>
                         <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ fontSize: 'clamp(1rem,1.6vw,1.2rem)', fontWeight: 700, color: '#1F2937', borderLeft: '4px solid #FACC15', paddingLeft: '1rem', lineHeight: 1.45 }}>
                             Connect Patient Records, Clinical Workflows and Healthcare Operations
@@ -201,11 +201,11 @@ const Healthcare = () => {
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,440px),1fr))', gap: 'clamp(2.5rem,5vw,4rem)', alignItems: 'start' }}>
                     <div>
-                        <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.15)', color: '#B45309', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.5rem' }}>
-                            <Database size={14} color="#EAB308" /> Industry Overview
+                        <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem' }}>
+                            <Database size={14} color="#EAB308" /> INDUSTRY OVERVIEW
                         </motion.div>
-                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.5rem', lineHeight: 1.2 }}>
-                            What Is Electronic Health Records Software?
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            What Is <span style={{ color: '#facc15' }}>Electronic Health Records Software?</span>
                         </motion.h2>
                         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#4B5563', fontSize: '1.02rem', lineHeight: 1.75 }}>
                             <p style={{ margin: 0 }}>Electronic health records software is a digital system used to create, organize, access and manage patient health information.</p>
@@ -236,11 +236,11 @@ const Healthcare = () => {
             ════════════════════════════════════════════════════ */}
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                    <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(239,68,68,0.1)', color: '#DC2626', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                        <AlertCircle size={14} /> Common Challenges
+                    <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
+                        <AlertCircle size={14} color="#EAB308" /> COMMON CHALLENGES
                     </motion.div>
-                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', lineHeight: 1.2 }}>
-                        Common Software Challenges in Healthcare Operations
+                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', lineHeight: 1.2 }}>
+                        Common Software Challenges in <span style={{ color: '#facc15' }}>Healthcare Operations</span>
                     </motion.h2>
                     <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#6B7280', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
                         Healthcare organizations need accurate information, coordinated workflows and appropriate controls for sensitive patient records. Disconnected systems and manual processes can create administrative complexity.
@@ -252,7 +252,7 @@ const Healthcare = () => {
                         return (
                             <motion.div key={i} variants={itemVariants} whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(0,0,0,0.08)' }} style={{ background: '#fff', borderRadius: '20px', padding: '2rem', border: '1px solid #E5E7EB', boxShadow: '0 4px 15px rgba(0,0,0,0.04)' }}>
                                 <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(239,68,68,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}><Icon size={22} color="#DC2626" /></div>
-                                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', marginBottom: '0.6rem' }}>{item.title}</h3>
+                                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1e1b4b', marginBottom: '0.6rem' }}>{item.title}</h3>
                                 <p style={{ color: '#6B7280', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
                             </motion.div>
                         );
@@ -265,11 +265,11 @@ const Healthcare = () => {
             ════════════════════════════════════════════════════ */}
             <section id="healthcare-solutions" style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2, scrollMarginTop: '120px' }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                    <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.15)', color: '#B45309', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                        <Sparkles size={14} color="#EAB308" /> Our Solutions
+                    <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
+                        <Sparkles size={14} color="#EAB308" /> OUR SOLUTIONS
                     </motion.div>
-                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', lineHeight: 1.2 }}>
-                        Our Electronic Health Records &amp; Healthcare Software Solutions
+                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', lineHeight: 1.2 }}>
+                        Our <span style={{ color: '#facc15' }}>Electronic Health Records &amp; Healthcare Software Solutions</span>
                     </motion.h2>
                     <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#6B7280', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
                         FlyTowards helps healthcare organizations plan and develop software around patient information, clinical documentation and administrative workflows.
@@ -281,7 +281,7 @@ const Healthcare = () => {
                         return (
                             <motion.div key={i} variants={itemVariants} whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(250,204,21,0.15)', borderColor: '#FACC15' }} style={{ background: '#fff', borderRadius: '20px', padding: '2rem', border: '1px solid #E5E7EB', boxShadow: '0 4px 15px rgba(0,0,0,0.04)', transition: 'border-color 0.25s ease' }}>
                                 <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(250,204,21,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}><Icon size={24} color="#CA8A04" /></div>
-                                <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#1F2937', marginBottom: '0.75rem' }}>{item.title}</h3>
+                                <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#1e1b4b', marginBottom: '0.75rem' }}>{item.title}</h3>
                                 <p style={{ color: '#6B7280', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
                             </motion.div>
                         );
@@ -294,11 +294,11 @@ const Healthcare = () => {
             ════════════════════════════════════════════════════ */}
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                    <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(2,132,199,0.1)', color: '#0284C7', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                        <Workflow size={14} /> Healthcare Workflows
+                    <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
+                        <Workflow size={14} color="#EAB308" /> HEALTHCARE WORKFLOWS
                     </motion.div>
-                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem' }}>
-                        How Electronic Health Records Software Supports Healthcare Workflows
+                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem' }}>
+                        How <span style={{ color: '#facc15' }}>Electronic Health Records Software</span> Supports Healthcare Workflows
                     </motion.h2>
                     <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#6B7280', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
                         Healthcare software becomes useful when it helps authorized teams manage information across patient care and administrative activities.
@@ -313,7 +313,7 @@ const Healthcare = () => {
                                 <div style={{ order: isEven ? 0 : 1 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
                                         <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(250,204,21,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon size={22} color="#CA8A04" /></div>
-                                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#1F2937', margin: 0 }}>{item.title}</h3>
+                                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#1e1b4b', margin: 0 }}>{item.title}</h3>
                                     </div>
                                     <p style={{ color: '#6B7280', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
                                 </div>
@@ -341,12 +341,12 @@ const Healthcare = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,420px),1fr))', gap: 'clamp(2.5rem,5vw,4rem)', alignItems: 'center' }}>
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ background: 'linear-gradient(145deg,#F8FAFC,#F1F5F9)', borderRadius: '24px', padding: '3rem 2.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', justifyContent: 'center', minHeight: '360px' }}>
                         <div style={{ width: '80px', height: '80px', borderRadius: '24px', background: 'rgba(250,204,21,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><HeartPulse size={40} color="#CA8A04" /></div>
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1F2937', textAlign: 'center', margin: 0 }}>Benefits of Electronic Health Records Software</h3>
+                        <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1e1b4b', textAlign: 'center', margin: 0 }}>Benefits of Electronic Health Records Software</h3>
                         <p style={{ color: '#6B7280', textAlign: 'center', lineHeight: 1.7, margin: 0, fontSize: '0.95rem' }}>Well-designed healthcare applications can support more organized information management and clearer coordination between authorized clinical and administrative teams.</p>
                     </motion.div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', fontWeight: 800, color: '#1F2937', marginBottom: '2rem' }}>
-                            Benefits of Electronic Health Records Software for Healthcare Organizations
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '2rem' }}>
+                            Benefits of <span style={{ color: '#facc15' }}>Electronic Health Records Software</span> for Healthcare Organizations
                         </motion.h2>
                         {benefits.map((item, i) => {
                             const Icon = item.icon;
@@ -354,7 +354,7 @@ const Healthcare = () => {
                                 <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.08 * i }} style={{ display: 'flex', gap: '1rem', padding: '1.25rem 0', borderBottom: i < benefits.length - 1 ? '1px solid #F3F4F6' : 'none' }}>
                                     <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(22,163,74,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><CheckCircle2 size={20} color="#16A34A" /></div>
                                     <div>
-                                        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1F2937', marginBottom: '4px' }}>{item.title}</h3>
+                                        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1e1b4b', marginBottom: '4px' }}>{item.title}</h3>
                                         <p style={{ color: '#6B7280', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
                                     </div>
                                 </motion.div>
@@ -369,11 +369,11 @@ const Healthcare = () => {
             ════════════════════════════════════════════════════ */}
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                    <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.15)', color: '#B45309', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                        <Layers size={14} color="#EAB308" /> Our Services
+                    <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
+                        <Layers size={14} color="#EAB308" /> OUR SERVICES
                     </motion.div>
-                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem' }}>
-                        FlyTowards Software Development Services for Healthcare Organizations
+                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem' }}>
+                        FlyTowards <span style={{ color: '#facc15' }}>Software Development Services</span> for Healthcare Organizations
                     </motion.h2>
                     <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#6B7280', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
                         Healthcare software projects may involve custom application development, user interface design, system integration and ongoing technical maintenance.
@@ -386,7 +386,7 @@ const Healthcare = () => {
                             <motion.div key={i} variants={itemVariants} whileHover={{ y: -4, boxShadow: '0 12px 30px rgba(250,204,21,0.12)' }} style={{ background: '#fff', borderRadius: '18px', padding: '1.75rem', border: '1px solid #E5E7EB', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                                 <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(250,204,21,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Icon size={20} color="#CA8A04" /></div>
                                 <div>
-                                    <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#1F2937', marginBottom: '6px' }}>{item.title}</h3>
+                                    <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#1e1b4b', marginBottom: '6px' }}>{item.title}</h3>
                                     <p style={{ color: '#6B7280', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
                                 </div>
                             </motion.div>
@@ -400,11 +400,11 @@ const Healthcare = () => {
             ════════════════════════════════════════════════════ */}
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                    <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(124,58,237,0.1)', color: '#7C3AED', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                        <Zap size={14} /> Development Process
+                    <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
+                        <Zap size={14} color="#EAB308" /> DEVELOPMENT PROCESS
                     </motion.div>
-                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem' }}>
-                        Our Electronic Health Records Software Development Process
+                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.6rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem' }}>
+                        Our Electronic Health Records Software <span style={{ color: '#facc15' }}>Development Process</span>
                     </motion.h2>
                     <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#6B7280', fontSize: '1.05rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
                         We follow a structured approach to understand healthcare software requirements, plan appropriate controls and develop agreed application functionality.
@@ -417,7 +417,7 @@ const Healthcare = () => {
                             <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(250,204,21,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                                 <span style={{ fontSize: '1rem', fontWeight: 800, color: '#B45309' }}>{step.num}</span>
                             </div>
-                            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', marginBottom: '0.75rem' }}>{step.title}</h3>
+                            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1e1b4b', marginBottom: '0.75rem' }}>{step.title}</h3>
                             <p style={{ color: '#6B7280', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>{step.desc}</p>
                         </motion.div>
                     ))}
@@ -430,11 +430,11 @@ const Healthcare = () => {
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,420px),1fr))', gap: 'clamp(2.5rem,5vw,4rem)', alignItems: 'start' }}>
                     <div>
-                        <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.15)', color: '#B45309', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.5rem' }}>
-                            <ShieldCheck size={14} color="#EAB308" /> Why Choose Us
+                        <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem' }}>
+                            <ShieldCheck size={14} color="#EAB308" /> WHY CHOOSE US
                         </motion.div>
-                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.5rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.25rem' }}>
-                            Why Choose FlyTowards for Healthcare Software Solutions?
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.5rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.25rem' }}>
+                            Why Choose FlyTowards for <span style={{ color: '#facc15' }}>Healthcare Software Solutions?</span>
                         </motion.h2>
                         <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#4B5563', lineHeight: 1.75, marginBottom: '1rem' }}>
                             Healthcare software requires careful planning because it supports workflows involving sensitive information and users with different responsibilities.
@@ -455,7 +455,7 @@ const Healthcare = () => {
                                     <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#B45309' }}>{item.num}</span>
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', marginBottom: '6px' }}>{item.title}</h3>
+                                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1e1b4b', marginBottom: '6px' }}>{item.title}</h3>
                                     <p style={{ color: '#6B7280', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
                                 </div>
                             </motion.div>
@@ -471,11 +471,11 @@ const Healthcare = () => {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ background: 'linear-gradient(135deg,#FEFCE8,#FEF9C3,#FEF3C7)', borderRadius: '28px', padding: 'clamp(2.5rem,5vw,4rem)', border: '1px solid rgba(250,204,21,0.3)' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,380px),1fr))', gap: '3rem', alignItems: 'center' }}>
                         <div>
-                            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.3)', color: '#92400E', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.5rem' }}>
-                                <MapPin size={14} /> Tamil Nadu Focus
+                            <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem' }}>
+                                <MapPin size={14} color="#EAB308" /> TAMIL NADU FOCUS
                             </div>
-                            <h2 style={{ fontSize: 'clamp(1.7rem,3vw,2.4rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.5rem', lineHeight: 1.25 }}>
-                                Electronic Health Records Software Solutions in Tamil Nadu
+                            <h2 style={{ fontSize: 'clamp(1.7rem,3vw,2.4rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.5rem', lineHeight: 1.25 }}>
+                                Electronic Health Records Software <span style={{ color: '#facc15' }}>Solutions in Tamil Nadu</span>
                             </h2>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', color: '#374151', fontSize: '1rem', lineHeight: 1.75 }}>
                                 <p style={{ margin: 0 }}>Hospitals, clinics, diagnostic centers and other healthcare organizations across Tamil Nadu use software to manage patient information, appointments, clinical documentation and administration.</p>
@@ -506,11 +506,11 @@ const Healthcare = () => {
             <section style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', position: 'relative', zIndex: 2 }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,380px),1fr))', gap: '3rem', alignItems: 'start' }}>
                     <div>
-                        <motion.div initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.15)', color: '#B45309', fontSize: '0.8rem', fontWeight: 700, marginBottom: '1.5rem' }}>
+                        <motion.div className="home-badge-tag" initial={{ opacity: 0, y: -15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem' }}>
                             <MessageSquareText size={14} color="#EAB308" /> FAQ
                         </motion.div>
-                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.5rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.25rem' }}>
-                            Frequently Asked Questions About Electronic Health Records Software
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(1.8rem,3.2vw,2.5rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.25rem' }}>
+                            Frequently Asked Questions About <span style={{ color: '#facc15' }}>Electronic Health Records Software</span>
                         </motion.h2>
                         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ color: '#6B7280', lineHeight: 1.7 }}>
                             Common questions about EHR software, hospital management systems and healthcare application development in Tamil Nadu.
@@ -540,11 +540,11 @@ const Healthcare = () => {
                 SECTION 12 — FINAL CTA
             ════════════════════════════════════════════════════ */}
             <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ width: '100%', maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-                <div style={{ background: 'linear-gradient(135deg,#1F2937 0%,#111827 100%)', borderRadius: '28px', padding: 'clamp(3rem,6vw,4.5rem) clamp(2rem,4vw,3.5rem)', color: '#FFFFFF', textAlign: 'center', boxShadow: '0 25px 60px rgba(0,0,0,0.25)', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ background: '#1e1b4b', borderRadius: '28px', padding: 'clamp(3rem,6vw,4.5rem) clamp(2rem,4vw,3.5rem)', color: '#FFFFFF', textAlign: 'center', boxShadow: '0 25px 60px rgba(0,0,0,0.25)', position: 'relative', overflow: 'hidden' }}>
                     <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
-                        <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#FACC15', fontWeight: 700 }}>Take The Next Step in HealthTech Innovation</span>
+                        <span className="home-badge-tag">TAKE THE NEXT STEP IN HEALTHTECH INNOVATION</span>
                         <h2 style={{ fontSize: 'clamp(2rem,3.8vw,3.2rem)', fontWeight: 800, margin: 0, color: '#FFFFFF', lineHeight: 1.25 }}>
-                            Build Healthcare Software Around Your Patient and Operational Workflows
+                            Build Healthcare Software Around Your <span style={{ color: '#facc15' }}>Patient and Operational Workflows</span>
                         </h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', color: '#D1D5DB', fontSize: '1.05rem', lineHeight: 1.75 }}>
                             <p style={{ margin: 0 }}>Need to organize electronic patient records, improve appointment management or connect healthcare administration with billing systems?</p>
@@ -573,11 +573,11 @@ const Healthcare = () => {
             {/* ── TOP HERO ── */}
             <div className="healthcare-hero-grid" style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', gap: 'clamp(2.5rem, 5vw, 4rem)', textAlign: 'left', position: 'relative', zIndex: 2 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start' }}>
-                    <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', border: '1px solid rgba(250, 204, 21, 0.35)', fontSize: '0.875rem', fontWeight: 600, letterSpacing: '0.5px' }}>
-                        <Activity size={16} color="#EAB308" /> Healthcare &amp; HealthTech
+                    <motion.span className="home-badge-tag" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                        <Activity size={16} color="#EAB308" /> HEALTHCARE &amp; HEALTHTECH
                     </motion.span>
-                    <motion.h1 initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
-                        Healthcare Software
+                    <motion.h1 initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, color: '#1e1b4b' }}>
+                        Healthcare <span style={{ color: '#facc15' }}>Software</span>
                     </motion.h1>
                     <motion.p initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ fontSize: '1.2rem', color: '#6B7280', lineHeight: 1.8, margin: 0, maxWidth: '540px' }}>
                         Software solutions designed around healthcare-related business processes, operational workflows and information requirements.
@@ -599,11 +599,11 @@ const Healthcare = () => {
                 {isExpanded && (
                     <motion.section ref={solutionsRef} initial={{ opacity: 0, height: 0, y: 35 }} animate={{ opacity: 1, height: 'auto', y: 0 }} exit={{ opacity: 0, height: 0, y: 25 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} style={{ width: '100%', maxWidth: '1100px', margin: '0 auto 4rem', position: 'relative', zIndex: 2, overflow: 'hidden' }}>
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} style={{ background: '#FFFFFF', borderRadius: '24px', padding: 'clamp(2rem,4vw,3rem)', boxShadow: '0 10px 40px rgba(0,0,0,0.06)', border: '1px solid rgba(209,213,219,0.6)', marginBottom: '2rem' }}>
-                            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250,204,21,0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                                <Sparkles size={16} color="#EAB308" /> Clinical &amp; Hospital Systems
+                            <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
+                                <Sparkles size={16} color="#EAB308" /> CLINICAL &amp; HOSPITAL SYSTEMS
                             </div>
-                            <h3 style={{ fontSize: 'clamp(2rem,3.5vw,2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.25rem' }}>Healthcare Software Solutions</h3>
-                            <p style={{ fontSize: '1.1rem', color: '#374151', lineHeight: 1.8, marginBottom: '1rem' }}>Healthcare organizations operate across patient care, administrative administration, clinical recording and diagnostic processes.</p>
+                            <h3 style={{ fontSize: 'clamp(2rem,3.5vw,2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.25rem' }}>Healthcare Software Solutions</h3>
+                            <p style={{ fontSize: '1.1rem', color: '#374151', lineHeight: 1.8, marginBottom: '1rem' }}>Healthcare organizations operate across patient care, administrative operations, clinical documentation and diagnostic processes.</p>
                             <p style={{ fontSize: '1.1rem', color: '#4B5563', lineHeight: 1.8, margin: 0 }}>Custom digital solutions provide organized record management, controlled authorization, and connected clinical workflows.</p>
                         </motion.div>
                         <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
@@ -614,7 +614,7 @@ const Healthcare = () => {
                                         <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'linear-gradient(135deg,rgba(250,204,21,0.2),rgba(253,224,71,0.1))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                             <IconComponent size={24} color="#CA8A04" />
                                         </div>
-                                        <h5 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1F2937', margin: 0 }}>{req.title}</h5>
+                                        <h5 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1e1b4b', margin: 0 }}>{req.title}</h5>
                                         <p style={{ fontSize: '0.95rem', color: '#6B7280', margin: 0, lineHeight: 1.6 }}>{req.desc}</p>
                                     </motion.div>
                                 );

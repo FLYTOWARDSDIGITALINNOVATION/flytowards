@@ -1450,7 +1450,7 @@ const UIUXDesign = () => {
                         {/* Active Industry Showcase View */}
                         <div className="industry-active-view" data-aos="fade-up">
                             <div>
-                                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
+                                <span className="topic-pill" style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
                                     {industries[activeIndustry].tag}
                                 </span>
                                 <h3 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.15rem' }}>
@@ -1539,13 +1539,6 @@ const UIUXDesign = () => {
                                 <p className="uiux-subtext" style={{ marginBottom: '1.5rem' }}>
                                     FlyTowards provides UI/UX design services for businesses across Tamil Nadu, focusing on clear layouts, practical workflows and consistent digital experiences.
                                 </p>
-                                <div className="location-city-tags">
-                                    {['Tirunelveli', 'Madurai', 'Thoothukudi / Tuticorin', 'Tenkasi', 'Nagercoil', 'Virudhunagar', 'Sivakasi', 'Coimbatore', 'Chennai'].map((city, i) => (
-                                        <span key={i} className="city-tag">
-                                            <MapPin size={13} color="#EAB308" /> {city}
-                                        </span>
-                                    ))}
-                                </div>
                             </div>
 
                             <div data-aos="fade-left">

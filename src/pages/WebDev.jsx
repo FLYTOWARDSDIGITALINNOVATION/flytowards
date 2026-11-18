@@ -240,9 +240,8 @@ const WebDev = () => {
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
                     <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', alignItems: 'center', gap: '4rem' }}>
                         <div data-aos="fade-right">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
-                                <div style={{ width: '40px', height: '2px', background: '#00f2ff' }}></div>
-                                <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>Web Excellence</span>
+                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem' }}>
+                                <span className="home-badge-tag">WEB EXCELLENCE</span>
                             </div>
                             <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', fontWeight: 900, lineHeight: 0.95, marginBottom: '2.5rem', letterSpacing: '-0.04em' }}>
                                 Website Development Service
@@ -273,7 +272,7 @@ const WebDev = () => {
             <section id="services" className="section-padding" style={{ padding: '120px 0', background: '#f8fafc', position: 'relative', zIndex: 1 }}>
                 <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.3em' }}>Our Capabilities</span>
+                        <span className="home-badge-tag">OUR CAPABILITIES</span>
                         <h2 className="section-title" style={{ fontSize: '4rem', fontWeight: 900, marginTop: '1.5rem', color: '#1e1b4b', letterSpacing: '-0.04em' }}>Comprehensive <span className="gradient-text">Web Solutions.</span></h2>
                     </div>
 
@@ -305,7 +304,7 @@ const WebDev = () => {
                     <div className="process-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', gap: '6rem', alignItems: 'flex-start' }}>
 
                         <div data-aos="fade-right">
-                            <span style={{ color: '#00f2ff', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.3em' }}>Our Workflow</span>
+                            <span className="home-badge-tag">OUR WORKFLOW</span>
                             <h2 className="section-title" style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '4rem', color: '#1e1b4b', lineHeight: 1 }}>How We <span className="gradient-text">Build Greatness.</span></h2>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative' }}>
@@ -335,7 +334,7 @@ const WebDev = () => {
                                 <img src="Empowered Teams.png" alt="Strategy" style={{ width: '100%', height: '500px', objectFit: 'cover' }} />
                             </div>
 
-                            <span style={{ color: '#ff007a', fontWeight: 800, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.3em' }}>The Difference</span>
+                            <span className="home-badge-tag">THE DIFFERENCE</span>
                             <h2 style={{ fontSize: '3rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '3.5rem', color: '#1e1b4b' }}>Why <span style={{ color: '#ff007a' }}>Fly Towards?</span></h2>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>

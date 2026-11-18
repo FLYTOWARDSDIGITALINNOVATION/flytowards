@@ -21,8 +21,8 @@ export default function Travel() {
         <section className="travel-hero">
             <motion.div className="travel-hero-copy" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: .12 } } }}>
                 <motion.span className="travel-kicker" variants={enter} transition={{ duration: .55 }}><Plane size={16}/> Travel &amp; Expense Management</motion.span>
-                <motion.h1 variants={enter} transition={{ duration: .65 }}>Travel and Expense Management Software Solutions in Tamil Nadu</motion.h1>
-                <motion.h2 variants={enter} transition={{ duration: .6 }}>Connect Travel Planning, Bookings, Expenses and Approvals</motion.h2>
+                <motion.h1 variants={enter} transition={{ duration: .65 }}>Travel and Expense Management <span>Software Solutions in Tamil Nadu</span></motion.h1>
+                <motion.h2 variants={enter} transition={{ duration: .6 }}>Connect <span>Travel Planning, Bookings</span>, Expenses and Approvals</motion.h2>
                 <motion.p variants={enter} transition={{ duration: .6 }}>Managing business travel involves more than arranging transportation and accommodation. Organizations also need to coordinate travel requests, booking information, employee expenses, approvals and reimbursements.</motion.p>
                 <motion.p variants={enter} transition={{ duration: .6 }}>Travel agencies face related but different challenges, including customer enquiries, itinerary planning, supplier coordination and booking administration. When these processes depend on disconnected spreadsheets, emails or separate applications, maintaining accurate travel information can become difficult.</motion.p>
                 <motion.p variants={enter} transition={{ duration: .6 }}>FlyTowards provides travel software development solutions for businesses, travel agencies and travel service providers across Tamil Nadu, with a focus on South Tamil Nadu. We help plan custom travel and expense management software, travel booking applications, expense approval systems and travel agency management platforms.</motion.p>

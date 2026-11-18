@@ -5,6 +5,10 @@
     padding-top: 20px;
 }
 
+.case-studies-page .case-heading-accent {
+    color: #facc15;
+}
+
 .case-studies-container {
     width: min(100%, 1240px);
     margin: 0 auto;
@@ -28,28 +32,35 @@
 .case-studies-eyebrow {
     display: inline-flex;
     align-items: center;
-    padding: 8px 15px;
+    padding: 6px 14px;
     margin-bottom: 1rem;
-    border: 1px solid rgba(234, 179, 8, 0.35);
+    border: 1px solid rgba(250, 204, 21, 0.7);
     border-radius: 999px;
-    background: #FEFCE8;
-    color: #854D0E;
-    font-size: 0.82rem;
+    background: #fff7cc;
+    color: #1e40af;
+    font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+}
+
+.case-studies-page .case-studies-eyebrow {
+    padding: 6px 14px !important;
+    color: #1e1b4b !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em !important;
 }
 
 .case-studies-copy h1 {
     margin: 0 0 1.2rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(2.5rem, 5vw, 4.2rem);
     font-weight: 800;
     line-height: 1.1;
 }
 
 .case-studies-copy h1 span {
-    color: #D6A900;
+    color: #facc15;
 }
 
 .case-studies-copy p {
@@ -150,7 +161,7 @@
 .case-study-approach-copy h2 {
     max-width: 780px;
     margin: 0 0 1rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     line-height: 1.2;
 }
@@ -231,7 +242,7 @@
 
 .case-study-portfolio-heading h2 {
     margin: 0 0 0.75rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.2;
 }
@@ -317,7 +328,7 @@
 
 .featured-custom-case-study-intro h2 {
     margin: 0 0 1rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     line-height: 1.2;
 }
@@ -414,7 +425,7 @@
 
 .digital-transformation-case-study-intro h2 {
     margin: 0 0 0.8rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     line-height: 1.2;
 }
@@ -493,7 +504,7 @@
 
 .industry-case-studies-intro h2 {
     margin: 0 0 0.8rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.2;
 }
@@ -567,7 +578,7 @@
 
 .case-study-principles-heading h2 {
     margin: 0;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.2;
 }
@@ -626,7 +637,7 @@
 
 .solution-type-projects-heading h2 {
     margin: 0 0 0.7rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.2;
 }
@@ -701,7 +712,7 @@
 
 .case-study-process-heading h2 {
     margin: 0 0 0.65rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.2;
 }
@@ -849,7 +860,7 @@
 
 .custom-case-study-guide-copy h2 {
     margin: 0 0 0.75rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     line-height: 1.2;
 }
@@ -916,7 +927,7 @@
 
 .case-studies-faq > h2 {
     margin: 0 0 1.8rem;
-    color: #1F2937;
+    color: #1e1b4b;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.2;
     text-align: center;

@@ -92,10 +92,15 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--mobile-ink);
-    font-size: .83rem;
+    width: fit-content;
+    padding: 6px 14px;
+    border: 1px solid rgba(250, 204, 21, .7);
+    border-radius: 999px;
+    background: #fff7cc;
+    color: #1e40af;
+    font-size: .8rem;
     font-weight: 800;
-    letter-spacing: .075em;
+    letter-spacing: .12em;
     text-transform: uppercase;
 }
 

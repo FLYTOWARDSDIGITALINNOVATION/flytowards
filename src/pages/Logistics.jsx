@@ -112,7 +112,7 @@ const Logistics = () => {
             {/* Hero Section */}
             <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 3rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', alignItems: 'center', gap: '3rem', textAlign: 'left', position: 'relative', zIndex: 2 }}>
             <div style={{ maxWidth: '750px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
-                <span style={{
+                <span className="home-badge-tag" style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -125,11 +125,11 @@ const Logistics = () => {
                     fontWeight: 600,
                     letterSpacing: '0.5px'
                 }}>
-                    <Truck size={16} color="#EAB308" /> Logistics & Supply Chain Tech
+                    <Truck size={16} color="#EAB308" /> LOGISTICS &amp; SUPPLY CHAIN TECH
                 </span>
 
-                <h1 className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
-                    Logistics Software
+                <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, color: '#1e1b4b' }}>
+                    Logistics <span style={{ color: '#facc15' }}>Software</span>
                 </h1>
 
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-muted, #6B7280)', lineHeight: 1.8, margin: 0, maxWidth: '640px' }}>
@@ -211,13 +211,13 @@ const Logistics = () => {
                                 position: 'relative'
                             }}
                         >
-                            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                            <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
                                 <Sparkles size={16} color="#EAB308" />
-                                Supply Chain & Fleet Innovation
+                                SUPPLY CHAIN &amp; FLEET INNOVATION
                             </div>
 
-                            <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.25rem', letterSpacing: '-0.5px' }}>
-                                Logistics Software Solutions
+                            <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.25rem', letterSpacing: '-0.5px' }}>
+                                Logistics <span style={{ color: '#facc15' }}>Software Solutions</span>
                             </h2>
 
                             <p style={{ fontSize: '1.15rem', color: '#374151', lineHeight: 1.8, marginBottom: '1rem', maxWidth: '950px' }}>
@@ -236,7 +236,7 @@ const Logistics = () => {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             style={{ marginBottom: '1.5rem', padding: '0 0.5rem' }}
                         >
-                            <h3 style={{ fontSize: 'clamp(1.2rem, 2vw, 1.45rem)', fontWeight: 700, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <h3 style={{ fontSize: 'clamp(1.2rem, 2vw, 1.45rem)', fontWeight: 700, color: '#1e1b4b', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <Truck size={24} color="#EAB308" />
                                 Logistics software may be developed around requirements such as:
                             </h3>
@@ -288,7 +288,7 @@ const Logistics = () => {
                                             <IconComponent size={24} color="#CA8A04" />
                                         </div>
 
-                                        <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1F2937', margin: 0, lineHeight: 1.35 }}>
+                                        <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1e1b4b', margin: 0, lineHeight: 1.35 }}>
                                             {req.title}
                                         </h4>
 
@@ -332,7 +332,7 @@ const Logistics = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.45 }}
                             style={{
-                                background: 'linear-gradient(135deg, #1F2937 0%, #111827 100%)',
+                                background: '#1e1b4b',
                                 borderRadius: '24px',
                                 padding: 'clamp(2rem, 3.5vw, 2.75rem)',
                                 color: '#FFFFFF',
@@ -345,16 +345,8 @@ const Logistics = () => {
                             }}
                         >
                             <div style={{ maxWidth: '600px' }}>
-                                <span style={{
-                                    display: 'inline-block',
-                                    fontSize: '0.8rem',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '1px',
-                                    color: '#FACC15',
-                                    fontWeight: 700,
-                                    marginBottom: '0.5rem'
-                                }}>
-                                    Fleet & Supply Chain Systems
+                                <span className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+                                    FLEET &amp; SUPPLY CHAIN SYSTEMS
                                 </span>
                                 <h4 style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.75rem)', fontWeight: 800, margin: 0, color: '#FFFFFF', lineHeight: 1.3 }}>
                                     Ready to streamline your logistics and freight coordination?

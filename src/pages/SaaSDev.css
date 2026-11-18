@@ -71,6 +71,12 @@
     max-width: 700px;
     margin: 20px 0 15px;
     font-size: clamp(2.6rem, 5.2vw, 4.5rem);
+    color: #1e1b4b;
+}
+
+.saas-hero-copy h1 span {
+    display: block;
+    color: #facc15;
 }
 
 .saas-hero-copy > h2 {
@@ -148,11 +154,25 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--saas-ink);
-    font-size: .83rem;
+    width: fit-content;
+    padding: 6px 14px;
+    border: 1px solid rgba(250, 204, 21, .7);
+    border-radius: 999px;
+    background: #fff7cc;
+    color: #1e40af;
+    font-size: .8rem;
     font-weight: 800;
-    letter-spacing: .075em;
+    letter-spacing: .12em;
     text-transform: uppercase;
+}
+
+.saas-page .saas-eyebrow {
+    padding: 6px 14px !important;
+    color: #1e1b4b !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em !important;
+    background: #fff7cc !important;
+    border: 1px solid #facc15 !important;
 }
 
 .saas-eyebrow svg {

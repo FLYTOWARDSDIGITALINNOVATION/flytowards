@@ -270,15 +270,15 @@
 .cloud-industry p { margin: 0; font-size: .79rem; line-height: 1.55; }
 .cloud-industry > svg:last-child { position: absolute; right: 18px; bottom: 16px; color: #b28d00; opacity: 0; transition: opacity .2s, transform .2s; }
 .cloud-industry:hover > svg:last-child { opacity: 1; transform: translateX(4px); }
-.cloud-timeline { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 25px; }
-.cloud-timeline::before, .cloud-timeline::after { position: absolute; top: 26px; left: 8%; height: 3px; border-radius: 3px; content: ''; }
+.cloud-timeline { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 25px; }
+.cloud-timeline::before, .cloud-timeline::after { position: absolute; top: 26px; left: 8%; height: 3px; border-radius: 3px; content: ''; z-index: -1; }
 .cloud-timeline::before { right: 8%; background: var(--cloud-line); }
 .cloud-timeline::after { width: 0; background: linear-gradient(90deg, var(--cloud-yellow), var(--cloud-gold)); transition: width 2.1s ease; }
 .cloud-timeline-active::after { width: 84%; }
-.cloud-step { position: relative; padding: 0 22px 22px 0; transition: transform .3s; }
+.cloud-step { position: relative; z-index: 1; padding: 0 22px 22px 0; transition: transform .3s; }
 .cloud-step:nth-child(n + 4) { padding-top: 18px; border-top: 1px solid var(--cloud-line); }
 .cloud-step:hover { transform: translateY(-5px); }
-.cloud-step-number { position: relative; z-index: 1; display: grid; width: 52px; height: 52px; place-items: center; border: 3px solid var(--cloud-line); border-radius: 50%; background: #fff; box-shadow: 0 0 0 7px #fff; color: var(--cloud-ink); font-weight: 800; transition: .4s; }
+.cloud-step-number { position: relative; z-index: 2; display: grid; width: 52px; height: 52px; place-items: center; border: 3px solid var(--cloud-line); border-radius: 50%; background: #fff; box-shadow: 0 0 0 7px #fff; color: var(--cloud-ink); font-weight: 800; transition: .4s; }
 .cloud-timeline-active .cloud-step-number { border-color: var(--cloud-ink); background: var(--cloud-ink); box-shadow: 0 7px 18px #facc1550; color: var(--cloud-yellow); transform: scale(1.08); transition-delay: calc(var(--item) * .18s); }
 .cloud-step h3 { margin: 15px 0 7px; color: var(--cloud-ink); font-size: .96rem; line-height: 1.4; }
 .cloud-step p { margin: 0; font-size: .82rem; line-height: 1.6; }

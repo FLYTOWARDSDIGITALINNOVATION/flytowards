@@ -269,15 +269,15 @@
 .erp-industry p { margin: 0; font-size: .79rem; line-height: 1.55; }
 .erp-industry > svg:last-child { position: absolute; right: 18px; bottom: 16px; color: #b28d00; opacity: 0; transition: opacity .2s, transform .2s; }
 .erp-industry:hover > svg:last-child { opacity: 1; transform: translateX(4px); }
-.erp-timeline { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 25px; }
-.erp-timeline::before, .erp-timeline::after { position: absolute; top: 26px; left: 8%; height: 3px; border-radius: 3px; content: ''; }
+.erp-timeline { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 25px; }
+.erp-timeline::before, .erp-timeline::after { position: absolute; top: 26px; left: 8%; height: 3px; border-radius: 3px; content: ''; z-index: -1; }
 .erp-timeline::before { right: 8%; background: var(--erp-line); }
 .erp-timeline::after { width: 0; background: linear-gradient(90deg, var(--erp-yellow), var(--erp-gold)); transition: width 2.1s ease; }
 .erp-timeline-active::after { width: 84%; }
-.erp-step { position: relative; padding: 0 22px 22px 0; transition: transform .3s; }
+.erp-step { position: relative; z-index: 1; padding: 0 22px 22px 0; transition: transform .3s; }
 .erp-step:nth-child(n + 4) { padding-top: 18px; border-top: 1px solid var(--erp-line); }
 .erp-step:hover { transform: translateY(-5px); }
-.erp-step-number { position: relative; z-index: 1; display: grid; width: 52px; height: 52px; place-items: center; border: 3px solid var(--erp-line); border-radius: 50%; background: #fff; box-shadow: 0 0 0 7px #fff; color: var(--erp-ink); font-weight: 800; transition: .4s; }
+.erp-step-number { position: relative; z-index: 2; display: grid; width: 52px; height: 52px; place-items: center; border: 3px solid var(--erp-line); border-radius: 50%; background: #fff; box-shadow: 0 0 0 7px #fff; color: var(--erp-ink); font-weight: 800; transition: .4s; }
 .erp-timeline-active .erp-step-number { border-color: var(--erp-ink); background: var(--erp-ink); box-shadow: 0 7px 18px #facc1550; color: var(--erp-yellow); transform: scale(1.08); transition-delay: calc(var(--item) * .18s); }
 .erp-step h3 { margin: 15px 0 7px; color: var(--erp-ink); font-size: .96rem; line-height: 1.4; }
 .erp-step p { margin: 0; font-size: .82rem; line-height: 1.6; }

@@ -70,7 +70,6 @@ const Apply = () => {
                             <select name="Position" required style={inputStyle}>
                                 <option value="" disabled selected>Select the position you are applying for</option>
                                 <option value="Senior React Developer">Senior React Developer</option>
-                                <option value="Digital Marketing Strategist">Digital Marketing Strategist</option>
                                 <option value="Full Stack Web Developer">Full Stack Web Developer</option>
                                 <option value="UI/UX Product Designer">UI/UX Product Designer</option>
                                 <option value="Other">Other</option>

@@ -434,20 +434,20 @@ const Manufacturing = () => {
                         initial={{ opacity: 0, y: -15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
+                        className="home-badge-tag"
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.18)', color: '#B45309', border: '1px solid rgba(250, 204, 21, 0.45)', fontSize: '0.875rem', fontWeight: 600, width: 'fit-content' }}
                     >
                         <Factory size={16} color="#CA8A04" />
-                        <span>Manufacturing Resource Planning Software</span>
+                        <span style={{ whiteSpace: 'nowrap' }}>MANUFACTURING RESOURCE PLANNING SOFTWARE</span>
                     </motion.div>
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="gradient-text"
-                        style={{ fontSize: 'clamp(2.3rem, 4.2vw, 3.6rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, letterSpacing: '-0.5px' }}
+                        style={{ fontSize: 'clamp(2.2rem, 3.4vw, 3.2rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, letterSpacing: '-0.5px', color: '#1e1b4b' }}
                     >
-                        Manufacturing Resource Planning Software Solutions in Tamil Nadu
+                        Manufacturing Resource Planning Software <span style={{ color: '#facc15' }}>Solutions in Tamil Nadu</span>
                     </motion.h1>
 
                     <motion.div
@@ -582,13 +582,13 @@ const Manufacturing = () => {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                        <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
                             <Sparkles size={16} color="#EAB308" />
-                            Industry Overview &amp; Foundation
+                            INDUSTRY OVERVIEW &amp; FOUNDATION
                         </div>
 
-                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.5rem', lineHeight: 1.25, letterSpacing: '-0.5px' }}>
-                            What Is Manufacturing Resource Planning?
+                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.5rem', lineHeight: 1.25, letterSpacing: '-0.5px' }}>
+                            What Is <span style={{ color: '#facc15' }}>Manufacturing Resource Planning?</span>
                         </h2>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#4B5563', fontSize: '1.05rem', lineHeight: 1.8 }}>
@@ -688,12 +688,12 @@ const Manufacturing = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(239, 68, 68, 0.12)', color: '#DC2626', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
-                        <AlertCircle size={16} color="#DC2626" />
-                        Operational Roadblocks
+                    <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
+                        <AlertCircle size={16} color="#EAB308" />
+                        OPERATIONAL ROADBLOCKS
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
-                        Common Manufacturing Planning Challenges
+                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
+                        Common <span style={{ color: '#facc15' }}>Manufacturing Planning Challenges</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Manufacturing resource planning becomes more complicated when production requirements, material availability and purchasing activities are managed through disconnected processes.
@@ -763,12 +763,12 @@ const Manufacturing = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
                         <Sparkles size={16} color="#EAB308" />
-                        Targeted Software Engineering
+                        TARGETED SOFTWARE ENGINEERING
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
-                        Our Manufacturing Resource Planning Software Solutions
+                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
+                        Our <span style={{ color: '#facc15' }}>Manufacturing Resource Planning Software Solutions</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         FlyTowards helps manufacturing businesses plan and develop software solutions around production requirements, material planning and connected operational workflows.
@@ -863,8 +863,8 @@ const Manufacturing = () => {
                         <Workflow size={16} color="#EAB308" />
                         Daily Operations & Execution
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
-                        How Manufacturing Resource Planning Software Supports Daily Operations
+                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
+                        How Manufacturing Resource Planning Software <span style={{ color: '#facc15' }}>Supports Daily Operations</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Manufacturing resource planning software connects production requirements with the materials, schedules and operational information needed to support manufacturing activities.
@@ -935,12 +935,12 @@ const Manufacturing = () => {
                     className="manufacturing-benefits__content"
                 >
                     <div style={{ marginBottom: '2rem' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                        <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
                             <CheckCircle2 size={16} color="#EAB308" />
-                            Strategic Value
+                            STRATEGIC VALUE
                         </div>
-                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '0.75rem', letterSpacing: '-0.5px', lineHeight: 1.25 }}>
-                            Benefits of Manufacturing Resource Planning Software
+                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '0.75rem', letterSpacing: '-0.5px', lineHeight: 1.25 }}>
+                            Benefits of <span style={{ color: '#facc15' }}>Manufacturing Resource Planning Software</span>
                         </h2>
                         <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.7, margin: 0, maxWidth: '850px' }}>
                             A structured manufacturing resource planning system can help businesses coordinate production requirements, inventory information and purchasing activities.
@@ -1002,12 +1002,12 @@ const Manufacturing = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
                         <Layers size={16} color="#EAB308" />
-                        Integrated Capabilities
+                        INTEGRATED CAPABILITIES
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
-                        FlyTowards Software Development Services for Manufacturers
+                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
+                        FlyTowards Software Development Services for <span style={{ color: '#facc15' }}>Manufacturers</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Manufacturing resource planning projects may require custom software development, ERP functionality, integrations and workflow automation.
@@ -1095,12 +1095,12 @@ const Manufacturing = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
                         <Zap size={16} color="#EAB308" />
-                        Implementation Methodology
+                        IMPLEMENTATION METHODOLOGY
                     </div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
-                        Our Manufacturing Resource Planning Software Development Process
+                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', marginBottom: '1rem', letterSpacing: '-0.5px' }}>
+                        Our Manufacturing Resource Planning Software <span style={{ color: '#facc15' }}>Development Process</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         We follow a structured approach to understand manufacturing requirements and plan software functionality around production, materials and operational workflows.
@@ -1183,13 +1183,13 @@ const Manufacturing = () => {
                 >
                     {/* Left: Heading, Intro, CTA */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, width: 'fit-content' }}>
+                        <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', width: 'fit-content' }}>
                             <ShieldCheck size={16} color="#EAB308" />
-                            Engineering Excellence
+                            ENGINEERING EXCELLENCE
                         </div>
 
-                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', margin: 0, lineHeight: 1.25, letterSpacing: '-0.5px' }}>
-                            Why Choose FlyTowards for Manufacturing Resource Planning Software?
+                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', margin: 0, lineHeight: 1.25, letterSpacing: '-0.5px' }}>
+                            Why Choose FlyTowards for <span style={{ color: '#facc15' }}>Manufacturing Resource Planning Software?</span>
                         </h2>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#4B5563', fontSize: '1.05rem', lineHeight: 1.8 }}>
@@ -1282,13 +1282,13 @@ const Manufacturing = () => {
             >
                 <div className="manufacturing-region__inner">
                     <div className="manufacturing-region__copy">
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: '#FFFFFF', color: '#B45309', border: '1px solid #FDE047', fontSize: '0.85rem', fontWeight: 700, width: 'fit-content' }}>
+                    <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', width: 'fit-content' }}>
                         <MapPin size={16} color="#CA8A04" />
-                        Regional Manufacturing Focus
+                        REGIONAL MANUFACTURING FOCUS
                     </div>
 
-                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', margin: 0, lineHeight: 1.25, letterSpacing: '-0.5px' }}>
-                        Manufacturing Resource Planning Software in Tamil Nadu
+                    <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', margin: 0, lineHeight: 1.25, letterSpacing: '-0.5px' }}>
+                        Manufacturing Resource Planning Software in <span style={{ color: '#facc15' }}>Tamil Nadu</span>
                     </h2>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: '#4B5563', fontSize: '1.08rem', lineHeight: 1.85 }}>
@@ -1336,12 +1336,12 @@ const Manufacturing = () => {
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                        <div className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
                             <Sparkles size={16} color="#EAB308" />
-                            Industry Guidance
+                            INDUSTRY GUIDANCE
                         </div>
-                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1F2937', margin: 0, letterSpacing: '-0.5px', lineHeight: 1.25 }}>
-                            Frequently Asked Questions About Manufacturing Resource Planning Software
+                        <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 2.75rem)', fontWeight: 800, color: '#1e1b4b', margin: 0, letterSpacing: '-0.5px', lineHeight: 1.25 }}>
+                            Frequently Asked Questions About <span style={{ color: '#facc15' }}>Manufacturing Resource Planning Software</span>
                         </h2>
                         <p style={{ margin: '1rem 0 0', maxWidth: '440px', color: '#667085', fontSize: '1.05rem', lineHeight: 1.75 }}>
                             Explore common questions about MRP, manufacturing ERP, production planning, software customization and system integrations.
@@ -1459,15 +1459,8 @@ const Manufacturing = () => {
                     overflow: 'hidden'
                 }}>
                     <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
-                        <span style={{
-                            display: 'inline-block',
-                            fontSize: '0.85rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1.2px',
-                            color: '#FACC15',
-                            fontWeight: 700
-                        }}>
-                            Take The Next Step in Industrial Digitization
+                        <span className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            TAKE THE NEXT STEP IN INDUSTRIAL DIGITIZATION
                         </span>
 
                         <h2 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3.2rem)', fontWeight: 800, margin: 0, color: '#FFFFFF', lineHeight: 1.25, letterSpacing: '-0.5px' }}>
@@ -1547,24 +1540,16 @@ const Manufacturing = () => {
                     transition={{ duration: 0.6 }}
                     style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start' }}
                 >
-                <span style={{
+                <span className="home-badge-tag" style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    padding: '6px 16px',
-                    borderRadius: '50px',
-                    background: 'rgba(250, 204, 21, 0.15)',
-                    color: '#B45309',
-                    border: '1px solid rgba(250, 204, 21, 0.35)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    letterSpacing: '0.5px'
                 }}>
-                    <Factory size={16} color="#EAB308" /> Manufacturing & Industry 4.0
+                    <Factory size={16} color="#EAB308" /> MANUFACTURING &amp; INDUSTRY 4.0
                 </span>
 
-                <h2 className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
-                    Manufacturing Software
+                <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, color: '#1e1b4b' }}>
+                    Manufacturing <span style={{ color: '#facc15' }}>Software</span>
                 </h2>
 
                 <p style={{ fontSize: '1.2rem', color: 'var(--text-muted, #6B7280)', lineHeight: 1.8, margin: 0, maxWidth: '750px' }}>

@@ -15,9 +15,9 @@ const Construction = () => {
             <div className="mesh-bg"></div>
 
             {/* Hero Section */}
-            <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 3rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', alignItems: 'center', gap: '3rem', textAlign: 'left', position: 'relative', zIndex: 2 }}>
-            <div style={{ maxWidth: '750px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
-                <span style={{
+            <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 3rem', display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(320px, 0.8fr)', alignItems: 'center', gap: '3rem', textAlign: 'left', position: 'relative', zIndex: 2 }}>
+            <div style={{ maxWidth: 'none', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
+                <span className="home-badge-tag" style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -30,11 +30,11 @@ const Construction = () => {
                     fontWeight: 600,
                     letterSpacing: '0.5px'
                 }}>
-                    <HardHat size={16} color="#EAB308" /> Construction & Infrastructure Tech
+                    <HardHat size={16} color="#EAB308" /> CONSTRUCTION &amp; INFRASTRUCTURE TECH
                 </span>
 
-                <h1 className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
-                    Contractor Management Software Solutions in Tamil Nadu
+                <h1 style={{ fontSize: 'clamp(2rem, 3.1vw, 2.8rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, color: '#1e1b4b' }}>
+                    Contractor Management Software<br /><span style={{ color: '#facc15' }}>Solutions in Tamil Nadu</span>
                 </h1>
 
                 <h2 style={{ fontSize: 'clamp(1.15rem, 1.8vw, 1.35rem)', fontWeight: 700, color: '#1F2937', borderLeft: '4px solid #FACC15', paddingLeft: '1rem', lineHeight: 1.45, margin: 0 }}>

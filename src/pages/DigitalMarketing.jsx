@@ -77,7 +77,7 @@ const DigitalMarketing = () => {
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center', paddingBottom: '40px' }}>
                 <div className="grid-2">
                     <div data-aos="fade-up">
-                        <span className="section-tag" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                             <Zap size={18} /> Elite Growth Agency
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
@@ -116,7 +116,7 @@ const DigitalMarketing = () => {
             {/* Why Choose Us */}
             <section id="whyus" style={{ background: 'rgba(255, 0, 122, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">The Unfair Advantage</span>
+                    <span className="home-badge-tag">The Unfair Advantage</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Marketing That <span className="gradient-text">Actually Works</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         We blur the lines between marketing, technology, and sales to create comprehensive growth systems.
@@ -172,7 +172,7 @@ const DigitalMarketing = () => {
             {/* Core Services Section */}
             <section id="services" style={{ background: '#FFFFFF' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">Our Arsenal</span>
+                    <span className="home-badge-tag">Our Arsenal</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Omnichannel <span className="gradient-text">Expertise</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Comprehensive digital solutions ensuring your brand captures attention at every stage of the customer journey.
@@ -214,7 +214,7 @@ const DigitalMarketing = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div>
-                            <span className="section-tag" style={{ justifyContent: 'flex-start', color: 'rgba(249, 250, 251, 0.9)' }}>Scale Your Revenue</span>
+                            <span className="home-badge-tag" style={{ justifyContent: 'flex-start' }}>Scale Your Revenue</span>
                             <h2 style={{ fontSize: 'clamp(2.4rem, 4.6vw, 3.5rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.15, color: '#F9FAFB', textShadow: '0 6px 18px rgba(0, 0, 0, 0.45)' }}>
                                 Ready to Dominate Your <span className="gradient-text">Market?</span>
                             </h2>

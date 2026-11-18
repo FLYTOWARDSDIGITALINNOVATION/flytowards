@@ -98,7 +98,7 @@ const Blog = () => {
         <main className="blog-page-container" style={{ paddingTop: '100px' }}>
             <div className="mesh-bg"></div>
             <section id="blog-articles" className="container" style={{ maxWidth: '1450px', margin: '0 auto', padding: '1.5rem 1rem 0' }}>
-                <h1 id="latest-articles-heading" style={{ textAlign: 'center', fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.2, color: '#1F2937', margin: '0 auto 2rem', fontWeight: 800 }}>
+                <h1 id="latest-articles-heading" style={{ textAlign: 'center', fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.2, color: '#1e1b4b', margin: '0 auto 2rem', fontWeight: 800 }}>
                     Latest Articles
                 </h1>
                 <motion.article

@@ -94,14 +94,6 @@ const Internship = () => {
             desc: 'Fuel business success through data and digital reach.',
             courses: [
                 {
-                    title: 'Digital Marketing',
-                    desc: 'Dominate the digital landscape with proven strategies.',
-                    image:
-                        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
-                    icon: <Globe size={20} />,
-                    detail: 'Strategic Growth'
-                },
-                {
                     title: 'Data Mining & BI',
                     desc: 'Translate raw data into powerful business insights.',
                     image:
@@ -507,7 +499,7 @@ const Internship = () => {
                             alignItems: 'center',
                             gap: '10px',
                             background: '#FEF9C3',
-                            padding: '10px 25px',
+                            padding: '6px 14px',
                             borderRadius: '50px',
                             marginBottom: '2.5rem',
                             border: '1px solid rgba(250, 204, 21, 0.5)',
@@ -521,9 +513,9 @@ const Internship = () => {
 
                         <span
                             style={{
-                                fontSize: '0.85rem',
+                                fontSize: '0.75rem',
                                 fontWeight: 800,
-                                letterSpacing: '0.12em',
+                                letterSpacing: '0.1em',
                                 textTransform: 'uppercase'
                             }}
                         >

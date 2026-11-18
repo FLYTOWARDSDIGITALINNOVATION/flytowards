@@ -1555,7 +1555,7 @@ const Government = () => {
                         {/* Active Workflow Showcase View */}
                         <div className="workflow-active-view" data-aos="fade-up">
                             <div>
-                                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
+                                <span className="topic-pill" style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
                                     {workflowTabs[activeWorkflowTab].tag}
                                 </span>
                                 <h3 style={{ fontSize: '1.85rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.15rem' }}>
@@ -1850,13 +1850,6 @@ const Government = () => {
                                 <p className="gov-subtext" style={{ marginBottom: '1.5rem' }}>
                                     FlyTowards provides software development services for public-sector use cases across Tamil Nadu, focusing on administrative workflow planning, records management, authorized information access and operational reporting.
                                 </p>
-                                <div className="location-city-tags">
-                                    {['Tirunelveli', 'Madurai', 'Thoothukudi / Tuticorin', 'Tenkasi', 'Nagercoil', 'Virudhunagar', 'Sivakasi', 'Coimbatore', 'Chennai'].map((city, i) => (
-                                        <span key={i} className="city-tag">
-                                            <MapPin size={13} color="#EAB308" /> {city}
-                                        </span>
-                                    ))}
-                                </div>
                             </div>
 
                             <div data-aos="fade-left">
@@ -1945,7 +1938,7 @@ const Government = () => {
                     <div className="gov-container">
                         <div className="cta-banner" data-aos="zoom-in">
                             <div className="cta-banner-content">
-                                <span style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#e0f2fe' }}>
+                                <span className="gov-cta-eyebrow" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#e0f2fe' }}>
                                     Modernize Public Records &amp; Governance
                                 </span>
                                 <h2>Connect Government Records, Workflows and Administrative Information</h2>

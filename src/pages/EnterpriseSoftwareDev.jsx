@@ -1454,7 +1454,7 @@ const EnterpriseSoftwareDev = () => {
                         {/* Active Industry Showcase View */}
                         <div className="industry-active-view" data-aos="fade-up">
                             <div>
-                                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
+                                <span className="home-badge-tag" style={{ display: 'inline-flex', marginBottom: '0.65rem' }}>
                                     {industries[activeIndustry].tag}
                                 </span>
                                 <h3 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.15rem' }}>
@@ -1540,7 +1540,7 @@ const EnterpriseSoftwareDev = () => {
                     <div className="esd-container">
                         <div className="location-box" data-aos="fade-up">
                             <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2, textAlign: 'center' }}>
-                                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: 'rgba(250, 204, 21, 0.15)', border: '1px solid rgba(250, 204, 21, 0.35)', borderRadius: '50px', color: '#FACC15', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '1.5rem' }}>
+                                <span className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem' }}>
                                     <MapPin size={16} /> Tamil Nadu Enterprise Focus
                                 </span>
 
@@ -1564,13 +1564,6 @@ const EnterpriseSoftwareDev = () => {
                                     Whether you need a new enterprise application or improvements to existing systems, we focus on software aligned with your business processes.
                                 </p>
 
-                                <div className="location-city-pills">
-                                    {["Tirunelveli", "Madurai", "Thoothukudi / Tuticorin", "Tenkasi", "Nagercoil", "Virudhunagar", "Sivakasi", "Coimbatore", "Chennai"].map((city, idx) => (
-                                        <span key={idx} className="city-pill">
-                                            <MapPin size={14} color="#FACC15" /> {city}
-                                        </span>
-                                    ))}
-                                </div>
                             </div>
                         </div>
                     </div>

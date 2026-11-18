@@ -17,12 +17,13 @@ const Blog = React.lazy(() => import('./pages/Blog'));
 const CaseStudies = React.lazy(() => import('./pages/CaseStudies'));
 const Products = React.lazy(() => import('./pages/Products'));
 const Industries = React.lazy(() => import('./pages/Industries'));
-const DigitalMarketing = React.lazy(() => import('./pages/DigitalMarketing'));
 const SEO = React.lazy(() => import('./pages/SEO'));
 
 const FlyBill = React.lazy(() => import('./pages/FlyBill'));
+const BillingSoftware = React.lazy(() => import('./pages/BillingSoftware'));
 const FlyPayroll = React.lazy(() => import('./pages/FlyPayroll'));
 const SmartCRM = React.lazy(() => import('./pages/SmartCRM'));
+const CRMSoftware = React.lazy(() => import('./pages/CRMSoftware'));
 
 const Contact = React.lazy(() => import('./pages/Contact'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
@@ -71,6 +72,7 @@ const FoodDeliverySolution = React.lazy(
 );
 
 const FixProduct = React.lazy(() => import('./pages/FixProduct'));
+const FlyrollProduct = React.lazy(() => import('./pages/FlyrollProduct'));
 
 // Industries Pages
 const Manufacturing = React.lazy(() => import('./pages/Manufacturing'));
@@ -84,6 +86,12 @@ const Hospitality = React.lazy(() => import('./pages/Hospitality'));
 const Insurance = React.lazy(() => import('./pages/Insurance'));
 const Government = React.lazy(() => import('./pages/Government'));
 const Logistics = React.lazy(() => import('./pages/Logistics'));
+
+// Location Pages
+const TamilNadu = React.lazy(() => import('./pages/TamilNadu'));
+const Chennai = React.lazy(() => import('./pages/Chennai'));
+const Sankarankovil = React.lazy(() => import('./pages/Sankarankovil'));
+const Tirunelveli = React.lazy(() => import('./pages/Tirunelveli'));
 
 // Dynamic Canonical URL
 const DynamicCanonical = () => {
@@ -168,22 +176,6 @@ function App() {
                         <Route
                             path="/whatsapp-api"
                             element={<WhatsAppAPI />}
-                        />
-
-                        {/* Digital Marketing */}
-                        <Route
-                            path="/services/digital-marketing"
-                            element={<DigitalMarketing />}
-                        />
-
-                        <Route
-                            path="/service/digital-marketing"
-                            element={<DigitalMarketing />}
-                        />
-
-                        <Route
-                            path="/digital-marketing"
-                            element={<DigitalMarketing />}
                         />
 
                         {/* SEO */}
@@ -378,7 +370,7 @@ function App() {
 
                         <Route
                             path="/products/billing-software"
-                            element={<FlyBill />}
+                            element={<BillingSoftware />}
                         />
 
                         <Route
@@ -407,6 +399,16 @@ function App() {
                             element={<FlyPayroll />}
                         />
 
+                        {/* Flyroll */}
+                        <Route
+                            path="/products/flyroll"
+                            element={<FlyrollProduct />}
+                        />
+                        <Route
+                            path="/flyroll"
+                            element={<FlyrollProduct />}
+                        />
+
                         {/* Smart CRM */}
                         <Route
                             path="/product/smart-crm"
@@ -420,7 +422,7 @@ function App() {
 
                         <Route
                             path="/products/crm-software"
-                            element={<SmartCRM />}
+                            element={<CRMSoftware />}
                         />
 
                         <Route
@@ -549,6 +551,40 @@ function App() {
                         <Route
                             path="/industries/logistics/"
                             element={<Logistics />}
+                        />
+
+                        {/* Location Pages */}
+                        <Route
+                            path="/locations/tamilnadu"
+                            element={<TamilNadu />}
+                        />
+                        <Route
+                            path="/locations/tamilnadu/"
+                            element={<TamilNadu />}
+                        />
+                        <Route
+                            path="/locations/chennai"
+                            element={<Chennai />}
+                        />
+                        <Route
+                            path="/locations/chennai/"
+                            element={<Chennai />}
+                        />
+                        <Route
+                            path="/locations/sankarankovil"
+                            element={<Sankarankovil />}
+                        />
+                        <Route
+                            path="/locations/sankarankovil/"
+                            element={<Sankarankovil />}
+                        />
+                        <Route
+                            path="/locations/tirunelveli"
+                            element={<Tirunelveli />}
+                        />
+                        <Route
+                            path="/locations/tirunelveli/"
+                            element={<Tirunelveli />}
                         />
 
                         {/* Careers */}

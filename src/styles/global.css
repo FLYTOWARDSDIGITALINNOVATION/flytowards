@@ -2413,6 +2413,17 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
+/* Give prominent page and section topics the navy + yellow treatment. */
+.hero-title,
+.section-title,
+.wad-heading-h2,
+.bpa-heading-h2 {
+    background: linear-gradient(90deg, #1e1b4b 0%, #1e1b4b 48%, #facc15 52%, #facc15 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .hero-image-v2 {
     position: relative;
 
@@ -2489,6 +2500,142 @@ section {
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     display: inline-block;
+}
+
+/* Compact topic labels used above page and section headings. */
+.topic-pill {
+    display: inline-flex !important;
+    align-items: center;
+    width: fit-content;
+    padding: 12px 26px !important;
+    border: 1px solid rgba(250, 204, 21, 0.7) !important;
+    border-radius: 999px !important;
+    background: #fff7cc !important;
+    color: #0066ff !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.4;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.topic-pill.topic-pill--navy {
+    color: #1e1b4b !important;
+}
+
+.topic-pill.topic-pill--compact,
+.section-tag.topic-pill--compact {
+    padding: 8px 18px !important;
+    font-size: 0.85rem !important;
+}
+
+.topic-pill svg,
+.section-tag svg,
+.construction-kicker svg,
+.hotel-pill svg,
+.hotel-eyebrow svg,
+.retail-kicker svg {
+    color: #2563eb !important;
+}
+
+.topic-pill,
+.section-tag,
+.home-badge-tag,
+.pp-eyebrow,
+.fb-eyebrow,
+.fr-eyebrow,
+.sc-eyebrow,
+.saas-eyebrow,
+.mobile-eyebrow,
+.hm-page .hm-label,
+.hm-page .hm-hero-badge,
+.case-studies-eyebrow,
+.construction-kicker,
+.construction-bottom-hero__badge,
+.hotel-pill,
+.hotel-eyebrow,
+.retail-kicker {
+    color: #0066ff !important;
+}
+
+.home-badge-tag,
+.case-studies-eyebrow,
+.construction-kicker,
+.construction-bottom-hero__badge,
+.hotel-pill,
+.hotel-eyebrow,
+.retail-kicker,
+.pp-eyebrow,
+.fb-eyebrow,
+.fr-eyebrow,
+.sc-eyebrow,
+.saas-eyebrow,
+.mobile-eyebrow {
+    padding: 12px 26px !important;
+    font-size: 1rem !important;
+}
+
+.home-badge-tag {
+    padding: 6px 14px !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    color: #1e1b4b !important;
+    background: #fff7cc !important;
+    border: 1px solid #facc15 !important;
+    border-radius: 999px !important;
+}
+
+.section-tag {
+    border: 1px solid rgba(250, 204, 21, 0.7) !important;
+    background: #fff7cc !important;
+    color: #0066ff !important;
+    padding: 12px 26px !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.12em !important;
+}
+
+.hotel-pill,
+.hotel-eyebrow,
+.retail-kicker {
+    display: inline-flex !important;
+    align-items: center;
+    border: 1px solid rgba(250, 204, 21, 0.7) !important;
+    border-radius: 999px !important;
+    background: #fff7cc !important;
+    color: #0066ff !important;
+    padding: 6px 14px !important;
+    font-size: 0.8rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+}
+
+.hospitality-page .hotel-eyebrow,
+.hospitality-page .hotel-pill {
+    color: #1e1b4b !important;
+    background: #fff7cc !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+}
+
+.hospitality-page .hotel-eyebrow svg,
+.hospitality-page .hotel-pill svg {
+    color: #eab308 !important;
+}
+
+.gov-cta-eyebrow {
+    display: inline-flex !important;
+    align-items: center;
+    border: 1px solid #eab308 !important;
+    border-radius: 999px !important;
+    background: #fff7cc !important;
+    color: #1e1b4b !important;
+    padding: 7px 16px !important;
+    font-size: .86rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .08em !important;
+    text-transform: uppercase !important;
 }
 
 /* =========================================================
@@ -4855,7 +5002,7 @@ footer {
 
 .manufacturing-page-hero {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.45fr);
     gap: clamp(2.5rem, 5vw, 5rem);
     align-items: center;
 }
@@ -5547,8 +5694,8 @@ footer {
 }
 
 .construction-overview,.construction-benefits-section,.construction-why,.construction-faq-section { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2rem,5vw,5rem);align-items:center; }
-.construction-kicker { display:inline-flex;align-items:center;gap:8px;width:fit-content;padding:6px 13px;border:1px solid rgba(250,204,21,.35);border-radius:40px;background:rgba(250,204,21,.13);color:#9a6700;font-size:.8rem;font-weight:750;letter-spacing:.2px; }
-.construction-kicker svg { color:#c28f0e; }
+.construction-kicker { display:inline-flex!important;align-items:center;gap:8px;width:fit-content;padding:6px 14px!important;border:1px solid #facc15!important;border-radius:999px!important;background:#fff7cc!important;color:#1e1b4b!important;font-size:.75rem!important;font-weight:800!important;letter-spacing:.1em!important;text-transform:uppercase; }
+.construction-kicker svg { color:#eab308!important; }
 .construction-overview-copy { display:flex;flex-direction:column;gap:1.15rem; }
 .construction-highlights { display:flex;flex-direction:column;gap:1.5rem; }
 .construction-highlight { display:flex;align-items:flex-start;gap:1rem; }.construction-highlight>span,.construction-icon { width:46px;height:46px;display:grid;place-items:center;flex-shrink:0;border-radius:14px;background:#fff5cf;color:#b18106; }
@@ -5600,6 +5747,27 @@ footer {
 
 .retail-bottom-hero { width:100%;max-width:1500px;margin:0 auto 1rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(2.5rem,5vw,5rem);text-align:left; }.retail-bottom-hero__copy { display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem; }.retail-bottom-hero h2 { margin:0;color:#facc15;font-size:clamp(3.4rem,6vw,5.5rem);font-weight:850;line-height:1.03;letter-spacing:-2px; }.retail-bottom-hero p { max-width:670px;margin:0;color:#737f90;font-size:clamp(1.15rem,1.8vw,1.45rem);line-height:1.8; }.retail-bottom-hero__button { display:inline-flex;align-items:center;gap:12px;margin-top:.4rem;padding:1.1rem 2.3rem;border:0;border-radius:50px;background:#facc15;color:#1f2937;font-family:inherit;font-size:1.12rem;font-weight:650;text-decoration:none;box-shadow:0 12px 30px rgba(250,204,21,.24);transition:transform .2s ease,box-shadow .2s ease;cursor:pointer; }.retail-bottom-hero__button:hover { transform:translateY(-2px);box-shadow:0 16px 34px rgba(250,204,21,.32); }.retail-bottom-hero__button svg { transition:transform .25s ease; }.retail-bottom-hero__button svg.is-rotated { transform:rotate(90deg); }.retail-bottom-hero>img { display:block;width:100%;aspect-ratio:1.55;object-fit:cover;border:1px solid #e5e7eb;border-radius:28px;box-shadow:0 24px 60px rgba(30,27,75,.14); }
 .retail-solutions-drawer { width:100%;max-width:1100px;margin:2rem auto 4rem;overflow:hidden;padding:clamp(1.5rem,4vw,3rem);box-sizing:border-box;border:1px solid #e7ebf0;border-radius:22px;background:#fff;box-shadow:0 15px 45px rgba(31,41,55,.07);scroll-margin-top:110px; }.retail-solutions-drawer__intro { display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;margin-bottom:1.5rem; }.retail-solutions-drawer__intro h2 { margin:0;color:#1f2937;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;line-height:1.2; }.retail-solutions-drawer__intro p { margin:0;color:#667085;font-size:1rem;line-height:1.7; }.retail-solutions-drawer__scope h3 { margin:.4rem 0 1rem;color:#344054;font-size:1.05rem; }.retail-solutions-drawer__scope ul { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:0;padding:0;list-style:none; }.retail-solutions-drawer__scope li { display:flex;align-items:center;min-height:55px;padding:11px 13px;border:1px solid #edf0f4;border-radius:11px;background:#fcfcfd;color:#475467;font-size:.85rem;font-weight:620; }.retail-solutions-drawer__note { display:flex;align-items:flex-start;gap:9px;margin:1.25rem 0;padding:14px 16px;border-left:3px solid #facc15;border-radius:9px;background:#fffbed;color:#475467;font-size:.9rem;line-height:1.6; }.retail-solutions-drawer__note svg { flex-shrink:0;color:#b18106; }
+
+/* Keep retail page headings on the navy and yellow brand palette. */
+.retail-page .retail-hero h1,.retail-page .retail-bottom-hero h2 { color:#1e1b4b; }
+.retail-page .retail-hero h1 span,.retail-page h2 span { color:#facc15; }
+.retail-page .retail-final-cta { background:#1e1b4b; }
+.retail-page .retail-final-cta h2 { color:#fff; }
+.retail-page .retail-card h3,.retail-page .retail-highlight h3,.retail-page .retail-benefit h3,.retail-page .retail-workflow-copy h3,.retail-page .retail-step h3,.retail-page .retail-differentiators h3 { color:#1e1b4b; }
+.retail-page .retail-solutions-drawer__intro h2 { color:#1e1b4b; }
+
+/* Finance page navy and yellow heading palette. */
+.finance-page .finance-hero h1 { color:#1e1b4b; }
+.finance-page .finance-hero h1 span,.finance-page h2 span { color:#facc15; }
+.finance-page .construction-final-cta { background:#1e1b4b; }
+.finance-page .construction-highlight h3,.finance-page .construction-challenge h3,.finance-page .construction-solution h3,.finance-page .construction-service h3,.finance-page .construction-benefit h3,.finance-page .construction-step h3,.finance-page .construction-differentiators h3,.finance-page .construction-workflow-copy h3 { color:#1e1b4b; }
+
+/* Travel page navy and yellow heading palette. */
+.travel-page .travel-hero h1 { color:#1e1b4b; }
+.travel-page .travel-hero h1 span,.travel-page .travel-hero h2 span,.travel-page h2 span { color:#facc15; }
+.travel-page .construction-final-cta { background:#1e1b4b; }
+.travel-page .construction-final-cta h2 { color:#fff; }
+.travel-page .construction-highlight h3,.travel-page .construction-challenge h3,.travel-page .construction-solution h3,.travel-page .construction-service h3,.travel-page .construction-benefit h3,.travel-page .construction-step h3,.travel-page .construction-differentiators h3,.travel-page .construction-workflow-copy h3 { color:#1e1b4b; }
 @media(max-width:800px) { .retail-bottom-hero { grid-template-columns:minmax(0,1fr);gap:2rem; }.retail-bottom-hero h2 { font-size:clamp(3.2rem,14vw,5rem);letter-spacing:-1.5px; }.retail-bottom-hero>img { aspect-ratio:1.4; }.retail-solutions-drawer__scope ul { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:520px) { .retail-solutions-drawer { padding:1.3rem; }.retail-solutions-drawer__scope ul { grid-template-columns:minmax(0,1fr); }.retail-solutions-drawer__scope li { min-height:0; } }
 
@@ -5614,3 +5782,14 @@ footer {
 @media(max-width:1050px) { .finance-hero { grid-template-columns:minmax(0,1fr) minmax(340px,.9fr);gap:2.3rem; } }
 @media(max-width:800px) { .finance-page { padding:110px 24px 40px; }.finance-hero { grid-template-columns:minmax(0,1fr);gap:2.2rem;margin-bottom:5rem; }.finance-hero-copy { max-width:760px; }.finance-dashboard { max-width:680px;width:100%;margin:auto;box-sizing:border-box; } }
 @media(max-width:600px) { .finance-page { padding:100px 18px 25px; }.finance-hero h1 { font-size:clamp(2.45rem,11vw,3.5rem);letter-spacing:-1px; }.finance-hero-copy>p { font-size:.93rem; }.finance-hero-actions { flex-direction:column;align-items:stretch; }.finance-hero-actions a { box-sizing:border-box; }.finance-dash-kpis,.finance-dash-bottom { grid-template-columns:1fr 1fr; }.finance-dashboard { padding:13px; }.finance-chart-group small { font-size:.5rem; } }
+.travel-page .travel-kicker { color: #1e1b4b; font-size: .86rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; border-color: rgba(250,204,21,.75); }
+.contact-details-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) !important;
+}
+
+@media (max-width: 768px) {
+    .contact-details-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+

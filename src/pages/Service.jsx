@@ -299,7 +299,7 @@ const Service = () => {
     ];
 
     return (
-        <main style={{ 
+        <main className="services-page" style={{
             position: 'relative', 
             overflow: 'hidden', 
             background: '#ffffff', 
@@ -313,6 +313,17 @@ const Service = () => {
         }}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap');
+
+                .services-page .section-tag {
+                    display: inline-flex !important;
+                    padding: 6px 14px !important;
+                    font-size: 0.75rem !important;
+                    letter-spacing: 0.1em !important;
+                    color: #1e1b4b !important;
+                    background: #fff7cc !important;
+                    border: 1px solid #facc15 !important;
+                    border-radius: 999px !important;
+                }
                 
                 body, html, #root, .app {
                     background-color: #ffffff !important;
@@ -357,15 +368,19 @@ const Service = () => {
                             textAlign: 'center', 
                             color: '#1e1b4b', 
                             fontWeight: 800,
-                            letterSpacing: '-0.03em' 
+                            letterSpacing: '-0.03em',
+                            background: 'none',
+                            WebkitBackgroundClip: 'initial',
+                            WebkitTextFillColor: '#1e1b4b',
+                            textShadow: 'none'
                         }}>
-                            Software Development Services for <span className="gradient-text" style={{ display: 'inline-block' }}>Business Needs</span>
+                            Software Development <span style={{ color: '#facc15', display: 'inline-block', background: 'none', WebkitBackgroundClip: 'initial', WebkitTextFillColor: '#facc15', textShadow: 'none' }}>Services for Business Needs</span>
                         </h1>
                     </div>
 
                     <div className="grid-2" style={{ width: '100%', alignItems: 'center', gap: '3rem' }}>
                         <div data-aos="fade-right">
-                            <p style={{ color: '#1F2937', fontSize: '1.18rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '650px', fontWeight: 500 }}>
+                            <p style={{ color: '#4b5563', fontSize: '1.1rem', lineHeight: 1.75, marginBottom: '2.5rem', maxWidth: '650px', fontWeight: 400 }}>
                                 Software requirements are rarely the same from one business to another. Some organisations need a new application to replace manual processes. Others need to connect existing systems, modernize an older application, launch a SaaS product or maintain software that has become important to daily operations.
                             </p>
                             
@@ -1046,10 +1061,10 @@ const Service = () => {
                         Have a software requirement, an existing application that needs improvement, or a business process that could be better supported through software? Talk to Fly Towards Digital Innovation about your requirement.
                     </p>
 
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'nowrap', alignItems: 'center' }}>
                         <Link to="/contact/" style={{
-                            padding: '1.25rem 2.75rem',
-                            fontSize: '1.1rem',
+                            padding: '0.8rem 1.25rem',
+                            fontSize: '0.9rem',
                             borderRadius: '50px',
                             background: '#1F2937',
                             color: '#FACC15',
@@ -1074,8 +1089,8 @@ const Service = () => {
                         </Link>
 
                         <a href="#services-list" style={{
-                            padding: '1.25rem 2.75rem',
-                            fontSize: '1.1rem',
+                            padding: '0.8rem 1.25rem',
+                            fontSize: '0.9rem',
                             borderRadius: '50px',
                             background: 'rgba(31, 41, 55, 0.1)',
                             color: '#1F2937',

@@ -1,1428 +1,784 @@
-import {
-    ArrowRight, CheckCircle2, Globe, Shield, Users, Star, Quote, ChevronRight,
-    Target, Zap, Server, Code, Smartphone, MonitorSmartphone, BarChart,
-    TrendingUp, Settings, Wrench, Layers, Network, Database, Search,
-    FileText, Palette, Activity, ShoppingBag, Truck, GraduationCap,
-    HardHat, Hotel, HelpCircle, ChevronDown, ChevronUp,
-    Workflow, Factory, Coffee, Handshake, Link as LinkIcon, ShieldAlert, Send
-} from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { useEffect, useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+function useReveal() {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { threshold: 0.12 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return [ref, visible];
+}
 
-const Home = () => {
-    const [activeFaq, setActiveFaq] = useState(null);
+export default function Home() {
+  const [heroRef, heroVisible] = useReveal();
+  const [prob2Ref, prob2Visible] = useReveal();
+  const [servRef, servVisible] = useReveal();
+  const [whyRef, whyVisible] = useReveal();
+  const [indRef, indVisible] = useReveal();
+  const [procRef, procVisible] = useReveal();
+  const [outRef, outVisible] = useReveal();
+  const [ftdRef, ftdVisible] = useReveal();
+  const [faqRef, faqVisible] = useReveal();
+  const [ctaRef, ctaVisible] = useReveal();
 
-    const toggleFaq = (index) => {
-        setActiveFaq(activeFaq === index ? null : index);
-    };
+  const [openFaq, setOpenFaq] = useState(null);
+  const [activeService, setActiveService] = useState(0);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        document.body.classList.add('home-page');
-        document.documentElement.classList.add('home-snap');
+  useEffect(() => {
+    const timer = setInterval(() => setActiveService(p => (p + 1) % 7), 2800);
+    return () => clearInterval(timer);
+  }, []);
 
-        return () => {
-            document.body.classList.remove('home-page');
-            document.documentElement.classList.remove('home-snap');
-        };
-    }, []);
+  const faqs = [
+    {
+      q: 'What does custom software development include?',
+      a: 'Custom software development involves designing and building software around a business\'s specific requirements, workflows, users and operational needs. Depending on the project, this can include business applications, enterprise software, SaaS products, web applications, mobile applications and software improvements.'
+    },
+    {
+      q: 'When should a business consider custom software?',
+      a: 'Custom software can be worth considering when existing products do not adequately support your workflows, when multiple systems need to be connected, when manual processes create operational challenges, or when a business needs a software product built for a specific purpose.'
+    },
+    {
+      q: 'Do you develop software for specific industries?',
+      a: 'Yes. We work with healthcare, manufacturing, retail, logistics, education, construction and hospitality businesses. The exact software requirements are determined based on each business and project.'
+    },
+    {
+      q: 'Can you develop a new software product from an idea?',
+      a: 'Yes, where the project requirements are suitable for custom development. The initial discussion should establish the business objective, users, required functionality, technical requirements and expected scope before development begins.'
+    },
+    {
+      q: 'Can you work with an existing software system?',
+      a: 'Existing software can be considered as part of a project where the requirement involves maintenance, improvement, modernisation, integration or development of additional functionality. The appropriate approach depends on the existing application\'s condition and technical requirements.'
+    }
+  ];
 
-    const capabilities = [
-        { title: "Business process automation", icon: <CpuIcon size={24} color="var(--primary)" /> },
-        { title: "Centralised business operations", icon: <Database size={24} color="var(--secondary)" /> },
-        { title: "Internal workflow management", icon: <Layers size={24} color="var(--accent)" /> },
-        { title: "Data and application integration", icon: <Network size={24} color="var(--primary)" /> },
-        { title: "Customer-facing applications", icon: <Users size={24} color="var(--secondary)" /> },
-        { title: "Business-specific dashboards", icon: <BarChart size={24} color="var(--accent)" /> },
-        { title: "Digital products and SaaS platforms", icon: <Globe size={24} color="var(--primary)" /> },
-        { title: "Modernisation of outdated software systems", icon: <Wrench size={24} color="var(--secondary)" /> }
-    ];
+  const services = [
+    { title: 'Custom Software Development', desc: 'Build software around your specific workflows, users, data and business requirements rather than forcing your processes into a generic product.', link: '/services/custom-software-development', icon: '⚙️' },
+    { title: 'Enterprise Software Development', desc: 'Develop business software designed to support larger operational requirements, multiple users, structured workflows and connected business functions.', link: '/services/enterprise-software-development', icon: '🏢' },
+    { title: 'SaaS Development', desc: 'Turn a software idea into a SaaS product with the functionality and architecture required for a subscription-based digital business.', link: '/services/saas-development', icon: '☁️' },
+    { title: 'Web Application Development', desc: 'Develop browser-based applications for internal operations, customer interactions, business workflows and digital products.', link: '/services/web-application-development', icon: '🌐' },
+    { title: 'Mobile App Development', desc: 'Create mobile applications that support customer experiences, field operations, employee workflows or specific business use cases.', link: '/services/mobile-app-development', icon: '📱' },
+    { title: 'Software Maintenance', desc: 'Maintain and improve existing software as requirements change, helping businesses continue using important applications while addressing new needs.', link: '/services/software-maintenance-support', icon: '🔧' },
+    { title: 'Digital Transformation', desc: 'Modernise manual or disconnected business processes through software, automation and better-connected digital systems.', link: '/services/business-process-automation', icon: '🚀' },
+  ];
 
-    const services = [
-        {
-            title: "Custom Software Development",
-            desc: "Build software around your specific workflows, users, data and business requirements rather than forcing your processes into a generic product.",
-            link: "/services/custom-software-development",
-            icon: <Code size={32} color="var(--primary)" />,
-            image: "/custom-software-dev.jpg"
-        },
-        {
-            title: "Enterprise Software Development",
-            desc: "Develop business software designed to support larger operational requirements, multiple users, structured workflows and connected business functions.",
-            link: "/services/enterprise-software-development",
-            icon: <Server size={32} color="var(--secondary)" />,
-            image: "/enterprise-software-dev.jpg"
-        },
-        {
-            title: "SaaS Development",
-            desc: "Turn a software idea into a SaaS product with the functionality and architecture required for a subscription-based digital business.",
-            link: "/services/saas-development",
-            icon: <Zap size={32} color="var(--accent)" />,
-            image: "/saas-dev.jpg"
-        },
-        {
-            title: "Web Application Development",
-            desc: "Develop browser-based applications for internal operations, customer interactions, business workflows and digital products.",
-            link: "/services/web-application-development",
-            icon: <MonitorSmartphone size={32} color="var(--primary)" />,
-            image: "/web-app-dev.jpg"
-        },
-        {
-            title: "Mobile App Development",
-            desc: "Create mobile applications that support customer experiences, field operations, employee workflows or specific business use cases.",
-            link: "/services/mobile-app-development",
-            icon: <Smartphone size={32} color="var(--secondary)" />,
-            image: "/mobile-app-dev.jpg"
-        },
-        {
-            title: "Software Maintenance",
-            desc: "Maintain and improve existing software as requirements change, helping businesses continue using important applications while addressing new needs.",
-            link: "/services/software-maintenance-support",
-            icon: <Wrench size={32} color="var(--accent)" />,
-            image: "/software-maintenance.jpg"
-        },
-        {
-            title: "Digital Transformation",
-            desc: "Modernise manual or disconnected business processes through software, automation and better-connected digital systems.",
-            link: "/services",
-            icon: <TrendingUp size={32} color="var(--primary)" />,
-            image: "/digital-transformation.jpg"
+  const industries = [
+    { name: 'Healthcare', desc: 'Software solutions for healthcare-related workflows, operational management and digital processes.', link: '/industries/healthcare', icon: '🏥' },
+    { name: 'Manufacturing', desc: 'Applications that can support production-related workflows, business operations, data management and process visibility.', link: '/industries/manufacturing', icon: '🏭' },
+    { name: 'Retail', desc: 'Software for retail operations, customer-facing experiences, business workflows and connected processes.', link: '/industries/retail', icon: '🛒' },
+    { name: 'Logistics', desc: 'Solutions designed around logistics workflows, operational coordination and information management.', link: '/industries/', icon: '🚚' },
+    { name: 'Education', desc: 'Digital applications that support education-related processes, administration and user interactions.', link: '/industries/education', icon: '🎓' },
+    { name: 'Construction', desc: 'Software solutions designed around construction-related workflows, project processes and operational requirements.', link: '/industries/construction', icon: '🏗️' },
+    { name: 'Hospitality', desc: 'Applications that can support hospitality operations, customer interactions and business processes.', link: '/industries/hospitality', icon: '🏨' },
+  ];
+
+  const whyCards = [
+    { title: 'Designed Around Your Processes', desc: 'Instead of changing your workflow to fit a software product, the solution can be structured around your actual business requirements.', icon: '🎯' },
+    { title: 'Built for Specific Users', desc: 'Different teams need different tools. Software can be designed around the people who will use it, from administrators and managers to operational teams and customers.', icon: '👥' },
+    { title: 'Better Connected Systems', desc: 'Businesses often work with multiple applications that do not communicate effectively. Custom development can help create more connected workflows and applications.', icon: '🔗' },
+    { title: 'Room to Scale', desc: 'As business requirements change, software may need new functionality, integrations, users or workflows. A properly planned custom solution can be developed with future requirements in mind.', icon: '📈' },
+    { title: 'Focused on Business Problems', desc: 'The starting point should be the business problem, not the technology. We focus on understanding what the software needs to accomplish before defining the solution.', icon: '💡' },
+  ];
+
+  const ftdCards = [
+    { title: 'Technical Expertise', desc: 'Software projects require both business understanding and technical execution. We approach development with attention to the requirements behind the application.', icon: '💻' },
+    { title: 'Experienced Development Team', desc: 'Our development approach is supported by developers working across software development requirements.', icon: '👨‍💻' },
+    { title: 'End-to-End Development', desc: 'From understanding requirements to developing the software, the focus is on providing an end-to-end development approach.', icon: '🔄' },
+    { title: 'Flexible Engagement', desc: 'Different businesses have different project requirements and engagement needs. Our strategy includes flexible engagement models as a core strength.', icon: '🤝' },
+  ];
+
+  const outcomes = [
+    'Reduce dependence on manual processes',
+    'Bring business information into more centralised systems',
+    'Connect previously disconnected workflows',
+    'Support growing operational requirements',
+    'Improve access to business information',
+    'Create better digital experiences for customers and employees',
+    'Replace outdated or difficult-to-maintain applications',
+    'Establish a stronger foundation for future digital initiatives',
+  ];
+
+  const problems = [
+    'Business process automation',
+    'Centralised business operations',
+    'Internal workflow management',
+    'Data and application integration',
+    'Customer-facing applications',
+    'Business-specific dashboards',
+    'Digital products and SaaS platforms',
+    'Modernisation of outdated software systems',
+  ];
+
+  const steps = [
+    { num: '01', title: 'Understand', desc: 'We begin by understanding the business problem, current process, users and desired outcome.' },
+    { num: '02', title: 'Define', desc: 'The requirements are translated into a clearer software scope, functionality and solution direction.' },
+    { num: '03', title: 'Design', desc: 'The user experience and application structure are planned around the people and processes that will use the system.' },
+    { num: '04', title: 'Develop', desc: 'The software is developed according to the agreed requirements, functionality and technical direction.' },
+    { num: '05', title: 'Improve', desc: 'Software can continue to evolve as the business adds new requirements, users, integrations or capabilities.' },
+  ];
+
+  return (
+    <>
+      <style>{`
+        /* ===== HOME PAGE - hm-* namespace ===== */
+        .hm-page { font-family: 'Inter', 'Segoe UI', sans-serif; color: #0f0f0f; background: #fff !important; overflow-x: hidden; }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes hm-float { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-14px)} }
+        @keyframes hm-float2 { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }
+        @keyframes hm-pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+        @keyframes hm-grow { from{width:0} to{width:100%} }
+        @keyframes hm-spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes hm-slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes hm-slideLeft { from{opacity:0;transform:translateX(-40px)} to{opacity:1;transform:translateX(0)} }
+        @keyframes hm-slideRight { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+        @keyframes hm-fadeIn { from{opacity:0} to{opacity:1} }
+        @keyframes hm-scaleIn { from{opacity:0;transform:scale(0.9)} to{opacity:1;transform:scale(1)} }
+        @keyframes hm-dash { 0%{stroke-dashoffset:300} 100%{stroke-dashoffset:0} }
+        @keyframes hm-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes hm-progress { from{width:0%} to{width:var(--w)} }
+        @keyframes hm-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+        /* ===== SECTION BASE ===== */
+        .hm-section { padding: 90px 0; }
+        .hm-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        .hm-label { display: inline-flex; align-items: center; gap: 8px; background: #facc15; color: #0f0f0f; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 8px 18px; border-radius: 50px; margin-bottom: 24px; }
+        .hm-label-outline { background: transparent; border: 2px solid #facc15; color: #0f0f0f; }
+        .hm-page .hm-label,
+        .hm-page .hm-hero-badge {
+          background: #fff7cc !important;
+          border: 1px solid #facc15 !important;
+          color: #1e1b4b !important;
         }
-    ];
-
-    const faqs = [
-        {
-            q: "What does custom software development include?",
-            a: "Custom software development involves designing and building software around a business's specific requirements, workflows, users and operational needs. Depending on the project, this can include business applications, enterprise software, SaaS products, web applications, mobile applications and software improvements."
-        },
-        {
-            q: "When should a business consider custom software?",
-            a: "Custom software can be worth considering when existing products do not adequately support your workflows, when multiple systems need to be connected, when manual processes create operational challenges, or when a business needs a software product built for a specific purpose."
-        },
-        {
-            q: "Do you develop software for specific industries?",
-            a: "Yes. The company's SEO strategy identifies healthcare, manufacturing, retail, logistics, education, construction and hospitality as target industries. The exact software requirements are determined based on each business and project."
-        },
-        {
-            q: "Can you develop a new software product from an idea?",
-            a: "Yes, where the project requirements are suitable for custom development. The initial discussion should establish the business objective, users, required functionality, technical requirements and expected scope before development begins."
-        },
-        {
-            q: "Can you work with an existing software system?",
-            a: "Existing software can be considered as part of a project where the requirement involves maintenance, improvement, modernisation, integration or development of additional functionality. The appropriate approach depends on the existing application's condition and technical requirements."
+        .hm-page .hm-hero-badge {
+          padding: 6px 14px !important;
+          font-size: 0.75rem !important;
+          letter-spacing: 0.1em !important;
         }
-    ];
+        .hm-h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: #0f0f0f; margin-bottom: 24px; }
+        .hm-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: #0f0f0f; margin-bottom: 16px; }
+        .hm-h3 { font-size: 1.15rem; font-weight: 700; color: #0f0f0f; margin-bottom: 10px; }
+        .hm-accent { color: #facc15; }
+        .hm-lead { font-size: 1.1rem; color: #444; line-height: 1.75; margin-bottom: 24px; }
+        .hm-sub { font-size: 1rem; color: #555; line-height: 1.7; }
+        .hm-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #facc15; color: #0f0f0f; font-weight: 800; font-size: 0.95rem; padding: 14px 28px; border-radius: 50px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+        .hm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(250,204,21,0.4); }
+        .hm-btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #0f0f0f; font-weight: 700; font-size: 0.95rem; padding: 13px 28px; border-radius: 50px; border: 2px solid #0f0f0f; text-decoration: none; transition: all 0.2s; }
+        .hm-btn-outline:hover { background: #0f0f0f; color: #facc15; }
+        .hm-btn-outline-y { border-color: #facc15; color: #facc15; }
+        .hm-btn-outline-y:hover { background: #facc15; color: #0f0f0f; }
+        .hm-cta-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 32px; }
 
-    return (
-        <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
-            {/* Ambient Background Lights (Exact match with Careers page) */}
-            <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
-                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
-                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
-            </div>
+        /* ===== REVEAL ===== */
+        .hm-reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .hm-reveal.hm-visible { opacity: 1; transform: none; }
+        .hm-reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .hm-reveal-left.hm-visible { opacity: 1; transform: none; }
+        .hm-reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .hm-reveal-right.hm-visible { opacity: 1; transform: none; }
+        .hm-reveal-scale { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .hm-reveal-scale.hm-visible { opacity: 1; transform: scale(1); }
 
-            {/* Section 1 — Hero */}
-            <section style={{
-                padding: '9rem 5% 6rem',
-                background: '#ffffff',
-                width: '100%',
-                maxWidth: '100%',
-                position: 'relative',
-                zIndex: 1,
-                overflow: 'hidden',
-                minHeight: '85vh',
-                display: 'flex',
-                alignItems: 'center'
-            }}>
-                <div className="max-w-1200" style={{ margin: '0 auto', width: '100%' }}>
-                    <div data-aos="fade-up" className="hero-text-card-wrapper" style={{ maxWidth: '620px', textAlign: 'left' }}>
-                        <div style={{ marginBottom: '1.5rem' }}>
-                            <span className="section-tag-featured">
-                                <Zap size={15} color="#EAB308" style={{ fill: '#EAB308' }} /> Fly Towards Digital Innovation
-                            </span>
-                        </div>
+        /* ===== SECTION 1 — HERO ===== */
+        .hm-hero { background: #fff !important; padding: 100px 0 90px; min-height: 90vh; display: flex; align-items: center; }
+        .hm-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hm-hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff7cc; border: 1px solid #facc15; color: #1e1b4b; font-size: 0.85rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 18px; border-radius: 50px; margin-bottom: 28px; }
+        .hm-hero h1 { color: #1e1b4b; font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
+        .hm-hero p { color: #4b5563; font-size: 1.1rem; line-height: 1.75; margin-bottom: 36px; }
+        .hm-hero .hm-btn-outline { color: #111827; border-color: rgba(17,24,39,0.35); }
+        .hm-hero .hm-btn-outline:hover { background: #111827; color: #fff; }
 
-                        <h1 style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)',
-                            fontWeight: 800,
-                            lineHeight: 1.2,
-                            color: '#1e1b4b',
-                            marginBottom: '1.5rem',
-                            letterSpacing: '-0.03em'
-                        }}>
-                            <RouterLink to="/services/custom-software-development" style={{ color: '#1e1b4b', textDecoration: 'none' }}>Custom Software Development</RouterLink>{' '}
-                            <span className="gradient-text" style={{
-                                fontWeight: 900
-                            }}>
-                                Services for Growing Businesses
-                            </span>
-                        </h1>
+        /* Hero Dashboard */
+        .hm-hero-dash { position: relative; }
+        .hm-dash-main { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 20px; padding: 24px; animation: hm-float 5s ease-in-out infinite; }
+        .hm-dash-title { color: #888; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .hm-dash-title::before { content:''; width:8px; height:8px; background:#facc15; border-radius:50%; animation:hm-pulse 2s infinite; }
+        .hm-dash-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .hm-dash-metric { background: #242424; border-radius: 12px; padding: 16px; }
+        .hm-dash-metric-label { color: #666; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+        .hm-dash-metric-val { color: #facc15; font-size: 1.5rem; font-weight: 800; }
+        .hm-dash-metric-change { color: #4ade80; font-size: 11px; font-weight: 600; margin-top: 4px; }
+        .hm-dash-bars { }
+        .hm-dash-bar-row { margin-bottom: 12px; }
+        .hm-dash-bar-label { display: flex; justify-content: space-between; color: #888; font-size: 11px; margin-bottom: 5px; }
+        .hm-dash-bar-track { background: #2a2a2a; border-radius: 4px; height: 6px; overflow: hidden; }
+        .hm-dash-bar-fill { height: 100%; background: linear-gradient(90deg,#facc15,#f59e0b); border-radius: 4px; }
+        .hm-dash-mini { position: absolute; top: -20px; right: -20px; z-index: 2; background: #facc15; border-radius: 14px; padding: 14px 18px; animation: hm-float2 4s ease-in-out infinite 1s; box-shadow: 0 8px 24px rgba(250,204,21,0.4); }
+        .hm-dash-mini-val { color: #0f0f0f; font-size: 1.3rem; font-weight: 900; }
+        .hm-dash-mini-label { color: #333; font-size: 10px; font-weight: 700; }
+        .hm-dash-mini2 { position: absolute; bottom: -16px; left: -16px; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px; padding: 14px 18px; animation: hm-float2 4.5s ease-in-out infinite 0.5s; }
+        .hm-dash-mini2-val { color: #4ade80; font-size: 1.1rem; font-weight: 800; }
+        .hm-dash-mini2-label { color: #666; font-size: 10px; font-weight: 600; }
 
-                        <p style={{
-                            fontSize: '1.18rem',
-                            lineHeight: 1.75,
-                            color: '#1F2937',
-                            marginBottom: '2.5rem',
-                            fontWeight: 600
-                        }}>
-                            Build software around your unique business processes, workflows, and goals with tailored software development services designed for your business.
-                        </p>
+        /* ===== SECTION 2 — BUSINESS PROBLEMS ===== */
+        .hm-prob { background: #fff; }
+        .hm-prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+        .hm-prob-list { list-style: none; padding: 0; margin: 24px 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .hm-prob-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: #333; line-height: 1.5; }
+        .hm-prob-list li::before { content: '→'; color: #facc15; font-weight: 900; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+        .hm-prob-visual { background: #1f2937; border-radius: 24px; padding: 32px; animation: hm-float 6s ease-in-out infinite; }
+        .hm-prob-node-wrap { display: flex; flex-direction: column; gap: 16px; }
+        .hm-prob-node { background: #29265a; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #facc15; }
+        .hm-prob-node-title { color: #facc15; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .hm-prob-node-status { color: #888; font-size: 11px; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+        .hm-prob-node-status::before { content:''; width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; animation:hm-pulse 2s infinite; }
+        .hm-prob-connector { width: 2px; height: 20px; background: linear-gradient(to bottom,#facc15,transparent); margin: 0 auto; }
 
-                        <div style={{
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            alignItems: 'center',
-                            justifyContent: 'flex-start',
-                            gap: '1.2rem',
-                            width: '100%'
-                        }}>
-                            <RouterLink to="/contact" className="hero-btn-primary" style={{
-                                padding: '1.05rem 2.2rem',
-                                borderRadius: '50px',
-                                fontSize: '1rem'
-                            }}>
-                                Discuss Your Software Requirement <ArrowRight size={18} />
-                            </RouterLink>
+        /* ===== SECTION 3 — SERVICES ===== */
+        .hm-serv { background: #f9f9f9; }
+        .hm-serv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; margin-top: 48px; }
+        .hm-serv-card { background: #fff; border-radius: 18px; padding: 32px; border: 2px solid transparent; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+        .hm-serv-card:hover, .hm-serv-card.hm-active { border-color: #facc15; transform: translateY(-4px); box-shadow: 0 12px 32px rgba(250,204,21,0.15); }
+        .hm-serv-icon { font-size: 2rem; margin-bottom: 16px; display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; background: #facc15; border-radius: 14px; }
+        .hm-serv-card h3 { font-size: 1.1rem; font-weight: 800; color: #0f0f0f; margin-bottom: 10px; }
+        .hm-serv-card p { font-size: 0.9rem; color: #555; line-height: 1.65; }
+        .hm-serv-arrow { display: inline-flex; align-items: center; gap: 6px; color: #facc15; font-weight: 700; font-size: 0.85rem; margin-top: 16px; }
+        .hm-serv-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; }
 
-                            <a href="#services" className="btn btn-outline" style={{
-                                padding: '1.05rem 2.2rem',
-                                borderRadius: '50px',
-                                fontWeight: 700,
-                                fontSize: '1rem'
-                            }}>
-                                Explore Our Services
-                            </a>
-                        </div>
-                    </div>
+        /* ===== SECTION 4 — WHY CUSTOM ===== */
+        .hm-why { background: #1f2937; }
+        .hm-why .hm-h2 { color: #fff; }
+        .hm-why .hm-lead { color: #bbb; }
+        .hm-why .hm-sub { color: #888; }
+        .hm-why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+        .hm-why-card { background: #1f2937; border-radius: 18px; padding: 32px; border: 1px solid #39465a; transition: all 0.3s; }
+        .hm-why-card:hover { border-color: #facc15; transform: translateY(-4px); }
+        .hm-why-card-icon { font-size: 1.8rem; margin-bottom: 18px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: rgba(250,204,21,0.15); border-radius: 12px; }
+        .hm-why-card h3 { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+        .hm-why-card p { color: #888; font-size: 0.9rem; line-height: 1.65; }
+
+        /* ===== SECTION 5 — INDUSTRIES ===== */
+        .hm-ind { background: #fff; }
+        .hm-ind-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .hm-ind-card { background: #f9f9f9; border-radius: 18px; padding: 28px; border: 2px solid transparent; transition: all 0.3s; text-decoration: none; display: block; }
+        .hm-ind-card:hover { border-color: #facc15; background: #fff; transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
+        .hm-ind-icon { font-size: 2rem; margin-bottom: 14px; }
+        .hm-ind-card h3 { font-size: 1.1rem; font-weight: 800; color: #0f0f0f; margin-bottom: 8px; }
+        .hm-ind-card p { font-size: 0.88rem; color: #555; line-height: 1.6; }
+        .hm-ind-link { display: inline-flex; align-items: center; gap: 5px; color: #facc15; font-weight: 700; font-size: 0.85rem; margin-top: 14px; }
+
+        /* ===== SECTION 6 — PROCESS ===== */
+        .hm-proc { background: #f9f9f9; }
+        .hm-proc-steps { display: flex; gap: 0; margin-top: 56px; position: relative; }
+        .hm-proc-steps::before { content:''; position:absolute; top: 36px; left:0; right:0; height: 2px; background: linear-gradient(90deg,#facc15,#0f0f0f); z-index:0; }
+        .hm-proc-step { flex: 1; text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+        .hm-proc-num { width: 72px; height: 72px; border-radius: 50%; background: #facc15; color: #0f0f0f; font-size: 1.1rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 4px solid #fff; box-shadow: 0 4px 16px rgba(250,204,21,0.3); transition: transform 0.3s; }
+        .hm-proc-step:hover .hm-proc-num { transform: scale(1.1); }
+        .hm-proc-step h3 { font-size: 1rem; font-weight: 800; color: #0f0f0f; margin-bottom: 10px; }
+        .hm-proc-step p { font-size: 0.85rem; color: #555; line-height: 1.6; }
+        .hm-proc-note { text-align: center; margin-top: 48px; font-size: 0.95rem; color: #555; font-style: italic; max-width: 680px; margin-left: auto; margin-right: auto; }
+
+        /* ===== SECTION 7 — OUTCOMES ===== */
+        .hm-out { background: #1f2937; }
+        .hm-out .hm-h2 { color: #fff; }
+        .hm-out .hm-lead { color: #bbb; }
+        .hm-out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 48px; }
+        .hm-out-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+        .hm-out-list li { display: flex; align-items: center; gap: 14px; color: #ccc; font-size: 1rem; line-height: 1.5; }
+        .hm-out-check { width: 28px; height: 28px; background: rgba(250,204,21,0.15); border: 2px solid #facc15; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #facc15; font-size: 14px; flex-shrink: 0; }
+        .hm-out-visual { background: #29265a; border-radius: 24px; padding: 32px; animation: hm-float 5.5s ease-in-out infinite; }
+        .hm-out-dash-title { color: #666; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+        .hm-out-dash-title::before { content:''; width:8px; height:8px; background:#4ade80; border-radius:50%; animation:hm-pulse 2s infinite; }
+        .hm-out-bars { display: flex; flex-direction: column; gap: 16px; }
+        .hm-out-bar-row { }
+        .hm-out-bar-label { display: flex; justify-content: space-between; color: #888; font-size: 11px; margin-bottom: 6px; }
+        .hm-out-bar-track { background: #2a2a2a; border-radius: 4px; height: 8px; overflow: hidden; }
+        .hm-out-bar-fill { height: 100%; border-radius: 4px; }
+        .hm-out-note { color: #666; font-size: 0.85rem; margin-top: 32px; line-height: 1.6; font-style: italic; }
+
+        /* ===== SECTION 8 — WHY FTD ===== */
+        .hm-ftd { background: #fff; }
+        .hm-ftd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
+        .hm-ftd-card { background: #f9f9f9; border-radius: 18px; padding: 32px; border: 2px solid transparent; transition: all 0.3s; text-align: center; }
+        .hm-ftd-card:hover { border-color: #facc15; transform: translateY(-4px); box-shadow: 0 10px 28px rgba(250,204,21,0.1); }
+        .hm-ftd-icon { font-size: 2rem; width: 64px; height: 64px; background: #1f2937; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .hm-ftd-card h3 { font-size: 1.05rem; font-weight: 800; color: #0f0f0f; margin-bottom: 12px; }
+        .hm-ftd-card p { font-size: 0.9rem; color: #555; line-height: 1.65; }
+        .hm-ftd-cta { text-align: center; margin-top: 56px; }
+
+        /* ===== SECTION 9 — FAQs ===== */
+        .hm-faq { background: #f9f9f9; }
+        .hm-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .hm-faq-list { margin-top: 16px; }
+        .hm-faq-item { border-bottom: 1px solid #e5e5e5; }
+        .hm-faq-q { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1rem; font-weight: 700; color: #0f0f0f; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.2s; }
+        .hm-faq-q:hover { color: #1e1b4b; }
+        .hm-faq-q.hm-open { color: #0f0f0f; }
+        .hm-faq-icon { width: 24px; height: 24px; background: #facc15; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; flex-shrink: 0; color: #0f0f0f; transition: transform 0.3s; }
+        .hm-faq-q.hm-open .hm-faq-icon { transform: rotate(45deg); }
+        .hm-faq-a { font-size: 0.95rem; color: #555; line-height: 1.7; padding-bottom: 20px; display: none; }
+        .hm-faq-a.hm-open { display: block; animation: hm-slideUp 0.3s ease; }
+        .hm-faq-visual { background: #1f2937; border-radius: 24px; padding: 36px; position: sticky; top: 100px; }
+        .hm-faq-visual-title { color: #facc15; font-size: 1.2rem; font-weight: 800; margin-bottom: 24px; }
+        .hm-faq-visual-items { display: flex; flex-direction: column; gap: 16px; }
+        .hm-faq-visual-item { background: #29265a; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #facc15; }
+        .hm-faq-visual-item h4 { color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+        .hm-faq-visual-item p { color: #888; font-size: 0.82rem; }
+
+        /* ===== SECTION 10 — FINAL CTA ===== */
+        .hm-final { background: #1f2937; padding: 100px 0; text-align: center; }
+        .hm-final h2 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: 24px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hm-final p { color: #bbb; font-size: 1.05rem; max-width: 600px; margin: 0 auto 36px; line-height: 1.75; }
+        .hm-final-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; max-width: 600px; margin: 0 auto 48px; text-align: left; }
+        .hm-final-list li { display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 0.95rem; }
+        .hm-final-list li::before { content:'✦'; color: #facc15; font-size: 10px; }
+        .hm-final-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .hm-final-note { color: #555; font-size: 0.88rem; margin-top: 32px; }
+
+        /* ===== SECTION HEADER CENTER ===== */
+        .hm-center { text-align: center; max-width: 720px; margin: 0 auto 16px; }
+
+        /* Split homepage topics between navy and yellow, like the reference. */
+        .hm-page :is(h1, h2, h3, h4, h5, h6) {
+          color: #1e1b4b !important;
+          -webkit-text-fill-color: #1e1b4b !important;
+          background-image: none !important;
+        }
+        .hm-page :is(h1, h2, h3, h4, h5, h6) .hm-accent {
+          color: #facc15 !important;
+          -webkit-text-fill-color: #facc15 !important;
+        }
+        .hm-page :is(.hm-why, .hm-out, .hm-final) :is(h1, h2, h3, h4, h5, h6),
+        .hm-page :is(.hm-why, .hm-out, .hm-final) :is(h1, h2, h3, h4, h5, h6) * {
+          color: #facc15 !important;
+          -webkit-text-fill-color: #facc15 !important;
+        }
+        .hm-page .hm-hero h1 .hm-hero-title-primary,
+        .hm-page .hm-hero h1 .hm-accent {
+          display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+          .hm-hero-grid { grid-template-columns: 1fr; }
+          .hm-hero-dash { display: none; }
+          .hm-prob-grid { grid-template-columns: 1fr; }
+          .hm-prob-visual { display: none; }
+          .hm-out-grid { grid-template-columns: 1fr; }
+          .hm-out-visual { display: none; }
+          .hm-faq-grid { grid-template-columns: 1fr; }
+          .hm-faq-visual { display: none; }
+          .hm-proc-steps { flex-direction: column; gap: 32px; }
+          .hm-proc-steps::before { display: none; }
+          .hm-final-list { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+          .hm-hero h1 { font-size: 2rem; }
+          .hm-h2 { font-size: 1.7rem; }
+          .hm-prob-list { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      <div className="hm-page">
+
+        {/* ===== SECTION 1 — HERO ===== */}
+        <section className="hm-hero">
+          <div className="hm-container">
+            <div className="hm-hero-grid">
+              <div ref={heroRef} className={`hm-reveal-left ${heroVisible ? 'hm-visible' : ''}`}>
+                <div className="hm-hero-badge">
+                  <span>⚡</span> Fly Towards Digital Innovation
                 </div>
-            </section>
-
-            {/* Content Sections Wrapper with Clean Careers-Style White Background */}
-            <div style={{
-                position: 'relative',
-                background: '#ffffff',
-                width: '100%',
-                overflow: 'hidden',
-                zIndex: 1
-            }}>
-                <div style={{ position: 'relative', zIndex: 1 }}>
-                    {/* Section 2 — Business Problems */}
-                    <section id="problems" style={{ padding: '5rem 5% 4rem', width: '100%', maxWidth: '100%' }}>
-                <div style={{ textAlign: 'center', maxWidth: '1100px', margin: '0 auto 3.5rem' }} data-aos="fade-up">
-                    <span className="section-tag-featured" style={{ marginBottom: '1.25rem' }}>
-                        Software Built Around Your Business
-                    </span>
-
-                    <h2 style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 'clamp(1.85rem, 3vw, 2.75rem)',
-                        lineHeight: 1.3,
-                        fontWeight: 800,
-                        color: '#1e1b4b',
-                        letterSpacing: '-0.03em'
-                    }}>
-                        Why businesses outgrow spreadsheets,<br className="desktop-only-br" /> disconnected tools and <span className="gradient-text" style={{ display: 'inline-block' }}>outdated systems</span>
-                    </h2>
+                <h1>
+                  <span className="hm-hero-title-primary">Custom Software Development</span>
+                  <span className="hm-accent">Services for Growing Businesses</span>
+                </h1>
+                <p>
+                  Build software around your unique business processes, workflows, and goals
+                  with tailored software development services designed for your business.
+                </p>
+                <div className="hm-cta-row">
+                  <Link to="/contact" className="hm-btn-primary">
+                    Discuss Your Software Requirement →
+                  </Link>
+                  <Link to="/services/" className="hm-btn-outline">
+                    Explore Our Services
+                  </Link>
                 </div>
+              </div>
 
-                <div className="max-w-1200" style={{ margin: '0 auto' }}>
-                    <div data-aos="fade-up" style={{
-                        padding: '1rem 0'
-                    }}>
-                        <div className="grid-2" style={{ gap: '3.5rem', alignItems: 'center' }}>
-                            <div>
-                                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.25rem', lineHeight: 1.3 }}>
-                                    Generic software forces you to adapt. Custom software adapts to you.
-                                </h3>
-
-                                <p style={{ fontSize: '1.08rem', lineHeight: 1.8, color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-                                    Generic software can be useful when your processes fit the product. But when your business has unique workflows, multiple teams, specialised requirements or existing systems, adapting your operations to someone else's software can create unnecessary complexity.
-                                </p>
-
-                                <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text-dark)', fontWeight: 700, marginBottom: '1.5rem' }}>
-                                    Custom software gives your business the opportunity to build around the way you actually work.
-                                </p>
-
-                                <div style={{
-                                    padding: '1.2rem 1.5rem',
-                                    background: '#FEF9C3',
-                                    borderLeft: '4px solid #FACC15',
-                                    borderRadius: '0 14px 14px 0',
-                                    marginBottom: '2rem'
-                                }}>
-                                    <p style={{ fontSize: '1.02rem', color: '#1F2937', margin: 0, fontStyle: 'italic', fontWeight: 500 }}>
-                                        "The goal is not simply to build another application. It is to create software that has a clear purpose within your business."
-                                    </p>
-                                </div>
-
-                                <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.05rem 2.2rem', boxShadow: '0 8px 25px rgba(250, 204, 21, 0.35)' }}>
-                                    Tell Us What You Need to Build <ArrowRight size={18} />
-                                </RouterLink>
-                            </div>
-
-                            <div>
-                                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.5rem' }}>
-                                    We help businesses turn operational requirements into software solutions that support:
-                                </h3>
-
-                                <div style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '1.1rem'
-                                }}>
-                                    {capabilities.map((cap, idx) => (
-                                        <div key={idx} style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '14px',
-                                            padding: '4px 0'
-                                        }}>
-                                            <div style={{
-                                                width: '32px',
-                                                height: '32px',
-                                                borderRadius: '50%',
-                                                background: '#FEF9C3',
-                                                color: '#1F2937',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                flexShrink: 0
-                                            }}>
-                                                <CheckCircle2 size={18} color="#EAB308" />
-                                            </div>
-
-                                            <span style={{
-                                                fontSize: '1.05rem',
-                                                fontWeight: 600,
-                                                color: '#2D3748',
-                                                lineHeight: 1.4
-                                            }}>
-                                                {cap.title}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              {/* Animated Dashboard */}
+              <div className={`hm-hero-dash hm-reveal-right ${heroVisible ? 'hm-visible' : ''}`}>
+                <div className="hm-dash-mini">
+                  <div className="hm-dash-mini-val">98%</div>
+                  <div className="hm-dash-mini-label">Client Satisfaction</div>
                 </div>
-            </section>
-
-            {/* Section 3 — Software Development Services (Eye-Comfort Off-White) */}
-            <section id="services" style={{ padding: '5rem 5%', width: '100%', maxWidth: '100%' }}>
-                <div className="max-w-1200" style={{ margin: '0 auto' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '3.5rem' }} data-aos="fade-up">
-                        <span className="section-tag" style={{ margin: '0 auto 1.25rem' }}>
-                            Software Services
-                        </span>
-
-                        <h2 style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 'clamp(1.85rem, 3vw, 2.75rem)',
-                            lineHeight: 1.3,
-                            fontWeight: 800,
-                            color: '#1e1b4b',
-                            letterSpacing: '-0.03em',
-                            marginBottom: '1.25rem'
-                        }}>
-                            Software Development Services for<br className="desktop-only-br" /> <span className="gradient-text">Different Business Needs</span>
-                        </h2>
-
-                        <p style={{ maxWidth: '850px', margin: '0 auto', fontSize: '1.1rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
-                            Every software project has a different purpose. Some businesses need an internal system to replace manual processes. Others need a customer-facing platform, a mobile application or a complete digital product. Our software development and services cover different stages and types of business requirements.
-                        </p>
+                <div className="hm-dash-main">
+                  <div className="hm-dash-title">Project Dashboard</div>
+                  <div className="hm-dash-metrics">
+                    <div className="hm-dash-metric">
+                      <div className="hm-dash-metric-label">Active Projects</div>
+                      <div className="hm-dash-metric-val">24</div>
+                      <div className="hm-dash-metric-change">↑ On Schedule</div>
                     </div>
-
-                    <div className="grid" style={{
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                        gap: '1.25rem',
-                        alignItems: 'stretch'
-                    }}>
-                        {services.map((item, index) => (
-                            <div
-                                key={index}
-                                className="service-card-item"
-                                data-aos="fade-up"
-                                data-aos-delay={index * 50}
-                                style={{
-                                    borderRadius: '20px',
-                                    border: '1px solid rgba(226, 232, 240, 0.8)',
-                                    padding: '1.25rem',
-                                    background: '#ffffff',
-                                    boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-                                    overflow: 'hidden'
-                                }}
-                            >
-                                {item.image && (
-                                    <div style={{
-                                        width: '100%',
-                                        height: '125px',
-                                        borderRadius: '14px',
-                                        overflow: 'hidden',
-                                        marginBottom: '1rem',
-                                        background: '#f8fafc'
-                                    }}>
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                display: 'block',
-                                                transition: 'transform 0.4s ease'
-                                            }}
-                                        />
-                                    </div>
-                                )}
-
-                                <h3 className="service-card-title" style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '0.5rem', lineHeight: 1.3 }}>
-                                    <RouterLink to={item.link}>
-                                        {item.title}
-                                    </RouterLink>
-                                </h3>
-
-                                <p className="service-card-desc" style={{ fontSize: '0.88rem', color: '#64748b', fontWeight: 400, lineHeight: 1.55, marginBottom: '1rem' }}>
-                                    {item.desc}
-                                </p>
-
-                                <RouterLink
-                                    to={item.link}
-                                    className="service-card-link"
-                                    style={{
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        gap: '6px',
-                                        width: '100%',
-                                        padding: '0.6rem 1.25rem',
-                                        borderRadius: '50px',
-                                        background: 'linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 60%, #CBD5E1 100%)',
-                                        border: '1px solid #94A3B8',
-                                        boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 3px 8px rgba(0, 0, 0, 0.12)',
-                                        color: '#1F2937',
-                                        fontSize: '0.9rem',
-                                        fontWeight: 800,
-                                        textDecoration: 'none',
-                                        transition: 'all 0.3s ease',
-                                        marginTop: 'auto'
-                                    }}
-                                >
-                                    Learn More <ArrowRight size={15} color="#1F2937" />
-                                </RouterLink>
-                            </div>
-                        ))}
+                    <div className="hm-dash-metric">
+                      <div className="hm-dash-metric-label">Delivered</div>
+                      <div className="hm-dash-metric-val">150+</div>
+                      <div className="hm-dash-metric-change">↑ All Industries</div>
                     </div>
-
-                    <div style={{ textAlign: 'center', marginTop: '3.5rem' }} data-aos="fade-up">
-                        <RouterLink to="/service" className="btn btn-outline" style={{ padding: '1rem 2.5rem' }}>
-                            View All Software Services <ArrowRight size={18} />
-                        </RouterLink>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 4 — Why Custom Software */}
-            <section id="why-custom" style={{ padding: '6rem 8%' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Value Proposition</span>
-
-                    <h2 style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
-                        fontWeight: 800,
-                        color: '#1e1b4b',
-                        letterSpacing: '-0.03em',
-                        marginBottom: '1.5rem'
-                    }}>
-                        Why Businesses <span className="gradient-text">Choose Custom Software</span>
-                    </h2>
-
-                    <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', color: 'var(--text-muted)' }}>
-                        Off-the-shelf software is not always the right fit. A business may have unique approval processes, specialised workflows, legacy applications, multiple departments or requirements that standard products cannot adequately address. Custom software can provide a more tailored approach.
-                    </p>
-                </div>
-
-                <div className="bento-feature-grid max-w-1200">
-                    <div className="bento-card bento-card-large" data-aos="fade-up">
-                        <div className="bento-card-badge">
-                            <Workflow size={24} />
-                            <span>01</span>
-                        </div>
-                        <h3 className="bento-title">Designed Around Your Processes</h3>
-                        <p className="bento-desc">
-                            Instead of changing your workflow to fit a software product, the solution can be structured around your actual business requirements.
-                        </p>
-                        <div className="bento-feature-pills">
-                            <span>Tailored Workflows</span>
-                            <span>No Unnecessary Bloat</span>
-                            <span>Custom Approvals</span>
-                        </div>
-                    </div>
-
-                    <div className="bento-card bento-card-medium" data-aos="fade-up" data-aos-delay="100">
-                        <div className="bento-card-badge accent-purple">
-                            <Users size={24} />
-                            <span>02</span>
-                        </div>
-                        <h3 className="bento-title">Built for Specific Users</h3>
-                        <p className="bento-desc">
-                            Different teams need different tools. Software can be designed around the people who will use it, from administrators and managers to operational teams and customers.
-                        </p>
-                    </div>
-
-                    <div className="bento-card bento-card-medium" data-aos="fade-up" data-aos-delay="200">
-                        <div className="bento-card-badge accent-blue">
-                            <LinkIcon size={24} />
-                            <span>03</span>
-                        </div>
-                        <h3 className="bento-title">Better Connected Systems</h3>
-                        <p className="bento-desc">
-                            Businesses often work with multiple applications that do not communicate effectively. Custom development can help create more connected workflows and applications.
-                        </p>
-                    </div>
-
-                    <div className="bento-card bento-card-wide" data-aos="fade-up" data-aos-delay="150">
-                        <div className="bento-card-badge accent-green">
-                            <TrendingUp size={24} />
-                            <span>04</span>
-                        </div>
-                        <div className="bento-wide-content">
-                            <h3 className="bento-title">Room to Scale</h3>
-                            <p className="bento-desc">
-                                As business requirements change, software may need new functionality, integrations, users or workflows. A properly planned custom solution can be developed with future requirements in mind.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="bento-card bento-card-highlight" data-aos="fade-up" data-aos-delay="250">
-                        <div className="bento-card-badge accent-pink">
-                            <Target size={24} />
-                            <span>05</span>
-                        </div>
-                        <h3 className="bento-title">Focused on Business Problems</h3>
-                        <p className="bento-desc">
-                            The starting point should be the business problem, not the technology. We focus on understanding what the software needs to accomplish before defining the solution.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 5 — Industries */}
-            <section id="industries" style={{ padding: '6rem 5%', width: '100%', maxWidth: '100%' }} className="section-full">
-                <div className="section-inner">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                        <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Target Industries</span>
-
-                        <h2 style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
-                            fontWeight: 800,
-                            color: '#1e1b4b',
-                            letterSpacing: '-0.03em',
-                            marginBottom: '1.5rem'
-                        }}>
-                            Built for Industries With <span className="gradient-text">Real Operational Challenges</span>
-                        </h2>
-
-                        <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', color: 'var(--text-muted)' }}>
-                            Different industries have different workflows, regulations, customer expectations and operational requirements. Our approach to custom software development can be adapted to the needs of different business environments.
-                        </p>
-                    </div>
-
-                    <div className="borderless-industry-grid" style={{ marginBottom: '4rem' }}>
-                        {[
-                            {
-                                title: "Healthcare Software",
-                                desc: "Software solutions for healthcare-related workflows, operational management and digital processes.",
-                                icon: <Activity size={26} />,
-                                link: "/industries/healthcare/"
-                            },
-                            {
-                                title: "Manufacturing Software",
-                                desc: "Applications that can support production-related workflows, business operations, data management and process visibility.",
-                                icon: <Factory size={26} />,
-                                link: "/industries/manufacturing/"
-                            },
-                            {
-                                title: "Retail Software",
-                                desc: "Software for retail operations, customer-facing experiences, business workflows and connected processes.",
-                                icon: <ShoppingBag size={26} />,
-                                link: "/industries/retail/"
-                            },
-                            {
-                                title: "Logistics Software",
-                                desc: "Solutions designed around logistics workflows, operational coordination and information management.",
-                                icon: <Truck size={26} />,
-                                link: "/industries/logistics/"
-                            },
-                            {
-                                title: "Education Software",
-                                desc: "Digital applications that support education-related processes, administration and user interactions.",
-                                icon: <GraduationCap size={26} />,
-                                link: "/industries/education/"
-                            },
-                            {
-                                title: "Construction Software",
-                                desc: "Software solutions designed around construction-related workflows, project processes and operational requirements.",
-                                icon: <HardHat size={26} />,
-                                link: "/industries/construction/"
-                            },
-                            {
-                                title: "Hospitality Software",
-                                desc: "Applications that can support hospitality operations, customer interactions and business processes.",
-                                icon: <Coffee size={26} />,
-                                link: "/industries/hospitality/"
-                            }
-                        ].map((item, index) => (
-                            <div
-                                key={index}
-                                className="borderless-industry-item"
-                                data-aos="fade-up"
-                                data-aos-delay={index * 50}
-                            >
-                                <div className="borderless-industry-header" style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '0.85rem' }}>
-                                    <div className="borderless-industry-icon">
-                                        {item.icon}
-                                    </div>
-
-                                    <h3 className="borderless-industry-title">
-                                        <RouterLink to={item.link}>
-                                            {item.title} <ArrowRight size={16} className="title-arrow" />
-                                        </RouterLink>
-                                    </h3>
-                                </div>
-
-                                <p className="borderless-industry-desc">
-                                    {item.desc}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div style={{ textAlign: 'center' }}>
-                        <RouterLink to="/industries" className="btn btn-outline" style={{ padding: '1rem 2.5rem' }}>
-                            Explore Industry Solutions <ArrowRight size={18} />
-                        </RouterLink>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 6 — How We Approach Software Development */}
-            <section id="approach" style={{ padding: '6rem 8%' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Our Process</span>
-
-                    <h2 style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
-                        fontWeight: 800,
-                        color: '#1e1b4b',
-                        letterSpacing: '-0.03em',
-                        marginBottom: '1.5rem'
-                    }}>
-                        From Business Requirement <span className="gradient-text">to Working Software</span>
-                    </h2>
-
-                    <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', color: 'var(--text-muted)' }}>
-                        A successful software project starts with understanding the business behind the requirement.
-                    </p>
-                </div>
-
-                <div className="process-pipeline-wrapper">
-                    <div className="pipeline-connector-line"></div>
-                    <div className="process-pipeline-grid">
-                        {[
-                            {
-                                num: "01",
-                                step: "Understand",
-                                desc: "We begin by understanding the business problem, current process, users and desired outcome."
-                            },
-                            {
-                                num: "02",
-                                step: "Define",
-                                desc: "The requirements are translated into a clearer software scope, functionality and solution direction."
-                            },
-                            {
-                                num: "03",
-                                step: "Design",
-                                desc: "The user experience and application structure are planned around the people and processes that will use the system."
-                            },
-                            {
-                                num: "04",
-                                step: "Develop",
-                                desc: "The software is developed according to the agreed requirements, functionality and technical direction."
-                            },
-                            {
-                                num: "05",
-                                step: "Improve",
-                                desc: "Software can continue to evolve as the business adds new requirements, users, integrations or capabilities."
-                            }
-                        ].map((item, index) => (
-                            <div
-                                key={index}
-                                className="pipeline-step-card"
-                                data-aos="fade-up"
-                                data-aos-delay={index * 100}
-                            >
-                                <div className="pipeline-badge-node">
-                                    <span>{item.num}</span>
-                                </div>
-
-                                <div className="pipeline-card-content">
-                                    <h3 className="pipeline-step-title">{item.step}</h3>
-                                    <p className="pipeline-step-desc">{item.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div
-                    className="process-footer-note"
-                    data-aos="fade-up"
-                    style={{
-                        maxWidth: '850px',
-                        margin: '3.5rem auto 0',
-                        padding: '1.5rem 2.2rem',
-                        borderRadius: '20px',
-                        background: '#FEF9C3',
-                        borderLeft: '5px solid #FACC15',
-                        borderTop: '1px solid rgba(250, 204, 21, 0.4)',
-                        borderRight: '1px solid rgba(250, 204, 21, 0.4)',
-                        borderBottom: '1px solid rgba(250, 204, 21, 0.4)',
-                        boxShadow: '0 8px 25px rgba(250, 204, 21, 0.15)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '18px'
-                    }}
-                >
-                    <Target size={30} color="#EAB308" style={{ flexShrink: 0 }} />
-                    <p style={{
-                        fontSize: '1.05rem',
-                        fontWeight: 600,
-                        color: 'var(--text-dark)',
-                        margin: 0,
-                        lineHeight: 1.6,
-                        textAlign: 'left'
-                    }}>
-                        This approach keeps the development process connected to the business objective rather than treating software development as an isolated technical task.
-                    </p>
-                </div>
-            </section>
-
-            {/* Section 7 — Business Outcomes */}
-            <section id="outcomes" style={{ padding: '6rem 5%', width: '100%', maxWidth: '100%' }} className="section-full">
-                <div className="section-inner">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                        <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Business Impact</span>
-
-                        <h2 style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
-                            fontWeight: 800,
-                            color: '#1e1b4b',
-                            letterSpacing: '-0.03em',
-                            marginBottom: '1.5rem'
-                        }}>
-                            Software That Supports <span className="gradient-text">Better Business Operations</span>
-                        </h2>
-
-                        <p style={{ maxWidth: '800px', margin: '0 auto 1.25rem', fontSize: '1.1rem', color: 'var(--text-muted)' }}>
-                            The value of software is not simply the number of features it contains. A useful business application should help people work more effectively, make information easier to manage and reduce unnecessary operational complexity.
-                        </p>
-
-                        <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.05rem', fontWeight: 600, color: 'var(--text-dark)' }}>
-                            Depending on the project, custom software can help businesses:
-                        </p>
-                    </div>
-
-                    <div className="impact-borderless-list" style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))',
-                        gap: '1.5rem 3rem',
-                        maxWidth: '1200px',
-                        margin: '0 auto 4rem'
-                    }}>
-                        {[
-                            { title: "Reduce dependence on manual processes", tag: "Efficiency", num: "01" },
-                            { title: "Bring business information into more centralised systems", tag: "Centralisation", num: "02" },
-                            { title: "Connect previously disconnected workflows", tag: "Integration", num: "03" },
-                            { title: "Support growing operational requirements", tag: "Scalability", num: "04" },
-                            { title: "Improve access to business information", tag: "Accessibility", num: "05" },
-                            { title: "Create better digital experiences for customers and employees", tag: "UX & CX", num: "06" },
-                            { title: "Replace outdated or difficult-to-maintain applications", tag: "Modernisation", num: "07" },
-                            { title: "Establish a stronger foundation for future digital initiatives", tag: "Growth", num: "08" }
-                        ].map((item, index) => (
-                            <div
-                                key={index}
-                                className="impact-row-item"
-                                data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-                                data-aos-delay={Math.floor(index / 2) * 100}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '1.25rem',
-                                    padding: '1.2rem 1.5rem',
-                                    borderRadius: '16px',
-                                    background: '#FFFFFF',
-                                    border: '1px solid rgba(209, 213, 219, 0.6)',
-                                    borderBottom: '2px solid rgba(250, 204, 21, 0.4)',
-                                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.03)',
-                                    transition: 'all 0.3s ease'
-                                }}
-                            >
-                                <div style={{
-                                    width: '42px',
-                                    height: '42px',
-                                    borderRadius: '12px',
-                                    background: '#FEF9C3',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: '#EAB308',
-                                    fontWeight: 800,
-                                    fontSize: '0.9rem',
-                                    flexShrink: 0
-                                }}>
-                                    <CheckCircle2 size={22} color="#EAB308" />
-                                </div>
-
-                                <div style={{ flexGrow: 1 }}>
-                                    <span style={{
-                                        fontSize: '0.75rem',
-                                        fontWeight: 800,
-                                        letterSpacing: '1px',
-                                        textTransform: 'uppercase',
-                                        color: '#374151',
-                                        display: 'block',
-                                        marginBottom: '0.2rem'
-                                    }}>
-                                        {item.tag}
-                                    </span>
-                                    <p style={{
-                                        fontSize: '1.05rem',
-                                        fontWeight: 600,
-                                        color: 'var(--text-dark)',
-                                        margin: 0,
-                                        lineHeight: 1.4
-                                    }}>
-                                        {item.title}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div
-                        style={{
-                            maxWidth: '900px',
-                            margin: '0 auto',
-                            padding: '1.5rem 2rem',
-                            borderRadius: '20px',
-                            background: '#FFFFFF',
-                            borderLeft: '5px solid #9CA3AF',
-                            borderTop: '1px solid rgba(209, 213, 219, 0.6)',
-                            borderRight: '1px solid rgba(209, 213, 219, 0.6)',
-                            borderBottom: '1px solid rgba(209, 213, 219, 0.6)',
-                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '16px'
-                        }}
-                        data-aos="fade-up"
-                    >
-                        <ShieldAlert size={28} color="#4B5563" style={{ flexShrink: 0 }} />
-                        <p style={{
-                            fontSize: '1.05rem',
-                            color: 'var(--text-dark)',
-                            lineHeight: 1.6,
-                            margin: 0,
-                            fontWeight: 600,
-                            fontStyle: 'normal'
-                        }}>
-                            Specific outcomes will depend on the business, requirements and implementation scope. We do not promise the same result for every project because every software environment is different.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 8 — Why Fly Towards Digital Innovation */}
-            <section id="why-work-with-us" style={{ padding: '6rem 8%' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>Why Choose Us</span>
-
-                    <h2 style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
-                        fontWeight: 800,
-                        color: '#1e1b4b',
-                        letterSpacing: '-0.03em',
-                        marginBottom: '1.5rem'
-                    }}>
-                        Why Work With <span className="gradient-text">Fly Towards Digital Innovation?</span>
-                    </h2>
-
-                    <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', color: 'var(--text-muted)' }}>
-                        Choosing a custom software development company is about more than finding someone who can write code. You need a development partner that can understand the business requirement, translate it into software and support the project from development through future improvements.
-                    </p>
-
-                    <p style={{
-                        maxWidth: '800px',
-                        margin: '1rem auto 0',
-                        fontSize: '1.05rem',
-                        color: 'var(--text-dark)',
-                        fontWeight: 600
-                    }}>
-                        Fly Towards Digital Innovation's stated strengths include technical expertise, experienced developers, end-to-end development and flexible engagement models.
-                    </p>
-                </div>
-
-                <div className="why-us-floating-grid" style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                    gap: '2rem',
-                    marginBottom: '4rem'
-                }}>
+                  </div>
+                  <div className="hm-dash-bars">
                     {[
-                        {
-                            num: "01",
-                            title: "Technical Expertise",
-                            desc: "Software projects require both business understanding and technical execution. We approach development with attention to the requirements behind the application.",
-                            icon: <Code size={24} />
-                        },
-                        {
-                            num: "02",
-                            title: "Experienced Development Team",
-                            desc: "Our development approach is supported by developers working across software development requirements.",
-                            icon: <Users size={24} />
-                        },
-                        {
-                            num: "03",
-                            title: "End-to-End Development",
-                            desc: "From understanding requirements to developing the software, the focus is on providing an end-to-end development approach.",
-                            icon: <Zap size={24} />
-                        },
-                        {
-                            num: "04",
-                            title: "Flexible Engagement",
-                            desc: "Different businesses have different project requirements and engagement needs. Our strategy includes flexible engagement models as a core strength.",
-                            icon: <Handshake size={24} />
-                        }
-                    ].map((strength, index) => (
-                        <div
-                            key={index}
-                            className="why-us-floating-card"
-                            data-aos="fade-up"
-                            data-aos-delay={index * 80}
-                            style={{
-                                background: '#FFFFFF',
-                                borderRadius: '24px',
-                                padding: '2.2rem 1.8rem',
-                                border: '1px solid rgba(209, 213, 219, 0.7)',
-                                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.03)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                transition: 'all 0.35s ease'
-                            }}
-                        >
-                            <div className="why-us-card-header" style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                marginBottom: '1.5rem'
-                            }}>
-                                <div className="why-us-icon-wrapper" style={{
-                                    width: '48px',
-                                    height: '48px',
-                                    borderRadius: '16px',
-                                    background: '#FEF9C3',
-                                    border: '1px solid rgba(250, 204, 21, 0.5)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: '#1F2937',
-                                    fontWeight: 700
-                                }}>
-                                    {strength.icon}
-                                </div>
-                                <span className="why-us-card-num" style={{
-                                    fontSize: '1.2rem',
-                                    fontWeight: 900,
-                                    color: '#D1D5DB',
-                                    letterSpacing: '1px'
-                                }}>{strength.num}</span>
-                            </div>
-
-                            <h3 className="why-us-card-title" style={{
-                                fontSize: '1.3rem',
-                                fontWeight: 800,
-                                color: '#1F2937',
-                                marginBottom: '1rem',
-                                lineHeight: 1.3
-                            }}>
-                                {strength.title}
-                            </h3>
-
-                            <p className="why-us-card-desc" style={{
-                                fontSize: '0.95rem',
-                                color: '#6B7280',
-                                lineHeight: 1.6,
-                                margin: 0
-                            }}>
-                                {strength.desc}
-                            </p>
+                      { label: 'Web Applications', pct: '88%' },
+                      { label: 'Mobile Apps', pct: '74%' },
+                      { label: 'Enterprise Systems', pct: '65%' },
+                      { label: 'SaaS Platforms', pct: '55%' },
+                    ].map((b, i) => (
+                      <div className="hm-dash-bar-row" key={i}>
+                        <div className="hm-dash-bar-label"><span>{b.label}</span><span style={{color:'#facc15'}}>{b.pct}</span></div>
+                        <div className="hm-dash-bar-track">
+                          <div className="hm-dash-bar-fill" style={{ width: b.pct, transition: `width ${1 + i * 0.2}s ease ${0.5 + i * 0.15}s` }} />
                         </div>
+                      </div>
                     ))}
+                  </div>
                 </div>
-
-                <div style={{ textAlign: 'center' }}>
-                    <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.1rem 2.5rem' }}>
-                        Talk About Your Software Project <ArrowRight size={18} />
-                    </RouterLink>
+                <div className="hm-dash-mini2">
+                  <div className="hm-dash-mini2-val">✓ Build Complete</div>
+                  <div className="hm-dash-mini2-label">Latest Deployment</div>
                 </div>
-            </section>
-
-            {/* Section 9 — Agency Discovery */}
-            <section id="discovery" style={{ padding: '6rem 5%', width: '100%', maxWidth: '100%', position: 'relative', overflow: 'hidden' }}>
-                {/* Background Subtle Radial Glow */}
-                <div style={{
-                    position: 'absolute',
-                    top: '30%',
-                    right: '5%',
-                    width: '500px',
-                    height: '500px',
-                    background: 'radial-gradient(circle, rgba(0, 136, 255, 0.06) 0%, rgba(255, 255, 255, 0) 70%)',
-                    pointerEvents: 'none',
-                    zIndex: 0
-                }}></div>
-
-                <div className="max-w-1200" style={{ margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                    <div className="grid-2" style={{ alignItems: 'flex-start', gap: '4.5rem' }}>
-                        {/* Left Side: Headline & Intro */}
-                        <div data-aos="fade-right">
-                            <span className="section-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>
-                                Agency Discovery
-                            </span>
-
-                            <h2 style={{
-                                fontFamily: "'Outfit', sans-serif",
-                                fontSize: 'clamp(2.2rem, 3.8vw, 3rem)',
-                                marginBottom: '1.5rem',
-                                lineHeight: 1.25,
-                                fontWeight: 800,
-                                color: '#1e1b4b',
-                                letterSpacing: '-0.03em'
-                            }}>
-                                Looking for a <span className="gradient-text">Custom Software Development Agency?</span>
-                            </h2>
-
-                            <p style={{
-                                fontSize: '1.1rem',
-                                color: 'var(--text-muted)',
-                                marginBottom: '1.75rem',
-                                lineHeight: 1.75
-                            }}>
-                                If your current software no longer fits the way your business operates, or if you are starting a new digital product or internal application, the first step is understanding what you actually need to build.
-                            </p>
-
-                            <div style={{
-                                padding: '1.25rem 1.5rem',
-                                background: '#FEF9C3',
-                                borderLeft: '4px solid #FACC15',
-                                borderRadius: '0 16px 16px 0',
-                                marginBottom: '2.5rem'
-                            }}>
-                                <p style={{
-                                    fontSize: '1.05rem',
-                                    color: 'var(--text-dark)',
-                                    fontWeight: 600,
-                                    margin: 0,
-                                    lineHeight: 1.5
-                                }}>
-                                    You do not need to have every technical detail defined before starting the conversation.
-                                </p>
-                            </div>
-
-                            <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.1rem 2.5rem', borderRadius: '50px' }}>
-                                Discuss Your Requirements <ArrowRight size={18} />
-                            </RouterLink>
-                        </div>
-
-                        {/* Right Side: Specifications & Checklist */}
-                        <div data-aos="fade-left">
-                            <div style={{ marginBottom: '1.75rem' }}>
-                                <h3 style={{
-                                    fontSize: '1.25rem',
-                                    fontWeight: 700,
-                                    color: 'var(--text-dark)',
-                                    marginBottom: '0.4rem'
-                                }}>
-                                    You may already have a detailed specification.
-                                </h3>
-                                <p style={{
-                                    fontSize: '1.05rem',
-                                    color: '#EAB308',
-                                    fontWeight: 600,
-                                    margin: 0
-                                }}>
-                                    Or you may simply know that:
-                                </p>
-                            </div>
-
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr',
-                                gap: '1rem'
-                            }}>
-                                {[
-                                    "A manual process needs to be automated.",
-                                    "Several systems need to work together.",
-                                    "An existing application needs to be modernised.",
-                                    "Your business needs a software platform built around a specific workflow.",
-                                    "A new SaaS or digital product needs to be developed.",
-                                    "Your team needs a web or mobile application for a specific business requirement."
-                                ].map((item, index) => (
-                                    <div
-                                        key={index}
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            gap: '14px',
-                                            padding: '1.1rem 1.4rem',
-                                            background: '#ffffff',
-                                            border: '1px solid rgba(15, 23, 42, 0.08)',
-                                            borderRadius: '16px',
-                                            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.02)',
-                                            transition: 'all 0.3s ease'
-                                        }}
-                                        className="discovery-item-card"
-                                    >
-                                        <div style={{
-                                            width: '32px',
-                                            height: '32px',
-                                            borderRadius: '50%',
-                                            background: '#FEF9C3',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            flexShrink: 0
-                                        }}>
-                                            <CheckCircle2
-                                                size={18}
-                                                color="#EAB308"
-                                            />
-                                        </div>
-
-                                        <span style={{
-                                            fontSize: '1rem',
-                                            fontWeight: 500,
-                                            color: 'var(--text-dark)',
-                                            lineHeight: 1.4
-                                        }}>
-                                            {item}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 9.5 — Resources & Case Studies Internal Hub */}
-            <section id="resources-hub" style={{ padding: '5rem 5%', background: 'transparent' }}>
-                <div className="max-w-1200" style={{ margin: '0 auto', textAlign: 'center' }}>
-                    <span className="section-tag" style={{ marginBottom: '1rem', display: 'inline-block' }}>Resources & Case Studies</span>
-                    <h3 style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)',
-                        fontWeight: 800,
-                        color: '#1e1b4b',
-                        letterSpacing: '-0.03em',
-                        marginBottom: '1rem'
-                    }}>
-                        Explore Our <RouterLink to="/blog" className="gradient-text" style={{ textDecoration: 'none' }}>Case Studies</RouterLink> & Insights
-                    </h3>
-                    <p style={{ fontSize: '1.08rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
-                        Learn how we help organizations solve complex technical challenges. Read our latest <RouterLink to="/blog" style={{ color: '#EAB308', fontWeight: 700, textDecoration: 'none' }}>Case Studies</RouterLink> and explore expert articles on our <RouterLink to="/blog" style={{ color: '#EAB308', fontWeight: 700, textDecoration: 'none' }}>Software Development Blog</RouterLink>. Ready to discuss your business requirements? Get in touch with our team via <RouterLink to="/contact" style={{ color: '#EAB308', fontWeight: 700, textDecoration: 'none' }}>Contact</RouterLink>.
-                    </p>
-                    <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <RouterLink to="/blog" className="btn btn-outline" style={{ padding: '0.85rem 2rem', fontSize: '0.95rem', fontWeight: 700 }}>
-                            Case Studies <ArrowRight size={16} />
-                        </RouterLink>
-                        <RouterLink to="/blog" className="btn btn-outline" style={{ padding: '0.85rem 2rem', fontSize: '0.95rem', fontWeight: 700 }}>
-                            Software Development Blog <ArrowRight size={16} />
-                        </RouterLink>
-                        <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '0.95rem', fontWeight: 700 }}>
-                            Contact <ArrowRight size={16} />
-                        </RouterLink>
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 10 — FAQs */}
-            <section id="faq" style={{ padding: '6rem 8%' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <span className="section-tag" style={{ margin: '0 auto 1.5rem' }}>FAQ</span>
-
-                    <h2 style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        fontSize: 'clamp(2rem, 3.5vw, 2.85rem)',
-                        fontWeight: 800,
-                        color: '#1e1b4b',
-                        letterSpacing: '-0.03em',
-                        marginBottom: '1rem'
-                    }}>
-                        Frequently Asked <span className="gradient-text">Questions</span>
-                    </h2>
-
-                    <p style={{
-                        fontSize: '1.15rem',
-                        color: 'var(--text-muted)',
-                        maxWidth: '700px',
-                        margin: '1rem auto 0'
-                    }}>
-                        Common questions from buyers looking for custom software solutions.
-                    </p>
-                </div>
-
-                <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 5 }}>
-                    {faqs.map((faq, idx) => {
-                        const isOpen = activeFaq === idx;
-
-                        return (
-                            <div
-                                key={idx}
-                                style={{
-                                    borderBottom: '1px solid var(--border)',
-                                    padding: '1.5rem 0',
-                                    cursor: 'pointer',
-                                    opacity: 1,
-                                    visibility: 'visible'
-                                }}
-                                onClick={() => toggleFaq(idx)}
-                            >
-                                <div style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    gap: '1rem'
-                                }}>
-                                    <h3 style={{
-                                        fontFamily: "'Outfit', sans-serif",
-                                        fontSize: '1.25rem',
-                                        fontWeight: 800,
-                                        margin: 0,
-                                        color: '#1e1b4b',
-                                        transition: 'color 0.3s ease',
-                                        textAlign: 'left'
-                                    }}>
-                                        {faq.q}
-                                    </h3>
-
-                                    <div style={{
-                                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                                        transition: 'transform 0.3s ease',
-                                        color: isOpen ? '#1e1b4b' : '#64748b'
-                                    }}>
-                                        <ChevronDown size={24} />
-                                    </div>
-                                </div>
-
-                                <div style={{
-                                    maxHeight: isOpen ? '300px' : '0px',
-                                    overflow: 'hidden',
-                                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                                    opacity: isOpen ? 1 : 0
-                                }}>
-                                    <p style={{
-                                        color: '#64748b',
-                                        fontSize: '1.05rem',
-                                        lineHeight: 1.7,
-                                        marginTop: '1rem',
-                                        marginBottom: '0.5rem',
-                                        textAlign: 'left'
-                                    }}>
-                                        {faq.a}
-                                    </p>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
-
-            {/* Section 11 — Final CTA Modern Redesign */}
-            <section id="contact-cta" style={{ padding: '6rem 8%', position: 'relative', overflow: 'hidden' }}>
-                <div
-                    className="max-w-1200"
-                    data-aos="fade-up"
-                    style={{
-                        margin: '0 auto',
-                        textAlign: 'center',
-                        position: 'relative'
-                    }}
-                >
-                    {/* Glowing background accent aura */}
-                    <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '60%',
-                        height: '70%',
-                        background: 'radial-gradient(circle, rgba(0, 136, 255, 0.08) 0%, rgba(255, 0, 122, 0.04) 50%, transparent 80%)',
-                        filter: 'blur(50px)',
-                        zIndex: 0,
-                        pointerEvents: 'none'
-                    }}></div>
-
-                    <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span
-                            className="section-tag"
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '8px',
-                                justifyContent: 'center',
-                                margin: '0 auto 1.5rem',
-                                padding: '0.45rem 1.25rem',
-                                borderRadius: '99px',
-                                background: '#FEF9C3',
-                                border: '1px solid rgba(250, 204, 21, 0.5)',
-                                color: '#1F2937',
-                                fontSize: '0.85rem',
-                                fontWeight: 800,
-                                letterSpacing: '1.5px',
-                                textTransform: 'uppercase'
-                            }}
-                        >
-                            <Send size={15} color="#EAB308" style={{ transform: 'rotate(-20deg)', transformOrigin: 'center' }} /> CONTACT US
-                        </span>
-
-                        <h2 style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
-                            fontWeight: 800,
-                            color: '#1e1b4b',
-                            marginBottom: '1.75rem',
-                            letterSpacing: '-0.03em',
-                            lineHeight: 1.2
-                        }}>
-                            Let's Discuss What Your Business <span className="gradient-text">Needs</span><br className="desktop-only-br" />
-                            <span className="gradient-text">to Build</span>
-                        </h2>
-
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '1.2rem',
-                            marginBottom: '3.2rem',
-                            maxWidth: '850px',
-                            marginInline: 'auto'
-                        }}>
-                            <p style={{
-                                fontSize: '1.25rem',
-                                fontWeight: 700,
-                                color: 'var(--text-dark)',
-                                margin: 0,
-                                lineHeight: 1.5
-                            }}>
-                                The right software starts with the right understanding of the problem.
-                            </p>
-
-                            <p style={{
-                                fontSize: '1.1rem',
-                                color: 'var(--text-muted)',
-                                margin: 0,
-                                lineHeight: 1.8
-                            }}>
-                                Whether you need to automate an internal process, replace an outdated application, connect multiple systems, build a SaaS product or develop a business-specific web or mobile application, start by telling us what you are trying to achieve.
-                            </p>
-
-                            <p style={{
-                                fontSize: '1.08rem',
-                                color: '#EAB308',
-                                margin: 0,
-                                lineHeight: 1.7,
-                                fontWeight: 600
-                            }}>
-                                Let's explore the requirement, understand the business problem and determine what needs to be built.
-                            </p>
-                        </div>
-
-                        <div style={{
-                            display: 'flex',
-                            gap: '1.5rem',
-                            justifyContent: 'center',
-                            flexWrap: 'wrap'
-                        }}>
-                            <RouterLink
-                                to="/contact"
-                                className="btn btn-primary"
-                                style={{
-                                    padding: '1.15rem 2.8rem',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    fontSize: '1.05rem',
-                                    boxShadow: '0 10px 30px rgba(0, 136, 255, 0.3)'
-                                }}
-                            >
-                                Discuss Your Software Requirement <ArrowRight size={20} />
-                            </RouterLink>
-
-                            <RouterLink
-                                to="/contact"
-                                className="btn btn-outline"
-                                style={{
-                                    padding: '1.15rem 2.5rem',
-                                    fontSize: '1.05rem',
-                                    borderColor: '#cbd5e1',
-                                    color: 'var(--text-dark)'
-                                }}
-                            >
-                                Contact Fly Towards Digital Innovation
-                            </RouterLink>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                </div>
+              </div>
             </div>
-        </main>
-    );
-};
+          </div>
+        </section>
 
-// Simple custom component inline helper for CPU/Process icon
-const CpuIcon = ({ size, color }) => {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={size}
-            height={size}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke={color}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <rect x="4" y="4" width="16" height="16" rx="2" />
-            <rect x="9" y="9" width="6" height="6" />
-            <line x1="9" y1="1" x2="9" y2="4" />
-            <line x1="15" y1="1" x2="15" y2="4" />
-            <line x1="9" y1="20" x2="9" y2="23" />
-            <line x1="15" y1="20" x2="15" y2="23" />
-            <line x1="20" y1="9" x2="23" y2="9" />
-            <line x1="20" y1="15" x2="23" y2="15" />
-            <line x1="1" y1="9" x2="4" y2="9" />
-            <line x1="1" y1="15" x2="4" y2="15" />
-        </svg>
-    );
-};
+        {/* ===== SECTION 2 — BUSINESS PROBLEMS ===== */}
+        <section className="hm-section hm-prob">
+          <div className="hm-container">
+            <div className="hm-prob-grid">
+              <div ref={prob2Ref} className={`hm-reveal-left ${prob2Visible ? 'hm-visible' : ''}`}>
+                <div className="hm-label">Software Built Around Your Business</div>
+                <h2 className="hm-h2">Generic Software <span className="hm-accent">Wasn't Built for Your Business</span></h2>
+                <p className="hm-lead">
+                  Generic software can be useful when your processes fit the product. But when your business has unique workflows,
+                  multiple teams, specialised requirements or existing systems, adapting your operations to someone else's software
+                  can create unnecessary complexity.
+                </p>
+                <p className="hm-sub">
+                  Custom software gives your business the opportunity to build around the way you actually work.
+                  We help businesses turn operational requirements into software solutions that can support:
+                </p>
+                <ul className="hm-prob-list">
+                  {problems.map((p, i) => <li key={i}>{p}</li>)}
+                </ul>
+                <p className="hm-sub" style={{ marginBottom: 24, fontStyle: 'italic', color: '#333' }}>
+                  The goal is not simply to build another application. It is to create software that has a clear purpose within your business.
+                </p>
+                <Link to="/contact" className="hm-btn-primary">Tell Us What You Need to Build →</Link>
+              </div>
 
-export default Home;
+              {/* Animated Visual */}
+              <div className={`hm-reveal-right ${prob2Visible ? 'hm-visible' : ''}`}>
+                <div className="hm-prob-visual">
+                  <div className="hm-prob-node-wrap">
+                    {[
+                      { title: 'Business Requirements', status: 'Captured & Defined' },
+                      { title: 'Software Architecture', status: 'Designed for Scale' },
+                      { title: 'Development Sprint', status: 'In Progress' },
+                      { title: 'Quality Assurance', status: 'Testing Phase' },
+                      { title: 'Live Deployment', status: 'Delivered Successfully' },
+                    ].map((n, i) => (
+                      <div key={i}>
+                        <div className="hm-prob-node" style={{ animationDelay: `${i * 0.1}s`, borderLeftColor: i % 2 === 0 ? '#facc15' : '#4ade80' }}>
+                          <div className="hm-prob-node-title">{n.title}</div>
+                          <div className="hm-prob-node-status">{n.status}</div>
+                        </div>
+                        {i < 4 && <div className="hm-prob-connector" />}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 3 — SERVICES ===== */}
+        <section className="hm-section hm-serv">
+          <div className="hm-container">
+            <div ref={servRef} className={`hm-reveal ${servVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-serv-header">
+                <div>
+                  <div className="hm-label">What We Build</div>
+                  <h2 className="hm-h2">Software Development Services for <span className="hm-accent">Different Business Needs</span></h2>
+                  <p className="hm-lead" style={{ maxWidth: 640 }}>
+                    Every software project has a different purpose. Some businesses need an internal system to replace manual processes.
+                    Others need a customer-facing platform, a mobile application or a complete digital product.
+                  </p>
+                </div>
+              </div>
+              <div className="hm-serv-grid">
+                {services.map((s, i) => (
+                  <Link
+                    to={s.link}
+                    key={i}
+                    className={`hm-serv-card ${activeService === i ? 'hm-active' : ''}`}
+                    style={{ transitionDelay: `${i * 0.07}s` }}
+                  >
+                    <div className="hm-serv-icon">{s.icon}</div>
+                    <h3>{s.title}</h3>
+                    <p>{s.desc}</p>
+                    <div className="hm-serv-arrow">Learn More →</div>
+                  </Link>
+                ))}
+              </div>
+              <div className="hm-cta-row" style={{ marginTop: 48, justifyContent: 'center' }}>
+                <Link to="/services/" className="hm-btn-primary">View All Software Services →</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 4 — WHY CUSTOM ===== */}
+        <section className="hm-section hm-why">
+          <div className="hm-container">
+            <div ref={whyRef} className={`hm-reveal ${whyVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-center">
+                <div className="hm-label">Why Custom Software</div>
+                <h2 className="hm-h2" style={{ color: '#fff' }}>Why Businesses Choose <span className="hm-accent">Custom Software</span></h2>
+                <p className="hm-lead">
+                  Off-the-shelf software is not always the right fit. A business may have unique approval processes,
+                  specialised workflows, legacy applications, multiple departments or requirements that standard products
+                  cannot adequately address.
+                </p>
+              </div>
+              <div className="hm-why-grid">
+                {whyCards.map((c, i) => (
+                  <div key={i} className="hm-why-card" style={{ transitionDelay: `${i * 0.1}s` }}>
+                    <div className="hm-why-card-icon">{c.icon}</div>
+                    <h3>{c.title}</h3>
+                    <p>{c.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 5 — INDUSTRIES ===== */}
+        <section className="hm-section hm-ind">
+          <div className="hm-container">
+            <div ref={indRef} className={`hm-reveal ${indVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-center">
+                <div className="hm-label">Industries We Serve</div>
+                <h2 className="hm-h2">Built for Industries With <span className="hm-accent">Real Operational Challenges</span></h2>
+                <p className="hm-lead">
+                  Different industries have different workflows, regulations, customer expectations and operational requirements.
+                  Our approach to custom software development can be adapted to the needs of different business environments.
+                </p>
+              </div>
+              <div className="hm-ind-grid">
+                {industries.map((ind, i) => (
+                  <Link to={ind.link} key={i} className="hm-ind-card" style={{ transitionDelay: `${i * 0.08}s` }}>
+                    <div className="hm-ind-icon">{ind.icon}</div>
+                    <h3>{ind.name}</h3>
+                    <p>{ind.desc}</p>
+                    <div className="hm-ind-link">Explore {ind.name} Software →</div>
+                  </Link>
+                ))}
+              </div>
+              <div className="hm-cta-row" style={{ marginTop: 48, justifyContent: 'center' }}>
+                <Link to="/industries/" className="hm-btn-primary">Explore Industry Solutions →</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 6 — PROCESS ===== */}
+        <section className="hm-section hm-proc">
+          <div className="hm-container">
+            <div ref={procRef} className={`hm-reveal ${procVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-center">
+                <div className="hm-label">Our Process</div>
+                <h2 className="hm-h2">From Business Requirement to <span className="hm-accent">Working Software</span></h2>
+                <p className="hm-lead">
+                  A successful software project starts with understanding the business behind the requirement.
+                </p>
+              </div>
+              <div className="hm-proc-steps">
+                {steps.map((s, i) => (
+                  <div key={i} className="hm-proc-step" style={{ transitionDelay: `${i * 0.12}s` }}>
+                    <div className="hm-proc-num">{s.num}</div>
+                    <h3>{s.title}</h3>
+                    <p>{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="hm-proc-note">
+                This approach keeps the development process connected to the business objective rather than
+                treating software development as an isolated technical task.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 7 — OUTCOMES ===== */}
+        <section className="hm-section hm-out">
+          <div className="hm-container">
+            <div ref={outRef} className={`hm-reveal ${outVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-center">
+                <div className="hm-label" style={{ background: 'rgba(250,204,21,0.15)', border: '1px solid rgba(250,204,21,0.3)', color: '#facc15' }}>Business Outcomes</div>
+                <h2 className="hm-h2" style={{ color: '#fff' }}>Software That Supports Better <span className="hm-accent">Business Operations</span></h2>
+                <p className="hm-lead">
+                  The value of software is not simply the number of features it contains. A useful business application
+                  should help people work more effectively, make information easier to manage and reduce unnecessary operational complexity.
+                </p>
+              </div>
+              <div className="hm-out-grid">
+                <ul className="hm-out-list">
+                  {outcomes.map((o, i) => (
+                    <li key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
+                      <div className="hm-out-check">✓</div>
+                      {o}
+                    </li>
+                  ))}
+                </ul>
+                <div className="hm-out-visual">
+                  <div className="hm-out-dash-title">Operational Impact</div>
+                  <div className="hm-out-bars">
+                    {[
+                      { label: 'Process Efficiency', val: 85, color: '#facc15' },
+                      { label: 'Data Centralisation', val: 78, color: '#4ade80' },
+                      { label: 'Team Productivity', val: 72, color: '#60a5fa' },
+                      { label: 'System Connectivity', val: 68, color: '#f472b6' },
+                      { label: 'Operational Visibility', val: 90, color: '#facc15' },
+                    ].map((b, i) => (
+                      <div className="hm-out-bar-row" key={i}>
+                        <div className="hm-out-bar-label"><span>{b.label}</span><span style={{ color: b.color }}>{b.val}%</span></div>
+                        <div className="hm-out-bar-track">
+                          <div className="hm-out-bar-fill" style={{ width: outVisible ? `${b.val}%` : '0%', background: b.color, transition: `width ${0.8 + i * 0.15}s ease ${0.3 + i * 0.1}s` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="hm-out-note">
+                    Specific outcomes will depend on the business, requirements and implementation scope.
+                    Every software environment is different.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 8 — WHY FLY TOWARDS ===== */}
+        <section className="hm-section hm-ftd">
+          <div className="hm-container">
+            <div ref={ftdRef} className={`hm-reveal ${ftdVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-center">
+                <div className="hm-label">Why Choose Us</div>
+                <h2 className="hm-h2">Why Work With <span className="hm-accent">Fly Towards Digital Innovation?</span></h2>
+                <p className="hm-lead">
+                  Choosing a custom software development company is about more than finding someone who can write code.
+                  You need a development partner that can understand the business requirement, translate it into software
+                  and support the project from development through future improvements.
+                </p>
+              </div>
+              <div className="hm-ftd-grid">
+                {ftdCards.map((c, i) => (
+                  <div key={i} className="hm-ftd-card" style={{ transitionDelay: `${i * 0.1}s` }}>
+                    <div className="hm-ftd-icon">{c.icon}</div>
+                    <h3>{c.title}</h3>
+                    <p>{c.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="hm-ftd-cta">
+                <Link to="/contact" className="hm-btn-primary">Talk About Your Software Project →</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 9 — FAQs ===== */}
+        <section className="hm-section hm-faq">
+          <div className="hm-container">
+            <div ref={faqRef} className={`hm-reveal ${faqVisible ? 'hm-visible' : ''}`}>
+              <div className="hm-faq-grid">
+                <div>
+                  <div className="hm-label">FAQs</div>
+                  <h2 className="hm-h2">Frequently Asked <span className="hm-accent">Questions</span></h2>
+                  <p className="hm-sub" style={{ marginBottom: 32 }}>
+                    If your current software no longer fits the way your business operates, or if you are starting a new
+                    digital product or internal application, the first step is understanding what you actually need to build.
+                  </p>
+                  <div className="hm-faq-list">
+                    {faqs.map((f, i) => (
+                      <div key={i} className="hm-faq-item">
+                        <button
+                          className={`hm-faq-q ${openFaq === i ? 'hm-open' : ''}`}
+                          onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        >
+                          <span>{f.q}</span>
+                          <span className="hm-faq-icon">{openFaq === i ? '−' : '+'}</span>
+                        </button>
+                        <div className={`hm-faq-a ${openFaq === i ? 'hm-open' : ''}`}>{f.a}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="hm-faq-visual">
+                  <div className="hm-faq-visual-title">You may already know that you need to:</div>
+                  <div className="hm-faq-visual-items">
+                    {[
+                      { h: 'Automate a manual process', p: 'Reduce repetitive work through software.' },
+                      { h: 'Connect multiple systems', p: 'Create a more integrated digital environment.' },
+                      { h: 'Modernise an old application', p: 'Upgrade existing software that no longer fits.' },
+                      { h: 'Build a workflow platform', p: 'Create a system built around your operations.' },
+                      { h: 'Launch a SaaS product', p: 'Develop a subscription-based digital business.' },
+                      { h: 'Build a web or mobile app', p: 'A specific business or customer-facing requirement.' },
+                    ].map((item, i) => (
+                      <div key={i} className="hm-faq-visual-item" style={{ borderLeftColor: i % 3 === 0 ? '#facc15' : i % 3 === 1 ? '#4ade80' : '#60a5fa' }}>
+                        <h4>{item.h}</h4>
+                        <p>{item.p}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SECTION 10 — FINAL CTA ===== */}
+        <section className="hm-final" ref={ctaRef}>
+          <div className="hm-container">
+            <div className={`hm-reveal ${ctaVisible ? 'hm-visible' : ''}`}>
+              <h2>Let's Discuss What Your Business <span className="hm-accent">Needs to Build</span></h2>
+              <p>
+                The right software starts with the right understanding of the problem.
+                Whether you need to automate an internal process, replace an outdated application, connect multiple systems,
+                build a SaaS product or develop a business-specific web or mobile application, start by telling us what
+                you are trying to achieve.
+              </p>
+              <ul className="hm-final-list">
+                <li>Automate an internal process</li>
+                <li>Replace an outdated application</li>
+                <li>Connect multiple systems</li>
+                <li>Build a SaaS product</li>
+                <li>Develop a business-specific web app</li>
+                <li>Build a customer-facing mobile app</li>
+              </ul>
+              <div className="hm-final-ctas">
+                <Link to="/contact" className="hm-btn-primary">Discuss Your Software Requirement →</Link>
+                <Link to="/contact" className="hm-btn-outline hm-btn-outline-y">Contact Fly Towards Digital Innovation</Link>
+              </div>
+              <p className="hm-final-note">
+                Let's explore the requirement, understand the business problem and determine what needs to be built.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
+  );
+}

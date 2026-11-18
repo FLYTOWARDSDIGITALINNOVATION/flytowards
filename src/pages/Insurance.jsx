@@ -754,14 +754,14 @@ const Insurance = () => {
                     display: inline-flex;
                     align-items: center;
                     gap: 8px;
-                    padding: 6px 14px;
+                    padding: 7px 16px;
                     border-radius: 9999px;
-                    font-size: 0.82rem;
-                    font-weight: 700;
-                    letter-spacing: 0.05em;
+                    font-size: 0.86rem;
+                    font-weight: 800;
+                    letter-spacing: 0.08em;
                     text-transform: uppercase;
                     background: rgba(250, 204, 21, 0.18);
-                    color: #854D0E;
+                    color: #1E1B4B;
                     border: 1px solid rgba(234, 179, 8, 0.35);
                     margin-bottom: 1rem;
                     backdrop-filter: blur(8px);
@@ -770,9 +770,14 @@ const Insurance = () => {
                     font-size: clamp(2rem, 3.8vw, 2.75rem);
                     font-weight: 800;
                     line-height: 1.22;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 1.1rem;
                     letter-spacing: -0.02em;
+                }
+                .ins-section-title span, .hero-h1 span, .cta-h2 span {
+                    color: #FACC15;
+                    background: none !important;
+                    -webkit-text-fill-color: #FACC15;
                 }
                 .ins-section-desc {
                     font-size: 1.05rem;
@@ -840,13 +845,16 @@ const Insurance = () => {
                 .hero-tagline-pill {
                     display: inline-flex;
                     align-items: center;
+                    white-space: nowrap;
                     gap: 9px;
-                    padding: 7px 16px;
+                    padding: 8px 18px;
                     border-radius: 9999px;
-                    font-size: 0.88rem;
-                    font-weight: 700;
+                    font-size: 0.86rem;
+                    font-weight: 800;
+                    letter-spacing: 0.07em;
+                    text-transform: uppercase;
                     background: #FEF9C3;
-                    color: #854D0E;
+                    color: #1E1B4B;
                     border: 1px solid #FDE047;
                     margin-bottom: 1.25rem;
                     box-shadow: 0 2px 8px rgba(234, 179, 8, 0.15);
@@ -855,7 +863,7 @@ const Insurance = () => {
                     font-size: clamp(2.35rem, 4.4vw, 3.5rem);
                     font-weight: 900;
                     line-height: 1.16;
-                    color: #0F172A;
+                    color: #1E1B4B;
                     margin-bottom: 1.2rem;
                     letter-spacing: -0.03em;
                 }
@@ -1097,7 +1105,7 @@ const Insurance = () => {
                 .overview-item h4 {
                     font-size: 1.08rem;
                     font-weight: 700;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.25rem;
                 }
                 .overview-item p {
@@ -1159,7 +1167,7 @@ const Insurance = () => {
                 .challenge-card h3 {
                     font-size: 1.15rem;
                     font-weight: 700;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.75rem;
                     line-height: 1.35;
                 }
@@ -1222,7 +1230,7 @@ const Insurance = () => {
                 .solution-card h3 {
                     font-size: 1.25rem;
                     font-weight: 800;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.85rem;
                     line-height: 1.3;
                 }
@@ -1383,7 +1391,7 @@ const Insurance = () => {
                 .spotlight-left h3 {
                     font-size: 1.45rem;
                     font-weight: 800;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.75rem;
                 }
                 .spotlight-left p {
@@ -1576,7 +1584,7 @@ const Insurance = () => {
                 .stacked-benefit-item h3 {
                     font-size: 1.12rem;
                     font-weight: 700;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.35rem;
                 }
                 .stacked-benefit-item p {
@@ -1624,7 +1632,7 @@ const Insurance = () => {
                 .service-tile-card h3 {
                     font-size: 1.18rem;
                     font-weight: 800;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.65rem;
                 }
                 .service-tile-card p {
@@ -1682,7 +1690,7 @@ const Insurance = () => {
                 .timeline-step-card h3 {
                     font-size: 1.05rem;
                     font-weight: 700;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.6rem;
                     line-height: 1.35;
                 }
@@ -1731,7 +1739,7 @@ const Insurance = () => {
                 .differentiator-item h3 {
                     font-size: 1.15rem;
                     font-weight: 700;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin-bottom: 0.35rem;
                 }
                 .differentiator-item p {
@@ -1858,7 +1866,7 @@ const Insurance = () => {
                 .faq-trigger h3 {
                     font-size: 1.05rem;
                     font-weight: 700;
-                    color: #111827;
+                    color: #1E1B4B;
                     margin: 0;
                     line-height: 1.4;
                 }
@@ -1882,7 +1890,7 @@ const Insurance = () => {
 
                 /* SECTION 12 — FINAL CTA BANNER */
                 .final-cta-banner {
-                    background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+                    background: #1E1B4B;
                     border-radius: 24px;
                     padding: 4.5rem 3rem;
                     text-align: center;
@@ -1972,21 +1980,16 @@ const Insurance = () => {
             {/* SECTION 01 — HERO */}
             <section className="ins-section" style={{ paddingTop: '130px', paddingBottom: '70px' }}>
                 <div className="ins-container">
+                    <div className="hero-tagline-pill">
+                        <ShieldCheck size={18} color="#D97706" />
+                        <span>Connect Insurance Clients, Policies, Renewals and Business Operations</span>
+                    </div>
                     <div className="hero-grid">
                         {/* Hero Left Column */}
                         <div>
-                            <div className="hero-tagline-pill">
-                                <ShieldCheck size={18} color="#D97706" />
-                                <span>Connect Insurance Clients, Policies, Renewals and Business Operations</span>
-                            </div>
-
                             <h1 className="hero-h1">
                                 Insurance Software Solutions for Businesses in{' '}
-                                <span style={{
-                                    background: 'linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent'
-                                }}>
+                                <span>
                                     Tamil Nadu
                                 </span>
                             </h1>
@@ -2244,7 +2247,7 @@ const Insurance = () => {
                                 <Activity size={16} color="#D97706" />
                                 <span>Industry Overview</span>
                             </div>
-                            <h2 className="ins-section-title">What Is Insurance Software?</h2>
+                            <h2 className="ins-section-title">What Is <span>Insurance Software?</span></h2>
                             <div className="ins-section-desc" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#4B5563', fontSize: '1.02rem', lineHeight: '1.75' }}>
                                 <p>
                                     Insurance software refers to digital applications used to manage information and workflows related to insurance customers, policies, claims, renewals and business administration.
@@ -2292,7 +2295,7 @@ const Insurance = () => {
                             <AlertTriangle size={16} color="#D97706" />
                             <span>Operational Bottlenecks</span>
                         </div>
-                        <h2 className="ins-section-title">Common Software Challenges in Insurance Operations</h2>
+                        <h2 className="ins-section-title">Common Software Challenges in <span>Insurance Operations</span></h2>
                         <p className="ins-section-desc">
                             Insurance businesses often coordinate information between customers, internal teams, insurers and other authorized stakeholders.
                             Manual processes and disconnected applications can make these activities more difficult to manage.
@@ -2328,7 +2331,7 @@ const Insurance = () => {
                             <Sparkles size={16} color="#D97706" />
                             <span>Software Solutions</span>
                         </div>
-                        <h2 className="ins-section-title">Our Insurance Software Development Solutions</h2>
+                        <h2 className="ins-section-title">Our <span>Insurance Software Development Solutions</span></h2>
                         <p className="ins-section-desc">
                             FlyTowards helps insurance businesses plan and develop applications around customer management, policy administration and insurance-related operational workflows.
                         </p>
@@ -2366,7 +2369,7 @@ const Insurance = () => {
                             <Workflow size={16} color="#D97706" />
                             <span>Interactive Workflows</span>
                         </div>
-                        <h2 className="ins-section-title">How Insurance Software Supports Daily Business Workflows</h2>
+                        <h2 className="ins-section-title">How <span>Insurance Software</span> Supports Daily Business Workflows</h2>
                         <p className="ins-section-desc">
                             Insurance software becomes useful when it connects customer information, policy servicing activities and administrative follow-ups through structured processes.
                         </p>
@@ -2582,7 +2585,7 @@ const Insurance = () => {
                                 <TrendingUp size={16} color="#D97706" />
                                 <span>Measurable Value</span>
                             </div>
-                            <h2 className="ins-section-title">Benefits of Insurance Management Software</h2>
+                            <h2 className="ins-section-title">Benefits of <span>Insurance Management Software</span></h2>
                             <p className="ins-section-desc" style={{ marginBottom: '2rem' }}>
                                 Well-planned insurance software can help businesses organize client information, maintain workflow records and coordinate ongoing policy servicing activities.
                             </p>
@@ -2613,7 +2616,7 @@ const Insurance = () => {
                             <Layers size={16} color="#D97706" />
                             <span>Engineering Capabilities</span>
                         </div>
-                        <h2 className="ins-section-title">FlyTowards Software Development Services for Insurance Businesses</h2>
+                        <h2 className="ins-section-title">FlyTowards <span>Software Development Services</span> for Insurance Businesses</h2>
                         <p className="ins-section-desc">
                             Insurance software projects may require custom application development, CRM functionality, workflow automation, integrations and ongoing technical maintenance.
                         </p>
@@ -2647,7 +2650,7 @@ const Insurance = () => {
                             <GitBranch size={16} color="#D97706" />
                             <span>Structured Methodology</span>
                         </div>
-                        <h2 className="ins-section-title">Our Insurance Software Development Process</h2>
+                        <h2 className="ins-section-title">Our Insurance Software <span>Development Process</span></h2>
                         <p className="ins-section-desc">
                             We follow a structured approach to understand insurance business workflows and plan software functionality around operational, security and integration requirements.
                         </p>
@@ -2677,7 +2680,7 @@ const Insurance = () => {
                                 <Award size={16} color="#D97706" />
                                 <span>Why FlyTowards</span>
                             </div>
-                            <h2 className="ins-section-title">Why Choose FlyTowards for Insurance Software Development?</h2>
+                            <h2 className="ins-section-title">Why Choose FlyTowards for <span>Insurance Software Development?</span></h2>
                             <p className="ins-section-desc" style={{ marginBottom: '1.25rem' }}>
                                 Insurance software should reflect how customer enquiries, policy information and servicing activities move between users and systems.
                             </p>
@@ -2719,7 +2722,7 @@ const Insurance = () => {
                                     <span>Regional Relevance</span>
                                 </div>
                                 <h2 className="ins-section-title" style={{ fontSize: 'clamp(1.85rem, 3.2vw, 2.45rem)' }}>
-                                    Insurance Software Solutions in Tamil Nadu
+                                    <span>Insurance Software Solutions</span> in Tamil Nadu
                                 </h2>
 
                                 <p>
@@ -2832,7 +2835,7 @@ const Insurance = () => {
                                 <HelpCircle size={16} color="#D97706" />
                                 <span>Got Questions?</span>
                             </div>
-                            <h2 className="ins-section-title">Frequently Asked Questions About Insurance Software</h2>
+                            <h2 className="ins-section-title">Frequently Asked Questions About <span>Insurance Software</span></h2>
                             <p className="ins-section-desc">
                                 Find answers to common questions regarding custom insurance software development, CRM capabilities, policy renewal automation, and compliance requirements in India.
                             </p>
@@ -2907,7 +2910,7 @@ const Insurance = () => {
                             </div>
 
                             <h2 className="cta-h2">
-                                Connect Your Insurance Clients, Policies and Business Workflows
+                                Connect Your <span>Insurance Clients, Policies</span> and Business Workflows
                             </h2>
 
                             <p className="cta-desc">

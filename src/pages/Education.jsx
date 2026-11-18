@@ -404,7 +404,8 @@ const Education = () => {
     };
 
     return (
-        <main style={{ padding: '120px 6% 100px', minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', background: '#ffffff', fontFamily: "'Outfit', sans-serif" }}>
+        <main className="education-page" style={{ padding: '120px 6% 100px', minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', background: '#ffffff', fontFamily: "'Outfit', sans-serif" }}>
+            <style>{`.education-page .education-badge { display: inline-flex !important; align-items: center; gap: 8px !important; padding: 7px 16px !important; border: 1px solid #EAB308 !important; border-radius: 999px !important; background: #FFF7CC !important; color: #1E1B4B !important; font-size: .86rem !important; font-weight: 800 !important; letter-spacing: .08em !important; text-transform: uppercase !important; width: fit-content; } .education-page .education-badge svg { color: #EAB308 !important; } .education-page .education-workflow-label { margin: 0 auto 1.25rem !important; } .education-page h1 span, .education-page h2 span, .education-page h3 span { color: #FACC15 !important; }`}</style>
             <div className="mesh-bg"></div>
 
             {/* =========================================================================
@@ -416,6 +417,7 @@ const Education = () => {
                         initial={{ opacity: 0, y: -15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
+                        className="education-badge"
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.18)', color: '#B45309', border: '1px solid rgba(250, 204, 21, 0.45)', fontSize: '0.875rem', fontWeight: 600, width: 'fit-content' }}
                     >
                         <GraduationCap size={16} color="#CA8A04" />
@@ -426,17 +428,16 @@ const Education = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="gradient-text"
-                        style={{ fontSize: 'clamp(2.3rem, 4.2vw, 3.6rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, letterSpacing: '-0.5px' }}
+                        style={{ fontSize: 'clamp(2.3rem, 4.2vw, 3.6rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, letterSpacing: '-0.5px', color: '#1E1B4B' }}
                     >
-                        Education Software Solutions in Tamil Nadu
+                        Education Software Solutions <span>in Tamil Nadu</span>
                     </motion.h1>
 
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', fontWeight: 700, color: '#1F2937', borderLeft: '4px solid #FACC15', paddingLeft: '1rem', lineHeight: 1.45 }}
+                        style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', fontWeight: 700, color: '#1E1B4B', borderLeft: '4px solid #FACC15', paddingLeft: '1rem', lineHeight: 1.45 }}
                     >
                         Connect Learning, Student Management and Academic Operations
                     </motion.div>
@@ -451,7 +452,7 @@ const Education = () => {
                         <p style={{ margin: 0 }}>When these processes depend on disconnected spreadsheets, manual records or separate applications, coordinating academic and administrative information can become difficult.</p>
                         <p style={{ margin: 0 }}>FlyTowards provides education software development solutions for schools, colleges, training institutes and educational organizations across Tamil Nadu, with a focus on South Tamil Nadu.</p>
                         <p style={{ margin: 0 }}>We help institutions plan custom learning management platforms, student management systems, school management software and connected academic workflows.</p>
-                        <p style={{ margin: 0, fontWeight: 500, color: '#1F2937' }}>Our approach focuses on practical application requirements, clear interfaces and the needs of students, educators and administrators.</p>
+                        <p style={{ margin: 0, fontWeight: 500, color: '#1E1B4B' }}>Our approach focuses on practical application requirements, clear interfaces and the needs of students, educators and administrators.</p>
                     </motion.div>
 
                     <motion.div
@@ -488,12 +489,12 @@ const Education = () => {
                         transition={{ duration: 0.6 }}
                         style={{ textAlign: 'left' }}
                     >
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                        <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
                             <GraduationCap size={16} color="#EAB308" />
                             Industry Overview
                         </div>
-                        <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.5rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
-                            What Is Education Software?
+                        <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1.5rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
+                            What Is <span>Education Software?</span>
                         </h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#4B5563', fontSize: '1.02rem', lineHeight: 1.75 }}>
                             <p style={{ margin: 0 }}>Education software refers to digital applications that support teaching, learning, student information management and educational administration.</p>
@@ -526,7 +527,7 @@ const Education = () => {
                                         <Icon size={22} color="#CA8A04" />
                                     </div>
                                     <div>
-                                        <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#1F2937', marginBottom: '0.25rem' }}>{item.title}</div>
+                                        <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#1E1B4B', marginBottom: '0.25rem' }}>{item.title}</div>
                                         <div style={{ fontSize: '0.95rem', color: '#6B7280', lineHeight: 1.6 }}>{item.desc}</div>
                                     </div>
                                 </motion.div>
@@ -547,12 +548,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
                         <AlertCircle size={16} color="#EAB308" />
                         Industry Challenges
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
-                        Common Software Challenges in Educational Institutions
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
+                        Common Software Challenges in <span>Educational Institutions</span>
                     </h2>
                     <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Schools, colleges and training organizations need to coordinate information across students, teachers, academic departments and administration teams. Manual processes and disconnected applications can make this coordination more complicated.
@@ -575,7 +576,7 @@ const Education = () => {
                                 <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(250, 204, 21, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
                                     <Icon size={24} color="#CA8A04" />
                                 </div>
-                                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1F2937', margin: '0 0 0.5rem' }}>{item.title}</h3>
+                                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1E1B4B', margin: '0 0 0.5rem' }}>{item.title}</h3>
                                 <p style={{ fontSize: '0.95rem', color: '#6B7280', margin: 0, lineHeight: 1.65 }}>{item.desc}</p>
                             </motion.div>
                         );
@@ -594,12 +595,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
                         <Sparkles size={16} color="#EAB308" />
                         Our Solutions
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
-                        Our Education Software Development Solutions
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
+                        Our <span>Education Software Development Solutions</span>
                     </h2>
                     <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         FlyTowards helps educational institutions plan and develop applications around learning activities, student information and academic administration.
@@ -622,7 +623,7 @@ const Education = () => {
                                 <div style={{ width: '50px', height: '50px', borderRadius: '14px', background: 'rgba(250, 204, 21, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <Icon size={26} color="#CA8A04" />
                                 </div>
-                                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1F2937', margin: 0 }}>{item.title}</h3>
+                                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1E1B4B', margin: 0 }}>{item.title}</h3>
                                 <p style={{ fontSize: '0.95rem', color: '#6B7280', margin: 0, lineHeight: 1.65, flexGrow: 1 }}>{item.desc}</p>
                                 <Link to={item.link} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.9rem', fontWeight: 700, color: '#B45309', textDecoration: 'none', marginTop: 'auto' }}>
                                     <span>Learn More</span><ArrowRight size={15} />
@@ -644,12 +645,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
                         <Workflow size={16} color="#EAB308" />
                         Workflows &amp; Use Cases
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
-                        How Education Software Supports Academic and Administrative Workflows
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
+                        How <span>Education Software</span> Supports Academic and Administrative Workflows
                     </h2>
                     <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Education software becomes valuable when it helps institutions organize learning activities and manage student-related information through clear, connected processes.
@@ -674,7 +675,7 @@ const Education = () => {
                                     <Icon size={26} color="#CA8A04" />
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1F2937', margin: '0 0 0.35rem' }}>{item.title}</h3>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1E1B4B', margin: '0 0 0.35rem' }}>{item.title}</h3>
                                     <p style={{ fontSize: '0.97rem', color: '#6B7280', margin: 0, lineHeight: 1.65 }}>{item.desc}</p>
                                 </div>
                             </motion.div>
@@ -690,7 +691,7 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ background: '#F9FAFB', borderRadius: '20px', padding: '2rem', border: '1px solid #E5E7EB', textAlign: 'center' }}
                 >
-                    <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#B45309', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1.25rem' }}>Illustrative Workflow</div>
+                    <div className="education-badge education-workflow-label" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#B45309', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1.25rem' }}>Illustrative Workflow</div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600, color: '#374151' }}>
                         {[
                             'Admission Application',
@@ -729,12 +730,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
                         <CheckCircle2 size={16} color="#EAB308" />
                         Strategic Value
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '0.75rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
-                        Benefits of Education Software for Schools and Institutions
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '0.75rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
+                        Benefits of <span>Education Software</span> for Schools and Institutions
                     </h2>
                     <p style={{ fontSize: '1.02rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Well-planned education software can help institutions organize academic information, coordinate administrative activities and support digital learning experiences.
@@ -758,7 +759,7 @@ const Education = () => {
                                     <Icon size={22} color="#CA8A04" />
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', margin: '0 0 0.25rem' }}>{item.title}</h3>
+                                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1E1B4B', margin: '0 0 0.25rem' }}>{item.title}</h3>
                                     <p style={{ fontSize: '0.93rem', color: '#6B7280', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
                                 </div>
                             </motion.div>
@@ -778,12 +779,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
                         <Layers size={16} color="#EAB308" />
                         Integrated Capabilities
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
-                        FlyTowards Software Development Services for Educational Institutions
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
+                        FlyTowards <span>Software Development Services</span> for Educational Institutions
                     </h2>
                     <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         Education software projects may require custom applications, responsive interfaces, mobile access and integrations between existing institutional systems.
@@ -808,7 +809,7 @@ const Education = () => {
                                         <Icon size={22} color="#CA8A04" />
                                     </div>
                                     <div>
-                                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1F2937', margin: '0 0 0.35rem' }}>{item.title}</h3>
+                                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1E1B4B', margin: '0 0 0.35rem' }}>{item.title}</h3>
                                         <p style={{ fontSize: '0.92rem', color: '#6B7280', margin: 0, lineHeight: 1.6 }}>{item.desc}</p>
                                     </div>
                                 </Link>
@@ -829,12 +830,12 @@ const Education = () => {
                     transition={{ duration: 0.5 }}
                     style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}
                 >
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
+                    <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1rem' }}>
                         <Sparkles size={16} color="#EAB308" />
                         Structured Methodology
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
-                        Our Education Software Development Process
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px' }}>
+                        Our Education Software <span>Development Process</span>
                     </h2>
                     <p style={{ fontSize: '1.05rem', color: '#6B7280', lineHeight: 1.7, margin: 0 }}>
                         We follow a structured approach to understand educational workflows and plan software functionality around institutional requirements.
@@ -855,7 +856,7 @@ const Education = () => {
                             <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'rgba(250, 204, 21, 0.35)', lineHeight: 1, marginBottom: '1rem' }}>
                                 {step.step}
                             </div>
-                            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1F2937', margin: '0 0 0.5rem' }}>{step.title}</h3>
+                            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1E1B4B', margin: '0 0 0.5rem' }}>{step.title}</h3>
                             <p style={{ fontSize: '0.95rem', color: '#6B7280', margin: 0, lineHeight: 1.65 }}>{step.desc}</p>
                         </motion.div>
                     ))}
@@ -875,12 +876,12 @@ const Education = () => {
                         transition={{ duration: 0.6 }}
                         style={{ textAlign: 'left' }}
                     >
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                        <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
                             <ShieldCheck size={16} color="#EAB308" />
                             Why FlyTowards
                         </div>
-                        <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
-                            Why Choose FlyTowards for Education Software Solutions?
+                        <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
+                            Why Choose FlyTowards for <span>Education Software Solutions?</span>
                         </h2>
                         <p style={{ fontSize: '1.02rem', color: '#4B5563', lineHeight: 1.75, marginBottom: '2rem' }}>
                             Education software should reflect how students, educators and administrators interact with institutional systems. A useful solution begins with understanding academic activities, administrative requirements and the different responsibilities of each user group.
@@ -907,7 +908,7 @@ const Education = () => {
                             >
                                 <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#FACC15', lineHeight: 1, flexShrink: 0, minWidth: '40px' }}>{item.num}</div>
                                 <div>
-                                    <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#1F2937', margin: '0 0 0.35rem' }}>{item.title}</h3>
+                                    <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#1E1B4B', margin: '0 0 0.35rem' }}>{item.title}</h3>
                                     <p style={{ fontSize: '0.95rem', color: '#6B7280', margin: 0, lineHeight: 1.65 }}>{item.desc}</p>
                                 </div>
                             </motion.div>
@@ -928,20 +929,20 @@ const Education = () => {
             >
                 <div style={{ background: 'linear-gradient(135deg, #F9FAFB 0%, #FEF9E7 100%)', borderRadius: '28px', padding: 'clamp(2.5rem, 5vw, 4rem)', border: '1px solid #E5E7EB' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.2)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700 }}>
+                        <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.2)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700 }}>
                             <MapPin size={16} color="#EAB308" />
                             Tamil Nadu Focus
                         </div>
                     </div>
-                    <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.5rem', letterSpacing: '-0.4px', textAlign: 'left', lineHeight: 1.25 }}>
-                        Education Software Solutions in Tamil Nadu
+                    <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1.5rem', letterSpacing: '-0.4px', textAlign: 'left', lineHeight: 1.25 }}>
+                        Education Software Solutions <span>in Tamil Nadu</span>
                     </h2>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', color: '#4B5563', fontSize: '1.02rem', lineHeight: 1.75, textAlign: 'left' }}>
                         <p style={{ margin: 0 }}>Schools, colleges, training institutes and educational organizations across Tamil Nadu use digital applications to support teaching, learning and administration.</p>
                         <p style={{ margin: 0 }}>In South Tamil Nadu, educational institutions may have different requirements based on student enrollment, academic programs, institutional size, existing software and administrative processes.</p>
                         <p style={{ margin: 0 }}>Some institutions need to move from manual records to structured student management systems. Others may require learning management platforms, improved school management software or integrations between existing applications.</p>
                         <p style={{ margin: 0 }}>FlyTowards provides education software development solutions for institutions across Tamil Nadu, focusing on practical academic workflows, accessible interfaces and appropriate information management.</p>
-                        <p style={{ margin: 0, fontWeight: 500, color: '#1F2937' }}>Whether you need a learning management system, student information platform or school administration application, we help evaluate software requirements around your institution's needs.</p>
+                        <p style={{ margin: 0, fontWeight: 500, color: '#1E1B4B' }}>Whether you need a learning management system, student information platform or school administration application, we help evaluate software requirements around your institution's needs.</p>
                     </div>
                 </div>
             </motion.section>
@@ -959,12 +960,12 @@ const Education = () => {
                         transition={{ duration: 0.6 }}
                         style={{ textAlign: 'left' }}
                     >
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                        <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
                             <MessageSquareText size={16} color="#EAB308" />
                             FAQs
                         </div>
-                        <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
-                            Frequently Asked Questions About Education Software
+                        <h2 style={{ fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1rem', letterSpacing: '-0.4px', lineHeight: 1.25 }}>
+                            Frequently Asked Questions About <span>Education Software</span>
                         </h2>
                         <p style={{ fontSize: '1.02rem', color: '#6B7280', lineHeight: 1.7, margin: '0 0 2rem' }}>
                             Common questions about learning management platforms, student management systems and school management software.
@@ -992,7 +993,7 @@ const Education = () => {
                                     onClick={() => toggleFaq(i)}
                                     style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.1rem 1.5rem', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', gap: '1rem' }}
                                 >
-                                    <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#1F2937', margin: 0, lineHeight: 1.4 }}>{faq.q}</h3>
+                                    <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#1E1B4B', margin: 0, lineHeight: 1.4 }}>{faq.q}</h3>
                                     <motion.div animate={{ rotate: openFaq === i ? 180 : 0 }} transition={{ duration: 0.25 }} style={{ display: 'inline-flex', flexShrink: 0 }}>
                                         <ChevronDown size={18} color={openFaq === i ? '#CA8A04' : '#6B7280'} />
                                     </motion.div>
@@ -1028,14 +1029,14 @@ const Education = () => {
                 transition={{ duration: 0.6 }}
                 style={{ width: '100%', maxWidth: '1240px', margin: '0 auto 6rem', position: 'relative', zIndex: 2 }}
             >
-                <div style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 100%)', borderRadius: '32px', padding: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#FFFFFF', display: 'flex', flexDirection: 'column', mdDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: '2.5rem', boxShadow: '0 24px 60px rgba(0,0,0,0.2)', textAlign: 'left' }}>
+                <div style={{ background: '#1E1B4B', borderRadius: '32px', padding: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#FFFFFF', display: 'flex', flexDirection: 'column', mdDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: '2.5rem', boxShadow: '0 24px 60px rgba(0,0,0,0.2)', textAlign: 'left' }}>
                     <div style={{ maxWidth: '720px' }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.2)', color: '#FACC15', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                        <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.2)', color: '#FACC15', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
                             <Sparkles size={16} color="#FACC15" />
                             Get Started
                         </div>
                         <h2 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)', fontWeight: 800, color: '#FFFFFF', marginBottom: '1rem', lineHeight: 1.25 }}>
-                            Build Education Software Around Your Institution's Needs
+                            Build Education Software Around Your <span>Institution's Needs</span>
                         </h2>
                         <p style={{ color: '#E5E7EB', fontSize: '1.05rem', lineHeight: 1.7, margin: '0 0 1rem' }}>
                             Need to organize student records, simplify school administration or create a better digital learning experience?
@@ -1072,7 +1073,7 @@ const Education = () => {
                     transition={{ duration: 0.6 }}
                     style={{ maxWidth: '750px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}
                 >
-                    <span style={{
+                    <span className="education-badge" style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '8px',
@@ -1088,8 +1089,8 @@ const Education = () => {
                         <GraduationCap size={16} color="#EAB308" /> Education &amp; EdTech Solutions
                     </span>
 
-                    <h2 className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0 }}>
-                        Education Software
+                    <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.15, margin: 0, color: '#1E1B4B' }}>
+                        Education <span>Software</span>
                     </h2>
 
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted, #6B7280)', lineHeight: 1.8, margin: 0, maxWidth: '640px' }}>
@@ -1178,13 +1179,13 @@ const Education = () => {
                                 position: 'relative'
                             }}
                         >
-                            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
+                            <div className="education-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '50px', background: 'rgba(250, 204, 21, 0.15)', color: '#B45309', fontSize: '0.85rem', fontWeight: 700, marginBottom: '1.25rem' }}>
                                 <Sparkles size={16} color="#EAB308" />
                                 Institutional &amp; EdTech Engineering
                             </div>
 
-                            <h3 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 800, color: '#1F2937', marginBottom: '1.25rem', letterSpacing: '-0.5px' }}>
-                                Education Software Solutions
+                            <h3 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 800, color: '#1E1B4B', marginBottom: '1.25rem', letterSpacing: '-0.5px' }}>
+                                Education <span>Software Solutions</span>
                             </h3>
 
                             <p style={{ fontSize: '1.15rem', color: '#374151', lineHeight: 1.8, marginBottom: '1rem', maxWidth: '950px' }}>
@@ -1203,7 +1204,7 @@ const Education = () => {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             style={{ marginBottom: '1.5rem', padding: '0 0.5rem' }}
                         >
-                            <h4 style={{ fontSize: 'clamp(1.2rem, 2vw, 1.45rem)', fontWeight: 700, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <h4 style={{ fontSize: 'clamp(1.2rem, 2vw, 1.45rem)', fontWeight: 700, color: '#1E1B4B', display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <GraduationCap size={24} color="#EAB308" />
                                 Education software requirements may include:
                             </h4>
@@ -1255,7 +1256,7 @@ const Education = () => {
                                             <IconComponent size={24} color="#CA8A04" />
                                         </div>
 
-                                        <h5 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1F2937', margin: 0, lineHeight: 1.35 }}>
+                                        <h5 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#1E1B4B', margin: 0, lineHeight: 1.35 }}>
                                             {req.title}
                                         </h5>
 
@@ -1299,7 +1300,7 @@ const Education = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.45 }}
                             style={{
-                                background: 'linear-gradient(135deg, #1F2937 0%, #111827 100%)',
+                                background: '#1E1B4B',
                                 borderRadius: '24px',
                                 padding: 'clamp(2rem, 3.5vw, 2.75rem)',
                                 color: '#FFFFFF',

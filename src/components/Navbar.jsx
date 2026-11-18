@@ -11,7 +11,7 @@ const SEARCH_ITEMS = [
     { title: 'CRM Software', path: '/products/crm-software', category: 'Product' },
     { title: 'Food Delivery Solution', path: '/products/food-delivery-solution', category: 'Product' },
     { title: 'Fly Bill', path: '/fly-bill', category: 'Product' },
-    { title: 'FLYROLL', path: '/payroll', category: 'Product' },
+    { title: 'FLYROLL', path: '/products/flyroll', category: 'Product' },
     { title: 'Smart CRM', path: '/smart-crm', category: 'Product' },
     { title: 'Custom Software Development', path: '/services/custom-software-development', category: 'Service' },
     { title: 'Enterprise Software Development', path: '/services/enterprise-software-development', category: 'Service' },
@@ -28,7 +28,6 @@ const SEARCH_ITEMS = [
     { title: 'UI/UX Design', path: '/services/ui-ux-design', category: 'Service' },
     { title: 'Web Development', path: '/services/web-development', category: 'Service' },
     { title: 'WhatsApp Marketing API', path: '/services/whatsapp-api', category: 'Service' },
-    { title: 'Digital Marketing', path: '/services/digital-marketing', category: 'Service' },
     { title: 'Industries Overview', path: '/industries', category: 'Industry' },
     { title: 'Manufacturing Industry', path: '/industries/manufacturing', category: 'Industry' },
     { title: 'Healthcare Industry', path: '/industries/healthcare', category: 'Industry' },
@@ -38,6 +37,10 @@ const SEARCH_ITEMS = [
     { title: 'Case Studies', path: '/case-studies', category: 'Page' },
     { title: 'Blog & Articles', path: '/blog', category: 'Page' },
     { title: 'Contact Us', path: '/contact', category: 'Page' },
+    { title: 'Tamil Nadu IT Companies', path: '/locations/tamilnadu/', category: 'Location' },
+    { title: 'Chennai Software Company', path: '/locations/chennai/', category: 'Location' },
+    { title: 'Sankarankovil Software Company', path: '/locations/sankarankovil/', category: 'Location' },
+    { title: 'Tirunelveli IT Company', path: '/locations/tirunelveli/', category: 'Location' },
 ];
 
 const Navbar = () => {
@@ -206,7 +209,7 @@ const Navbar = () => {
                                     <span>Featured Platforms</span>
                                 </div>
                                 <ul className="mega-menu-list">
-                                    <li onClick={closeMenu}><Link to="/payroll">FLYROLL</Link></li>
+                                    <li onClick={closeMenu}><Link to="/products/flyroll">FLYROLL</Link></li>
                                     <li onClick={closeMenu}><Link to="/smart-crm">Smart CRM</Link></li>
                                     <li onClick={closeMenu}><Link to="/products" className="all-services-link">View All Products →</Link></li>
                                 </ul>
@@ -286,7 +289,6 @@ const Navbar = () => {
                                     <span>Marketing & Design</span>
                                 </div>
                                 <ul className="mega-menu-list">
-                                    <li onClick={closeMenu}><Link to="/services/digital-marketing">Digital Marketing</Link></li>
                                     <li onClick={closeMenu}><Link to="/services/ui-ux-design">UI/UX Design</Link></li>
                                     <li onClick={closeMenu}><Link to="/services/web-development">Web Development</Link></li>
                                     <li onClick={closeMenu}><Link to="/services/whatsapp-api">WhatsApp Marketing API</Link></li>

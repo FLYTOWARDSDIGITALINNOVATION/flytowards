@@ -96,8 +96,8 @@ const WhatsAppAPI = () => {
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
                 <div className="grid-2 max-w-1200" style={{ margin: '0 auto', padding: '0 2rem' }}>
                     <div data-aos="fade-up">
-                        <span className="section-tag">
-                            <MessageCircle size={18} color="var(--primary)" /> Premium API Solutions
+                        <span className="home-badge-tag">
+                            <MessageCircle size={18} color="#EAB308" /> PREMIUM API SOLUTIONS
                         </span>
                         <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
                             Powerful WhatsApp Marketing API <br />
@@ -162,7 +162,7 @@ const WhatsAppAPI = () => {
             {/* Everything You Need Section */}
             <section id="features" style={{ padding: '8rem 0', background: 'rgba(255, 0, 122, 0.01)' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">Marketing Tools</span>
+                    <span className="home-badge-tag">MARKETING TOOLS</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Our WhatsApp Business API helps you connect with customers at scale while staying compliant and reliable.
@@ -225,7 +225,7 @@ const WhatsAppAPI = () => {
             {/* Immersive Image-Heavy Use Cases */}
             <section id="use-cases" style={{ padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
-                    <span className="section-tag">Versatility</span>
+                    <span className="home-badge-tag">VERSATILITY</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Built for <span className="gradient-text">Multiple Use Cases</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         Scale your business communication with dynamic, highly convertible messaging structures driven through the world's most popular messaging app.
@@ -262,7 +262,7 @@ const WhatsAppAPI = () => {
             {/* Beautiful Zig-Zag Workflow */}
             <section id="process" style={{ background: 'linear-gradient(to bottom, rgba(0, 242, 255, 0.02), rgba(255, 0, 122, 0.02))', padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }} data-aos="fade-up">
-                    <span className="section-tag">Integration Flow</span>
+                    <span className="home-badge-tag">INTEGRATION FLOW</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         A seamless process to integrate WhatsApp Business API and start growing your customer base.
@@ -332,7 +332,7 @@ const WhatsAppAPI = () => {
                     }}></div>
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                        <span className="section-tag">Grow Faster</span>
+                        <span className="home-badge-tag">GROW FASTER</span>
                         <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '1rem', color: 'var(--text-dark)' }}>
                             Start WhatsApp Marketing <span className="gradient-text">Today</span>
                         </h2>

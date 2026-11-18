@@ -227,7 +227,7 @@ const TermsAndConditions = () => {
         <main style={{ minHeight: '60vh', padding: 'clamp(3rem, 8vw, 6rem) 1.5rem', background: '#FFFFFF' }}>
             <motion.article data-aos="fade-up" style={{ maxWidth: '1456px', margin: '0 auto' }}>
                 <motion.header data-aos="fade-up" style={{ marginBottom: '2.5rem', padding: 0, background: 'transparent', border: 'none', borderRadius: 0, textAlign: 'center' }}>
-                    <motion.span data-aos="fade-up" style={{ display: 'block', marginBottom: '1.25rem', color: '#FACC15', fontSize: '0.95rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    <motion.span className="topic-pill" data-aos="fade-up" style={{ display: 'block', marginBottom: '1.25rem', color: '#FACC15', fontSize: '0.95rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                         Fly Towards Digital Innovation
                     </motion.span>
                     <motion.h1 data-aos="fade-up" style={{ marginBottom: '1.25rem', color: '#1F2937', fontSize: 'clamp(2.7rem, 6vw, 4.5rem)', lineHeight: 1.08, fontWeight: 850 }}>

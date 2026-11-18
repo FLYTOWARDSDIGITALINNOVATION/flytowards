@@ -502,6 +502,14 @@ const CustomSoftwareDev = () => {
                     margin-bottom: 1.5rem;
                     transition: all 0.3s ease;
                 }
+                .csd-page-wrapper .home-badge-tag {
+                    padding: 6px 14px !important;
+                    color: #1e1b4b !important;
+                    font-size: 0.75rem !important;
+                    letter-spacing: 0.1em !important;
+                    background: #fff7cc !important;
+                    border: 1px solid #facc15 !important;
+                }
                 .home-badge-tag:hover {
                     background: #FACC15;
                     color: #1F2937;
@@ -1732,13 +1740,6 @@ const CustomSoftwareDev = () => {
                                     Manufacturing businesses, wholesalers, healthcare organizations, educational institutions, and service providers may need specialized software to manage inventory, billing, workflow automation, and reporting. We focus on understanding these requirements and developing software suited to each business's operations.
                                 </p>
 
-                                <div className="location-city-pills">
-                                    {["Tirunelveli", "Madurai", "Thoothukudi / Tuticorin", "Tenkasi", "Nagercoil", "Virudhunagar", "Sivakasi", "Coimbatore", "Chennai"].map((city, idx) => (
-                                        <span key={idx} className="city-pill">
-                                            <MapPin size={14} color="#FACC15" /> {city}
-                                        </span>
-                                    ))}
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1896,7 +1897,7 @@ const CustomSoftwareDev = () => {
                     <div className="csd-container">
                         <div className="cta-banner" data-aos="zoom-in">
                             <div className="cta-banner-content">
-                                <span style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(10px)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#e0f2fe' }}>
+                                <span className="home-badge-tag" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(10px)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#e0f2fe' }}>
                                     Start Your Transformation
                                 </span>
 

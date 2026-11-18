@@ -43,15 +43,15 @@ const Contact = () => {
             >
                 <div style={{ width: 'min(100%, 1240px)', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', alignItems: 'center', gap: 'clamp(2rem, 5vw, 4.5rem)' }}>
                     <div style={{ maxWidth: '720px' }}>
-                        <span style={{ display: 'inline-flex', alignItems: 'center', padding: '8px 15px', marginBottom: '1rem', border: '1px solid rgba(234, 179, 8, 0.35)', borderRadius: '999px', background: '#FEFCE8', color: '#854D0E', fontSize: '0.82rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                            Fly Towards Digital Innovation
+                        <span className="home-badge-tag" style={{ marginBottom: '1rem' }}>
+                            FLY TOWARDS DIGITAL INNOVATION
                         </span>
                         <motion.h1
                             id="contact-software-development-heading"
                             initial={{ opacity: 0, y: 14 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            style={{ margin: '0 0 1.2rem', color: '#1F2937', fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', fontWeight: 800, lineHeight: 1.1 }}
+                            style={{ margin: '0 0 1.2rem', color: '#1e1b4b', fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', fontWeight: 800, lineHeight: 1.1 }}
                         >
                             Contact Software Development <span style={{ color: '#D6A900' }}>Company</span>
                         </motion.h1>
@@ -100,9 +100,9 @@ const Contact = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        style={{ margin: '0 0 1rem', color: '#1F2937', fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', lineHeight: 1.2 }}
+                        style={{ margin: '0 0 1rem', color: '#1e1b4b', fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', lineHeight: 1.2 }}
                     >
-                        Let’s Discuss Your Software Requirement
+                        Let’s Discuss Your Software <span style={{ color: '#facc15' }}>Requirement</span>
                     </motion.h2>
                     <p style={{ margin: '0 0 0.75rem', color: '#334155', fontSize: '1.08rem', lineHeight: 1.75, fontWeight: 650 }}>
                         Every business has different processes, challenges, and technology requirements. Instead of starting with a predefined solution, we begin by understanding what you are trying to achieve.
@@ -216,8 +216,8 @@ const Contact = () => {
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', paddingTop: '140px', paddingBottom: '3rem' }}>
                 <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }} data-aos="fade-up">
-                    <span className="section-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                        <Send size={18} /> Contact Us
+                    <span className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                        <Send size={18} color="#EAB308" /> CONTACT US
                     </span>
                     <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
                         Let’s Take Your Business to <br />
@@ -231,7 +231,7 @@ const Contact = () => {
 
             {/* Contact Grid Section */}
             <section id="contact-details" style={{ paddingTop: '2rem', paddingBottom: '6rem', scrollMarginTop: '130px' }}>
-                <div className="grid-2 max-w-1200" style={{ gap: '4rem', alignItems: 'start', margin: '0 auto' }}>
+                <div className="grid-2 max-w-1200 contact-details-grid" style={{ gap: '4rem', alignItems: 'start', margin: '0 auto' }}>
 
                     {/* Left Column - Contact Info */}
                     <div data-aos="fade-right">
@@ -381,8 +381,8 @@ const Contact = () => {
             >
                 <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                     <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto 2rem' }}>
-                        <h2 id="contact-services-heading" style={{ margin: '0 0 0.75rem', color: '#1F2937', fontSize: 'clamp(1.9rem, 3.8vw, 2.8rem)', lineHeight: 1.2 }}>
-                            What Can We Help You With?
+                        <h2 id="contact-services-heading" style={{ margin: '0 0 0.75rem', color: '#1e1b4b', fontSize: 'clamp(1.9rem, 3.8vw, 2.8rem)', lineHeight: 1.2 }}>
+                            What Can We <span style={{ color: '#facc15' }}>Help You With?</span>
                         </h2>
                     </div>
                     <motion.div
@@ -431,8 +431,8 @@ const Contact = () => {
                 <div style={{ maxWidth: '1450px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', alignItems: 'center', gap: 'clamp(1.5rem, 4vw, 3rem)' }}>
                     <div>
                     <div style={{ textAlign: 'left', maxWidth: '850px', margin: '0 0 2rem' }}>
-                        <h2 id="after-enquiry-heading" style={{ margin: '0 0 0.75rem', color: '#1F2937', fontSize: 'clamp(1.9rem, 3.8vw, 2.8rem)', lineHeight: 1.2 }}>
-                            What Happens After Your Enquiry?
+                        <h2 id="after-enquiry-heading" style={{ margin: '0 0 0.75rem', color: '#1e1b4b', fontSize: 'clamp(1.9rem, 3.8vw, 2.8rem)', lineHeight: 1.2 }}>
+                            What Happens After Your <span style={{ color: '#facc15' }}>Enquiry?</span>
                         </h2>
                         <p style={{ color: '#64748B', lineHeight: 1.7, margin: 0 }}>
                             We aim to make the initial conversation straightforward and focused on your requirements.
@@ -550,9 +550,9 @@ const Contact = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        style={{ margin: '0 0 0.9rem', color: '#1F2937', fontSize: 'clamp(1.9rem, 3.8vw, 2.7rem)', lineHeight: 1.2 }}
+                        style={{ margin: '0 0 0.9rem', color: '#1e1b4b', fontSize: 'clamp(1.9rem, 3.8vw, 2.7rem)', lineHeight: 1.2 }}
                     >
-                        Why Discuss Your Project With Us?
+                        Why Discuss Your <span style={{ color: '#facc15' }}>Project With Us?</span>
                     </motion.h2>
                     <p style={{ margin: '0 0 0.7rem', color: '#334155', fontSize: '1.08rem', fontWeight: 650, lineHeight: 1.7 }}>
                         Choosing a software development partner is an important decision.
@@ -652,9 +652,9 @@ const Contact = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        style={{ margin: '0 0 1.8rem', color: '#1F2937', fontSize: 'clamp(1.9rem, 3.8vw, 2.7rem)', lineHeight: 1.2, textAlign: 'center' }}
+                        style={{ margin: '0 0 1.8rem', color: '#1e1b4b', fontSize: 'clamp(1.9rem, 3.8vw, 2.7rem)', lineHeight: 1.2, textAlign: 'center' }}
                     >
-                        Frequently Asked Questions
+                        <span style={{ color: '#facc15' }}>Frequently Asked</span> Questions
                     </motion.h2>
                     <motion.div
                         initial="hidden"

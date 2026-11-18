@@ -12,12 +12,31 @@ export default function Retail() {
 
     return (
         <main className="retail-page">
+            <style>{`
+                .retail-page .retail-kicker {
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    padding: 6px 14px !important;
+                    border: 1px solid #facc15 !important;
+                    border-radius: 999px !important;
+                    background: #fff7cc !important;
+                    color: #1e1b4b !important;
+                    font-size: 0.75rem !important;
+                    font-weight: 800 !important;
+                    letter-spacing: 0.1em !important;
+                    text-transform: uppercase !important;
+                }
+                .retail-page .retail-kicker svg {
+                    color: #eab308 !important;
+                }
+            `}</style>
             <div className="mesh-bg" />
             <section className="retail-hero">
                 <div className="retail-hero-copy">
                     <span className="retail-kicker"><ShoppingBag size={16} /> Retail POS &amp; Management Software</span>
-                    <h1>Point of Sale Systems for Retail Businesses in Tamil Nadu</h1>
-                    <h2>Connect Retail Billing, Inventory and Store Operations</h2>
+                    <h1>Point of Sale Systems <span>for Retail Businesses in Tamil Nadu</span></h1>
+                    <h2>Connect <span>Retail Billing, Inventory</span> and Store Operations</h2>
                     <p>Retail businesses manage daily transactions, product information, stock movements, purchases and customer-related activities.</p>
                     <p>When billing and inventory records are maintained through separate applications or manual processes, store owners and managers may find it difficult to maintain consistent operational information.</p>
                     <p>FlyTowards provides retail software development solutions for shops, retail chains and trading businesses across Tamil Nadu, with a focus on South Tamil Nadu. We help businesses plan custom point of sale systems for retail, inventory management applications, billing workflows and connected retail management software.</p>
