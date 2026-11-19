@@ -468,6 +468,12 @@ const Footer = () => {
                     transform: translateY(-3px);
                 }
 
+                @media (min-width: 769px) {
+                    .footer-location-links {
+                        white-space: nowrap;
+                    }
+                }
+
                 @media (max-width: 768px) {
                     footer {
                         overflow-x: hidden;

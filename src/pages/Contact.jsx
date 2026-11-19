@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, Mail, Clock, MapPin, Send, Zap, Shield, Target, Users } from 'lucide-react';
+import { ArrowRight, ChevronDown, Phone, Mail, Clock, MapPin, Send, Zap, Shield, Target, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -64,11 +64,11 @@ const Contact = () => {
                         <p style={{ margin: '0 0 1rem', color: '#64748B', fontSize: '1.06rem', lineHeight: 1.8 }}>
                             Whether you need custom software, an enterprise application, a SaaS product, a web application, a mobile application, software maintenance, or digital transformation support, our team can discuss your requirements and help you identify a suitable approach.
                         </p>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', marginTop: '1.7rem' }}>
-                            <motion.a href="#contact-details" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '9px', minHeight: '48px', padding: '11px 18px', borderRadius: '999px', background: '#FACC15', color: '#1F2937', fontWeight: 800, textDecoration: 'none', boxShadow: '0 8px 20px rgba(234, 179, 8, 0.2)' }}>
+                        <div className="contact-hero-actions" style={{ display: 'flex', flexWrap: 'nowrap', gap: '0.85rem', marginTop: '1.7rem' }}>
+                            <motion.a className="contact-hero-action" href="#contact-details" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '9px', minHeight: '48px', padding: '11px 18px', borderRadius: '999px', background: '#FACC15', color: '#1F2937', fontWeight: 800, textDecoration: 'none', boxShadow: '0 8px 20px rgba(234, 179, 8, 0.2)' }}>
                                 Request a Software Consultation <ArrowRight size={17} />
                             </motion.a>
-                            <motion.a href="#contact-details" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '9px', minHeight: '48px', padding: '11px 18px', borderRadius: '999px', border: '1px solid #CBD5E1', background: '#FFFFFF', color: '#1F2937', fontWeight: 800, textDecoration: 'none' }}>
+                            <motion.a className="contact-hero-action" href="#contact-details" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '9px', minHeight: '48px', padding: '11px 18px', borderRadius: '999px', border: '1px solid #CBD5E1', background: '#FFFFFF', color: '#1F2937', fontWeight: 800, textDecoration: 'none' }}>
                                 Get a Software Quote <ArrowRight size={17} />
                             </motion.a>
                         </div>
@@ -693,18 +693,22 @@ const Contact = () => {
                                 answer: 'If you need to improve, maintain, modernize, or extend an existing application, you can include those requirements in your enquiry.'
                             }
                         ].map((faq) => (
-                            <motion.article
+                            <motion.details
+                                className="contact-faq-item"
                                 key={faq.question}
                                 variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
                                 transition={{ duration: 0.4, ease: 'easeOut' }}
                                 style={{ padding: '1.15rem 1.3rem', border: '1px solid #E2E8F0', borderRadius: '16px', background: '#F8FAFC' }}
                             >
-                                <h3 style={{ display: 'flex', alignItems: 'flex-start', gap: '0.7rem', margin: '0 0 0.5rem', color: '#1F2937', fontSize: '1.04rem', lineHeight: 1.45 }}>
-                                    <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '23px', height: '23px', flex: '0 0 23px', borderRadius: '50%', background: '#FEF3C7', color: '#854D0E', fontSize: '0.8rem', fontWeight: 850 }}>?</span>
-                                    {faq.question}
-                                </h3>
+                                <summary>
+                                    <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', margin: 0, color: '#1F2937', fontSize: '1.04rem', lineHeight: 1.45 }}>
+                                        <span className="contact-faq-mark" aria-hidden="true">?</span>
+                                        {faq.question}
+                                        <span className="contact-faq-chevron" aria-hidden="true"><ChevronDown size={19} /></span>
+                                    </h3>
+                                </summary>
                                 <p style={{ margin: '0 0 0 31px', color: '#64748B', lineHeight: 1.7 }}>{faq.answer}</p>
-                            </motion.article>
+                            </motion.details>
                         ))}
                     </motion.div>
                 </div>

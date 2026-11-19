@@ -517,7 +517,7 @@
 
 .industry-case-studies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -585,7 +585,7 @@
 
 .case-study-principles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -945,9 +945,22 @@
     background: #F8FAFC;
 }
 
+.case-studies-faq-item > summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.case-studies-faq-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.case-studies-faq-item > summary h3 {
+    margin-bottom: 0;
+}
+
 .case-studies-faq-item h3 {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.7rem;
     margin: 0 0 0.5rem;
     color: #1F2937;
@@ -955,7 +968,7 @@
     line-height: 1.45;
 }
 
-.case-studies-faq-item h3 span {
+.case-studies-faq-item h3 .case-studies-faq-mark {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -969,8 +982,25 @@
     font-weight: 850;
 }
 
+.case-studies-faq-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: #F1F3F5;
+    transition: transform 180ms ease;
+}
+
+.case-studies-faq-item[open] .case-studies-faq-chevron {
+    transform: rotate(180deg);
+}
+
 .case-studies-faq-item p {
-    margin: 0 0 0 31px;
+    margin: 0.5rem 0 0 31px;
     color: #64748B;
     line-height: 1.7;
 }
@@ -1051,6 +1081,14 @@
 }
 
 @media (max-width: 900px) {
+    .case-study-principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .industry-case-studies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .case-studies-hero {
         grid-template-columns: 1fr;
     }
@@ -1076,8 +1114,20 @@
 }
 
 @media (max-width: 560px) {
+    .case-study-principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .industry-case-studies-grid {
+        grid-template-columns: 1fr;
+    }
+
     .case-studies-page {
-        padding: 120px 5% 72px;
+        padding: 36px 5% 72px;
+    }
+
+    .case-studies-hero {
+        margin-top: 0;
     }
 
     .case-studies-image-wrap img {

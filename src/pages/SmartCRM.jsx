@@ -779,15 +779,15 @@ export default function SmartCRM() {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="sc-mktg-note">
-                                        <strong style={{color:'#facc15'}}>Can Smart CRM Automate Marketing Activities?</strong><br /><br />
-                                        Marketing automation may be considered as part of the Smart CRM implementation roadmap. Automated email campaigns, WhatsApp integrations, AI-generated communication, campaign workflows and related functionality require technical and commercial verification. Businesses should also assess applicable customer consent, privacy and messaging requirements.
-                                    </div>
-                                    <div style={{ marginTop: 20 }}>
-                                        <Link to="/contact" className="sc-btn-primary">Discuss Your AI CRM &amp; Marketing Requirements <ArrowRight size={16} /></Link>
-                                    </div>
                                 </div>
                             </RevealCard>
+                        </div>
+                        <div className="sc-mktg-note" style={{ marginTop: 24 }}>
+                            <strong style={{color:'#facc15'}}>Can Smart CRM Automate Marketing Activities?</strong><br /><br />
+                            Marketing automation may be considered as part of the Smart CRM implementation roadmap. Automated email campaigns, WhatsApp integrations, AI-generated communication, campaign workflows and related functionality require technical and commercial verification. Businesses should also assess applicable customer consent, privacy and messaging requirements.
+                        </div>
+                        <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center' }}>
+                            <Link to="/contact" className="sc-btn-primary">Discuss Your AI CRM &amp; Marketing Requirements <ArrowRight size={16} /></Link>
                         </div>
                     </div>
                 </section>

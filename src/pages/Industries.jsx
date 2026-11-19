@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Industries.css";
 import {
     ArrowRight,
     CheckCircle2,
@@ -835,10 +836,11 @@ const Industries = () => {
                             </p>
 
                             <div
+                                className="industries-hero-actions"
                                 style={{
                                     display: "flex",
                                     gap: "1.5rem",
-                                    flexWrap: "wrap",
+                                    flexWrap: "nowrap",
                                 }}
                             >
                                 <a

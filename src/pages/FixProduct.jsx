@@ -200,6 +200,7 @@ export default function FixProduct() {
 .fx-heading{text-align:center;max-width:860px;margin:0 auto 36px}
 .fx-heading h2{font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin:14px 0;font-weight:900;letter-spacing:-.03em;color:#1e1b4b}
 .fx-heading h2 em{color:var(--Y);font-style:normal}
+.fx-dark .fx-heading h2{color:var(--Y)}
 .fx-heading p{color:var(--M);line-height:1.75;margin:0}
 .fx-dark .fx-heading p{color:#aaa}
 

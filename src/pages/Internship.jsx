@@ -230,15 +230,23 @@ const Internship = () => {
 
                 .program-grid {
                     display: grid;
-                    grid-template-columns: repeat(
-                        auto-fit,
-                        minmax(320px, 1fr)
-                    );
-                    gap: 3rem;
+                    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+                    gap: 2rem;
                     padding: 40px 0;
                 }
 
+                .program-grid-four {
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                }
+
+                .program-section-container {
+                    width: 100%;
+                    max-width: none;
+                }
+
                 .elegant-card {
+                    display: flex;
+                    flex-direction: column;
                     background: white;
                     border-radius: 40px;
                     border: 1px solid #f1f5f9;
@@ -260,8 +268,19 @@ const Internship = () => {
 
                 .card-img-wrapper {
                     height: 240px;
+                    flex: 0 0 240px;
                     overflow: hidden;
                     position: relative;
+                }
+
+                .program-card-content {
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+                }
+
+                .program-card-details {
+                    margin-top: auto;
                 }
 
                 .card-img {
@@ -396,6 +415,10 @@ const Internship = () => {
 
                 @media (max-width: 968px) {
                     .program-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .program-grid.program-grid-four {
                         grid-template-columns: 1fr;
                     }
 
@@ -630,7 +653,7 @@ const Internship = () => {
                     minHeight: '80vh'
                 }}
             >
-                <div className="max-w-1200">
+                <div className="max-w-1200 program-section-container">
 
                     {/* PROGRAM GRID */}
 
@@ -693,7 +716,7 @@ const Internship = () => {
 
                                     {/* Course Cards */}
 
-                                    <div className="program-grid">
+                                    <div className={`program-grid${cat.courses.length >= 4 ? ' program-grid-four' : ''}`}>
                                         {cat.courses.map(
                                             (
                                                 course,
@@ -745,6 +768,7 @@ const Internship = () => {
                                                     {/* Content */}
 
                                                     <div
+                                                        className="program-card-content"
                                                         style={{
                                                             padding:
                                                                 '3rem'
@@ -790,6 +814,7 @@ const Internship = () => {
                                                         </p>
 
                                                         <div
+                                                            className="program-card-details"
                                                             style={{
                                                                 padding:
                                                                     '1rem 0',

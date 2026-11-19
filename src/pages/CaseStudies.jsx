@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import './CaseStudies.css';
 
 const CaseStudies = () => (
@@ -660,15 +660,21 @@ const CaseStudies = () => (
                             answer: 'You do not need to have the complete technical solution defined before starting a conversation. You can explain the business problem, current process and desired outcome, and the software requirement can then be explored.'
                         }
                     ].map((faq) => (
-                        <motion.article
+                        <motion.details
                             className="case-studies-faq-item"
                             key={faq.question}
                             variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
                             transition={{ duration: 0.4, ease: 'easeOut' }}
                         >
-                            <h3><span aria-hidden="true">?</span>{faq.question}</h3>
+                            <summary>
+                                <h3>
+                                    <span className="case-studies-faq-mark" aria-hidden="true">?</span>
+                                    {faq.question}
+                                    <span className="case-studies-faq-chevron" aria-hidden="true"><ChevronDown size={19} /></span>
+                                </h3>
+                            </summary>
                             <p>{faq.answer}</p>
-                        </motion.article>
+                        </motion.details>
                     ))}
                 </motion.div>
             </motion.section>

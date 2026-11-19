@@ -119,13 +119,21 @@ function useReveal() {
 }
 
 /* ══ Sub-components ═══════════════════════════════════════════════════ */
-const Heading = ({ eyebrow, title, text }) => (
-    <header className="cr-heading">
-        <span className="cr-tag">{eyebrow}</span>
-        <h2>{title}</h2>
-        {text && <p>{text}</p>}
-    </header>
-);
+const Heading = ({ eyebrow, title, text }) => {
+    const words = title.split(' ');
+    const splitAt = Math.ceil(words.length / 2);
+
+    return (
+        <header className="cr-heading">
+            <span className="cr-tag">{eyebrow}</span>
+            <h2>
+                <span className="cr-heading-navy">{words.slice(0, splitAt).join(' ')}</span>{' '}
+                <span className="cr-heading-yellow">{words.slice(splitAt).join(' ')}</span>
+            </h2>
+            {text && <p>{text}</p>}
+        </header>
+    );
+};
 
 function RevealCard({ children, delay = 0, className = '' }) {
     const ref = useReveal();
@@ -163,8 +171,8 @@ export default function CRMSoftware() {
    CRM SOFTWARE PAGE  —  cr-* namespace
 ══════════════════════════════════════════════════════════════ */
 .cr-page{
-  --ink:#182235;--muted:#657185;--line:#e6eaf0;--gold:#facc15;
-  --amber:#eab308;--dark:#1c2638;--soft:#f7f8fa;--blue:#3b82f6;
+  --ink:#142B4A;--muted:#657185;--line:#e6eaf0;--gold:#facc15;
+  --amber:#eab308;--dark:#142B4A;--soft:#f7f8fa;--blue:#142B4A;
   background:#fff;color:var(--ink);
   font-family:'Outfit',sans-serif;overflow-x:hidden
 }
@@ -176,12 +184,14 @@ export default function CRMSoftware() {
 /* ── Tag & heading ── */
 .cr-tag{
   display:inline-flex;align-items:center;gap:7px;
-  border:1px solid #facc15;background:#fff7cc;color:#1e1b4b;
+  border:1px solid #facc15;background:#fff7cc;color:#142B4A;
   border-radius:99px;padding:6px 14px;font-weight:800;
   font-size:.75rem;letter-spacing:.1em;text-transform:uppercase
 }
 .cr-heading{text-align:center;max-width:860px;margin:0 auto 36px}
 .cr-heading h2{font-size:clamp(2rem,4vw,3rem);line-height:1.12;margin:14px 0;font-weight:900;letter-spacing:-.03em}
+.cr-heading-navy{color:#142B4A}
+.cr-heading-yellow{color:#d6a900}
 .cr-heading p{color:var(--muted);line-height:1.75;margin:0}
 
 /* ── Buttons ── */
@@ -200,10 +210,10 @@ export default function CRMSoftware() {
   min-height:650px;padding:140px 0 80px;display:flex;align-items:center;
   background:
     radial-gradient(ellipse at 78% 25%,#fff4c4,transparent 36%),
-    radial-gradient(ellipse at 5%  72%,#eff6ff,transparent 38%)
+  radial-gradient(ellipse at 5%  72%,#fff8dc,transparent 38%)
 }
 .cr-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
-.cr-page h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#1e1b4b}
+.cr-page h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#142B4A}
 .cr-page h1 em{display:block;color:var(--gold);font-style:normal}
 .cr-lead{font-size:1.07rem;line-height:1.72;color:#586579}
 .cr-actions{display:flex;gap:11px;flex-wrap:wrap;margin:24px 0}
@@ -252,7 +262,7 @@ export default function CRMSoftware() {
 .cr-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px #17203318}
 .cr-card h3{font-size:1.05rem;margin:0 0 8px}
 .cr-card p{color:var(--muted);font-size:.9rem;line-height:1.65;margin:0}
-.cr-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:#eff6ff;color:#2563eb;margin-bottom:14px}
+.cr-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:#fff7cc;color:#142B4A;margin-bottom:14px}
 .cr-num{font-size:.74rem;color:#967600;font-weight:900;letter-spacing:.1em;margin-bottom:9px}
 .cr-chip{display:inline-block;background:#f1f3f6;color:#616d7f;border-radius:7px;padding:5px 7px;font-size:.7rem;margin:8px 3px 0 0}
 
@@ -276,7 +286,7 @@ export default function CRMSoftware() {
 .cr-vrow b{color:#facc15}
 .cr-benefit{display:grid;grid-template-columns:36px 1fr;gap:11px;padding:12px 0;border-bottom:1px solid var(--line)}
 .cr-benefit:last-child{border:0}
-.cr-benefit i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#eff6ff;color:#2563eb;font-style:normal}
+.cr-benefit i{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#fff7cc;color:#142B4A;font-style:normal}
 .cr-benefit h3{font-size:.96rem;margin:0 0 4px}
 .cr-benefit p{font-size:.86rem;line-height:1.5;color:var(--muted);margin:0}
 
@@ -309,13 +319,13 @@ export default function CRMSoftware() {
 /* ── Security blocks ── */
 .cr-security{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .cr-sec-item{display:grid;grid-template-columns:38px 1fr;gap:11px;border:1px solid var(--line);border-radius:15px;padding:18px}
-.cr-sec-num{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#eff6ff;color:#2563eb;font-weight:900;font-style:normal}
+.cr-sec-num{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#fff7cc;color:#142B4A;font-weight:900;font-style:normal}
 .cr-sec-item h3{font-size:.94rem;margin:0 0 5px}
 .cr-sec-item p{font-size:.84rem;color:var(--muted);line-height:1.5;margin:0}
 
 /* ── Warning ── */
-.cr-warning{display:flex;gap:9px;align-items:flex-start;padding:13px 15px;margin-top:18px;border:1px solid #bfdbfe;border-radius:13px;background:#eff6ff;color:#1e3a5f;font-size:.85rem;line-height:1.55}
-.cr-warning svg{flex:none;color:#2563eb}
+.cr-warning{display:flex;gap:9px;align-items:flex-start;padding:13px 15px;margin-top:18px;border:1px solid #f1df8d;border-radius:13px;background:#fffbea;color:#142B4A;font-size:.85rem;line-height:1.55}
+.cr-warning svg{flex:none;color:#a98500}
 .cr-warn-amber{border-color:#f1df8d;background:#fffbea;color:#675623}
 .cr-warn-amber svg{color:#a98500}
 
@@ -616,11 +626,11 @@ export default function CRMSoftware() {
                         <div>
                             <div style={{display:'grid',gap:12,marginBottom:20}}>
                                 <div className="cr-vs-box">
-                                    <h3 style={{color:'#2563eb'}}>CRM Software</h3>
+                                    <h3 style={{color:'#142B4A'}}>CRM Software</h3>
                                     <p style={{color:'var(--muted)',fontSize:'.88rem',lineHeight:1.65}}>Focuses on organizing customer information, managing interactions and supporting relationships throughout the customer lifecycle.</p>
                                 </div>
                                 <div className="cr-vs-box">
-                                    <h3 style={{color:'#7c3aed'}}>Sales Management Software</h3>
+                                    <h3 style={{color:'#d6a900'}}>Sales Management Software</h3>
                                     <p style={{color:'var(--muted)',fontSize:'.88rem',lineHeight:1.65}}>Focuses more specifically on sales opportunities, sales activities, pipeline tracking and sales team performance.</p>
                                 </div>
                             </div>
@@ -635,7 +645,7 @@ export default function CRMSoftware() {
                                     'The business wants to organize customer relationships as operations grow.',
                                 ].map(x => (
                                     <li key={x} style={{display:'flex',alignItems:'flex-start',gap:9,fontSize:'.88rem',color:'var(--muted)'}}>
-                                        <CheckCircle2 size={16} style={{color:'#2563eb',flexShrink:0,marginTop:2}}/>{x}
+                                        <CheckCircle2 size={16} style={{color:'#142B4A',flexShrink:0,marginTop:2}}/>{x}
                                     </li>
                                 ))}
                             </ul>

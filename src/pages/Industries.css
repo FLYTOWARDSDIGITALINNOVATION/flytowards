@@ -1,0 +1,15 @@
+.industries-hero-actions > a {
+    flex: 0 1 auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .industries-hero-actions {
+        gap: 0.75rem !important;
+    }
+
+    .industries-hero-actions > a {
+        padding: 1rem 1.1rem !important;
+        font-size: 0.85rem !important;
+    }
+}

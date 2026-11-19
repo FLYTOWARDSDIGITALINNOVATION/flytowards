@@ -5890,3 +5890,67 @@ footer {
     }
 }
 
+.contact-hero-actions {
+    align-items: center;
+}
+
+.contact-faq-item > summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.contact-faq-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.contact-faq-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    flex: 0 0 23px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    color: #854D0E;
+    font-size: 0.8rem;
+    font-weight: 850;
+}
+
+.contact-faq-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: #F1F3F5;
+    transition: transform 180ms ease;
+}
+
+.contact-faq-item[open] .contact-faq-chevron {
+    transform: rotate(180deg);
+}
+
+.contact-faq-item > p {
+    margin-top: 0.5rem !important;
+}
+
+.contact-hero-action {
+    flex: 1 1 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .contact-hero-actions {
+        gap: 0.5rem !important;
+    }
+
+    .contact-hero-action {
+        gap: 5px !important;
+        padding: 10px 8px !important;
+        font-size: 0.76rem !important;
+    }
+}

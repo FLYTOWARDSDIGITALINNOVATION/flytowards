@@ -137,6 +137,10 @@
 }
 
 @media (max-width: 560px) {
+    .blog-page-container {
+        padding-top: 24px !important;
+    }
+
     .blog-hero-gallery-featured {
         height: 260px;
     }
