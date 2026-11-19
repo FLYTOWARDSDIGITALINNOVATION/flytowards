@@ -1165,3 +1165,22 @@
     font-size: 0.86rem;
     white-space: nowrap;
 }
+
+@media (max-width: 600px) {
+    .tn-page,
+    .tn-hero,
+    .tn-hero__inner,
+    .tn-hero__content { min-width: 0; width: 100%; }
+    .tn-container { padding-left: 1rem; padding-right: 1rem; }
+    .tn-hero { padding: 5.5rem 0 2rem; }
+    .tn-hero__inner { padding-bottom: 2.5rem; }
+    .tn-hero__content { text-align: center; }
+    .tn-hero__content .tn-tag { max-width: 100%; white-space: normal; justify-content: center; font-size: .62rem; letter-spacing: .06em; }
+    .tn-hero__heading { font-size: clamp(1.7rem, 8vw, 2.25rem); line-height: 1.14; overflow-wrap: anywhere; }
+    .tn-hero__sub { font-size: .98rem; line-height: 1.5; }
+    .tn-hero__desc { font-size: .9rem; line-height: 1.65; }
+    .tn-hero__ctas { width: 100%; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+    .tn-hero__ctas .tn-btn,
+    .tn-hero__ctas .tn-btn--primary,
+    .tn-hero__ctas .tn-btn--outline { width: 100% !important; max-width: 100%; white-space: normal; }
+}

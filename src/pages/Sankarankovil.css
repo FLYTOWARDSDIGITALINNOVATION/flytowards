@@ -342,3 +342,20 @@
     font-size: 0.82rem;
     white-space: nowrap;
 }
+
+@media (max-width: 600px) {
+    .skl-page,
+    .skl-hero,
+    .skl-hero__inner,
+    .skl-hero__content { min-width: 0; width: 100%; }
+    .skl-container { padding-left: 1rem; padding-right: 1rem; }
+    .skl-hero { padding: 5.5rem 0 2rem; }
+    .skl-hero__inner { padding-bottom: 2.5rem; }
+    .skl-hero__content { text-align: center; }
+    .skl-hero__content .skl-tag { max-width: 100%; white-space: normal; justify-content: center; font-size: .62rem; letter-spacing: .06em; }
+    .skl-hero__heading { font-size: clamp(1.7rem, 8vw, 2.25rem); line-height: 1.14; overflow-wrap: anywhere; }
+    .skl-hero__sub { font-size: .98rem; line-height: 1.5; }
+    .skl-hero__desc { font-size: .9rem; line-height: 1.65; }
+    .skl-hero__ctas { width: 100%; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+    .skl-hero__ctas .skl-btn { width: 100% !important; max-width: 100%; white-space: normal; }
+}

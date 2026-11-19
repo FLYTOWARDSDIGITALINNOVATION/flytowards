@@ -890,3 +890,20 @@
     font-size: 0.82rem;
     white-space: nowrap;
 }
+
+@media (max-width: 600px) {
+    .ch-page,
+    .ch-hero,
+    .ch-hero__inner,
+    .ch-hero__content { min-width: 0; width: 100%; }
+    .ch-container { padding-left: 1rem; padding-right: 1rem; }
+    .ch-hero { padding: 5.5rem 0 2rem; }
+    .ch-hero__inner { padding-bottom: 2.5rem; }
+    .ch-hero__content { text-align: center; }
+    .ch-hero__content .ch-tag { max-width: 100%; white-space: normal; justify-content: center; font-size: .62rem; letter-spacing: .06em; }
+    .ch-hero__heading { font-size: clamp(1.7rem, 8vw, 2.25rem); line-height: 1.14; overflow-wrap: anywhere; }
+    .ch-hero__sub { font-size: .98rem; line-height: 1.5; }
+    .ch-hero__desc { font-size: .9rem; line-height: 1.65; }
+    .ch-hero__ctas { width: 100%; flex-direction: column; flex-wrap: nowrap; align-items: stretch; }
+    .ch-hero__ctas .ch-btn { width: 100% !important; max-width: 100%; white-space: normal; }
+}
