@@ -420,7 +420,7 @@ const Chennai = () => {
                     <AnimSection variant={fadeLeft} className="ch-services-overview__text">
                         <span className="ch-tag ch-tag--light">IT Services</span>
                         <h2 id="s02-heading" className="ch-section__heading">
-                            IT Services & Software Solutions by FlyTowards in Chennai
+                            IT Services & <span className="ch-heading-highlight">Software Solutions</span> by FlyTowards in Chennai
                         </h2>
                         <p>FlyTowards Digital Innovation provides software development and IT solutions for businesses in Chennai, Tamil Nadu.</p>
                         <p>Our services focus on custom software development, web and mobile applications, enterprise software and system integration to help businesses streamline operations, improve workflows and support digital growth.</p>
@@ -453,7 +453,7 @@ const Chennai = () => {
                     <AnimSection className="ch-section__header">
                         <span className="ch-tag ch-tag--light">Challenges</span>
                         <h2 id="s03-heading" className="ch-section__heading">
-                            Common Software Challenges Faced by Chennai Businesses
+                            Common Software <span className="ch-heading-highlight">Challenges</span> Faced by Chennai Businesses
                         </h2>
                         <p className="ch-section__sub">
                             Growing businesses often need technology that can support increasing operational complexity, multiple departments and changing customer expectations.
@@ -518,7 +518,7 @@ const Chennai = () => {
                     <AnimSection className="ch-section__header">
                         <span className="ch-tag ch-tag--light">Use Cases</span>
                         <h2 id="s05-heading" className="ch-section__heading">
-                            How Custom Software Supports Chennai Business Operations
+                            How <span className="ch-heading-highlight">Custom Software</span> Supports Chennai Business Operations
                         </h2>
                         <p className="ch-section__sub">
                             Chennai businesses operate across diverse industries, making workflow-specific software planning important.
@@ -611,7 +611,7 @@ const Chennai = () => {
                         <AnimSection variant={fadeRight} className="ch-section__header ch-section__header--left">
                             <span className="ch-tag ch-tag--light">Benefits</span>
                             <h2 id="s06-heading" className="ch-section__heading">
-                                Benefits of Custom Software Development for Chennai Businesses
+                                Benefits of <span className="ch-heading-highlight">Custom Software Development</span> for Chennai Businesses
                             </h2>
                             <p className="ch-section__sub">
                                 Custom software can help organizations address specific operational requirements and reduce dependence on disconnected tools.
@@ -642,7 +642,7 @@ const Chennai = () => {
                     <AnimSection className="ch-section__header">
                         <span className="ch-tag ch-tag--light">Our Services</span>
                         <h2 id="s07-heading" className="ch-section__heading">
-                            Explore FlyTowards Software Services for Chennai Businesses
+                            Explore FlyTowards <span className="ch-heading-highlight">Software Services</span> for Chennai Businesses
                         </h2>
                     </AnimSection>
 
@@ -710,7 +710,7 @@ const Chennai = () => {
                     <AnimSection variant={fadeLeft} className="ch-why__text">
                         <span className="ch-tag ch-tag--light">Why FlyTowards</span>
                         <h2 id="s09-heading" className="ch-section__heading">
-                            Why Consider FlyTowards When Choosing a Software Company in Chennai?
+                            Why Consider FlyTowards When Choosing a <span className="ch-heading-highlight">Software Company</span> in Chennai?
                         </h2>
                         <p>Choosing a software development provider involves more than comparing technology stacks or service lists.</p>
                         <p>Businesses need a development approach that considers operational requirements, usability, integration feasibility and clear project expectations.</p>
@@ -790,7 +790,7 @@ const Chennai = () => {
                     <AnimSection className="ch-section__header">
                         <span className="ch-tag ch-tag--light">FAQs</span>
                         <h2 id="s11-heading" className="ch-section__heading">
-                            Frequently Asked Questions About Software Companies in Chennai
+                            <span className="ch-heading-highlight">Frequently Asked Questions</span> About Software Companies in Chennai
                         </h2>
                     </AnimSection>
 

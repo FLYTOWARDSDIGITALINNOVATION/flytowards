@@ -413,7 +413,7 @@ const TamilNadu = () => {
                     <AnimSection variant={fadeLeft} className="tn-services-overview__text">
                         <span className="tn-tag tn-tag--light">IT Services</span>
                         <h2 id="s02-heading" className="tn-section__heading">
-                            IT Services & Software Solutions by FlyTowards in Tamil Nadu
+                            IT Services & <span className="tn-heading-highlight">Software Solutions</span> by FlyTowards in Tamil Nadu
                         </h2>
                         <p>
                             FlyTowards Digital Innovation provides software development and IT solutions for businesses across Tamil Nadu, including Tirunelveli, Tenkasi, Sankarankovil, Madurai and surrounding regions.
@@ -452,7 +452,7 @@ const TamilNadu = () => {
                     <AnimSection className="tn-section__header">
                         <span className="tn-tag tn-tag--light">Challenges</span>
                         <h2 id="s03-heading" className="tn-section__heading">
-                            Common Technology Challenges for Businesses in Tamil Nadu
+                            Common Technology <span className="tn-heading-highlight">Challenges</span> for Businesses in Tamil Nadu
                         </h2>
                         <p className="tn-section__sub">
                             Businesses across Tamil Nadu operate in different industries, but many face similar challenges when managing information, processes and software systems.
@@ -529,7 +529,7 @@ const TamilNadu = () => {
                     <AnimSection className="tn-section__header">
                         <span className="tn-tag tn-tag--light">Use Cases</span>
                         <h2 id="s05-heading" className="tn-section__heading">
-                            How Our Software Solutions Support Tamil Nadu Businesses
+                            How Our <span className="tn-heading-highlight">Software Solutions</span> Support Tamil Nadu Businesses
                         </h2>
                         <p className="tn-section__sub">
                             Different businesses need different applications. A suitable software solution should address specific operational requirements rather than introduce unnecessary features.
@@ -625,7 +625,7 @@ const TamilNadu = () => {
                         <AnimSection variant={fadeRight} className="tn-section__header tn-section__header--left">
                             <span className="tn-tag tn-tag--light">Benefits</span>
                             <h2 id="s06-heading" className="tn-section__heading">
-                                Benefits of Choosing Custom Software Development in Tamil Nadu
+                                Benefits of Choosing <span className="tn-heading-highlight">Custom Software Development</span> in Tamil Nadu
                             </h2>
                             <p className="tn-section__sub">
                                 Businesses often evaluate IT companies based on whether their solutions can support current operations and accommodate future requirements.
@@ -660,7 +660,7 @@ const TamilNadu = () => {
                     <AnimSection className="tn-section__header">
                         <span className="tn-tag tn-tag--light">Our Services</span>
                         <h2 id="s07-heading" className="tn-section__heading">
-                            Explore FlyTowards IT Services in Tamil Nadu
+                            Explore FlyTowards <span className="tn-heading-highlight">IT Services</span> in Tamil Nadu
                         </h2>
                     </AnimSection>
 
@@ -735,7 +735,7 @@ const TamilNadu = () => {
                     <AnimSection variant={fadeLeft} className="tn-why__text">
                         <span className="tn-tag tn-tag--light">Why FlyTowards</span>
                         <h2 id="s09-heading" className="tn-section__heading">
-                            Why Consider FlyTowards Among IT Companies in Tamil Nadu?
+                            Why Consider FlyTowards Among <span className="tn-heading-highlight">IT Companies</span> in Tamil Nadu?
                         </h2>
                         <p>
                             Choosing an IT company requires more than comparing service lists. Businesses need a provider that can discuss their operational challenges, explain technical options and establish clear project expectations.
@@ -820,7 +820,7 @@ const TamilNadu = () => {
                     <AnimSection className="tn-section__header">
                         <span className="tn-tag tn-tag--light">FAQs</span>
                         <h2 id="s11-heading" className="tn-section__heading">
-                            Frequently Asked Questions About IT Companies in Tamil Nadu
+                            <span className="tn-heading-highlight">Frequently Asked Questions</span> About IT Companies in Tamil Nadu
                         </h2>
                     </AnimSection>
 

@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════
    Chennai.css — FlyTowards Chennai Location Page
-   Color Palette: Navy (#0f172a / #1e3a8a) + Yellow (#FACC15)
+   Color Palette: Indigo Navy (#211e52) + Yellow (#FACC15)
 ═══════════════════════════════════════════════════════════ */
 
 /* ── Design Tokens ──────────────────────────────────────── */
 :root {
-    --ch-navy:        #0f172a;
+    --ch-navy:        #211e52;
     --ch-navy-mid:    #1e3a8a;
     --ch-navy-light:  #1e40af;
     --ch-yellow:      #FACC15;
@@ -79,6 +79,10 @@
     line-height: 1.25;
     color: var(--ch-navy);
     margin: 0 0 1rem;
+}
+.ch-heading-highlight {
+    color: var(--ch-yellow) !important;
+    -webkit-text-fill-color: var(--ch-yellow);
 }
 .ch-section__heading--light { color: var(--ch-white); }
 .ch-section__sub { color: var(--ch-text-muted); font-size: 1.05rem; margin: 0; }

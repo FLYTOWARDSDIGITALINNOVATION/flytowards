@@ -101,11 +101,11 @@ const Footer = () => {
                         </span>
                     </div>
                     <p
+                        className="footer-location-links"
                         style={{
                             color: 'var(--text-muted)',
                             fontSize: '0.8rem',
-                            margin: '0.5rem 0 0 30px',
-                            whiteSpace: 'nowrap'
+                            margin: '0.5rem 0 0 30px'
                         }}
                     >
                         <Link
@@ -469,9 +469,28 @@ const Footer = () => {
                 }
 
                 @media (max-width: 768px) {
+                    footer {
+                        overflow-x: hidden;
+                    }
+
+                    .footer-grid {
+                        width: 100% !important;
+                        padding: 0 1rem !important;
+                        gap: 2rem !important;
+                    }
+
                     .footer-logo {
                         display: flex !important;
                         justify-content: center !important;
+                    }
+
+                    .footer-location-links {
+                        max-width: 100%;
+                        margin: 0.5rem 0 0 !important;
+                        text-align: center;
+                        white-space: normal !important;
+                        overflow-wrap: anywhere;
+                        line-height: 1.8;
                     }
 
                     .footer-address-box {

@@ -371,7 +371,41 @@ export default function Home() {
           .hm-final-list { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
+          .hm-page,
+          .hm-hero,
+          .hm-hero .hm-container,
+          .hm-hero-grid,
+          .hm-hero-grid > div:first-child {
+            background: #fff !important;
+            background-color: #fff !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            filter: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+          }
+          .hm-hero::before,
+          .hm-hero::after,
+          .hm-hero-grid::before,
+          .hm-hero-grid::after,
+          .hm-hero .hm-container::before,
+          .hm-hero .hm-container::after,
+          .hm-hero-grid > div:first-child::before,
+          .hm-hero-grid > div:first-child::after {
+            content: none !important;
+            display: none !important;
+          }
           .hm-hero h1 { font-size: 2rem; }
+          .hm-cta-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.75rem;
+          }
+          .hm-cta-row a {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+          }
           .hm-h2 { font-size: 1.7rem; }
           .hm-prob-list { grid-template-columns: 1fr; }
         }

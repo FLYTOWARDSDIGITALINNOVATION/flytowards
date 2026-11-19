@@ -857,7 +857,7 @@ const About = () => {
                     </div>
 
                     {/* Vertical Tree Line Container */}
-                    <div style={{ position: 'relative', padding: '1rem 0' }}>
+                    <div className="belief-tree" style={{ position: 'relative', padding: '1rem 0' }}>
                         {/* Central Trunk / Connecting Line */}
                         <div style={{
                             position: 'absolute',
@@ -871,11 +871,11 @@ const About = () => {
                             zIndex: 1
                         }} className="tree-central-line"></div>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative', zIndex: 2 }}>
+                        <div className="belief-tree-items" style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative', zIndex: 2 }}>
                             {beliefs.map((b, idx) => {
                                 const isEven = idx % 2 === 0;
                                 return (
-                                    <div key={idx} data-aos={isEven ? "fade-right" : "fade-left"} data-aos-delay={idx * 80} style={{
+                                    <div key={idx} className="belief-tree-row" data-aos={isEven ? "fade-right" : "fade-left"} data-aos-delay={idx * 80} style={{
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: isEven ? 'flex-start' : 'flex-end',
@@ -919,6 +919,7 @@ const About = () => {
                                             cursor: 'pointer',
                                             textAlign: isEven ? 'right' : 'left'
                                         }}
+                                        className="belief-branch-card"
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.transform = isEven ? 'translateX(-10px) scale(1.02)' : 'translateX(10px) scale(1.02)';
                                             e.currentTarget.style.borderColor = '#1F2937';

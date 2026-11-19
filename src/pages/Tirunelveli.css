@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════
    Tirunelveli.css — FlyTowards Location Page
-   Color Palette: Navy (#0f172a / #1e3a8a) + Yellow (#FACC15)
+   Color Palette: Indigo Navy (#211e52) + Yellow (#FACC15)
    Prefix: tvl-
 ═══════════════════════════════════════════════════════════ */
 
 :root {
-    --tvl-navy:        #0f172a;
+    --tvl-navy:        #211e52;
     --tvl-navy-mid:    #1e3a8a;
     --tvl-navy-light:  #1e40af;
     --tvl-yellow:      #FACC15;
@@ -40,6 +40,7 @@
 .tvl-section__header { text-align: center; max-width: 760px; margin: 0 auto 3.5rem; }
 .tvl-section__header--left { text-align: left; margin: 0 0 2rem; }
 .tvl-section__heading { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; line-height: 1.25; color: var(--tvl-navy); margin: 0 0 1rem; }
+.tvl-heading-highlight { color: var(--tvl-yellow) !important; -webkit-text-fill-color: var(--tvl-yellow); }
 .tvl-section__heading--light { color: var(--tvl-white); }
 .tvl-section__sub { color: var(--tvl-text-muted); font-size: 1.05rem; margin: 0; }
 .tvl-section__sub--light { color: rgba(255,255,255,0.75); }

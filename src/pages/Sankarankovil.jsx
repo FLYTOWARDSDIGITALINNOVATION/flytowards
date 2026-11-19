@@ -302,7 +302,7 @@ const Sankarankovil = () => {
                 <div className="skl-container skl-services-overview__inner">
                     <AnimSection variant={fadeLeft} className="skl-services-overview__text">
                         <span className="skl-tag skl-tag--light">IT Services</span>
-                        <h2 id="s02-heading" className="skl-section__heading">IT Services & Software Solutions by FlyTowards in Sankarankovil</h2>
+                        <h2 id="s02-heading" className="skl-section__heading">IT Services & <span className="skl-heading-highlight">Software Solutions</span> by FlyTowards in Sankarankovil</h2>
                         <p>FlyTowards Digital Innovation provides software development and IT solutions for businesses in Sankarankovil, Tenkasi district, Tamil Nadu.</p>
                         <p>Our services focus on custom business applications, billing and inventory software, web and mobile app development, and business automation to help local businesses simplify operations, manage daily workflows and improve efficiency.</p>
                     </AnimSection>
@@ -327,7 +327,7 @@ const Sankarankovil = () => {
                 <div className="skl-container">
                     <AnimSection className="skl-section__header">
                         <span className="skl-tag skl-tag--light">Challenges</span>
-                        <h2 id="s03-heading" className="skl-section__heading">Common Software Challenges for Businesses in Sankarankovil</h2>
+                        <h2 id="s03-heading" className="skl-section__heading">Common Software <span className="skl-heading-highlight">Challenges</span> for Businesses in Sankarankovil</h2>
                         <p className="skl-section__sub">Local businesses often need reliable ways to organize daily operations without adding unnecessary complexity.</p>
                     </AnimSection>
                     <div className="skl-challenges__grid">
@@ -372,7 +372,7 @@ const Sankarankovil = () => {
                 <div className="skl-container">
                     <AnimSection className="skl-section__header">
                         <span className="skl-tag skl-tag--light">Use Cases</span>
-                        <h2 id="s05-heading" className="skl-section__heading">How Custom Software Supports Sankarankovil Businesses</h2>
+                        <h2 id="s05-heading" className="skl-section__heading">How <span className="skl-heading-highlight">Custom Software</span> Supports Sankarankovil Businesses</h2>
                         <p className="skl-section__sub">Software development becomes valuable when applications address everyday business requirements.</p>
                     </AnimSection>
                     <div className="skl-tabs" role="tablist" aria-label="Business use cases">
@@ -449,7 +449,7 @@ const Sankarankovil = () => {
                     <div className="skl-benefits__list">
                         <AnimSection variant={fadeRight} className="skl-section__header skl-section__header--left">
                             <span className="skl-tag skl-tag--light">Benefits</span>
-                            <h2 id="s06-heading" className="skl-section__heading">Benefits of Custom Software for Businesses in Sankarankovil</h2>
+                            <h2 id="s06-heading" className="skl-section__heading">Benefits of <span className="skl-heading-highlight">Custom Software</span> for Businesses in Sankarankovil</h2>
                             <p className="skl-section__sub">Custom software can help businesses organize information, simplify selected tasks and improve visibility into everyday operations.</p>
                         </AnimSection>
                         {benefits.map((b, i) => (
@@ -469,7 +469,7 @@ const Sankarankovil = () => {
                 <div className="skl-container">
                     <AnimSection className="skl-section__header">
                         <span className="skl-tag skl-tag--light">Our Services</span>
-                        <h2 id="s07-heading" className="skl-section__heading">Explore FlyTowards Software Services in Sankarankovil</h2>
+                        <h2 id="s07-heading" className="skl-section__heading">Explore FlyTowards <span className="skl-heading-highlight">Software Services</span> in Sankarankovil</h2>
                     </AnimSection>
                     <div className="skl-service-tiles__grid">
                         {serviceLinks.map((item, i) => (
@@ -517,7 +517,7 @@ const Sankarankovil = () => {
                 <div className="skl-container skl-why__inner">
                     <AnimSection variant={fadeLeft} className="skl-why__text">
                         <span className="skl-tag skl-tag--light">Why FlyTowards</span>
-                        <h2 id="s09-heading" className="skl-section__heading">Why Consider FlyTowards When Choosing a Software Company in Sankarankovil?</h2>
+                        <h2 id="s09-heading" className="skl-section__heading">Why Consider FlyTowards When Choosing a <span className="skl-heading-highlight">Software Company</span> in Sankarankovil?</h2>
                         <p>Choosing a software development provider involves understanding how the proposed application will support daily business activities.</p>
                         <p>A suitable solution should consider operational requirements, employee usability, technical feasibility and future maintenance needs.</p>
                         <p>FlyTowards focuses on planning software around the processes businesses need to manage.</p>
@@ -578,7 +578,7 @@ const Sankarankovil = () => {
                 <div className="skl-container">
                     <AnimSection className="skl-section__header">
                         <span className="skl-tag skl-tag--light">FAQs</span>
-                        <h2 id="s11-heading" className="skl-section__heading">Frequently Asked Questions About Software Companies in Sankarankovil</h2>
+                        <h2 id="s11-heading" className="skl-section__heading"><span className="skl-heading-highlight">Frequently Asked Questions</span> About Software Companies in Sankarankovil</h2>
                     </AnimSection>
                     <div className="skl-faqs__grid">
                         {faqs.map((faq, i) => (

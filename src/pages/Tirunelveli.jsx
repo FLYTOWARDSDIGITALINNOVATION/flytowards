@@ -301,7 +301,7 @@ const Tirunelveli = () => {
                 <div className="tvl-container tvl-services-overview__inner">
                     <AnimSection variant={fadeLeft} className="tvl-services-overview__text">
                         <span className="tvl-tag tvl-tag--light">IT Services</span>
-                        <h2 id="s02-heading" className="tvl-section__heading">IT Services &amp; Software Solutions by FlyTowards in Tirunelveli</h2>
+                        <h2 id="s02-heading" className="tvl-section__heading">IT Services &amp; <span className="tvl-heading-highlight">Software Solutions</span> by FlyTowards in Tirunelveli</h2>
                         <p>FlyTowards Digital Innovation provides software development and IT solutions for businesses in Tirunelveli, Tamil Nadu.</p>
                         <p>Our services focus on custom software development, web and mobile applications, enterprise software solutions and business automation to help local businesses streamline operations, manage workflows and improve efficiency.</p>
                     </AnimSection>
@@ -326,7 +326,7 @@ const Tirunelveli = () => {
                 <div className="tvl-container">
                     <AnimSection className="tvl-section__header">
                         <span className="tvl-tag tvl-tag--light">Challenges</span>
-                        <h2 id="s03-heading" className="tvl-section__heading">Common Software Challenges for Businesses in Tirunelveli</h2>
+                        <h2 id="s03-heading" className="tvl-section__heading">Common Software <span className="tvl-heading-highlight">Challenges</span> for Businesses in Tirunelveli</h2>
                         <p className="tvl-section__sub">Businesses often face operational difficulties when important information is maintained across manual records and disconnected applications.</p>
                     </AnimSection>
                     <div className="tvl-challenges__grid">
@@ -371,7 +371,7 @@ const Tirunelveli = () => {
                 <div className="tvl-container">
                     <AnimSection className="tvl-section__header">
                         <span className="tvl-tag tvl-tag--light">Use Cases</span>
-                        <h2 id="s05-heading" className="tvl-section__heading">How Software Solutions Support Tirunelveli Businesses</h2>
+                        <h2 id="s05-heading" className="tvl-section__heading">How <span className="tvl-heading-highlight">Software Solutions</span> Support Tirunelveli Businesses</h2>
                         <p className="tvl-section__sub">Different industries need different software applications. The right solution should reflect how information moves between employees, departments and business systems.</p>
                     </AnimSection>
                     <div className="tvl-tabs" role="tablist" aria-label="Business use cases">
@@ -448,7 +448,7 @@ const Tirunelveli = () => {
                     <div className="tvl-benefits__list">
                         <AnimSection variant={fadeRight} className="tvl-section__header tvl-section__header--left">
                             <span className="tvl-tag tvl-tag--light">Benefits</span>
-                            <h2 id="s06-heading" className="tvl-section__heading">Benefits of Custom Software for Tirunelveli Businesses</h2>
+                            <h2 id="s06-heading" className="tvl-section__heading">Benefits of <span className="tvl-heading-highlight">Custom Software</span> for Tirunelveli Businesses</h2>
                             <p className="tvl-section__sub">Custom software can help organizations organize operational information, simplify workflows and improve access to business records.</p>
                         </AnimSection>
                         {benefits.map((b, i) => (
@@ -468,7 +468,7 @@ const Tirunelveli = () => {
                 <div className="tvl-container">
                     <AnimSection className="tvl-section__header">
                         <span className="tvl-tag tvl-tag--light">Our Services</span>
-                        <h2 id="s07-heading" className="tvl-section__heading">Explore FlyTowards IT Services in Tirunelveli</h2>
+                        <h2 id="s07-heading" className="tvl-section__heading">Explore FlyTowards <span className="tvl-heading-highlight">IT Services</span> in Tirunelveli</h2>
                     </AnimSection>
                     <div className="tvl-service-tiles__grid">
                         {serviceLinks.map((item, i) => (
@@ -519,7 +519,7 @@ const Tirunelveli = () => {
                 <div className="tvl-container tvl-why__inner">
                     <AnimSection variant={fadeLeft} className="tvl-why__text">
                         <span className="tvl-tag tvl-tag--light">Why FlyTowards</span>
-                        <h2 id="s09-heading" className="tvl-section__heading">Why Consider FlyTowards When Choosing an IT Company in Tirunelveli?</h2>
+                        <h2 id="s09-heading" className="tvl-section__heading">Why Consider FlyTowards When Choosing an <span className="tvl-heading-highlight">IT Company</span> in Tirunelveli?</h2>
                         <p>Choosing an IT company involves more than comparing software features or development technologies.</p>
                         <p>Businesses need a provider that can understand operational challenges, explain suitable technical approaches and establish clear project expectations.</p>
                         <p>FlyTowards focuses on planning software around business requirements, user workflows and implementation needs.</p>
@@ -582,7 +582,7 @@ const Tirunelveli = () => {
                 <div className="tvl-container">
                     <AnimSection className="tvl-section__header">
                         <span className="tvl-tag tvl-tag--light">FAQs</span>
-                        <h2 id="s11-heading" className="tvl-section__heading">Frequently Asked Questions About IT Companies in Tirunelveli</h2>
+                        <h2 id="s11-heading" className="tvl-section__heading"><span className="tvl-heading-highlight">Frequently Asked Questions</span> About IT Companies in Tirunelveli</h2>
                     </AnimSection>
                     <div className="tvl-faqs__grid">
                         {faqs.map((faq, i) => (

@@ -155,9 +155,14 @@ const Navbar = () => {
                     <Link
                         to="/products"
                         className={isActive('/products')}
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === 'products'}
                         onClick={(e) => {
-                            closeMenu();
-                            toggleDropdown('products', e);
+                            if (window.innerWidth <= 968) {
+                                toggleDropdown('products', e);
+                            } else {
+                                closeMenu();
+                            }
                         }}
                     >
                         Products
@@ -229,9 +234,14 @@ const Navbar = () => {
                     <Link
                         to="/services"
                         className={isActive('/services')}
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === 'services'}
                         onClick={(e) => {
-                            closeMenu();
-                            toggleDropdown('services', e);
+                            if (window.innerWidth <= 968) {
+                                toggleDropdown('services', e);
+                            } else {
+                                closeMenu();
+                            }
                         }}
                     >
                         Service
@@ -312,9 +322,14 @@ const Navbar = () => {
                     <Link
                         to="/industries"
                         className={isActive('/industries')}
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === 'industries'}
                         onClick={(e) => {
-                            closeMenu();
-                            toggleDropdown('industries', e);
+                            if (window.innerWidth <= 968) {
+                                toggleDropdown('industries', e);
+                            } else {
+                                closeMenu();
+                            }
                         }}
                     >
                         Industries

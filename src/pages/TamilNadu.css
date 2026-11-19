@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════
    TamilNadu.css — FlyTowards Location Page
-   Color Palette: Navy (#0f172a / #1e3a8a) + Yellow (#FACC15)
+   Color Palette: Indigo Navy (#211e52) + Yellow (#FACC15)
 ═══════════════════════════════════════════════════════════ */
 
 /* ── Design Tokens ──────────────────────────────────────── */
 :root {
-    --tn-navy:        #0f172a;
+    --tn-navy:        #211e52;
     --tn-navy-mid:    #1e3a8a;
     --tn-navy-light:  #1e40af;
     --tn-navy-muted:  #334155;
@@ -85,6 +85,11 @@
     line-height: 1.25;
     color: var(--tn-navy);
     margin: 0 0 1rem;
+}
+.tn-page .tn-section__heading .tn-heading-highlight {
+    display: inline;
+    color: var(--tn-yellow) !important;
+    -webkit-text-fill-color: var(--tn-yellow);
 }
 .tn-section__heading--light { color: var(--tn-white); }
 .tn-section__sub {
@@ -556,6 +561,11 @@
 .tn-tab:hover {
     border-color: var(--tn-navy-mid);
     color: var(--tn-navy);
+}
+.tn-tab--active:hover {
+    border-color: var(--tn-navy);
+    background: var(--tn-navy);
+    color: var(--tn-white);
 }
 .tn-tab--active {
     background: var(--tn-navy);

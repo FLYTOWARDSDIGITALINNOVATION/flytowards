@@ -343,6 +343,76 @@ const Service = () => {
                     background-color: #FACC15 !important;
                     box-sizing: border-box !important;
                 }
+
+                @media (max-width: 768px) {
+                    .services-page,
+                    .services-page * {
+                        min-width: 0;
+                        overflow-wrap: break-word;
+                    }
+
+                    .services-page section {
+                        max-width: 100%;
+                        padding-left: 1rem !important;
+                        padding-right: 1rem !important;
+                    }
+
+                    .services-page section > div,
+                    .services-page section > div > div {
+                        max-width: 100% !important;
+                    }
+
+                    .services-page .grid,
+                    .services-page .grid-2,
+                    .services-page [style*="grid-template-columns"] {
+                        grid-template-columns: minmax(0, 1fr) !important;
+                        gap: 1rem !important;
+                    }
+
+                    .services-page .grid > *,
+                    .services-page .grid-2 > *,
+                    .services-page [style*="grid-template-columns"] > * {
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .services-page .btn,
+                    .services-page a[style*="padding"] {
+                        max-width: 100%;
+                        box-sizing: border-box;
+                        white-space: normal;
+                        overflow-wrap: anywhere;
+                    }
+
+                    .services-page img,
+                    .services-page video,
+                    .services-page iframe {
+                        width: auto;
+                        max-width: 100%;
+                    }
+
+                    .services-page .hero > div > .grid-2 > div:first-child > div {
+                        flex-direction: column;
+                        align-items: stretch;
+                        gap: 0.75rem !important;
+                    }
+
+                    .services-page .hero > div > .grid-2 > div:first-child > div a {
+                        width: 100%;
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    .services-page .service-bottom-cta-actions {
+                        flex-direction: column !important;
+                    }
+                }
+
+                @media (max-width: 420px) {
+                    .services-page h1 { font-size: 2rem !important; }
+                    .services-page h2 { font-size: 1.65rem !important; }
+                    .services-page p { font-size: 1rem !important; }
+                }
              `}</style>
 
             {/* Ambient Background Lights (Exact match with Home page) */}
@@ -1061,8 +1131,8 @@ const Service = () => {
                         Have a software requirement, an existing application that needs improvement, or a business process that could be better supported through software? Talk to Fly Towards Digital Innovation about your requirement.
                     </p>
 
-                    <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'nowrap', alignItems: 'center' }}>
-                        <Link to="/contact/" style={{
+                    <div className="service-bottom-cta-actions" style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'nowrap', alignItems: 'center' }}>
+                        <Link to="/contact/" className="service-bottom-cta-button" style={{
                             padding: '0.8rem 1.25rem',
                             fontSize: '0.9rem',
                             borderRadius: '50px',
@@ -1088,7 +1158,7 @@ const Service = () => {
                             Discuss Your Software Requirement <ArrowRight size={22} color="#FACC15" />
                         </Link>
 
-                        <a href="#services-list" style={{
+                        <a href="#services-list" className="service-bottom-cta-button" style={{
                             padding: '0.8rem 1.25rem',
                             fontSize: '0.9rem',
                             borderRadius: '50px',

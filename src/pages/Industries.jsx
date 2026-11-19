@@ -392,6 +392,33 @@ const Industries = () => {
                 }
 
                 @media (max-width: 600px) {
+                    .industries-page .industries-partner-grid {
+                        width: 100%;
+                        min-width: 0;
+                        grid-template-columns: minmax(0, 1fr) !important;
+                        gap: 1rem !important;
+                    }
+
+                    .industries-page .industries-partner-card {
+                        width: 100%;
+                        min-width: 0;
+                        padding: 1.25rem !important;
+                        box-sizing: border-box;
+                    }
+
+                    .industries-page .industry-consultation-grid {
+                        width: 100%;
+                        grid-template-columns: minmax(0, 1fr) !important;
+                        gap: 1rem !important;
+                    }
+
+                    .industries-page .industry-consultation-card {
+                        width: 100%;
+                        min-width: 0;
+                        padding: 1.25rem !important;
+                        box-sizing: border-box;
+                    }
+
                     .industry-card {
                         padding: 2rem !important;
                         border-radius: 30px !important;
@@ -2319,6 +2346,7 @@ const Industries = () => {
                     </div>
 
                     <div
+                        className="industries-partner-grid"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         style={{
@@ -2338,6 +2366,7 @@ const Industries = () => {
                             return (
                                 <div
                                     key={idx}
+                                    className="industries-partner-card"
                                     style={{
                                         background: "rgba(30, 41, 59, 0.7)",
                                         borderRadius: "20px",
@@ -2387,7 +2416,9 @@ const Industries = () => {
                         </p>
                     </div>
 
+                    {/* Consultation cards */}
                     <div
+                        className="industry-consultation-grid"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         style={{
@@ -2407,6 +2438,7 @@ const Industries = () => {
                         ].map((card, idx) => (
                             <div
                                 key={idx}
+                                className="industry-consultation-card"
                                 style={{
                                     background: "#F8FAFC",
                                     borderRadius: "20px",
