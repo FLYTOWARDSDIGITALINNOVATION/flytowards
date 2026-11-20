@@ -74,10 +74,9 @@ const Navbar = () => {
     }, [location.pathname]);
 
     const toggleDropdown = (name, e) => {
-        if (window.innerWidth <= 968) {
-            e.preventDefault();
-            setActiveDropdown((prev) => (prev === name ? null : name));
-        }
+        e?.preventDefault();
+        e?.stopPropagation();
+        setActiveDropdown((prev) => (prev === name ? null : name));
     };
 
     const handleMouseEnter = (name) => {
@@ -152,28 +151,25 @@ const Navbar = () => {
                     onMouseEnter={() => handleMouseEnter('products')}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <Link
-                        to="/products"
-                        className={isActive('/products')}
-                        aria-haspopup="true"
-                        aria-expanded={activeDropdown === 'products'}
-                        onClick={(e) => {
-                            if (window.innerWidth <= 968) {
-                                toggleDropdown('products', e);
-                            } else {
-                                closeMenu();
-                            }
-                        }}
-                    >
-                        Products
-                        <ChevronDown
-                            size={13}
-                            strokeWidth={2.5}
-                            className={`dropdown-arrow ${
-                                activeDropdown === 'products' ? 'rotate' : ''
-                            }`}
-                        />
-                    </Link>
+                    <div className="nav-dropdown-trigger">
+                        <Link to="/products" className={isActive('/products')} onClick={closeMenu}>
+                            Products
+                        </Link>
+                        <button
+                            type="button"
+                            className="nav-dropdown-toggle"
+                            aria-label="Toggle products menu"
+                            aria-haspopup="true"
+                            aria-expanded={activeDropdown === 'products'}
+                            onClick={(e) => toggleDropdown('products', e)}
+                        >
+                            <ChevronDown
+                                size={13}
+                                strokeWidth={2.5}
+                                className={`dropdown-arrow ${activeDropdown === 'products' ? 'rotate' : ''}`}
+                            />
+                        </button>
+                    </div>
 
                     <div
                         className={`dropdown-menu mega-menu-container ${
@@ -231,28 +227,21 @@ const Navbar = () => {
                     onMouseEnter={() => handleMouseEnter('services')}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <Link
-                        to="/services"
-                        className={isActive('/services')}
-                        aria-haspopup="true"
-                        aria-expanded={activeDropdown === 'services'}
-                        onClick={(e) => {
-                            if (window.innerWidth <= 968) {
-                                toggleDropdown('services', e);
-                            } else {
-                                closeMenu();
-                            }
-                        }}
-                    >
-                        Service
-                        <ChevronDown
-                            size={13}
-                            strokeWidth={2.5}
-                            className={`dropdown-arrow ${
-                                activeDropdown === 'services' ? 'rotate' : ''
-                            }`}
-                        />
-                    </Link>
+                    <div className="nav-dropdown-trigger">
+                        <Link to="/services" className={isActive('/services')} onClick={closeMenu}>
+                            Service
+                        </Link>
+                        <button
+                            type="button"
+                            className="nav-dropdown-toggle"
+                            aria-label="Toggle services menu"
+                            aria-haspopup="true"
+                            aria-expanded={activeDropdown === 'services'}
+                            onClick={(e) => toggleDropdown('services', e)}
+                        >
+                            <ChevronDown size={13} strokeWidth={2.5} className={`dropdown-arrow ${activeDropdown === 'services' ? 'rotate' : ''}`} />
+                        </button>
+                    </div>
 
                     <div
                         className={`dropdown-menu mega-menu-container ${
@@ -319,28 +308,21 @@ const Navbar = () => {
                     onMouseEnter={() => handleMouseEnter('industries')}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <Link
-                        to="/industries"
-                        className={isActive('/industries')}
-                        aria-haspopup="true"
-                        aria-expanded={activeDropdown === 'industries'}
-                        onClick={(e) => {
-                            if (window.innerWidth <= 968) {
-                                toggleDropdown('industries', e);
-                            } else {
-                                closeMenu();
-                            }
-                        }}
-                    >
-                        Industries
-                        <ChevronDown
-                            size={13}
-                            strokeWidth={2.5}
-                            className={`dropdown-arrow ${
-                                activeDropdown === 'industries' ? 'rotate' : ''
-                            }`}
-                        />
-                    </Link>
+                    <div className="nav-dropdown-trigger">
+                        <Link to="/industries" className={isActive('/industries')} onClick={closeMenu}>
+                            Industries
+                        </Link>
+                        <button
+                            type="button"
+                            className="nav-dropdown-toggle"
+                            aria-label="Toggle industries menu"
+                            aria-haspopup="true"
+                            aria-expanded={activeDropdown === 'industries'}
+                            onClick={(e) => toggleDropdown('industries', e)}
+                        >
+                            <ChevronDown size={13} strokeWidth={2.5} className={`dropdown-arrow ${activeDropdown === 'industries' ? 'rotate' : ''}`} />
+                        </button>
+                    </div>
 
                     <div
                         className={`dropdown-menu mega-menu-container ${

@@ -285,9 +285,9 @@ const Contact = () => {
                         </div>
 
                             <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 800, color: '#1e1b4b' }}>Why <span className="gradient-text">Choose Us?</span></h3>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }}>
+                            <div className="contact-why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }}>
                                 {whyChooseUs.map((item, idx) => (
-                                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#FFFFFF', padding: '1.25rem 1.4rem', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)', border: '1px solid #E2E8F0', minHeight: '80px' }}>
+                                    <div className="contact-why-card" key={idx} style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#FFFFFF', padding: '1.25rem 1.4rem', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)', border: '1px solid #E2E8F0', minHeight: '80px' }}>
                                         <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: '#FEF9C3', border: '1px solid rgba(250, 204, 21, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                                             {item.icon}
                                         </div>

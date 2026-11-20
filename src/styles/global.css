@@ -308,6 +308,61 @@ body.home-page nav {
     transition: color 0.2s ease;
 }
 
+.nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-menu .nav-dropdown-trigger > a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 6px 4px;
+    color: #475569;
+    text-decoration: none;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-menu .nav-dropdown-trigger > a:hover,
+.nav-menu .nav-dropdown-trigger > a.active { color: #1F2937; }
+.nav-menu .nav-dropdown-trigger > a.active { font-weight: 700; }
+.nav-menu .nav-dropdown-trigger > a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 24px;
+    height: 3px;
+    border-radius: 999px;
+    background: #FACC15;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-menu .nav-dropdown-trigger > a.active::after,
+.nav-menu .nav-dropdown-trigger > a:hover::after { transform: translateX(-50%) scaleX(1); }
+.nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    border: 0;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+}
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle[aria-expanded="true"] { color: #EAB308; }
+.nav-dropdown-toggle:focus-visible {
+    outline: 2px solid #FACC15;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 .nav-menu > li > a:hover {
     color: #1F2937;
 }
@@ -3967,6 +4022,24 @@ footer {
         justify-content: center;
     }
 
+    .nav-dropdown-trigger {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-menu .nav-dropdown-trigger > a {
+        width: auto;
+        min-height: 52px;
+        padding: 14px 4px;
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+        color: #1F2937 !important;
+    }
+
+    .nav-menu .nav-dropdown-trigger > a::after { display: none; }
+    .nav-dropdown-toggle { min-height: 44px; padding: 10px; }
+
     /* No desktop underline behavior on mobile */
 
     .nav-menu > li > a::after {
@@ -5945,12 +6018,43 @@ footer {
 
 @media (max-width: 600px) {
     .contact-hero-actions {
-        gap: 0.5rem !important;
+        align-items: stretch !important;
+        flex-direction: column !important;
+        width: 100%;
+        gap: 0.65rem !important;
     }
 
     .contact-hero-action {
-        gap: 5px !important;
-        padding: 10px 8px !important;
-        font-size: 0.76rem !important;
+        box-sizing: border-box;
+        flex: 1 1 auto;
+        width: 100%;
+        white-space: normal;
+        gap: 7px !important;
+        padding: 11px 14px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .contact-details-grid,
+    .contact-details-grid > * {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .contact-why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.65rem !important;
+        width: 100%;
+    }
+
+    .contact-why-card {
+        min-width: 0;
+        gap: 0.55rem !important;
+        padding: 0.85rem !important;
+    }
+
+    .contact-why-card > span {
+        min-width: 0;
+        font-size: 0.82rem !important;
+        overflow-wrap: anywhere;
     }
 }

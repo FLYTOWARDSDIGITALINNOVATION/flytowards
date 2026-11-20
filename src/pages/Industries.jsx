@@ -393,6 +393,19 @@ const Industries = () => {
                 }
 
                 @media (max-width: 600px) {
+                    .industry-solutions-hero .section-inner {
+                        width: 100%;
+                        padding-left: 1rem !important;
+                        padding-right: 1rem !important;
+                    }
+
+                    .industry-solutions-hero .industries-hero-title {
+                        max-width: none !important;
+                        font-size: clamp(1.8rem, 7.4vw, 2.3rem) !important;
+                        line-height: 1.15 !important;
+                        text-wrap: balance;
+                    }
+
                     .industries-page .industries-partner-grid {
                         width: 100%;
                         min-width: 0;
