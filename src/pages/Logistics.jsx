@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Truck,
@@ -18,29 +18,34 @@ import {
 } from 'lucide-react';
 
 const Logistics = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(true);
     const solutionsRef = useRef(null);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
-        if (isExpanded && solutionsRef.current) {
+        if (location.hash === '#logistics-solutions') {
+            setIsExpanded(true);
             const timer = setTimeout(() => {
+                if (!solutionsRef.current) return;
                 const navOffset = 90;
                 const elementPosition = solutionsRef.current.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: elementPosition + window.pageYOffset - navOffset, behavior: 'smooth' });
             }, 180);
-
             return () => clearTimeout(timer);
         }
-    }, [isExpanded]);
+        window.scrollTo(0, 0);
+    }, [location.hash]);
+
+    const scrollToSolutions = () => {
+        const timer = setTimeout(() => {
+            if (!solutionsRef.current) return;
+            const navOffset = 90;
+            const elementPosition = solutionsRef.current.getBoundingClientRect().top;
+            window.scrollTo({ top: elementPosition + window.pageYOffset - navOffset, behavior: 'smooth' });
+        }, 180);
+        return timer;
+    };
 
     const requirements = [
         {
@@ -110,7 +115,7 @@ const Logistics = () => {
             <div className="mesh-bg"></div>
 
             {/* Hero Section */}
-            <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 3rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', alignItems: 'center', gap: '3rem', textAlign: 'left', position: 'relative', zIndex: 2 }}>
+            <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', alignItems: 'center', gap: '3rem', textAlign: 'left', position: 'relative', zIndex: 2 }}>
             <div style={{ maxWidth: '750px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.75rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
                 <span className="home-badge-tag" style={{
                     display: 'inline-flex',
@@ -138,7 +143,14 @@ const Logistics = () => {
 
                 <motion.button
                     type="button"
-                    onClick={() => setIsExpanded(prev => !prev)}
+                    onClick={() => {
+                        setIsExpanded(true);
+                        if (location.hash === '#logistics-solutions') {
+                            scrollToSolutions();
+                        } else {
+                            navigate('/industries/logistics#logistics-solutions');
+                        }
+                    }}
                     className="btn btn-primary"
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
@@ -181,6 +193,7 @@ const Logistics = () => {
                 {isExpanded && (
                     <motion.section
                         ref={solutionsRef}
+                        className="logistics-solutions-section"
                         id="logistics-solutions"
                         initial={{ opacity: 0, height: 0, y: 35 }}
                         animate={{ opacity: 1, height: 'auto', y: 0 }}
@@ -189,7 +202,7 @@ const Logistics = () => {
                         style={{
                             width: '100%',
                             maxWidth: '1100px',
-                            margin: '3.5rem auto 0',
+                            margin: '1.5rem auto 0',
                             position: 'relative',
                             zIndex: 2,
                             textAlign: 'left',

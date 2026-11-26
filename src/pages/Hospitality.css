@@ -20,6 +20,7 @@
 
 /* Hospitality page navy and yellow heading palette */
 .hospitality-page{--hotel-ink:#1e1b4b;--hotel-gold:#facc15;--hotel-gold-dark:#1e1b4b}
+.hospitality-page .benefit-list section{width:auto!important;max-width:none!important;margin:0!important;padding:0!important;overflow:visible}
 .hospitality-page .hotel-hero h1,.hospitality-page .hotel-heading h2,.hospitality-page .hotel-final-cta h2{color:#1e1b4b}
 .hospitality-page .hotel-hero h1 span,.hospitality-page .hotel-hero-copy>h2 span,.hospitality-page .hotel-heading h2 span{color:#facc15}
 .hospitality-page .hotel-hero-copy>h2{color:#1e1b4b}

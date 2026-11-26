@@ -26,7 +26,6 @@ import {
     UserCheck,
     Receipt,
     HelpCircle,
-    Scale,
     FileSpreadsheet,
     Lock,
     Eye,
@@ -524,7 +523,6 @@ const Insurance = () => {
                 "Proactive client notification of insurer stage transitions",
                 "Full historical audit logging from first notice to file closure"
             ],
-            regulatoryNote: "Claims decisions and settlement authority remain with the appropriately authorized insurer or responsible party."
         },
         {
             title: "Insurance Business Reporting",
@@ -1492,23 +1490,6 @@ const Insurance = () => {
                     font-size: 0.88rem;
                     color: #374151;
                     font-weight: 500;
-                }
-
-                .compliance-alert-strip {
-                    background: #FFFBEB;
-                    border: 1px solid #FDE68A;
-                    border-radius: 14px;
-                    padding: 1.25rem 1.75rem;
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 14px;
-                    margin-top: 2.5rem;
-                }
-                .compliance-alert-strip p {
-                    font-size: 0.92rem;
-                    color: #92400E;
-                    line-height: 1.6;
-                    margin: 0;
                 }
 
                 /* SECTION 06 — BUSINESS BENEFITS */
@@ -2512,21 +2493,8 @@ const Insurance = () => {
                                     ))}
                                 </ul>
 
-                                {uc.regulatoryNote && (
-                                    <div style={{ marginTop: '1rem', padding: '0.65rem 0.85rem', background: '#FFFBEB', border: '1px solid #FDE68A', borderRadius: '8px', fontSize: '0.78rem', color: '#92400E' }}>
-                                        <strong>Compliance Notice:</strong> {uc.regulatoryNote}
-                                    </div>
-                                )}
                             </div>
                         ))}
-                    </div>
-
-                    {/* Mandatory Developer Compliance Notice */}
-                    <div className="compliance-alert-strip">
-                        <Scale size={26} color="#B45309" style={{ flexShrink: 0, marginTop: '2px' }} />
-                        <p>
-                            <strong>Developer note:</strong> These are illustrative workflows. Policy issuance, underwriting, claims adjudication, premium handling and settlement processes must reflect the business's actual authorization, contractual responsibilities and applicable regulatory requirements.
-                        </p>
                     </div>
                 </div>
             </section>

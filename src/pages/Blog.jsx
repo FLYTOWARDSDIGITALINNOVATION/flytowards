@@ -76,19 +76,21 @@ const Blog = () => {
                     <button className="back-btn" onClick={() => { setSelectedBlog(null); window.scrollTo(0, 0); }}>
                         <ArrowLeft size={16} /> Back to Blogs
                     </button>
-                    <div className="reader-header">
-                        <span className="blog-tag">{selectedBlog.category}</span>
-                        <h1 className="reader-title">{selectedBlog.title}</h1>
-                        <div className="blog-meta">
-                            <Calendar size={14} /> <span>{formatDate(selectedBlog.createdAt)}</span>
-                            <span className="tool-divider-modern" style={{ height: '12px' }}></span>
-                            <Clock size={14} /> <span>5 min read</span>
-                        </div>
-                    </div>
                     <div className="reader-cover-box">
                         <img src={selectedBlog.coverImage} alt={selectedBlog.title} />
                     </div>
-                    <div className="reader-body" dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
+                    <div className="reader-content-card">
+                        <div className="reader-header">
+                            <span className="blog-tag">{selectedBlog.category}</span>
+                            <h1 className="reader-title">{selectedBlog.title}</h1>
+                            <div className="blog-meta">
+                                <Calendar size={14} /> <span>{formatDate(selectedBlog.createdAt)}</span>
+                                <span className="tool-divider-modern" style={{ height: '12px' }}></span>
+                                <Clock size={14} /> <span>5 min read</span>
+                            </div>
+                        </div>
+                        <div className="reader-body" dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
+                    </div>
                 </div>
             </main>
         );

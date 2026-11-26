@@ -1,12 +1,20 @@
 import { ArrowRight, ChevronDown, Phone, Mail, Clock, MapPin, Send, Zap, Shield, Target, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Contact = () => {
+    const location = useLocation();
+
     useEffect(() => {
+        if (location.hash === '#enquiry-form') {
+            requestAnimationFrame(() => {
+                document.getElementById('enquiry-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            return;
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [location.hash]);
 
     const [formStatus, setFormStatus] = useState(null);
 
@@ -298,7 +306,7 @@ const Contact = () => {
                     </div>
 
                     {/* Right Column - Contact Form */}
-                    <div className="card" data-aos="fade-left" style={{ padding: '3rem', position: 'relative', overflow: 'hidden' }}>
+                    <div id="enquiry-form" className="card" data-aos="fade-left" style={{ padding: '3rem', position: 'relative', overflow: 'hidden', scrollMarginTop: '130px' }}>
                         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '5px', background: 'var(--gradient-primary)' }}></div>
                         <h2 style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>Send Us Your <span className="gradient-text">Software Development Enquiry</span></h2>
                         <p style={{ color: 'var(--text-muted)', marginBottom: '2.5rem' }}>Use the enquiry form to tell us about your project.</p>

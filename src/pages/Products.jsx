@@ -297,31 +297,39 @@ export default function Products() {
                 .pp-benefit-card p  { font-size: 0.82rem; color: #666; line-height: 1.65; }
 
                 /* ── SECTION 04 — CHOOSING SOFTWARE ───────────── */
-                .pp-choosing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+                .pp-choosing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch; }
                 @media(max-width:800px){ .pp-choosing-grid { grid-template-columns: 1fr; } }
                 .pp-checklist { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
                 .pp-checklist-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: #555; line-height: 1.6; padding: 10px 14px; background: #f9f8f5; border-radius: 8px; border-left: 3px solid #facc15; transition: background 0.2s; }
                 .pp-checklist-item:hover { background: #fffde7; }
                 .pp-checklist-num { font-weight: 900; color: #facc15; font-size: 0.8rem; min-width: 20px; }
-                .pp-advice { background: #0f0f0f; border-radius: 14px; padding: 28px; }
-                .pp-advice h4 { color: #facc15; font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
-                .pp-advice p  { color: #aaa; font-size: 0.85rem; line-height: 1.7; }
+                .pp-choosing-grid > .pp-reveal:last-child { display: flex; }
+                .pp-advice { display: flex; flex: 1; flex-direction: column; background: #0f0f0f; border-radius: 14px; padding: 28px; }
+                .pp-advice h4 { color: #facc15; font-size: 1.75rem; font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
+                .pp-advice p  { color: #aaa; font-size: 1.12rem; line-height: 1.75; }
+                .pp-advice p + p { margin-top: 14px !important; }
+                .pp-advice .pp-btn { display: inline-flex; align-self: flex-start; margin-top: auto; padding: 16px 28px; font-size: 1.12rem; }
 
                 /* ── SECTION 05 — DIFFERENT REQUIREMENTS ──────── */
-                .pp-diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+                .pp-diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch; }
                 @media(max-width:800px){ .pp-diff-grid { grid-template-columns: 1fr; } }
+                .pp-diff-grid > .pp-reveal:last-child { display: flex; flex-direction: column; }
+                .pp-diff-grid > .pp-reveal:last-child > div:last-child { margin-top: auto !important; padding-top: 24px; }
                 .pp-criteria-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
                 .pp-criteria-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #fff; padding: 8px 12px; background: #1a1a1a; border-radius: 8px; }
                 .pp-criteria-item svg { color: #facc15; flex-shrink: 0; margin-top: 1px; }
-                .pp-ind-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-                .pp-ind-link { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #1a1a1a; border-radius: 10px; color: #ccc; text-decoration: none; font-size: 0.82rem; font-weight: 600; border: 1px solid #2a2a2a; transition: border-color 0.2s, color 0.2s; }
+                .pp-ind-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+                .pp-ind-link { display: flex; min-height: 76px; align-items: center; gap: 10px; padding: 16px 18px; background: #1a1a1a; border-radius: 10px; color: #ccc; text-decoration: none; font-size: 0.95rem; font-weight: 600; border: 1px solid #2a2a2a; transition: border-color 0.2s, color 0.2s; }
                 .pp-ind-link:hover { border-color: #facc15; color: #facc15; }
                 .pp-ind-link svg { color: #facc15; flex-shrink: 0; }
 
                 /* ── SECTION 06 — WHEN PRODUCT ISN'T ENOUGH ───── */
+                .pp-custom-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+                .pp-custom-intro-side { padding-top: 62px; color: #1e1b4b; font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 800; line-height: 1.2; }
+                @media(max-width:800px){ .pp-custom-intro { grid-template-columns: 1fr; gap: 18px; } .pp-custom-intro-side { padding-top: 0; } }
                 .pp-custom-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
                 @media(max-width:800px){ .pp-custom-grid { grid-template-columns: 1fr; } }
-                .pp-custom-needs { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+                .pp-custom-needs { display: flex; flex-direction: column; gap: 10px; margin-top: 0; }
                 .pp-custom-need { display: flex; align-items: flex-start; gap: 10px; padding: 12px 16px; background: #fff; border: 1.5px solid #f0f0ec; border-radius: 10px; font-size: 0.85rem; color: #555; line-height: 1.6; transition: border-color 0.2s; }
                 .pp-custom-need:hover { border-color: #facc15; }
                 .pp-custom-need svg { color: #facc15; flex-shrink: 0; margin-top: 1px; }
@@ -504,9 +512,7 @@ export default function Products() {
                                     <h4>Making a Good Product Decision</h4>
                                     <p>A good product decision should balance functionality, usability, business fit and long-term requirements.</p>
                                     <p style={{ marginTop: 14 }}>Each product on this page clearly explains what it does, who it is intended for, which business problem it addresses, key features and how to request a demo or enquiry.</p>
-                                </div>
-                                <div style={{ marginTop: 20 }}>
-                                    <Link to="/contact" className="pp-btn-primary pp-btn-sm">Discuss Your Software Requirement <ArrowRight size={14} /></Link>
+                                    <Link to="/contact" className="pp-btn-primary pp-btn-sm pp-btn">Discuss Your Software Requirement <ArrowRight size={14} /></Link>
                                 </div>
                             </RevealCard>
                         </div>
@@ -556,11 +562,19 @@ export default function Products() {
                 <section className="pp-section pp-section-soft">
                     <div className="pp-wrap">
                         <RevealCard>
-                            <span className="pp-eyebrow">Beyond Standard Products</span>
-                            <h2 className="pp-h2 pp-h2-dark">When a Ready-Made Product <span>Is Not Enough</span></h2>
-                            <p className="pp-lead" style={{ maxWidth: 640 }}>Sometimes an existing product can address the requirement. In other situations, the business may have workflows, integrations or functionality that require a different approach. For example, an organisation may need:</p>
+                            <div className="pp-custom-intro">
+                                <div>
+                                    <span className="pp-eyebrow">Beyond Standard Products</span>
+                                    <h2 className="pp-h2 pp-h2-dark">When a Ready-Made Product <span>Is Not Enough</span></h2>
+                                    <p className="pp-lead" style={{ maxWidth: 640 }}>Sometimes an existing product can address the requirement. In other situations, the business may have workflows, integrations or functionality that require a different approach. For example, an organisation may need:</p>
+                                </div>
+                                <div>
+                                    <h2 className="pp-custom-intro-side">Bespoke Software Development for Specific Requirements</h2>
+                                    <p className="pp-lead" style={{ marginTop: 12 }}>When a business needs software built around its own processes, a bespoke software development service may be more appropriate. Fly Towards Digital Innovation's wider software development portfolio includes:</p>
+                                </div>
+                            </div>
                         </RevealCard>
-                        <div className="pp-custom-grid" style={{ marginTop: 40 }}>
+                        <div className="pp-custom-grid" style={{ marginTop: 20 }}>
                             <RevealCard delay={80}>
                                 <div className="pp-custom-needs">
                                     {customNeeds.map((n, i) => (
@@ -572,8 +586,6 @@ export default function Products() {
                                 <p className="pp-note" style={{ marginTop: 16 }}>In these situations, a standard product may not be the right solution.</p>
                             </RevealCard>
                             <RevealCard delay={150}>
-                                <h2 className="pp-h2 pp-h2-dark" style={{ fontSize: '1.3rem' }}>Bespoke Software Development for Specific Requirements</h2>
-                                <p className="pp-lead" style={{ marginTop: 12 }}>When a business needs software built around its own processes, a bespoke software development service may be more appropriate. Fly Towards Digital Innovation's wider software development portfolio includes:</p>
                                 <div className="pp-dev-services">
                                     {devServices.map(([Icon, label, path], i) => (
                                         <Link key={i} to={path} className="pp-dev-link">

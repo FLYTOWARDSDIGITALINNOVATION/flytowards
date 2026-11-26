@@ -4,7 +4,9 @@ import {
     Facebook,
     Instagram,
     Linkedin,
-    MessageCircle
+    MessageCircle,
+    Mail,
+    Phone
 } from 'lucide-react';
 
 const Footer = () => {
@@ -99,6 +101,16 @@ const Footer = () => {
                             Sankarankovil, Tenkasi,
                             Tamil Nadu 627756
                         </span>
+                    </div>
+                    <div style={{ display: 'grid', gap: '0.65rem', marginTop: '1rem' }}>
+                        <a href="tel:+919080999823" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)', fontSize: '0.9rem', textDecoration: 'none' }}>
+                            <Phone size={18} color="var(--primary)" />
+                            <span>+91 9080999823</span>
+                        </a>
+                        <a href="mailto:flytowardsdigitalinnovation@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)', fontSize: '0.9rem', textDecoration: 'none', overflowWrap: 'anywhere' }}>
+                            <Mail size={18} color="var(--primary)" style={{ flexShrink: 0 }} />
+                            <span>flytowardsdigitalinnovation@gmail.com</span>
+                        </a>
                     </div>
                     <p
                         className="footer-location-links"

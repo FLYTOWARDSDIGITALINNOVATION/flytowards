@@ -188,13 +188,15 @@ export default function Home() {
         .hm-reveal-scale.hm-visible { opacity: 1; transform: scale(1); }
 
         /* ===== SECTION 1 — HERO ===== */
-        .hm-hero { background: #fff !important; padding: 100px 0 90px; min-height: 90vh; display: flex; align-items: center; }
+        .hm-hero { background: linear-gradient(135deg, #fffdf2 0%, #fff9df 52%, #ffffff 100%) !important; padding: 100px 0 90px; min-height: 90vh; display: flex; align-items: center; }
         .hm-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .hm-hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff7cc; border: 1px solid #facc15; color: #1e1b4b; font-size: 0.85rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 18px; border-radius: 50px; margin-bottom: 28px; }
         .hm-hero h1 { color: #1e1b4b; font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
         .hm-hero p { color: #4b5563; font-size: 1.1rem; line-height: 1.75; margin-bottom: 36px; }
         .hm-hero .hm-btn-outline { color: #111827; border-color: rgba(17,24,39,0.35); }
         .hm-hero .hm-btn-outline:hover { background: #111827; color: #fff; }
+        .hm-hero .hm-cta-row { flex-wrap: nowrap; gap: 12px; }
+        .hm-hero .hm-cta-row a { white-space: nowrap; padding-inline: clamp(12px, 1.2vw, 20px); font-size: clamp(0.9rem, 1vw, 1rem); }
 
         /* Hero Dashboard */
         .hm-hero-dash { position: relative; }
@@ -388,6 +390,7 @@ export default function Home() {
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
           }
+          .hm-page .hm-hero { background: linear-gradient(145deg, #fffdf2 0%, #fff9df 58%, #ffffff 100%) !important; }
           .hm-hero::before,
           .hm-hero::after,
           .hm-hero-grid::before,

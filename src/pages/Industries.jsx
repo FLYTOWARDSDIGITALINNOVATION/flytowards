@@ -204,6 +204,22 @@ const Industries = () => {
                 "Retail systems support barcode-enabled billing, purchase orders, vendor management, stock transfers, customer databases, loyalty programs, discounts, returns, and real-time sales dashboards. Multiple branches and counters can be managed from a centralized system.",
             link: "/industries/retail",
         },
+        {
+            title: "Finance",
+            tagline: "Clear, connected financial workflows",
+            desc: "Finance management software for budgeting, expense tracking, approvals, payment records, and financial reporting.",
+            img: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+            color: "22, 163, 74",
+            icon: "💰",
+            features: [
+                "Budgets and expense tracking",
+                "Approval and payment workflows",
+                "Financial summaries and reports",
+            ],
+            detailedInfo:
+                "Finance workflows can bring together budget planning, expense submissions, approval records, payment tracking, and financial reporting. Teams can organize information by department or project and coordinate it with compatible accounting or ERP systems.",
+            link: "/industries/finance",
+        },
     ];
 
     return (

@@ -437,7 +437,7 @@ const Navbar = () => {
                     <Search size={18} />
                 </button>
 
-                <Link to="/contact" className="nav-enquire-btn desktop-enquire" onClick={closeMenu}>
+                <Link to="/contact#enquiry-form" className="nav-enquire-btn desktop-enquire" onClick={closeMenu}>
                     Get Started 
                     <span className="nav-btn-icon-circle">
                         <ArrowRight size={15} color="#1F2937" />
