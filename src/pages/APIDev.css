@@ -29,3 +29,7 @@
 @keyframes api-final-glow{from{opacity:.35;transform:scale(.9)}to{opacity:.8;transform:scale(1.12)}}
 @media(max-width:700px){.api-hero h2{min-height:3.2em}.api-visual-tilt{transform:none!important}}
 @media(prefers-reduced-motion:reduce){.api-hero h1 .api-word{opacity:1;transform:none;animation:none}.api-typing:after{display:none}.api-timeline:before{transform:scaleX(1);transition:none}.api-timeline.api-flow-active .api-step-number{opacity:1;animation:none}.api-final:before,.api-final:after{animation:none}}
+/* Keep API page headings within the site's navy and yellow palette. */
+.api-page{--api-ink:#1e1b4b;--api-gold:#facc15}
+.api-section h2 span,.api-hero h1 span,.api-hero h1 .api-word.api-gold{background:none!important;color:#facc15!important;-webkit-text-fill-color:#facc15!important}
+.api-hero h1 .api-word:not(.api-gold){color:#1e1b4b!important;-webkit-text-fill-color:#1e1b4b!important}

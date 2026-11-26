@@ -1147,23 +1147,17 @@ const Government = () => {
 
                 /* ─── SECTION 12: CTA BANNER ─── */
                 .cta-banner {
-                    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #0f172a 100%);
+                    background: #1e1b4b;
                     border-radius: 36px;
                     padding: 5rem 3rem;
                     color: #ffffff;
                     text-align: center;
                     position: relative;
                     overflow: hidden;
-                    box-shadow: 0 30px 60px rgba(2, 132, 199, 0.2);
+                    box-shadow: 0 30px 60px rgba(30, 27, 75, 0.2);
                 }
                 .cta-banner::before {
-                    content: '';
-                    position: absolute;
-                    top: 50%; left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 60%; height: 70%;
-                    background: radial-gradient(circle, rgba(250, 204, 21, 0.1) 0%, transparent 70%);
-                    pointer-events: none;
+                    display: none;
                 }
                 @media (max-width: 768px) { .cta-banner { padding: 3.5rem 1.5rem; } }
                 .cta-banner-content { max-width: 820px; margin: 0 auto; position: relative; z-index: 2; }

@@ -451,16 +451,16 @@
 .cloud-faq button svg{display:none}
 .cloud-faq button::after{position:absolute;top:50%;right:1px;display:grid;width:31px;height:31px;place-items:center;transform:translateY(-50%);border-radius:50%;background:#fef9c3;color:var(--cloud-ink);content:'+';font-size:1.35rem;font-weight:500;transition:transform .3s,background .3s}
 .cloud-faq.is-open button::after{transform:translateY(-50%) rotate(45deg);background:var(--cloud-yellow)}
-.cloud-final{display:block;min-height:0;padding:68px 40px;border-radius:28px;background:linear-gradient(135deg,#0284c7 0%,#0369a1 50%,#0f172a 100%);box-shadow:0 27px 58px #0284c733;text-align:center}
+.cloud-final{display:block;min-height:0;padding:68px 40px;border-radius:28px;background:linear-gradient(135deg,#0f0f0f 0%,#171717 52%,#1e1b4b 100%);box-shadow:0 27px 58px #0f0f0f30;text-align:center}
 .cloud-final-copy{max-width:790px;margin:0 auto}
 .cloud-final h2{max-width:760px;margin:0 auto 17px;color:#fff;font-size:clamp(2.15rem,4vw,3.2rem);font-weight:900}
 .cloud-final h2 span{background:linear-gradient(90deg,#facc15,#eab308 55%,#facc15);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.cloud-final p{max-width:660px;margin:0 auto 9px;color:#e0f2fe;font-size:1rem;line-height:1.7}
+.cloud-final p{max-width:660px;margin:0 auto 9px;color:#d1d5db;font-size:1rem;line-height:1.7}
 .cloud-final .cloud-actions{justify-content:center;margin-top:26px}
 .cloud-final-ring{top:50%;left:50%;width:540px;height:540px;margin:-270px 0 0 -270px;border:2px solid #facc1545;animation:cloud-banner-ring 6s ease-out infinite}
 .cloud-final-ring-two{animation-delay:2s}
-.cloud-final .cloud-btn-primary{background:#fff;color:#0f172a!important}
-.cloud-final .cloud-btn-primary:hover{background:#fef9c3}
+.cloud-final .cloud-btn-primary{background:#facc15;color:#0f0f0f!important}
+.cloud-final .cloud-btn-primary:hover{background:#eab308}
 .cloud-final .cloud-btn-light{border:1px solid #ffffff66;background:#ffffff1f;color:#fff!important;backdrop-filter:blur(8px);box-shadow:none}
 .cloud-final .cloud-btn-light:hover{background:#ffffff35}
 @keyframes cloud-panel-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}

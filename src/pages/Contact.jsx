@@ -43,7 +43,7 @@ const Contact = () => {
             >
                 <div style={{ width: 'min(100%, 1240px)', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))', alignItems: 'center', gap: 'clamp(2rem, 5vw, 4.5rem)' }}>
                     <div style={{ maxWidth: '720px' }}>
-                        <span className="home-badge-tag" style={{ marginBottom: '1rem' }}>
+                        <span className="home-badge-tag" style={{ display: 'inline-block', marginBottom: '2rem' }}>
                             FLY TOWARDS DIGITAL INNOVATION
                         </span>
                         <motion.h1
@@ -219,9 +219,9 @@ const Contact = () => {
                     <span className="home-badge-tag" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                         <Send size={18} color="#EAB308" /> CONTACT US
                     </span>
-                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                    <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', marginBottom: '1.5rem', lineHeight: 1.2, background: 'none', WebkitTextFillColor: '#1e1b4b', color: '#1e1b4b' }}>
                         Let’s Take Your Business to <br />
-                        <span className="gradient-text">New Digital Heights</span>
+                        <span style={{ display: 'inline-block', background: 'none', WebkitTextFillColor: '#FACC15', color: '#FACC15' }}>New Digital Heights</span>
                     </h1>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
                         Have a project in mind? Need more customers? Or want to grow your brand online? Our team is here to support your digital journey every step of the way.

@@ -339,7 +339,7 @@ export default function FlyBill() {
                 .fb-hl-list li svg { color: #facc15; flex-shrink: 0; }
 
                 /* ── SECTION 01 — HERO ─────────────────────────── */
-                .fb-hero { padding: 100px 0 80px; background: linear-gradient(135deg, #fff 60%, #fffde7); }
+                .fb-hero { padding: 100px 0 80px; background: #fff; }
                 .fb-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
                 @media(max-width:900px){ .fb-hero-grid { grid-template-columns: 1fr; } }
 
@@ -484,7 +484,7 @@ export default function FlyBill() {
                 .fb-cons-num { width: 36px; height: 36px; border-radius: 50%; background: #facc15; color: #0f0f0f; font-weight: 900; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
                 .fb-cons-item h4 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
                 .fb-cons-item p  { font-size: 0.82rem; color: #aaa; line-height: 1.65; }
-                .fb-cons-warn { margin-top: 24px; background: rgba(248,113,113,0.1); border: 1.5px solid rgba(248,113,113,0.3); border-radius: 10px; padding: 14px 18px; font-size: 0.82rem; color: #fca5a5; line-height: 1.65; }
+                .fb-cons-warn { margin-top: 24px; background: rgba(250,204,21,0.08); border: 1.5px solid rgba(250,204,21,0.4); border-radius: 10px; padding: 14px 18px; font-size: 0.82rem; color: #FDE68A; line-height: 1.65; }
                 .fb-inv-preview { display: flex; flex-direction: column; gap: 0; margin-top: 16px; border-radius: 10px; overflow: hidden; }
                 .fb-inv-row { display: flex; justify-content: space-between; padding: 10px 14px; font-size: 0.82rem; border-bottom: 1px solid #2a2a2a; color: #ccc; }
                 .fb-inv-head { background: #1a1a1a; color: #facc15; font-weight: 700; }
@@ -497,8 +497,8 @@ export default function FlyBill() {
                 .fb-diff-list { display: flex; flex-direction: column; gap: 18px; }
                 .fb-diff-item { display: flex; gap: 14px; }
                 .fb-diff-num { width: 32px; height: 32px; border-radius: 50%; background: rgba(250,204,21,0.15); border: 2px solid #facc15; color: #facc15; font-weight: 900; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-                .fb-diff-item h4 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-                .fb-diff-item p  { font-size: 0.82rem; color: #aaa; line-height: 1.6; }
+                .fb-diff-item h4 { font-size: 0.9rem; font-weight: 700; color: #1e1b4b; margin-bottom: 4px; }
+                .fb-diff-item p  { font-size: 0.82rem; color: #4b5563; line-height: 1.6; }
                 .fb-why-cta { margin-top: 32px; }
 
                 /* ── SECTION 12 — FAQ ──────────────────────────── */

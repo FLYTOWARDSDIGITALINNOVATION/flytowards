@@ -377,7 +377,7 @@ const MobileAppDev = () => {
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
                 /* ─── Base ─── */
-                .mad-page-wrapper { position: relative; z-index: 1; }
+                .mad-page-wrapper { position: relative; z-index: 1; width: 100%; max-width: 100%; }
                 .mad-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%; box-sizing: border-box; }
                 .mad-section { padding: 80px 0; position: relative; }
                 @media (max-width: 768px) { .mad-section { padding: 55px 0; } }
@@ -430,6 +430,34 @@ const MobileAppDev = () => {
                     background: #EAB308 !important;
                     transform: translateY(-3px);
                     box-shadow: 0 14px 32px rgba(250, 204, 21, 0.45);
+                }
+                @media (max-width: 640px) {
+                    .mad-page-wrapper { overflow-x: clip; }
+                    .mad-container { max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+                    .mad-container > *, .hero-grid > *, .overview-grid > *, .location-split > *, .industry-active-view > * { min-width: 0; max-width: 100%; }
+                    .mad-heading-h2 { font-size: clamp(1.75rem, 7vw, 2.2rem); line-height: 1.2; overflow-wrap: anywhere; }
+                    .location-split h3, .industry-active-view h3 { font-size: 1.35rem !important; line-height: 1.3; overflow-wrap: anywhere; }
+                    .industry-active-view { padding: 1.25rem !important; gap: 1.25rem !important; }
+                    .industry-active-view > div:last-child { padding: 1.5rem !important; }
+                    .location-split .home-btn-primary, .industry-active-view .home-btn-primary {
+                        display: flex; width: 100%; max-width: 100%; box-sizing: border-box;
+                        justify-content: center; white-space: normal; text-align: center;
+                        padding: .9rem .75rem !important; font-size: .9rem !important; line-height: 1.35;
+                    }
+                    .mad-requirements-btn {
+                        display: flex;
+                        width: 100%;
+                        max-width: 100%;
+                        box-sizing: border-box;
+                        justify-content: center;
+                        gap: 7px;
+                        padding: 0.95rem 0.75rem;
+                        font-size: 0.9rem;
+                        line-height: 1.35;
+                        white-space: normal;
+                        text-align: center;
+                    }
+                    .mad-requirements-btn svg { flex: 0 0 auto; }
                 }
                 .home-btn-outline {
                     background: transparent;
@@ -1053,14 +1081,14 @@ const MobileAppDev = () => {
 
                 /* ─── SECTION 11: CTA BANNER ─── */
                 .cta-banner {
-                    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #0f172a 100%);
+                    background: linear-gradient(135deg, #0f0f0f 0%, #171717 52%, #1e1b4b 100%);
                     border-radius: 36px;
                     padding: 5rem 3rem;
                     color: #ffffff;
                     text-align: center;
                     position: relative;
                     overflow: hidden;
-                    box-shadow: 0 30px 60px rgba(2, 132, 199, 0.2);
+                    box-shadow: 0 30px 60px rgba(15, 15, 15, 0.18);
                 }
                 .cta-banner::before {
                     content: '';
@@ -1081,13 +1109,13 @@ const MobileAppDev = () => {
                     letter-spacing: -0.03em;
                     color: #ffffff;
                 }
-                .cta-banner p { font-size: 1.2rem; line-height: 1.7; color: #e0f2fe; margin-bottom: 2.5rem; }
+                .cta-banner p { font-size: 1.2rem; line-height: 1.7; color: #d1d5db; margin-bottom: 2.5rem; }
                 .cta-buttons-wrap { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
                 .cta-btn-primary-white {
                     display: inline-flex; align-items: center; gap: 10px;
                     padding: 16px 36px;
-                    background: #ffffff;
-                    color: #0f172a !important;
+                    background: #facc15;
+                    color: #0f0f0f !important;
                     border-radius: 50px;
                     font-weight: 800; font-size: 1.05rem;
                     text-decoration: none;
@@ -1096,8 +1124,8 @@ const MobileAppDev = () => {
                 }
                 .cta-btn-primary-white:hover {
                     transform: translateY(-3px) scale(1.02);
-                    background: #FEF9C3;
-                    color: #1F2937 !important;
+                    background: #eab308;
+                    color: #0f0f0f !important;
                 }
                 .cta-btn-secondary-glass {
                     display: inline-flex; align-items: center; gap: 10px;
@@ -1631,7 +1659,7 @@ const MobileAppDev = () => {
                                 <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.7, marginBottom: '2rem' }}>
                                     If these requirements match your business needs, custom mobile app development may provide a suitable solution.
                                 </p>
-                                <Link to="/contact" className="home-btn-primary">
+                                <Link to="/contact" className="home-btn-primary mad-requirements-btn">
                                     Discuss Your Mobile App Requirements <ArrowRight size={18} />
                                 </Link>
                             </div>
@@ -1719,7 +1747,7 @@ const MobileAppDev = () => {
                     <div className="mad-container">
                         <div className="cta-banner" data-aos="zoom-in">
                             <div className="cta-banner-content">
-                                <span className="home-badge-tag" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#e0f2fe' }}>
+                                <span className="home-badge-tag" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(250,204,21,0.12)', border: '1px solid rgba(250,204,21,0.55)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#facc15' }}>
                                     Start Your App Project
                                 </span>
                                 <h2>Bring Your Business Idea to Life with a Custom Mobile App</h2>

@@ -434,6 +434,9 @@ const BusinessProcessAutomation = () => {
                     letter-spacing: -0.03em;
                 }
                 .bpa-subtext { font-size: 1.1rem; color: #64748b; line-height: 1.75; margin-bottom: 2rem; }
+                .bpa-page-wrapper h1 .gradient-text,
+                .bpa-page-wrapper h2 .gradient-text { background: none !important; color: #facc15 !important; -webkit-text-fill-color: #facc15 !important; }
+                .bpa-page-wrapper .bpa-heading-h2 { background: none !important; color: #1e1b4b !important; -webkit-text-fill-color: #1e1b4b !important; }
 
                 /* ─── Badges ─── */
                 .home-badge-tag {
@@ -981,17 +984,17 @@ const BusinessProcessAutomation = () => {
 
                 /* ─── SECTION 11: CTA BANNER ─── */
                 .cta-banner {
-                    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #0f172a 100%);
+                    background: #1e1b4b;
                     border-radius: 36px;
                     padding: 5rem 3rem;
                     color: #ffffff;
                     text-align: center;
                     position: relative;
                     overflow: hidden;
-                    box-shadow: 0 30px 60px rgba(2, 132, 199, 0.2);
+                    box-shadow: 0 30px 60px rgba(30, 27, 75, 0.18);
                 }
                 .cta-banner::before {
-                    content: '';
+                    content: none;
                     position: absolute;
                     top: 50%; left: 50%;
                     transform: translate(-50%, -50%);
@@ -1043,6 +1046,37 @@ const BusinessProcessAutomation = () => {
                     background: rgba(255, 255, 255, 0.22);
                     border-color: rgba(255, 255, 255, 0.5);
                     transform: translateY(-2px);
+                }
+
+                /* Small-screen layout: prevent fixed-width content and CTAs from clipping. */
+                @media (max-width: 640px) {
+                    .bpa-container { padding-inline: 1rem; }
+                    .bpa-section { padding-block: 3.25rem; }
+                    .hero-grid, .overview-grid, .benefits-grid, .location-split,
+                    .why-grid, .challenges-grid, .faq-grid, .industry-active-view {
+                        grid-template-columns: minmax(0, 1fr) !important;
+                        gap: 1.5rem;
+                    }
+                    .hero-grid > *, .overview-grid > *, .benefits-grid > *,
+                    .location-split > *, .why-grid > *, .challenges-grid > *,
+                    .faq-grid > *, .industry-active-view > * { min-width: 0; max-width: 100%; }
+                    .hero-grid h1 { font-size: clamp(2.15rem, 10vw, 3rem) !important; line-height: 1.08 !important; overflow-wrap: anywhere; }
+                    .bpa-heading-h2 { font-size: clamp(1.8rem, 8vw, 2.35rem) !important; line-height: 1.15 !important; overflow-wrap: anywhere; }
+                    .hero-grid p, .bpa-subtext { font-size: 1rem; line-height: 1.65; }
+                    .home-btn-primary, .home-btn-outline {
+                        width: 100%; max-width: 100%; min-width: 0; justify-content: center;
+                        padding: 1rem 1.1rem; white-space: normal; text-align: center;
+                    }
+                    .industry-active-view { padding: 1.5rem 1rem !important; }
+                    .cta-banner { padding: 2.5rem 1rem; border-radius: 24px; }
+                    .cta-banner h2 { font-size: clamp(1.8rem, 8vw, 2.35rem); line-height: 1.12; overflow-wrap: anywhere; }
+                    .cta-banner p { font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+                    .cta-buttons-wrap { flex-direction: column; align-items: stretch; gap: .75rem; }
+                    .cta-btn-primary-white, .cta-btn-secondary-glass {
+                        width: 100%; min-width: 0; justify-content: center; text-align: center;
+                        padding: 1rem .9rem; font-size: .95rem; white-space: normal;
+                    }
+                    .faq-accordion-header { padding: 1rem; gap: .75rem; }
                 }
             `}</style>
 
@@ -1334,7 +1368,7 @@ const BusinessProcessAutomation = () => {
                         {/* Active Industry Showcase View */}
                         <div className="industry-active-view" data-aos="fade-up">
                             <div>
-                                <span className="topic-pill" style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
+                                <span className="topic-pill topic-pill--navy" style={{ fontSize: '0.85rem', fontWeight: 800, color: '#EAB308', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.65rem' }}>
                                     {industries[activeIndustry].tag}
                                 </span>
                                 <h3 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#1e1b4b', marginBottom: '1.15rem' }}>

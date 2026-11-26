@@ -451,16 +451,15 @@
 .ai-faq button svg{display:none}
 .ai-faq button::after{position:absolute;top:50%;right:1px;display:grid;width:31px;height:31px;place-items:center;transform:translateY(-50%);border-radius:50%;background:#fef9c3;color:var(--ai-ink);content:'+';font-size:1.35rem;font-weight:500;transition:transform .3s,background .3s}
 .ai-faq.is-open button::after{transform:translateY(-50%) rotate(45deg);background:var(--ai-yellow)}
-.ai-final{display:block;min-height:0;padding:68px 40px;border-radius:28px;background:linear-gradient(135deg,#0284c7 0%,#0369a1 50%,#0f172a 100%);box-shadow:0 27px 58px #0284c733;text-align:center}
+.ai-final{display:block;min-height:0;padding:68px 40px;border-radius:28px;background:#111827;box-shadow:0 27px 58px #0f172a30;text-align:center}
 .ai-final-copy{max-width:790px;margin:0 auto}
 .ai-final h2{max-width:760px;margin:0 auto 17px;color:#fff;font-size:clamp(2.15rem,4vw,3.2rem);font-weight:900}
 .ai-final h2 span{background:linear-gradient(90deg,#facc15,#eab308 55%,#facc15);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.ai-final p{max-width:660px;margin:0 auto 9px;color:#e0f2fe;font-size:1rem;line-height:1.7}
+.ai-final p{max-width:660px;margin:0 auto 9px;color:#d1d5db;font-size:1rem;line-height:1.7}
 .ai-final .ai-actions{justify-content:center;margin-top:26px}
-.ai-final-ring{top:50%;left:50%;width:540px;height:540px;margin:-270px 0 0 -270px;border:2px solid #facc1545;animation:ai-banner-ring 6s ease-out infinite}
-.ai-final-ring-two{animation-delay:2s}
-.ai-final .ai-btn-primary{background:#fff;color:#0f172a!important}
-.ai-final .ai-btn-primary:hover{background:#fef9c3}
+.ai-final-ring{display:none!important;animation:none!important}
+.ai-final .ai-btn-primary{background:#facc15;color:#0f0f0f!important}
+.ai-final .ai-btn-primary:hover{background:#eab308}
 .ai-final .ai-btn-light{border:1px solid #ffffff66;background:#ffffff1f;color:#fff!important;backdrop-filter:blur(8px);box-shadow:none}
 .ai-final .ai-btn-light:hover{background:#ffffff35}
 @keyframes ai-panel-in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
@@ -544,7 +543,7 @@
 .ai-center-node { fill:#312e81; }
 .ai-center-label { fill:#facc15!important; }
 .ai-location { background:linear-gradient(120deg,#fafafa,#f5f3ff 55%,#f0f9ff); }
-.ai-final { background:linear-gradient(120deg,#312e81,#4c1d95 52%,#075985); }
+.ai-final { background:#111827; }
 .ai-final-ring { border-color:#c4b5fd55; }
 @keyframes ai-neural-breathe { 0%,100%{transform:scale(.94);opacity:.5}50%{transform:scale(1.04);opacity:1} }
 @keyframes ai-dashboard-arrive { from{opacity:0;transform:translateY(24px) scale(.96);filter:blur(5px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)} }

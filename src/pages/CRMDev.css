@@ -11,6 +11,12 @@
 @media(max-width:420px){.crm-container{width:91%}.crm-service-grid{grid-template-columns:1fr}.crm-service-card{min-height:0;padding:20px}.crm-service-card p{font-size:.86rem}.crm-dash-wrap{transform:scale(.85);margin:-15px -32px;min-height:320px}.crm-dash-main{padding:13px 10px}.crm-dash-side{width:38px}.crm-stats em{position:static;display:block;margin-top:3px}.crm-stats b{font-size:.88rem}.crm-dash-grid{grid-template-columns:1fr 1fr;gap:6px}.crm-chart,.crm-activity{padding:8px 6px}.crm-follow{gap:4px}.crm-follow time{display:none}.crm-float-note{right:-5px}.crm-process-grid{column-gap:14px}.crm-industry-row{grid-template-columns:34px 28px 1fr 16px;gap:7px}.crm-industry-row h3{font-size:.82rem}.crm-industry-row p{font-size:.76rem}.crm-map-card{height:290px}.crm-final-panel{padding:32px 21px}.crm-final-content h2{font-size:2rem}.crm-final-panel .crm-actions{align-items:stretch;flex-direction:column}.crm-final-panel .crm-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.crm-page *,.crm-page *:before,.crm-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
+/* Keep CRM headings on the navy and yellow brand palette. */
+.crm-page{--crm-ink:#1e1b4b;--crm-yellow:#facc15}
+.crm-page .crm-section h1,.crm-page .crm-section h2,.crm-page .crm-section h3{color:#1e1b4b}
+.crm-page .crm-section h2 span,.crm-page .crm-hero h1 span{background:none!important;color:#facc15!important;-webkit-text-fill-color:#facc15!important}
+.crm-page .crm-final-content h2{color:#fff!important}
+
 .crm-challenge-outro{margin:18px 0 0;padding:15px 17px;border-left:2px solid #e3b20b;background:#fff;font-size:.85rem!important;line-height:1.6!important}
 
 /* Cleaner hero and scroll-triggered motion */

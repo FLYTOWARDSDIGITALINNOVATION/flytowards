@@ -199,9 +199,7 @@ export default function BillingSoftware() {
 /* ── Hero ── */
 .bs-hero{
   min-height:650px;padding:140px 0 80px;display:flex;align-items:center;
-  background:
-    radial-gradient(ellipse at 80% 28%,#fff4c4,transparent 36%),
-    radial-gradient(ellipse at 4%  75%,#e9fbfc,transparent 36%)
+  background:#fff
 }
 .bs-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
 .bs-page h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#1e1b4b}

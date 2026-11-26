@@ -843,9 +843,8 @@ const Service = () => {
                 <div style={{ maxWidth: '1100px', margin: '0 auto' }} data-aos="fade-up">
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '2.5rem 1.75rem'
-                    }}>
+                    }} className="service-process-grid">
                         {processes.map((process, idx) => (
                             <div
                                 key={idx}
@@ -937,7 +936,7 @@ const Service = () => {
                     </p>
                 </div>
 
-                <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }} data-aos="fade-up">
+                <div className="grid service-decision-grid" data-aos="fade-up">
                     {[
                         {
                             condition: "Need a business-specific application?",

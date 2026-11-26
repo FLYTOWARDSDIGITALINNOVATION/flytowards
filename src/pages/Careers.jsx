@@ -150,6 +150,30 @@ const Careers = () => {
                     border: 1px solid #facc15 !important;
                     border-radius: 999px !important;
                 }
+
+                .careers-page .hero-title {
+                    background: none !important;
+                    -webkit-text-fill-color: #1e1b4b !important;
+                    color: #1e1b4b !important;
+                }
+
+                .careers-page .hero-title .careers-hero-accent {
+                    background: none !important;
+                    -webkit-text-fill-color: #FACC15 !important;
+                    color: #FACC15 !important;
+                }
+
+                .careers-page .section-title {
+                    background: none !important;
+                    -webkit-text-fill-color: #1e1b4b !important;
+                    color: #1e1b4b !important;
+                }
+
+                .careers-page .section-title span {
+                    background: none !important;
+                    -webkit-text-fill-color: #FACC15 !important;
+                    color: #FACC15 !important;
+                }
                 
                 @keyframes float {
                     0%, 100% { transform: translateY(0) rotate(1deg); }
@@ -309,6 +333,31 @@ const Careers = () => {
                     .hero-title {
                         font-size: 3rem !important;
                     }
+                    .careers-hero-actions {
+                        width: 100%;
+                        flex-direction: column;
+                        gap: 0.85rem !important;
+                    }
+                    .careers-hero-actions > a,
+                    .careers-hiring-status {
+                        width: min(100%, 360px);
+                        max-width: 100%;
+                        box-sizing: border-box;
+                        justify-content: center;
+                    }
+                    .careers-hero-actions > a {
+                        padding: 1rem 1.25rem !important;
+                        white-space: nowrap;
+                    }
+                    .careers-hiring-status {
+                        padding: 0.8rem 0.9rem !important;
+                        gap: 0.6rem !important;
+                        white-space: nowrap;
+                    }
+                    .careers-hiring-status > span {
+                        font-size: 0.8rem !important;
+                        white-space: nowrap;
+                    }
                     .roles-grid {
                         grid-template-columns: 1fr !important;
                     }
@@ -400,14 +449,14 @@ const Careers = () => {
                             <span className="topic-pill topic-pill--navy topic-pill--compact" style={{ marginBottom: '1.5rem' }}>Careers at Fly Towards</span>
                             <h1 className="hero-title" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.2, marginBottom: '1.5rem', letterSpacing: '-0.03em', color: '#1e1b4b' }}>
                                 The Future <br /> Needs Your <br />
-                                <span className="gradient-text">Boldness.</span>
+                                <span className="careers-hero-accent">Boldness.</span>
                             </h1>
                             <p style={{ fontSize: '1.4rem', color: '#64748b', lineHeight: 1.6, marginBottom: '3.5rem', maxWidth: '550px' }}>
                                 We are building the next generation of digital infrastructure. Join a tribe that values craft, impact, and your individual growth.
                             </p>
-                            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                            <div className="careers-hero-actions" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                                 <a href="#openings" className="btn btn-primary" style={{ padding: '1.4rem 3.5rem', borderRadius: '50px', fontWeight: 800, fontSize: '1.1rem' }}>Open Roles</a>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '1rem', background: '#f8fafc', borderRadius: '50px' }}>
+                                <div className="careers-hiring-status" style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '1rem', background: '#f8fafc', borderRadius: '50px' }}>
                                     <div style={{ width: '12px', height: '12px', background: '#10b981', borderRadius: '50%', boxShadow: '0 0 10px #10b981' }}></div>
                                     <span style={{ fontSize: '0.9rem', fontWeight: 700 }}>Hiring: Engineering & Design</span>
                                 </div>

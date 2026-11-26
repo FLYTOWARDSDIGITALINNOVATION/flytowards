@@ -29,44 +29,44 @@ const WebDev = () => {
         {
             title: "Custom Website Development",
             description: "High-performance, tailor-made websites built around your brand, goals, and users.",
-            img: "serviceprocessdev.webp",
+            img: "/serviceprocessdev.webp",
             icon: <Code size={30} />,
-            color: "0, 242, 255"
+            color: "250, 204, 21"
         },
         {
             title: "WordPress Development",
             description: "Scalable WordPress solutions with custom themes, speed optimization, and clean architecture.",
-            img: "servicewordpress.webp",
+            img: "/servicewordpress.webp",
             icon: <Globe size={30} />,
-            color: "255, 0, 122"
+            color: "30, 27, 75"
         },
         {
             title: "Landing Page Development",
             description: "Conversion-focused landing pages designed to turn traffic into qualified leads.",
-            img: "servicelanding.webp",
+            img: "/servicelanding.webp",
             icon: <MonitorSmartphone size={30} />,
-            color: "157, 0, 255"
+            color: "250, 204, 21"
         },
         {
             title: "Corporate Websites",
             description: "Professional, trust-driven websites that communicate authority and credibility.",
-            img: "servicecorporate.webp",
+            img: "/servicecorporate.webp",
             icon: <Shield size={30} />,
-            color: "0, 242, 255"
+            color: "250, 204, 21"
         },
         {
             title: "Website Redesign",
             description: "Modern UI/UX, improved SEO structure, faster load times, and better user flow.",
-            img: "serviceredesign.webp",
+            img: "/serviceredesign.webp",
             icon: <RefreshCcw size={30} />,
-            color: "255, 0, 122"
+            color: "30, 27, 75"
         },
         {
             title: "Performance & SEO",
             description: "Technical SEO, speed enhancements, and structure optimization for long-term growth.",
-            img: "serviceseo.webp",
+            img: "/serviceseo.webp",
             icon: <Gauge size={30} />,
-            color: "157, 0, 255"
+            color: "250, 204, 21"
         }
     ];
 
@@ -75,31 +75,31 @@ const WebDev = () => {
             title: "Discovery & Strategy",
             desc: "Deep understanding of your business goals, target audience, and market challenges to craft a winning digital blueprint.",
             icon: <Search size={40} />,
-            color: "0, 242, 255"
+            color: "250, 204, 21"
         },
         {
             title: "Architecture & Planning",
             desc: "Mapping out SEO structure, technical requirements, and user flow for a seamless digital experience.",
             icon: <Workflow size={40} />,
-            color: "255, 0, 122"
+            color: "30, 27, 75"
         },
         {
             title: "Premium UI/UX Design",
             desc: "Crafting modern, trust-driven interfaces designed for clarity, engagement, and maximum conversion rates.",
             icon: <Layout size={40} />,
-            color: "157, 0, 255"
+            color: "250, 204, 21"
         },
         {
             title: "Expert Development",
             desc: "Building clean, scalable, and high-performance code with a focus on security and lightning-fast speed.",
             icon: <Code size={40} />,
-            color: "0, 242, 255"
+            color: "250, 204, 21"
         },
         {
             title: "Launch & Optimization",
             desc: "Rigorous testing, optimized deployment, and continuous performance tracking to ensure long-term growth.",
             icon: <Rocket size={40} />,
-            color: "255, 0, 122"
+            color: "30, 27, 75"
         }
     ];
 
@@ -109,19 +109,19 @@ const WebDev = () => {
             desc: "Every line of code is written with conversions, ROI, and your business goals as the primary focus.",
             points: ["SEO-first structure", "Conversion-focused layouts", "Clear value messaging"],
             icon: <TrendingUp size={35} />,
-            color: "0, 242, 255"
+            color: "250, 204, 21"
         },
         {
             title: "Built to Scale & Perform",
             desc: "We don't just build for today; we build for your future success with high-performance architectures.",
             points: ["99th Percentile Performance", "Hardened Security Protocols", "Cloud-Native Scalability"],
             icon: <Server size={35} />,
-            color: "255, 0, 122"
+            color: "30, 27, 75"
         }
     ];
 
     return (
-        <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a', overflowX: 'hidden' }}>
+        <main className="webdev-page" style={{ background: '#ffffff', minHeight: '100vh', fontFamily: "'Outfit', sans-serif", color: '#0f172a', overflowX: 'hidden' }}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap');
                 
@@ -139,9 +139,12 @@ const WebDev = () => {
                 .floating { animation: float 8s ease-in-out infinite; }
                 
                 .gradient-text {
-                    background: linear-gradient(135deg, #00f2ff 0%, #ff007a 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                    background: none !important;
+                    background-image: none !important;
+                    background-clip: initial !important;
+                    -webkit-background-clip: initial !important;
+                    color: #facc15 !important;
+                    -webkit-text-fill-color: #facc15 !important;
                 }
 
                 .whatsapp-btn-custom {
@@ -227,12 +230,50 @@ const WebDev = () => {
                         line-height: 1.1 !important;
                     }
                 }
+                @media (max-width: 640px) {
+                    .webdev-page { overflow-x: clip !important; }
+                    .webdev-page .webdev-cta-section { padding: 0 1rem 4rem !important; }
+                    .webdev-page > section > div:not(.cta-card) { width: 100% !important; max-width: 100% !important; padding-inline: 1rem !important; box-sizing: border-box !important; }
+                    .webdev-page .hero-section { padding-top: 110px !important; padding-bottom: 48px !important; }
+                    .webdev-page .hero-grid { gap: 2rem !important; }
+                    .webdev-page .hero-grid h1 { font-size: clamp(2.5rem, 11vw, 3.5rem) !important; line-height: 1.02 !important; overflow-wrap: anywhere; }
+                    .webdev-page .hero-grid p { font-size: 1.05rem !important; margin-bottom: 1.5rem !important; }
+                    .webdev-page .hero-grid > div:first-child > div:last-child { width: 100%; flex-direction: column; align-items: stretch !important; gap: .75rem !important; }
+                    .webdev-page .hero-grid .btn { width: 100%; justify-content: center; padding: 1rem !important; font-size: 1rem !important; }
+                    .webdev-page .hero-grid a[href="#services"] { justify-content: center; padding: .75rem; }
+                    .webdev-page .hero-image-container img { height: min(95vw, 390px) !important; border-radius: 28px !important; }
+                    .webdev-page .section-padding { padding: 3.5rem 0 !important; }
+                    .webdev-page .section-title { font-size: clamp(2rem, 9vw, 2.7rem) !important; line-height: 1.08 !important; overflow-wrap: anywhere; }
+                    .webdev-page .services-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 1.25rem !important; }
+                    .webdev-page .service-card { border-radius: 26px !important; }
+                    .webdev-page .service-card-image { height: 220px !important; }
+                    .webdev-page .service-card-content { padding: 1.5rem !important; }
+                    .webdev-page .service-card-content h3 { font-size: 1.5rem !important; overflow-wrap: anywhere; }
+                    .webdev-page .service-card-content p { font-size: 1rem !important; }
+                    .webdev-page .process-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 2rem !important; }
+                    .webdev-page .step-card { padding: 1.5rem !important; gap: 1rem !important; border-radius: 24px !important; }
+                    .webdev-page .step-card h3 { font-size: 1.6rem !important; overflow-wrap: anywhere; }
+                    .webdev-page .step-card p { font-size: 1rem !important; }
+                    .webdev-page .step-icon-box { width: 72px !important; height: 72px !important; border-radius: 22px !important; }
+                    .webdev-page .process-sidebar { margin-top: 1rem !important; }
+                    .webdev-page .process-sidebar img { height: 280px !important; border-radius: 28px !important; }
+                    .webdev-page .process-sidebar h2 { font-size: clamp(2rem, 9vw, 2.7rem) !important; line-height: 1.1 !important; }
+                    .webdev-page .cta-card { padding: 3rem 1.25rem !important; border-radius: 28px !important; }
+                    .webdev-page .cta-card h2 { font-size: clamp(2.1rem, 10vw, 3rem) !important; line-height: 1.08 !important; }
+                    .webdev-page .cta-card p { font-size: 1rem !important; margin-bottom: 2rem !important; }
+                    .webdev-page .cta-card .btn { width: 100%; justify-content: center; padding: 1rem !important; font-size: 1rem !important; }
+                    .webdev-page .cta-card > div:last-child > div:last-child { flex-direction: column; gap: .75rem !important; }
+                }
+                @media (max-width: 380px) {
+                    .webdev-page .home-badge-tag { font-size: .72rem !important; padding: 6px 12px !important; letter-spacing: .08em !important; }
+                    .webdev-page .step-card { padding: 1.15rem !important; }
+                }
             `}</style>
 
             {/* Ambient decoration */}
             <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
-                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0, 242, 255, 0.08) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
-                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(255, 0, 122, 0.05) 0%, transparent 70%)', filter: 'blur(100px)' }}></div>
+                <div style={{ position: 'absolute', top: '10%', left: '5%', width: '500px', height: '500px', background: 'none', filter: 'none' }}></div>
+                <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: '600px', height: '600px', background: 'none', filter: 'none' }}></div>
             </div>
 
             {/* Hero Section */}
@@ -243,14 +284,14 @@ const WebDev = () => {
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem' }}>
                                 <span className="home-badge-tag">WEB EXCELLENCE</span>
                             </div>
-                            <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', fontWeight: 900, lineHeight: 0.95, marginBottom: '2.5rem', letterSpacing: '-0.04em' }}>
-                                Website Development Service
+                            <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', fontWeight: 900, lineHeight: 0.95, marginBottom: '2.5rem', letterSpacing: '-0.04em', color: '#1e1b4b' }}>
+                                Website <span className="gradient-text">Development</span> Service
                             </h1>
                             <p style={{ fontSize: '1.4rem', color: '#64748b', lineHeight: 1.6, marginBottom: '3.5rem', maxWidth: '600px' }}>
                                 We build performance-obsessed web architectures that convert visitors into loyal customers and scale seamlessly with your vision.
                             </p>
                             <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-                                <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.4rem 3.5rem', borderRadius: '50px', fontWeight: 800, fontSize: '1.1rem', boxShadow: '0 20px 40px rgba(0, 242, 255, 0.2)' }}>
+                                <RouterLink to="/contact" className="btn btn-primary" style={{ padding: '1.4rem 3.5rem', borderRadius: '50px', fontWeight: 800, fontSize: '1.1rem', boxShadow: '0 20px 40px rgba(250, 204, 21, 0.2)' }}>
                                     Launch Your Project
                                 </RouterLink>
                                 <a href="#services" style={{ color: '#1e1b4b', fontWeight: 800, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.1rem' }}>
@@ -260,7 +301,7 @@ const WebDev = () => {
                         </div>
                         <div data-aos="fade-left" className="floating hero-image-container">
                             <div style={{ position: 'relative', borderRadius: '60px', overflow: 'hidden', boxShadow: '0 60px 120px rgba(15, 23, 42, 0.15)' }}>
-                                <img src="service image1.webp" alt="Web Dev" style={{ width: '100%', height: '650px', objectFit: 'cover' }} />
+                                <img src="/service image1.webp" alt="Web Dev" style={{ width: '100%', height: '650px', objectFit: 'cover' }} />
                                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent 60%)' }}></div>
                             </div>
                         </div>
@@ -288,7 +329,7 @@ const WebDev = () => {
                                 <div className="service-card-content" style={{ padding: '3.5rem' }}>
                                     <h3 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '1.2rem', color: '#1e1b4b' }}>{service.title}</h3>
                                     <p style={{ fontSize: '1.2rem', color: '#64748b', lineHeight: 1.7, marginBottom: '2rem' }}>{service.description}</p>
-                                    <RouterLink to="/contact" style={{ fontWeight: 800, color: '#00f2ff', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <RouterLink to="/contact" style={{ fontWeight: 800, color: '#facc15', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                         Start Building <ArrowRight size={20} />
                                     </RouterLink>
                                 </div>
@@ -308,7 +349,7 @@ const WebDev = () => {
                             <h2 className="section-title" style={{ fontSize: '4.5rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '4rem', color: '#1e1b4b', lineHeight: 1 }}>How We <span className="gradient-text">Build Greatness.</span></h2>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative' }}>
-                                <div style={{ position: 'absolute', top: '60px', bottom: '60px', left: '55px', width: '2px', background: 'linear-gradient(to bottom, #00f2ff, #25d366, #ff007a)', opacity: 0.15 }}></div>
+                                <div style={{ position: 'absolute', top: '60px', bottom: '60px', left: '55px', width: '2px', background: 'linear-gradient(to bottom, #facc15, #facc15, #facc15)', opacity: 0.15 }}></div>
 
                                 {devProcess.map((step, idx) => (
                                     <div key={idx} className="step-card" style={{ display: 'flex', gap: '3rem', alignItems: 'center', padding: '3.5rem', background: '#fcfcfe', borderRadius: '45px', border: '1px solid #f1f5f9', boxShadow: '0 25px 60px rgba(0,0,0,0.02)', position: 'relative', zIndex: 2 }}>
@@ -331,11 +372,11 @@ const WebDev = () => {
                         {/* Sidebar */}
                         <div data-aos="fade-left" className="process-sidebar" style={{ position: 'sticky', top: '140px' }}>
                             <div style={{ borderRadius: '60px', overflow: 'hidden', marginBottom: '5rem', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}>
-                                <img src="Empowered Teams.png" alt="Strategy" style={{ width: '100%', height: '500px', objectFit: 'cover' }} />
+                                <img src="/Empowered Teams.png" alt="Strategy" style={{ width: '100%', height: '500px', objectFit: 'cover' }} />
                             </div>
 
                             <span className="home-badge-tag">THE DIFFERENCE</span>
-                            <h2 style={{ fontSize: '3rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '3.5rem', color: '#1e1b4b' }}>Why <span style={{ color: '#ff007a' }}>Fly Towards?</span></h2>
+                            <h2 style={{ fontSize: '3rem', fontWeight: 900, marginTop: '1.5rem', marginBottom: '3.5rem', color: '#1e1b4b' }}>Why <span style={{ color: '#facc15' }}>Fly Towards?</span></h2>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                                 {whyChooseUs.map((item, idx) => (
@@ -350,7 +391,7 @@ const WebDev = () => {
                                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
                                             {item.points.map((pt, pIdx) => (
                                                 <div key={pIdx} style={{ padding: '12px 24px', background: '#f8fafc', borderRadius: '50px', fontSize: '1rem', fontWeight: 800, color: '#1e1b4b', display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid #f1f5f9' }}>
-                                                    <CheckCircle2 size={18} color="#00f2ff" /> {pt}
+                                                    <CheckCircle2 size={18} color="#facc15" /> {pt}
                                                 </div>
                                             ))}
                                         </div>
@@ -363,8 +404,8 @@ const WebDev = () => {
             </section>
 
             {/* Final CTA */}
-            <section style={{ padding: '0 2rem 140px' }}>
-                <div data-aos="zoom-in" className="cta-card" style={{ maxWidth: '1400px', margin: '0 auto', padding: '120px 60px', borderRadius: '80px', textAlign: 'center', background: 'linear-gradient(225deg, #0f172a 0%, #1e1b4b 100%)', position: 'relative', overflow: 'hidden', boxShadow: '0 60px 120px rgba(15, 23, 42, 0.3)' }}>
+            <section className="webdev-cta-section" style={{ padding: '0 2rem 140px' }}>
+                <div data-aos="zoom-in" className="cta-card" style={{ maxWidth: '1400px', margin: '0 auto', padding: '120px 60px', borderRadius: '80px', textAlign: 'center', background: '#1e1b4b', position: 'relative', overflow: 'hidden', boxShadow: '0 60px 120px rgba(30, 27, 75, 0.3)' }}>
                     <div style={{ position: 'absolute', inset: 0, background: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")', opacity: 0.1 }}></div>
                     <div style={{ position: 'relative', zIndex: 1 }}>
                         <h2 style={{ fontSize: 'clamp(3rem, 7vw, 5rem)', fontWeight: 900, color: 'white', marginBottom: '3rem', letterSpacing: '-0.04em', lineHeight: 1 }}>Ready to Building a <br /><span className="gradient-text">Masterpiece?</span></h2>

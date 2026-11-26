@@ -245,9 +245,9 @@ const Industries = () => {
 
                 .industry-card {
                     transition:
-                        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        box-shadow 0.5s ease,
-                        border 0.3s ease;
+                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.35s ease,
+                        border 0.25s ease;
                     cursor: pointer;
                     display: flex;
                     flex-direction: column;
@@ -256,27 +256,38 @@ const Industries = () => {
                     z-index: 1;
                 }
 
+                .industry-card .industry-icon {
+                    background: rgba(250, 204, 21, 0.14);
+                    color: #111827;
+                    transition: transform 0.35s ease, background 0.3s ease;
+                }
+
                 .industry-card:hover {
-                    transform: translateY(-12px);
+                    transform: translateY(-6px);
                     box-shadow:
-                        0 30px 60px rgba(15, 23, 42, 0.08) !important;
+                        0 20px 40px rgba(15, 23, 42, 0.1) !important;
                 }
 
                 .industry-card:hover .industry-card-image-el {
-                    transform: scale(1.08);
+                    transform: scale(1.05);
+                }
+
+                .industry-card:hover .industry-icon {
+                    transform: translateY(-3px) rotate(-4deg);
+                    background: rgba(250, 204, 21, 0.16);
                 }
 
                 .industry-card::before {
                     content: '';
                     position: absolute;
                     inset: 0;
-                    border-radius: 40px;
+                    border-radius: 28px;
                     padding: 2px;
                     background:
                         linear-gradient(
                             135deg,
-                            rgba(var(--color), 0.3) 0%,
-                            rgba(var(--color), 0.02) 100%
+                            rgba(250, 204, 21, 0.3) 0%,
+                            rgba(250, 204, 21, 0.02) 100%
                         );
                     -webkit-mask:
                         linear-gradient(#fff 0 0) content-box,
@@ -291,8 +302,8 @@ const Industries = () => {
                     background:
                         linear-gradient(
                             135deg,
-                            rgba(var(--color), 0.7) 0%,
-                            rgba(var(--color), 0.2) 100%
+                            rgba(250, 204, 21, 0.8) 0%,
+                            rgba(250, 204, 21, 0.18) 100%
                         );
                 }
 
@@ -320,6 +331,47 @@ const Industries = () => {
                 .section-inner {
                     width: min(1400px, 92%);
                     margin: 0 auto;
+                }
+
+                .industries-grid {
+                    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                    gap: 1.5rem !important;
+                }
+
+                .industries-hero-grid > div:last-child {
+                    min-width: 0;
+                }
+
+                .industries-hero-overlay {
+                    left: 20px !important;
+                    right: 20px !important;
+                    bottom: 20px !important;
+                    padding: 1.25rem !important;
+                    box-sizing: border-box;
+                }
+
+                .industries-hero-overlay-title {
+                    font-size: clamp(1.1rem, 1.4vw, 1.45rem) !important;
+                    line-height: 1.2 !important;
+                    overflow-wrap: normal !important;
+                    word-break: keep-all !important;
+                    hyphens: none !important;
+                }
+
+                @media (max-width: 1100px) {
+                    .industries-hero-grid {
+                        grid-template-columns: minmax(0, 1fr) !important;
+                        gap: 3rem !important;
+                    }
+
+                    .industries-hero-grid > div:last-child > div {
+                        width: calc(100% + 20px);
+                        max-width: 720px;
+                        margin: 0 auto;
+                        position: relative;
+                        left: -10px;
+                        box-sizing: border-box;
+                    }
                 }
 
                 .industry-icon {
@@ -383,8 +435,8 @@ const Industries = () => {
                     }
 
                     .industries-grid {
-                        grid-template-columns: 1fr !important;
-                        gap: 2.5rem !important;
+                        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                        gap: 1.25rem !important;
                     }
 
                     .feature-showcase-grid {
@@ -393,6 +445,71 @@ const Industries = () => {
                 }
 
                 @media (max-width: 600px) {
+                    .industry-requirement-cta {
+                        flex-direction: column;
+                        align-items: stretch !important;
+                        padding: 1.25rem !important;
+                        gap: 1rem !important;
+                    }
+
+                    .industry-requirement-cta > div {
+                        max-width: none !important;
+                        width: 100%;
+                    }
+
+                    .industry-requirement-cta > a {
+                        width: 100%;
+                        max-width: 100%;
+                        box-sizing: border-box;
+                        justify-content: center;
+                        padding: 0.95rem 1rem !important;
+                        font-size: 0.95rem !important;
+                        white-space: normal !important;
+                    }
+
+                    .industries-grid {
+                        grid-template-columns: minmax(0, 1fr) !important;
+                        gap: 1.25rem !important;
+                    }
+
+                    .industries-hero-container > .section-inner {
+                        width: 100%;
+                        padding: 0 1rem !important;
+                        box-sizing: border-box;
+                    }
+
+                    .industries-hero-grid > div:last-child {
+                        width: 100%;
+                        min-width: 0;
+                    }
+
+                    .industries-hero-grid > div:last-child > div {
+                        width: calc(100% + 20px);
+                        max-width: 720px;
+                        margin: 0 auto;
+                        position: relative;
+                        left: -10px;
+                        box-sizing: border-box;
+                    }
+
+                    .industries-hero-overlay {
+                        right: 16px !important;
+                        bottom: 16px !important;
+                        left: 16px !important;
+                        padding: 1rem !important;
+                        border-radius: 20px !important;
+                        box-sizing: border-box;
+                    }
+
+                    .industries-hero-overlay-title {
+                        font-size: clamp(1.1rem, 5vw, 1.45rem) !important;
+                        line-height: 1.2 !important;
+                        overflow-wrap: normal;
+                        word-break: normal;
+                        hyphens: none;
+                        text-wrap: balance;
+                    }
+
                     .industry-solutions-hero .section-inner {
                         width: 100%;
                         padding-left: 1rem !important;
@@ -434,12 +551,12 @@ const Industries = () => {
                     }
 
                     .industry-card {
-                        padding: 2rem !important;
-                        border-radius: 30px !important;
+                        padding: 1.25rem !important;
+                        border-radius: 22px !important;
                     }
 
                     .industry-card::before {
-                        border-radius: 30px;
+                        border-radius: 22px;
                     }
 
                     .hero-image {
@@ -957,6 +1074,7 @@ const Industries = () => {
                                     />
 
                                     <div
+                                        className="industries-hero-overlay"
                                         style={{
                                             position: "absolute",
                                             bottom: "30px",
@@ -1001,6 +1119,7 @@ const Industries = () => {
                                         </div>
 
                                         <h4
+                                            className="industries-hero-overlay-title"
                                             style={{
                                                 color: "white",
                                                 margin: 0,
@@ -1097,7 +1216,7 @@ const Industries = () => {
                                     key={industry.title}
                                     className="industry-card"
                                     data-aos="fade-up"
-                                    data-aos-delay={index * 80}
+                    data-aos-delay={Math.min(index * 55, 330)}
                                     onClick={() =>
                                         setExpandedCard(
                                             isExpanded ? null : index
@@ -1105,13 +1224,13 @@ const Industries = () => {
                                     }
                                     style={{
                                         background: "white",
-                                        borderRadius: "40px",
-                                        padding: "3.5rem",
+                                        borderRadius: "28px",
+                                        padding: "1.5rem",
                                         border: isExpanded
-                                            ? `2px solid rgb(${industry.color})`
+                                            ? "2px solid #EAB308"
                                             : "1px solid #f1f5f9",
                                         boxShadow: isExpanded
-                                            ? `0 20px 45px rgba(${industry.color}, 0.12)`
+                                            ? "0 20px 45px rgba(234, 179, 8, 0.16)"
                                             : "0 15px 30px rgba(0,0,0,0.015)",
                                         "--color": industry.color,
                                     }}
@@ -1120,10 +1239,10 @@ const Industries = () => {
                                     <div
                                         style={{
                                             width: "100%",
-                                            height: "220px",
-                                            borderRadius: "25px",
+                                            height: "150px",
+                                            borderRadius: "20px",
                                             overflow: "hidden",
-                                            marginBottom: "2.5rem",
+                                            marginBottom: "1.25rem",
                                             position: "relative",
                                         }}
                                     >
@@ -1156,7 +1275,7 @@ const Industries = () => {
                                                 right: "20px",
                                                 fontSize: "0.8rem",
                                                 fontWeight: 800,
-                                                color: `rgb(${industry.color})`,
+                                                color: "#A16207",
                                                 background: "white",
                                                 padding:
                                                     "0.4rem 1.2rem",
@@ -1177,7 +1296,7 @@ const Industries = () => {
                                         className="industry-icon"
                                         style={{
                                             "--color": industry.color,
-                                            marginBottom: "1.5rem",
+                                            marginBottom: "0.85rem",
                                         }}
                                     >
                                         {industry.icon}
@@ -1186,10 +1305,11 @@ const Industries = () => {
                                     {/* Title */}
                                     <h3
                                         style={{
-                                            fontSize: "1.9rem",
+                                            fontSize: "1.45rem",
                                             fontWeight: 800,
-                                            color: "#1e1b4b",
-                                            marginBottom: "0.4rem",
+                                            color: "#111827",
+                                            marginBottom: "0.35rem",
+                                            lineHeight: 1.2,
                                         }}
                                     >
                                         {industry.title}
@@ -1198,12 +1318,13 @@ const Industries = () => {
                                     {/* Tagline */}
                                     <p
                                         style={{
-                                            fontSize: "0.95rem",
+                                            fontSize: "0.78rem",
                                             fontWeight: 700,
-                                            color: `rgb(${industry.color})`,
-                                            marginBottom: "1.5rem",
+                                            color: "#A16207",
+                                            marginBottom: "0.85rem",
                                             textTransform: "uppercase",
                                             letterSpacing: "0.5px",
+                                            lineHeight: 1.4,
                                         }}
                                     >
                                         {industry.tagline}
@@ -1212,11 +1333,11 @@ const Industries = () => {
                                     {/* Description */}
                                     <p
                                         style={{
-                                            fontSize: "1.05rem",
-                                            color: "#64748b",
-                                            lineHeight: 1.7,
-                                            marginBottom: "2.5rem",
-                                            minHeight: "80px",
+                                            fontSize: "0.92rem",
+                                            color: "#374151",
+                                            lineHeight: 1.55,
+                                            marginBottom: "1.25rem",
+                                            minHeight: "0",
                                         }}
                                     >
                                         {industry.desc}
@@ -1227,7 +1348,7 @@ const Industries = () => {
                                         style={{
                                             borderTop:
                                                 "1px solid #f1f5f9",
-                                            paddingTop: "2rem",
+                                            paddingTop: "1rem",
                                             marginTop: "auto",
                                         }}
                                     >
@@ -1237,10 +1358,10 @@ const Industries = () => {
                                                 fontWeight: 800,
                                                 textTransform:
                                                     "uppercase",
-                                                color: "#475569",
+                                                color: "#111827",
                                                 letterSpacing: "1.5px",
                                                 marginBottom:
-                                                    "1.2rem",
+                                                    "0.75rem",
                                             }}
                                         >
                                             Key Capabilities
@@ -1254,7 +1375,7 @@ const Industries = () => {
                                                 display: "flex",
                                                 flexDirection:
                                                     "column",
-                                                gap: "0.9rem",
+                                                gap: "0.55rem",
                                             }}
                                         >
                                             {industry.features.map(
@@ -1270,14 +1391,15 @@ const Industries = () => {
                                                             alignItems:
                                                                 "flex-start",
                                                             fontSize:
-                                                                "0.98rem",
-                                                            color: "#334155",
+                                                                "0.84rem",
+                                                            color: "#1F2937",
                                                             fontWeight: 500,
+                                                            lineHeight: 1.45,
                                                         }}
                                                     >
                                                         <CheckCircle2
                                                             size={16}
-                                                            color={`rgb(${industry.color})`}
+                                                            color="#EAB308"
                                                             style={{
                                                                 flexShrink: 0,
                                                                 marginTop:
@@ -1323,7 +1445,7 @@ const Industries = () => {
                                                 fontWeight: 800,
                                                 textTransform:
                                                     "uppercase",
-                                                color: `rgb(${industry.color})`,
+                                                color: "#A16207",
                                                 letterSpacing: "1.5px",
                                                 marginBottom:
                                                     "0.8rem",
@@ -1335,7 +1457,7 @@ const Industries = () => {
                                         <p
                                             style={{
                                                 fontSize: "0.98rem",
-                                                color: "#475569",
+                                                color: "#374151",
                                                 lineHeight: 1.7,
                                                 margin: 0,
                                             }}
@@ -1349,13 +1471,13 @@ const Industries = () => {
                                     {/* Expand Button */}
                                     <div
                                         style={{
-                                            marginTop: "2.5rem",
+                                            marginTop: "1.25rem",
                                             display: "flex",
                                             justifyContent:
                                                 "center",
                                             borderTop:
                                                 "1px solid #f8fafc",
-                                            paddingTop: "1.5rem",
+                                            paddingTop: "1rem",
                                         }}
                                     >
                                         <span
@@ -1411,8 +1533,8 @@ const Industries = () => {
                                                 padding:
                                                     "0.9rem 1.5rem",
                                                 borderRadius: "50px",
-                                                background: `rgb(${industry.color})`,
-                                                color: "#fff",
+                                                background: "#EAB308",
+                                                color: "#111827",
                                                 textDecoration:
                                                     "none",
                                                 display: "flex",
@@ -2475,6 +2597,7 @@ const Industries = () => {
                     </div>
 
                     <div
+                        className="industry-requirement-cta"
                         style={{
                             background: "linear-gradient(135deg, rgba(254, 249, 195, 0.5) 0%, #FFFFFF 100%)",
                             border: "1px solid rgba(250, 204, 21, 0.4)",

@@ -164,7 +164,7 @@ export default function Home() {
           letter-spacing: 0.1em !important;
         }
         .hm-h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: #0f0f0f; margin-bottom: 24px; }
-        .hm-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: #0f0f0f; margin-bottom: 16px; }
+        .hm-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: #0f0f0f; line-height: 1.08; margin-bottom: 16px; }
         .hm-h3 { font-size: 1.15rem; font-weight: 700; color: #0f0f0f; margin-bottom: 10px; }
         .hm-accent { color: #facc15; }
         .hm-lead { font-size: 1.1rem; color: #444; line-height: 1.75; margin-bottom: 24px; }
@@ -226,7 +226,7 @@ export default function Home() {
         .hm-prob-list li::before { content: '→'; color: #facc15; font-weight: 900; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
         .hm-prob-visual { background: #1f2937; border-radius: 24px; padding: 32px; animation: hm-float 6s ease-in-out infinite; }
         .hm-prob-node-wrap { display: flex; flex-direction: column; gap: 16px; }
-        .hm-prob-node { background: #29265a; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #facc15; }
+        .hm-prob-node { background: #111827; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #facc15; }
         .hm-prob-node-title { color: #facc15; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
         .hm-prob-node-status { color: #888; font-size: 11px; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
         .hm-prob-node-status::before { content:''; width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; animation:hm-pulse 2s infinite; }
@@ -234,7 +234,7 @@ export default function Home() {
 
         /* ===== SECTION 3 — SERVICES ===== */
         .hm-serv { background: #f9f9f9; }
-        .hm-serv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; margin-top: 48px; }
+        .hm-serv-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 48px; }
         .hm-serv-card { background: #fff; border-radius: 18px; padding: 32px; border: 2px solid transparent; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
         .hm-serv-card:hover, .hm-serv-card.hm-active { border-color: #facc15; transform: translateY(-4px); box-shadow: 0 12px 32px rgba(250,204,21,0.15); }
         .hm-serv-icon { font-size: 2rem; margin-bottom: 16px; display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; background: #facc15; border-radius: 14px; }
@@ -257,7 +257,7 @@ export default function Home() {
 
         /* ===== SECTION 5 — INDUSTRIES ===== */
         .hm-ind { background: #fff; }
-        .hm-ind-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+        .hm-ind-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 48px; }
         .hm-ind-card { background: #f9f9f9; border-radius: 18px; padding: 28px; border: 2px solid transparent; transition: all 0.3s; text-decoration: none; display: block; }
         .hm-ind-card:hover { border-color: #facc15; background: #fff; transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
         .hm-ind-icon { font-size: 2rem; margin-bottom: 14px; }
@@ -284,7 +284,7 @@ export default function Home() {
         .hm-out-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; }
         .hm-out-list li { display: flex; align-items: center; gap: 14px; color: #ccc; font-size: 1rem; line-height: 1.5; }
         .hm-out-check { width: 28px; height: 28px; background: rgba(250,204,21,0.15); border: 2px solid #facc15; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #facc15; font-size: 14px; flex-shrink: 0; }
-        .hm-out-visual { background: #29265a; border-radius: 24px; padding: 32px; animation: hm-float 5.5s ease-in-out infinite; }
+        .hm-out-visual { background: #111827; border-radius: 24px; padding: 32px; animation: hm-float 5.5s ease-in-out infinite; }
         .hm-out-dash-title { color: #666; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
         .hm-out-dash-title::before { content:''; width:8px; height:8px; background:#4ade80; border-radius:50%; animation:hm-pulse 2s infinite; }
         .hm-out-bars { display: flex; flex-direction: column; gap: 16px; }
@@ -319,8 +319,8 @@ export default function Home() {
         .hm-faq-visual { background: #1f2937; border-radius: 24px; padding: 36px; position: sticky; top: 100px; }
         .hm-faq-visual-title { color: #facc15; font-size: 1.2rem; font-weight: 800; margin-bottom: 24px; }
         .hm-faq-visual-items { display: flex; flex-direction: column; gap: 16px; }
-        .hm-faq-visual-item { background: #29265a; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #facc15; }
-        .hm-faq-visual-item h4 { color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+        .hm-faq-visual-item { background: #111827; border-radius: 12px; padding: 16px 20px; border-left: 3px solid #facc15; }
+        .hm-page .hm-faq-visual .hm-faq-visual-item h4 { color: #fff !important; -webkit-text-fill-color: #fff !important; font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
         .hm-faq-visual-item p { color: #888; font-size: 0.82rem; }
 
         /* ===== SECTION 10 — FINAL CTA ===== */
@@ -358,19 +358,23 @@ export default function Home() {
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
+          .hm-serv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .hm-ind-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .hm-hero-grid { grid-template-columns: 1fr; }
-          .hm-hero-dash { display: none; }
+          .hm-hero-dash { display: block; width: min(100%, 680px); margin: 24px auto 12px; }
           .hm-prob-grid { grid-template-columns: 1fr; }
-          .hm-prob-visual { display: none; }
+          .hm-prob-visual { display: block; width: 100%; box-sizing: border-box; }
           .hm-out-grid { grid-template-columns: 1fr; }
-          .hm-out-visual { display: none; }
+          .hm-out-visual { display: block; width: 100%; max-width: 680px; box-sizing: border-box; margin: 0 auto; }
           .hm-faq-grid { grid-template-columns: 1fr; }
-          .hm-faq-visual { display: none; }
+          .hm-faq-visual { display: block; width: 100%; max-width: 680px; box-sizing: border-box; margin: 24px auto 0; }
           .hm-proc-steps { flex-direction: column; gap: 32px; }
           .hm-proc-steps::before { display: none; }
           .hm-final-list { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
+          .hm-serv-grid { grid-template-columns: 1fr; }
+          .hm-ind-grid { grid-template-columns: 1fr; }
           .hm-page,
           .hm-hero,
           .hm-hero .hm-container,
@@ -396,6 +400,28 @@ export default function Home() {
             display: none !important;
           }
           .hm-hero h1 { font-size: 2rem; }
+          .hm-prob-visual { padding: 20px; border-radius: 20px; }
+          .hm-prob-node { padding: 14px 16px; }
+          .hm-prob-connector { height: 16px; }
+          .hm-out-visual { padding: 20px; border-radius: 20px; }
+          .hm-out-bars { gap: 14px; }
+          .hm-out-note { margin-top: 24px; font-size: .8rem; }
+          .hm-faq-visual { padding: 22px; border-radius: 20px; }
+          .hm-faq-visual-items { gap: 12px; }
+          .hm-faq-visual-item { padding: 14px 16px; }
+          .hm-hero-dash { margin: 32px 8px 20px; width: auto; }
+          .hm-dash-main { padding: 18px; border-radius: 16px; }
+          .hm-dash-mini { top: -18px; right: -6px; padding: 10px 13px; border-radius: 12px; }
+          .hm-dash-mini-val { font-size: 1.1rem; }
+          .hm-dash-mini-label { font-size: 9px; }
+          .hm-dash-mini2 { bottom: -14px; left: -6px; padding: 10px 13px; border-radius: 12px; }
+          .hm-dash-mini2-val { font-size: .95rem; }
+          .hm-dash-mini2-label { font-size: 9px; }
+          .hm-dash-metrics { gap: 8px; }
+          .hm-dash-metric { padding: 12px; }
+          .hm-dash-metric-label { font-size: 9px; letter-spacing: .6px; }
+          .hm-dash-metric-change { font-size: 10px; }
+          .hm-dash-bar-label { font-size: 10px; }
           .hm-cta-row {
             flex-direction: column;
             align-items: stretch;

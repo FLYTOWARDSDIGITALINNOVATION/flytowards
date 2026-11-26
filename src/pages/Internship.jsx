@@ -156,7 +156,7 @@ const Internship = () => {
                 background: '#ffffff',
                 minHeight: '100vh',
                 fontFamily: "'Outfit', sans-serif",
-                '--primary': '#00f2ff'
+                '--primary': '#FACC15'
             }}
         >
             <style>{`
@@ -196,14 +196,9 @@ const Internship = () => {
                     transform: translateX(-50%);
                     width: 700px;
                     height: 500px;
-                    background: radial-gradient(
-                        circle at center,
-                        rgba(250, 204, 21, 0.12) 0%,
-                        rgba(129, 140, 248, 0.06) 50%,
-                        transparent 70%
-                    );
+                    background: none;
                     pointer-events: none;
-                    filter: blur(60px);
+                    filter: none;
                 }
 
                 .gradient-text {
@@ -263,7 +258,7 @@ const Internship = () => {
                     transform: translateY(-15px);
                     box-shadow:
                         0 40px 80px rgba(0, 0, 0, 0.08);
-                    border-color: rgba(0, 242, 255, 0.3);
+                    border-color: rgba(250, 204, 21, 0.45);
                 }
 
                 .card-img-wrapper {
@@ -298,8 +293,9 @@ const Internship = () => {
                 .category-tag {
                     padding: 8px 16px;
                     border-radius: 50px;
-                    background: rgba(0, 242, 255, 0.1);
-                    color: #0891b2;
+                    background: #FEF9C3;
+                    border: 1px solid rgba(250, 204, 21, 0.55);
+                    color: #1F2937;
                     font-weight: 800;
                     font-size: 0.75rem;
                     text-transform: uppercase;
@@ -308,6 +304,20 @@ const Internship = () => {
                     align-items: center;
                     gap: 8px;
                     margin-bottom: 1.5rem;
+                }
+
+                .category-tag svg {
+                    color: #CA8A04;
+                }
+
+                .featured-program-label {
+                    padding: 0 !important;
+                    border: 0 !important;
+                    border-radius: 0 !important;
+                    background: transparent !important;
+                    color: #EAB308 !important;
+                    font-weight: 800;
+                    letter-spacing: 0.08em;
                 }
 
                 /* =========================
@@ -353,7 +363,7 @@ const Internship = () => {
                 .btn-primary:hover {
                     transform: translateY(-2px);
                     box-shadow:
-                        0 15px 30px rgba(0, 242, 255, 0.25);
+                        0 15px 30px rgba(250, 204, 21, 0.3);
                 }
 
                 /* =========================
@@ -382,10 +392,10 @@ const Internship = () => {
                 }
 
                 .form-input-lux:focus {
-                    border-color: #00cfe0;
+                    border-color: #EAB308;
                     background: white;
                     box-shadow:
-                        0 15px 40px rgba(0, 242, 255, 0.1);
+                        0 15px 40px rgba(250, 204, 21, 0.14);
                     outline: none;
                 }
 
@@ -406,7 +416,7 @@ const Internship = () => {
                 }
 
                 .back-btn:hover {
-                    color: #0891b2;
+                    color: #A16207;
                 }
 
                 /* =========================
@@ -774,7 +784,7 @@ const Internship = () => {
                                                                 '3rem'
                                                         }}
                                                     >
-                                                        <span className="category-tag">
+                                                        <span className="category-tag featured-program-label">
                                                             Featured
                                                             Program
                                                         </span>
@@ -854,7 +864,7 @@ const Internship = () => {
                                                                     borderRadius:
                                                                         '50%',
                                                                     background:
-                                                                        '#00f2ff'
+                                                                    '#FACC15'
                                                                 }}
                                                             ></div>
                                                         </div>
@@ -968,7 +978,7 @@ const Internship = () => {
                                         <span
                                             style={{
                                                 color:
-                                                    '#0891b2'
+                                                '#A16207'
                                             }}
                                         >
                                             {

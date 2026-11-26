@@ -11,28 +11,28 @@ const WhatsAppAPI = () => {
             title: "Bulk Messaging",
             description: "Send personalized messages to thousands of users instantly.",
             icon: <MessageCircle size={40} color="var(--primary)" />,
-            image: "./whatsbulk.webp",
+            image: "/whatsbulk.webp",
             delay: "0.1s"
         },
         {
             title: "Automated Workflows",
             description: "Create chatbots and automated replies using simple APIs.",
             icon: <Bot size={40} color="var(--secondary)" />,
-            image: "./whatsautomation.webp",
+            image: "/whatsautomation.webp",
             delay: "0.2s"
         },
         {
             title: "Template Management",
             description: "Create, submit, and manage WhatsApp message templates.",
             icon: <LayoutTemplate size={40} color="var(--accent)" />,
-            image: "./sertemplate.webp",
+            image: "/sertemplate.webp",
             delay: "0.3s"
         },
         {
             title: "Multi-Agent Inbox",
             description: "Collaborate with your team and reply faster.",
             icon: <Users size={40} color="var(--primary)" />,
-            image: "./seragent.webp",
+            image: "/seragent.webp",
             delay: "0.4s"
         }
     ];
@@ -42,25 +42,25 @@ const WhatsAppAPI = () => {
             title: "Marketing Campaigns",
             description: "Promotions, offers, product launches.",
             icon: <Zap size={30} color="var(--primary)" />,
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+            image: "/servicewhatsapp.webp"
         },
         {
             title: "Customer Support",
             description: "Instant responses with real-time notifications.",
             icon: <Briefcase size={30} color="var(--secondary)" />,
-            image: "./customersupport.webp"
+            image: "/customersupport.webp"
         },
         {
             title: "Order & Payment Alerts",
             description: "Transactional updates and reminders.",
             icon: <BellRing size={30} color="var(--accent)" />,
-            image: "./Order & Payment Alerts.webp"
+            image: "/Order & Payment Alerts.webp"
         },
         {
             title: "OTP & Verification",
             description: "Secure authentication via WhatsApp.",
             icon: <Key size={30} color="var(--primary)" />,
-            image: "OTP & Verification.webp"
+            image: "/OTP & Verification.webp"
         }
     ];
 
@@ -69,28 +69,169 @@ const WhatsAppAPI = () => {
             title: "Connect",
             description: "Get WhatsApp Business API access through our platform instantly.",
             icon: <Link color="var(--primary)" size={28} />,
-            image: "./whatsappapi.webp"
+            image: "/whatsappapi.webp"
         },
         {
             title: "Integrate",
             description: "Use REST APIs or webhooks to securely integrate with your CRM, website, or backend.",
             icon: <Code color="var(--secondary)" size={28} />,
-            image: "./whatsappint.webp"
+            image: "/whatsappint.webp"
         },
         {
             title: "Launch",
             description: "Send personalized messages, automate workflows, and track results in real-time.",
             icon: <Rocket color="var(--accent)" size={28} />,
-            image: "./whatsapplanch.webp"
+            image: "/whatsapplanch.webp"
         }
     ];
 
     return (
-        <main style={{ position: 'relative', overflow: 'hidden' }}>
+        <main className="whatsapp-api-page" style={{ position: 'relative', overflow: 'hidden' }}>
+            <style>{`
+                .whatsapp-api-page {
+                    --primary: #facc15;
+                    --secondary: #1e1b4b;
+                    --accent: #facc15;
+                    --gradient-primary: linear-gradient(90deg, #1e1b4b 0%, #facc15 100%);
+                    color: #1e1b4b;
+                }
+                .whatsapp-api-page .hero-title {
+                    background: none !important;
+                    color: #1e1b4b !important;
+                    -webkit-text-fill-color: #1e1b4b !important;
+                }
+                .whatsapp-api-page .gradient-text {
+                    background: none !important;
+                    background-image: none !important;
+                    color: #facc15 !important;
+                    -webkit-text-fill-color: #facc15 !important;
+                }
+                .whatsapp-api-page #features > div:first-child h2,
+                .whatsapp-api-page #use-cases > div:first-child h2,
+                .whatsapp-api-page #process > div:first-child h2,
+                .whatsapp-api-page #contact h2,
+                .whatsapp-api-page #use-cases h4,
+                .whatsapp-api-page #process h3 {
+                    color: #1e1b4b;
+                }
+                .whatsapp-api-page #process h3 span { color: #facc15 !important; }
+                .whatsapp-api-page #use-cases > .grid {
+                    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                    gap: 1.25rem !important;
+                }
+
+                @media (max-width: 768px) {
+                    .whatsapp-api-page .hero {
+                        min-height: 0 !important;
+                        padding: 115px 0 3.5rem !important;
+                    }
+                    .whatsapp-api-page .hero > .grid-2 {
+                        width: 100%;
+                        padding-inline: 1rem !important;
+                        gap: 2rem !important;
+                    }
+                    .whatsapp-api-page .hero-image-v2 {
+                        order: 0 !important;
+                        margin: 0 auto !important;
+                        width: 100%;
+                        max-width: 540px;
+                    }
+                    .whatsapp-api-page .hero-image-v2 > div {
+                        padding: .65rem !important;
+                        border-radius: 24px !important;
+                    }
+                    .whatsapp-api-page .hero-image-v2 > div > img:first-child {
+                        height: min(92vw, 420px) !important;
+                        border-radius: 18px !important;
+                    }
+                    .whatsapp-api-page .hero-image-v2 > div > div {
+                        right: 8px !important;
+                        bottom: 8px !important;
+                        padding: .75rem !important;
+                        gap: .55rem !important;
+                        animation: none !important;
+                    }
+                    .whatsapp-api-page .hero-image-v2 > div > div > div:first-child { padding: .6rem !important; }
+                    .whatsapp-api-page .hero-image-v2 > div > div p:first-child { font-size: 1rem !important; }
+                    .whatsapp-api-page .hero-image-v2 > div > img:last-child {
+                        width: 96px !important;
+                        height: 96px !important;
+                        top: -16px !important;
+                        left: -10px !important;
+                        border-radius: 18px !important;
+                        animation: none !important;
+                    }
+                    .whatsapp-api-page .hero-title {
+                        font-size: clamp(2.5rem, 10vw, 3.6rem) !important;
+                        line-height: 1.04 !important;
+                        letter-spacing: -.04em;
+                    }
+                    .whatsapp-api-page .hero-title br { display: none; }
+                    .whatsapp-api-page .hero h2 { font-size: 1.05rem !important; }
+                    .whatsapp-api-page .hero [data-aos="fade-up"] > div:last-child {
+                        flex-direction: column;
+                        align-items: stretch;
+                        gap: .75rem !important;
+                    }
+                    .whatsapp-api-page .hero [data-aos="fade-up"] > div:last-child .btn {
+                        width: 100%;
+                        justify-content: center;
+                        box-sizing: border-box;
+                    }
+                    .whatsapp-api-page #features,
+                    .whatsapp-api-page #use-cases,
+                    .whatsapp-api-page #process { padding: 4rem 0 !important; }
+                    .whatsapp-api-page #features > div:first-child,
+                    .whatsapp-api-page #use-cases > div:first-child,
+                    .whatsapp-api-page #process > div:first-child { padding-inline: 1rem; margin-bottom: 2.5rem !important; }
+                    .whatsapp-api-page #features h2,
+                    .whatsapp-api-page #use-cases h2,
+                    .whatsapp-api-page #process h2 { font-size: clamp(2rem, 8.5vw, 2.8rem) !important; line-height: 1.1; }
+                    .whatsapp-api-page #features > div:last-child,
+                    .whatsapp-api-page #process > div:last-child { padding-inline: 1rem !important; }
+                    .whatsapp-api-page #features > div:last-child > div { gap: 1rem !important; }
+                    .whatsapp-api-page #features > div:last-child > div > div {
+                        flex: 1 1 100% !important;
+                        min-width: 0 !important;
+                        height: 340px !important;
+                        border-radius: 26px !important;
+                    }
+                    .whatsapp-api-page #features > div:last-child > div > div > div:last-child { padding: 1.35rem !important; }
+                    .whatsapp-api-page #features h3 { font-size: 1.55rem !important; }
+                    .whatsapp-api-page #features p { font-size: .98rem !important; }
+                    .whatsapp-api-page #use-cases > .grid { grid-template-columns: minmax(0, 1fr) !important; gap: 1rem !important; padding-inline: 1rem !important; }
+                    .whatsapp-api-page #use-cases > .grid > div { min-width: 0; }
+                    .whatsapp-api-page #use-cases > .grid > div > div:last-child { padding: 2.5rem 1.25rem 1.25rem !important; }
+                    .whatsapp-api-page #process > div:last-child { gap: 1.25rem !important; }
+                    .whatsapp-api-page #process > div:last-child > div {
+                        flex-direction: column !important;
+                        align-items: stretch !important;
+                        gap: 1rem !important;
+                        padding: 1rem !important;
+                        border-radius: 26px !important;
+                    }
+                    .whatsapp-api-page #process > div:last-child > div > div:first-child { flex: auto !important; width: 100%; height: 220px !important; }
+                    .whatsapp-api-page #process > div:last-child > div > div:last-child { padding: .5rem !important; }
+                    .whatsapp-api-page #process h3 { font-size: 1.8rem !important; }
+                    .whatsapp-api-page #contact { padding: 2rem 1rem 4rem !important; }
+                    .whatsapp-api-page #contact .cta-content { padding: 3rem 1.25rem !important; border-radius: 26px !important; }
+                    .whatsapp-api-page #contact h2 { font-size: clamp(2rem, 9vw, 2.8rem) !important; line-height: 1.1; }
+                    .whatsapp-api-page #contact p { font-size: 1rem !important; margin: 1.25rem auto 2rem !important; }
+                    .whatsapp-api-page #contact > div > div > div:last-child { flex-direction: column; gap: .75rem !important; }
+                    .whatsapp-api-page #contact .btn { width: 100%; justify-content: center; box-sizing: border-box; }
+                }
+                @media (min-width: 769px) and (max-width: 1100px) {
+                    .whatsapp-api-page #use-cases > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+                }
+                @media (max-width: 420px) {
+                    .whatsapp-api-page .home-badge-tag { max-width: 100%; font-size: .76rem !important; padding: .55rem .9rem !important; }
+                    .whatsapp-api-page .hero-image-v2 > div > div p:last-child { font-size: .7rem !important; }
+                }
+            `}</style>
             {/* Aesthetic Background Orbs to fill empty spaces */}
-            <div style={{ position: 'absolute', top: '15%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,242,255,0.08) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(50px)' }}></div>
-            <div style={{ position: 'absolute', top: '40%', right: '-15%', width: '800px', height: '800px', background: 'radial-gradient(circle, rgba(255,0,122,0.05) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
-            <div style={{ position: 'absolute', top: '75%', left: '10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(157,0,255,0.06) 0%, rgba(255,255,255,0) 70%)', borderRadius: '50%', zIndex: -1, filter: 'blur(60px)' }}></div>
+            <div aria-hidden="true" style={{ position: 'absolute', top: '15%', left: '-10%', width: '600px', height: '600px', background: 'none', borderRadius: '50%', zIndex: -1 }}></div>
+            <div aria-hidden="true" style={{ position: 'absolute', top: '40%', right: '-15%', width: '800px', height: '800px', background: 'none', borderRadius: '50%', zIndex: -1 }}></div>
+            <div aria-hidden="true" style={{ position: 'absolute', top: '75%', left: '10%', width: '700px', height: '700px', background: 'none', borderRadius: '50%', zIndex: -1 }}></div>
 
             {/* Hero Section */}
             <section className="hero" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center' }}>
@@ -108,7 +249,7 @@ const WhatsAppAPI = () => {
                         </h2>
 
                         <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginTop: '2.5rem' }}>
-                            <a href="#contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', boxShadow: '0 10px 20px rgba(0, 242, 255, 0.2)' }}>
+                            <a href="#contact" className="btn btn-primary" style={{ padding: '1.2rem 2.5rem', boxShadow: '0 10px 20px rgba(250, 204, 21, 0.2)' }}>
                                 Get API Access <ArrowRight size={20} />
                             </a>
                             <a href="#docs" className="btn btn-outline" style={{ border: '1px solid var(--border)', background: 'white' }}>View Documentation</a>
@@ -117,7 +258,7 @@ const WhatsAppAPI = () => {
 
                     <div className="hero-image-v2" data-aos="fade-left" style={{ transitionDelay: '0.2s', position: 'relative' }}>
                         <div style={{ padding: '1rem', background: 'white', border: '1px solid var(--border)', borderRadius: '40px', position: 'relative', zIndex: 2, boxShadow: '0 30px 60px rgba(0,0,0,0.05)' }}>
-                            <img src="./serwhatsapp.webp" alt="WhatsApp Marketing Automation" style={{ borderRadius: '30px', width: '100%', height: '550px', objectFit: 'cover', display: 'block' }} />
+                            <img src="/serwhatsapp.webp" alt="WhatsApp Marketing Automation" style={{ borderRadius: '30px', width: '100%', height: '550px', objectFit: 'cover', display: 'block' }} />
 
                             <div style={{
                                 position: 'absolute',
@@ -133,7 +274,7 @@ const WhatsAppAPI = () => {
                                 animation: 'float 6s ease-in-out infinite',
                                 border: '1px solid var(--border)'
                             }}>
-                                <div style={{ background: 'rgba(0, 242, 255, 0.1)', padding: '1rem', borderRadius: '50%' }}>
+                                <div style={{ background: 'rgba(250, 204, 21, 0.16)', padding: '1rem', borderRadius: '50%' }}>
                                     <MessageCircle color="var(--primary)" size={24} />
                                 </div>
                                 <div>
@@ -160,7 +301,7 @@ const WhatsAppAPI = () => {
             </section>
 
             {/* Everything You Need Section */}
-            <section id="features" style={{ padding: '8rem 0', background: 'rgba(255, 0, 122, 0.01)' }}>
+            <section id="features" style={{ padding: '8rem 0', background: '#f8fafc' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }} data-aos="fade-up">
                     <span className="home-badge-tag">MARKETING TOOLS</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Everything You Need for <span className="gradient-text">WhatsApp Marketing</span></h2>
@@ -260,7 +401,7 @@ const WhatsAppAPI = () => {
             </section>
 
             {/* Beautiful Zig-Zag Workflow */}
-            <section id="process" style={{ background: 'linear-gradient(to bottom, rgba(0, 242, 255, 0.02), rgba(255, 0, 122, 0.02))', padding: '8rem 0' }}>
+            <section id="process" style={{ background: '#f8fafc', padding: '8rem 0' }}>
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }} data-aos="fade-up">
                     <span className="home-badge-tag">INTEGRATION FLOW</span>
                     <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>How It <span className="gradient-text">Works</span></h2>
@@ -284,17 +425,17 @@ const WhatsAppAPI = () => {
                         }}>
                             <div style={{ flex: 1, height: '400px', borderRadius: '30px', overflow: 'hidden', position: 'relative' }}>
                                 <img src={step.image} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(45deg, rgba(0,242,255,0.1), rgba(255,0,122,0.1))', mixBlendMode: 'overlay' }}></div>
+                                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(45deg, rgba(250,204,21,0.12), rgba(30,27,75,0.08))', mixBlendMode: 'overlay' }}></div>
                             </div>
 
                             <div style={{ flex: 1, padding: '2rem 3rem' }}>
                                 <div style={{
                                     width: '80px', height: '80px',
-                                    background: `linear-gradient(135deg, rgba(${idx === 0 ? '0, 242, 255' : idx === 1 ? '255, 0, 122' : '157, 0, 255'}, 0.1) 0%, transparent 100%)`,
+                                    background: `linear-gradient(135deg, rgba(${idx === 1 ? '30, 27, 75' : '250, 204, 21'}, 0.12) 0%, transparent 100%)`,
                                     borderRadius: '25px',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     marginBottom: '2rem',
-                                    border: `1px solid rgba(${idx === 0 ? '0, 242, 255' : idx === 1 ? '255, 0, 122' : '157, 0, 255'}, 0.3)`
+                                    border: `1px solid rgba(${idx === 1 ? '30, 27, 75' : '250, 204, 21'}, 0.3)`
                                 }}>
                                     {step.icon}
                                 </div>
@@ -340,7 +481,7 @@ const WhatsAppAPI = () => {
                             Join thousands of businesses reaching their customers where they are most active. Setup in minutes.
                         </p>
                         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 20px rgba(0, 242, 255, 0.2)' }}>
+                            <a href="https://wa.me/919080999823" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.2rem 3rem', boxShadow: '0 10px 20px rgba(250, 204, 21, 0.2)' }}>
                                 Get Started Today <ArrowRight size={20} />
                             </a>
                             <a href="mailto:info@flytowards-digital.com" className="btn btn-outline" style={{ padding: '1.2rem 3rem', background: 'white', border: '1px solid var(--border)' }}>Talk to Us</a>

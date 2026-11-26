@@ -531,8 +531,9 @@
 .consult-roadmap-node{fill:#fff;stroke:#3730a3;stroke-width:3;transform-box:fill-box;transform-origin:center;animation:consult-node-pop .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--milestone)*.25s)}
 .consult-roadmap-halo{fill:#facc1518;stroke:#facc1550;transform-box:fill-box;transform-origin:center;animation:consult-halo-pulse 2.4s ease-out infinite;animation-delay:calc(var(--milestone)*.45s)}
 .consult-roadmap-visual text{fill:var(--consult-ink);font:700 14px system-ui,sans-serif;text-anchor:middle}
-.consult-location{background:linear-gradient(120deg,#fafafa,#fffbeb 58%,#f8fafc)}
-.consult-final{background:linear-gradient(135deg,#0284c7 0%,#0369a1 50%,#0f172a 100%);box-shadow:0 27px 58px #0284c733}
+.consult-location{background:#fff}
+.consult-final{background:#1e1b4b;box-shadow:0 27px 58px #1e1b4b26}
+.consult-final-ring{display:none;animation:none}
 @keyframes consult-orbit-breathe{0%,100%{transform:scale(.96) rotate(-8deg);opacity:.45}50%{transform:scale(1.04) rotate(8deg);opacity:1}}
 @keyframes consult-board-enter{from{opacity:0;transform:translateY(24px) rotateX(8deg);filter:blur(6px)}to{opacity:1;transform:translateY(0) rotateX(0);filter:blur(0)}}
 @keyframes consult-route-draw{0%{width:0}65%,100%{width:100%}}

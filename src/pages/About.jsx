@@ -271,6 +271,9 @@ const About = () => {
                 .about-page #commitments .grid p {
                     color: #D1D5DB !important;
                 }
+                .about-page #commitments .commitments-single-row p {
+                    color: #D1D5DB !important;
+                }
             `}</style>
 
             {/* Ambient Background Lights (Exact match with Home page) */}
@@ -487,7 +490,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                    <div className="grid about-capabilities-grid">
                         {capabilities.map((cap, idx) => (
                             <div key={idx} className="card" data-aos="fade-up" data-aos-delay={idx * 100} style={{ 
                                 display: 'flex', 
@@ -607,7 +610,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+                    <div className="grid about-why-grid">
                         {whyWorkWithUs.map((item, idx) => (
                             <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100} style={{ 
                                 padding: '2.5rem 2rem', 
@@ -795,7 +798,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem' }}>
+                    <div className="grid about-industries-grid">
                         {industries.map((ind, idx) => (
                             <Link key={idx} to={ind.link} className="card" data-aos="fade-up" data-aos-delay={idx * 50} style={{ 
                                 padding: '0', 
@@ -1197,7 +1200,7 @@ const About = () => {
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+                        gridTemplateColumns: 'minmax(0, 1fr)',
                         gap: '1.5rem',
                         alignItems: 'start'
                     }} data-aos="fade-up">

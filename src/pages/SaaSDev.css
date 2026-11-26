@@ -981,7 +981,7 @@
     position: relative;
     border: 1px solid rgba(234, 179, 8, .4);
     border-radius: 32px;
-    background: linear-gradient(145deg, #FEF9C3 0%, #fff 72%);
+    background: linear-gradient(145deg, #0f0f0f 0%, #1e1b4b 100%);
     text-align: center;
 }
 
@@ -1014,11 +1014,20 @@
 
 .saas-final-cta h2 {
     margin: 14px auto 18px;
+    color: #fff !important;
+}
+
+.saas-final-cta h2 .saas-heading-accent {
+    background: none !important;
+    color: #facc15 !important;
+    -webkit-text-fill-color: #facc15 !important;
+    filter: none;
 }
 
 .saas-final-cta > p {
     max-width: 760px;
     margin: 0 auto 8px;
+    color: #d1d5db;
 }
 
 .saas-final-cta .saas-actions {
@@ -1284,4 +1293,8 @@
 .saas-button:hover:after{transform:translateX(125%)}
 .saas-final-cta{transition:transform .4s,box-shadow .4s}
 .saas-final-cta:hover{transform:translateY(-4px);box-shadow:0 30px 70px rgba(31,41,55,.12)}
+.saas-page .saas-heading-accent{animation:none!important;background:none!important;background-image:none!important;background-size:auto!important;color:#facc15!important;-webkit-text-fill-color:#facc15!important;filter:none!important}
+.saas-page section:not(.saas-hero) h2::after{animation:none!important;transform:scaleX(1);background:#facc15}
+.saas-page section:not(.saas-hero) h2::before{display:none!important;animation:none!important}
+.saas-page [data-aos]:has(h1,h2,h3,h4){opacity:1!important;transform:none!important;transition:none!important}
 @media(prefers-reduced-motion:reduce){.saas-page [data-aos]{opacity:1!important;transform:none!important;transition:none!important}.saas-service:before,.saas-button:after{display:none}.saas-dashboard,.saas-orbit,.saas-benefit-orbit,.saas-benefit-cloud,.saas-floating,.saas-spark{animation:none!important}}

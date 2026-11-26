@@ -211,9 +211,7 @@ export default function FoodDeliverySolution() {
 /* ── Hero ── */
 .fd-hero{
   min-height:650px;padding:140px 0 80px;display:flex;align-items:center;
-  background:
-    radial-gradient(ellipse at 80% 25%,#fffbe6,transparent 38%),
-    radial-gradient(ellipse at 4%  72%,#fef9c3,transparent 36%)
+  background:#fff
 }
 .fd-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
 .fd-page h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#1e1b4b}
@@ -266,6 +264,9 @@ export default function FoodDeliverySolution() {
 .fd-card p{color:var(--muted);font-size:.9rem;line-height:1.65;margin:0}
 .fd-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:#fff7cc;color:#1e1b4b;margin-bottom:14px}
 .fd-num{font-size:.74rem;color:#1e1b4b;font-weight:900;letter-spacing:.1em;margin-bottom:9px}
+.fd-challenge-num{color:#EAB308}
+.fd-planned-num{color:#EAB308}
+.fd-why-num{color:#EAB308}
 .fd-chip{display:inline-block;background:#f1f3f6;color:#616d7f;border-radius:7px;padding:5px 7px;font-size:.7rem;margin:8px 3px 0 0}
 
 /* ── Scroll-reveal ── */
@@ -466,7 +467,7 @@ export default function FoodDeliverySolution() {
                     <div className="fd-grid">
                         {challenges.map(([title,text],i) => (
                             <RevealCard key={title} delay={i*70}>
-                                <div className="fd-num">CHALLENGE 0{i+1}</div>
+                                <div className="fd-num fd-challenge-num">CHALLENGE 0{i+1}</div>
                                 <h3>{title}</h3>
                                 <p>{text}</p>
                             </RevealCard>
@@ -483,7 +484,7 @@ export default function FoodDeliverySolution() {
                     <div className="fd-grid">
                         {features.map(([title,text,tags],i) => (
                             <RevealCard key={title} delay={i*70}>
-                                <div className="fd-num">0{i+1} · PLANNED</div>
+                                <div className="fd-num fd-planned-num">0{i+1} · PLANNED</div>
                                 <h3>{title}</h3>
                                 <p>{text}</p>
                                 <div style={{marginTop:10}}>
@@ -686,7 +687,7 @@ export default function FoodDeliverySolution() {
                     <div className="fd-grid fd-grid-2">
                         {whyFly.map(([title,text],i) => (
                             <RevealCard key={title} delay={i*80}>
-                                <div className="fd-num">0{i+1}</div>
+                                <div className="fd-num fd-why-num">0{i+1}</div>
                                 <h3>{title}</h3>
                                 <p>{text}</p>
                             </RevealCard>

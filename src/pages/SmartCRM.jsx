@@ -355,6 +355,24 @@ export default function SmartCRM() {
                 .sc-score-val { font-size: 0.75rem; font-weight: 700; min-width: 24px; }
                 .sc-lead-stage { font-size: 0.72rem; font-weight: 700; }
                 .sc-dash-footer { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 12px; border-top: 1px solid #1a1a1a; font-size: 0.75rem; color: #555; }
+                @media(max-width:580px){
+                    .sc-dashboard { width: 100%; min-width: 0; padding: 14px; }
+                    .sc-dash-header { gap: 8px; flex-wrap: wrap; }
+                    .sc-dash-title { font-size: .82rem; }
+                    .sc-dash-stats { gap: 6px; }
+                    .sc-stat { min-width: 0; padding: 9px 5px; }
+                    .sc-stat-label,.sc-stat-sub { font-size: .58rem; }
+                    .sc-lead-head,.sc-lead-row { grid-template-columns: 46px minmax(0,1fr) 82px 62px; }
+                    .sc-lead-head { padding: 6px 5px 8px; font-size: .55rem; letter-spacing: .04em; }
+                    .sc-lead-row { padding: 10px 5px; column-gap: 3px; }
+                    .sc-lead-id { font-size: .65rem; }
+                    .sc-lead-name { min-width: 0; font-size: .72rem; overflow-wrap: anywhere; }
+                    .sc-lead-score { min-width: 0; gap: 4px; }
+                    .sc-score-bar { max-width: 44px; min-width: 8px; }
+                    .sc-score-val { min-width: 20px; font-size: .7rem; }
+                    .sc-lead-stage { min-width: 0; font-size: .64rem; line-height: 1.25; overflow-wrap: anywhere; }
+                    .sc-dash-footer { gap: 8px; font-size: .65rem; }
+                }
 
                 /* ── SECTION 02 — OVERVIEW ─────────────────────── */
                 .sc-overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
@@ -434,7 +452,13 @@ export default function SmartCRM() {
                 .sc-regional strong { color: #facc15; }
 
                 /* ── SECTION 08 — COMPARISON ───────────────────── */
-                .sc-comp-table { width: 100%; border-collapse: collapse; border-radius: 14px; overflow: hidden; }
+                .sc-comp-scroll { display: block; width: 100%; max-width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; border-radius: 14px; }
+                .sc-comp-table { width: 100%; min-width: 680px; table-layout: fixed; border-collapse: collapse; border-radius: 14px; overflow: hidden; }
+                .sc-comp-scroll::-webkit-scrollbar { height: 7px; }
+                .sc-comp-scroll::-webkit-scrollbar-track { background: #e5e5e5; border-radius: 99px; }
+                .sc-comp-scroll::-webkit-scrollbar-thumb { background: #0f0f0f; border-radius: 99px; }
+                .sc-comp-hint { display: none; }
+                @media(max-width:640px) { .sc-comp-scroll { overflow-x: scroll; touch-action: pan-x pan-y; } .sc-comp-hint { display: block; margin-top: 8px; text-align: right; color: #6b7280; font-size: .72rem; } }
                 .sc-comp-table thead th { background: #0f0f0f; color: #fff; padding: 14px 18px; font-size: 0.85rem; text-align: left; }
                 .sc-comp-table thead th:nth-child(2) { background: #1a1a1a; }
                 .sc-comp-table thead th:nth-child(3) { background: #facc15; color: #0f0f0f; }
@@ -716,7 +740,7 @@ export default function SmartCRM() {
                             <h2 className="sc-h2 sc-h2-dark">AI-Powered CRM Software vs <span>Traditional Lead Tracking</span></h2>
                         </RevealCard>
                         <RevealCard delay={100}>
-                            <div style={{ marginTop: 32, overflowX: 'auto' }}>
+                            <div className="sc-comp-scroll" style={{ marginTop: 32 }} role="region" aria-label="CRM comparison table" tabIndex={0}>
                                 <table className="sc-comp-table">
                                     <thead>
                                         <tr>
@@ -736,6 +760,7 @@ export default function SmartCRM() {
                                     </tbody>
                                 </table>
                             </div>
+                            <p className="sc-comp-hint">Swipe to see all columns →</p>
                         </RevealCard>
                         <RevealCard delay={150}>
                             <div className="sc-comp-note">

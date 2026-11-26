@@ -432,7 +432,13 @@ export default function FlyrollProduct() {
                 .fr-regional strong { color: #facc15; }
 
                 /* ── SECTION 08 — COMPARISON ───────────────────── */
-                .fr-comp-table { width: 100%; border-collapse: collapse; border-radius: 14px; overflow: hidden; }
+                .fr-comp-scroll { display: block; width: 100%; max-width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; border-radius: 14px; }
+                .fr-comp-table { width: 100%; min-width: 680px; table-layout: fixed; border-collapse: collapse; border-radius: 14px; overflow: hidden; }
+                .fr-comp-scroll::-webkit-scrollbar { height: 7px; }
+                .fr-comp-scroll::-webkit-scrollbar-track { background: #e5e5e5; border-radius: 99px; }
+                .fr-comp-scroll::-webkit-scrollbar-thumb { background: #1e1b4b; border-radius: 99px; }
+                .fr-comp-hint { display: none; }
+                @media(max-width:640px) { .fr-comp-scroll { overflow-x: scroll; touch-action: pan-x pan-y; } .fr-comp-hint { display: block; margin-top: 8px; text-align: right; color: #6b7280; font-size: .72rem; } }
                 .fr-comp-table thead th { background: #1e1b4b; color: #fff; padding: 14px 18px; font-size: 0.85rem; text-align: left; }
                 .fr-comp-table thead th:nth-child(2) { background: #111827; }
                 .fr-comp-table thead th:nth-child(3) { background: #facc15; color: #1e1b4b; }
@@ -721,7 +727,7 @@ export default function FlyrollProduct() {
                             <h2 className="fr-h2">Business Automation Software vs <span>Manual Business Processes</span></h2>
                         </RevealCard>
                         <RevealCard delay={100}>
-                            <div style={{ marginTop: 32, overflowX: 'auto' }}>
+                            <div className="fr-comp-scroll" style={{ marginTop: 32 }} role="region" aria-label="Business automation comparison table" tabIndex={0}>
                                 <table className="fr-comp-table">
                                     <thead>
                                         <tr>
@@ -741,6 +747,7 @@ export default function FlyrollProduct() {
                                     </tbody>
                                 </table>
                             </div>
+                            <p className="fr-comp-hint">Swipe to see all columns →</p>
                         </RevealCard>
                         <RevealCard delay={150}>
                             <div className="fr-comp-note">

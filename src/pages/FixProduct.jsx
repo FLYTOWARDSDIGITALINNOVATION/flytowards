@@ -236,14 +236,14 @@ export default function FixProduct() {
 .fx-hero::after{
   content:'';position:absolute;top:-20%;right:-10%;
   width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(250,204,21,.14),transparent 70%);
-  animation:fxOrb 8s ease-in-out infinite
+  background:none;
+  animation:none
 }
 @keyframes fxOrb{50%{transform:scale(1.15) translate(-30px,20px)}}
 
-.fx-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;position:relative;z-index:2}
-.fx-page h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#1e1b4b}
-.fx-page h1 em{display:block;color:var(--Y);font-style:normal}
+.fx-hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:36px;align-items:center;position:relative;z-index:2}
+.fx-page h1{font-size:clamp(2.2rem,3vw,2.8rem);line-height:1.08;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#1e1b4b}
+.fx-page h1 em{display:inline;color:var(--Y);font-style:normal}
 .fx-lead{font-size:1.07rem;line-height:1.72;color:#5a5a5a}
 .fx-actions{display:flex;gap:11px;flex-wrap:wrap;margin:24px 0}
 .fx-hls{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -345,8 +345,14 @@ export default function FixProduct() {
 .fx-benefit p{font-size:.86rem;line-height:1.5;color:var(--M);margin:0}
 
 /* ── Table ── */
-.fx-table-wrap{overflow:auto;border:2px solid var(--B);border-radius:16px}
-.fx-table{width:100%;min-width:620px;border-collapse:collapse}
+.fx-table-wrap{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;border:2px solid var(--B);border-radius:16px}
+.fx-table{width:100%;min-width:680px;border-collapse:collapse;table-layout:fixed}
+.fx-table-wrap::-webkit-scrollbar{height:7px}
+.fx-table-wrap::-webkit-scrollbar-track{background:#e5e5e5;border-radius:99px}
+.fx-table-wrap::-webkit-scrollbar-thumb{background:var(--B);border-radius:99px}
+.fx-table-wrap::-webkit-scrollbar-thumb:hover{background:#333}
+.fx-table-hint{display:none}
+@media(max-width:640px){.fx-table-wrap{overflow-x:scroll;touch-action:pan-x pan-y}.fx-table-hint{display:block;margin:8px 2px 0;text-align:right;font-size:.72rem;color:var(--M)}}
 .fx-table th,.fx-table td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--L)}
 .fx-table th{background:var(--B);color:var(--Y)}
 .fx-table td{font-size:.86rem;color:#444}
@@ -395,6 +401,15 @@ export default function FixProduct() {
   background:var(--B);border-radius:26px;
   border:2px solid var(--Y);position:relative;overflow:hidden
 }
+.fx-final .fx-outline{
+  color:var(--W);
+  border-color:var(--Y)!important;
+  background:transparent;
+}
+.fx-final .fx-outline:hover{
+  color:var(--B);
+  background:var(--Y);
+}
 .fx-final::before{
   content:'';position:absolute;inset:0;
   background-image:linear-gradient(rgba(250,204,21,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(250,204,21,.06) 1px,transparent 1px);
@@ -417,7 +432,7 @@ export default function FixProduct() {
   .fx-section{padding:58px 0}
   .fx-wrap{width:calc(100% - 28px)}
   .fx-hero{padding:120px 0 56px}
-  .fx-page h1{font-size:clamp(2.4rem,13vw,3.6rem)}
+  .fx-page h1{font-size:clamp(2rem,8.5vw,2.8rem);line-height:1.1}
   .fx-grid,.fx-grid-2,.fx-hls,.fx-steps{grid-template-columns:1fr}
   .fx-actions .fx-btn{width:100%}
   .fx-statrow{grid-template-columns:1fr 1fr}
@@ -435,7 +450,7 @@ export default function FixProduct() {
                     {/* Left */}
                     <div>
                         <span className="fx-tag"><Zap size={14}/> FIX · Business Management Software</span>
-                        <h1>Business Management Software for Projects, Properties <em>& Operations</em></h1>
+                        <h1>Business Management Software for<br/>Projects, Properties <em>&amp; Operations</em></h1>
                         <p className="fx-lead">Manage Business Activities, Track Projects and Organize Information in One System</p>
                         <p className="fx-lead" style={{marginTop:10}}>
                             Managing projects, property records, construction activities and business documents across multiple
@@ -629,7 +644,7 @@ export default function FixProduct() {
                 <div className="fx-wrap">
                     <Heading eyebrow="Compare approaches" title={<>Business Management Software vs <em>Excel-Based Business Management</em></>}
                         text="The right approach depends on organizational complexity, required features, implementation costs and user needs."/>
-                    <div className="fx-table-wrap">
+                    <div className="fx-table-wrap" role="region" aria-label="Business management comparison table" tabIndex={0}>
                         <table className="fx-table">
                             <thead><tr><th>Business Activity</th><th>Manual Management</th><th>Business Management Software</th></tr></thead>
                             <tbody>
@@ -639,6 +654,7 @@ export default function FixProduct() {
                             </tbody>
                         </table>
                     </div>
+                    <p className="fx-table-hint">Swipe to see all columns →</p>
                     <div className="fx-callout">
                         <h3 style={{color:['var(--Y)'][0]}}>Is Business Management Software Better Than Excel?</h3>
                         <p>Spreadsheets can be sufficient for businesses with simple workflows and limited operational records. Business management software becomes more useful when multiple employees, projects, properties or departments need to share information and coordinate activities.</p>

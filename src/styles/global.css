@@ -1760,6 +1760,74 @@ html.home-snap {
     align-items: stretch;
 }
 
+.about-capabilities-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.about-why-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.about-industries-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.service-process-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.service-decision-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+    .about-capabilities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-industries-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-decision-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .about-capabilities-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-why-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-industries-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .service-process-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .service-decision-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 section {
     padding: 140px 8% 80px;
 

@@ -208,9 +208,7 @@ export default function CRMSoftware() {
 /* ── Hero ── */
 .cr-hero{
   min-height:650px;padding:140px 0 80px;display:flex;align-items:center;
-  background:
-    radial-gradient(ellipse at 78% 25%,#fff4c4,transparent 36%),
-  radial-gradient(ellipse at 5%  72%,#fff8dc,transparent 38%)
+  background:#fff
 }
 .cr-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
 .cr-page h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-.05em;margin:20px 0;font-weight:900;color:#142B4A}

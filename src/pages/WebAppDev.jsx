@@ -427,6 +427,15 @@ const WebAppDev = () => {
                     text-shadow: none !important;
                 }
 
+                h1 .gradient-text {
+                    background: none !important;
+                    -webkit-background-clip: initial !important;
+                    background-clip: initial !important;
+                    color: #facc15 !important;
+                    -webkit-text-fill-color: #facc15 !important;
+                    text-shadow: none !important;
+                }
+
                 .wad-subtext {
                     font-size: 1.1rem;
                     color: #64748b;
@@ -1007,14 +1016,14 @@ const WebAppDev = () => {
 
                 /* ===== SECTION 11: CTA BANNER ===== */
                 .cta-banner {
-                    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #0f172a 100%);
+                    background: linear-gradient(135deg, #0f0f0f 0%, #171717 52%, #1e1b4b 100%);
                     border-radius: 36px;
                     padding: 5rem 3rem;
                     color: #ffffff;
                     text-align: center;
                     position: relative;
                     overflow: hidden;
-                    box-shadow: 0 30px 60px rgba(2, 132, 199, 0.2);
+                    box-shadow: 0 30px 60px rgba(15, 15, 15, 0.18);
                 }
                 @media (max-width: 768px) {
                     .cta-banner {
@@ -1038,7 +1047,7 @@ const WebAppDev = () => {
                 .cta-banner p {
                     font-size: 1.2rem;
                     line-height: 1.7;
-                    color: #e0f2fe;
+                    color: #d1d5db;
                     margin-bottom: 2.5rem;
                 }
                 .cta-buttons-wrap {
@@ -1052,8 +1061,8 @@ const WebAppDev = () => {
                     align-items: center;
                     gap: 10px;
                     padding: 16px 36px;
-                    background: #ffffff;
-                    color: #0f172a !important;
+                    background: #facc15;
+                    color: #0f0f0f !important;
                     border-radius: 50px;
                     font-weight: 800;
                     font-size: 1.05rem;
@@ -1063,8 +1072,8 @@ const WebAppDev = () => {
                 }
                 .cta-btn-primary-white:hover {
                     transform: translateY(-3px) scale(1.02);
-                    background: #FEF9C3;
-                    color: #1F2937 !important;
+                    background: #eab308;
+                    color: #0f0f0f !important;
                 }
                 .cta-btn-secondary-glass {
                     display: inline-flex;
@@ -1149,7 +1158,7 @@ const WebAppDev = () => {
                                         onError={e => {
                                             e.target.style.display = 'none';
                                             e.target.parentNode.style.minHeight = '460px';
-                                            e.target.parentNode.style.background = 'linear-gradient(135deg, #1e1b4b 0%, #0369a1 50%, #1e1b4b 100%)';
+                                            e.target.parentNode.style.background = 'linear-gradient(135deg, #0f0f0f 0%, #171717 52%, #1e1b4b 100%)';
                                             e.target.parentNode.style.display = 'flex';
                                             e.target.parentNode.style.alignItems = 'center';
                                             e.target.parentNode.style.justifyContent = 'center';
@@ -1278,7 +1287,7 @@ const WebAppDev = () => {
                                 <div style={{
                                     borderRadius: '28px',
                                     overflow: 'hidden',
-                                    background: 'linear-gradient(135deg, #1e1b4b 0%, #0369a1 60%, #1e1b4b 100%)',
+                                    background: 'linear-gradient(135deg, #0f0f0f 0%, #171717 52%, #1e1b4b 100%)',
                                     padding: '3rem 2rem',
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -1642,7 +1651,7 @@ const WebAppDev = () => {
                     <div className="wad-container">
                         <div className="cta-banner" data-aos="zoom-in">
                             <div className="cta-banner-content">
-                                <span className="home-badge-tag" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(10px)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#e0f2fe' }}>
+                                <span className="home-badge-tag" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(250, 204, 21, 0.12)', border: '1px solid rgba(250, 204, 21, 0.55)', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1.5rem', color: '#facc15' }}>
                                     Start Your Project
                                 </span>
 
