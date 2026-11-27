@@ -377,6 +377,12 @@ export default function Home() {
         @media (max-width: 600px) {
           .hm-serv-grid { grid-template-columns: 1fr; }
           .hm-ind-grid { grid-template-columns: 1fr; }
+          .hm-page .hm-hero-grid > div:first-child {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+          }
           .hm-page,
           .hm-hero,
           .hm-hero .hm-container,
@@ -391,6 +397,14 @@ export default function Home() {
             -webkit-backdrop-filter: none !important;
           }
           .hm-page .hm-hero { background: linear-gradient(145deg, #fffdf2 0%, #fff9df 58%, #ffffff 100%) !important; }
+          .hm-page .hm-hero .hm-container,
+          .hm-page .hm-hero-grid,
+          .hm-page .hm-hero-grid > div:first-child {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+          }
           .hm-hero::before,
           .hm-hero::after,
           .hm-hero-grid::before,

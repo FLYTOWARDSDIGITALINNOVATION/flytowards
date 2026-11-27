@@ -207,6 +207,14 @@ export default function Products() {
                 .pp-section { padding: 80px 0; }
                 .pp-section-dark { background: #0f0f0f; color: #fff; }
                 .pp-section-soft { background: #f9f8f5; }
+                @media(max-width:600px) {
+                  .pp-section-dark .pp-wrap { width: 100%; min-width: 0; padding-inline: 18px; }
+                  .pp-diff-grid, .pp-diff-grid > .pp-reveal:last-child { min-width: 0; width: 100%; }
+                  .pp-ind-links { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 10px; }
+                  .pp-ind-link { box-sizing: border-box; width: 100%; min-width: 0; min-height: 60px; padding: 12px 14px; font-size: .9rem; }
+                  .pp-diff-grid > .pp-reveal:last-child > div:last-child { width: 100%; }
+                  .pp-diff-grid .pp-btn-primary { display: flex; box-sizing: border-box; width: 100%; max-width: 100%; justify-content: center; white-space: normal; text-align: center; padding-inline: 14px; }
+                }
 
                 /* ── Reveal animation ──────────────────────────── */
                 .pp-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -368,6 +376,15 @@ export default function Products() {
 
                 /* ── Divider ───────────────────────────────────── */
                 .pp-divider { height: 1px; background: linear-gradient(90deg,transparent,#f0f0ec,transparent); margin: 0; }
+
+                @media(max-width:600px) {
+                  .pp-section-dark .pp-wrap { width: 100%; min-width: 0; padding-inline: 18px; }
+                  .pp-diff-grid, .pp-diff-grid > .pp-reveal:last-child { min-width: 0; width: 100%; }
+                  .pp-ind-links { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 10px; }
+                  .pp-ind-link { box-sizing: border-box; width: 100%; min-width: 0; min-height: 56px; padding: 12px 14px; font-size: .9rem; }
+                  .pp-diff-grid > .pp-reveal:last-child > div:last-child { width: 100%; }
+                  .pp-diff-grid .pp-btn-primary { display: flex; box-sizing: border-box; width: 100%; max-width: 100%; min-height: 52px; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 999px; font-size: .95rem; line-height: 1.3; white-space: normal; text-align: center; }
+                }
             `}</style>
 
             <div className="pp-page">
