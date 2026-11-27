@@ -141,6 +141,10 @@
         padding-top: 24px !important;
     }
 
+    .blog-page-container:has(.reader-container) {
+        padding-top: 100px !important;
+    }
+
     .blog-hero-gallery-featured {
         height: 260px;
     }
