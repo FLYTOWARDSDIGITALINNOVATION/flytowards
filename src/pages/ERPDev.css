@@ -131,7 +131,7 @@
   animation: erp-orbit-turn 34s linear infinite;
 }
 .erp-orbit-two { width: min(325px, 76%); border-style: dashed; opacity: .6; animation-direction: reverse; }
-.erp-dashboard-tilt { perspective:1050px; }`n.erp-dashboard-tilt .erp-dashboard { transform:rotateY(var(--tilt-y,0deg)) rotateX(var(--tilt-x,0deg)); transition:transform .16s ease-out,box-shadow .35s; will-change:transform; }
+.erp-dashboard-tilt { perspective:1050px; }.erp-dashboard-tilt .erp-dashboard { transform:rotateY(var(--tilt-y,0deg)) rotateX(var(--tilt-x,0deg)); transition:transform .16s ease-out,box-shadow .35s; will-change:transform; }
 .erp-dashboard {
   position: relative;
   z-index: 1;
